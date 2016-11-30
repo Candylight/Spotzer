@@ -1,0 +1,99 @@
+body{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    font-family: font;
+    background-color: #3b3b3b;
+}
+
+@font-face {
+    font-family: font;
+    src: url("../fonts/c_l.ttf");
+}
+
+/***************************************************************************************************************/
+/*                                             STYLE GLOBAL                                                    */
+/***************************************************************************************************************/
+    .container{
+        width: 100%;
+        margin: 0px;
+        padding:0px;
+    }
+
+    input[type=text], .container input[type=password], .container input[type=email]{
+        padding:5px;
+        background-color: #a5a5a5;
+        border-radius: 360px;
+        font-size: 100%;
+        font-family: font;
+        font-weight: bold;
+        user-select: none;
+        border-style:none;
+        color:white !important;
+        text-indent: 5px;
+    }
+    .button, input[type=submit]{
+        width: 150px;
+        background-color:#e39816;
+        padding:10px;
+        border-radius: 4px;
+        margin-top:10px;
+        color:white;
+        border:none;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size:120%;
+        font-family: font;
+        user-select: none;
+        text-transform: uppercase;
+    }
+        .button:hover, input[type=submit]:hover{
+            background-color:#a9700c;
+        }
+
+
+/****************************************************************************************************************/
+/*                                                HEADER                                                        */
+/****************************************************************************************************************/
+header{
+    padding:7px !important;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background-color: #4b4b4b;
+    border-bottom: 1px solid #e39816;
+    color: white;
+}
+    header .recherche-container{
+    }
+        header .recherche-container .recherche{
+            width: 80%;
+            padding-right: 35px;
+        }
+        header .recherche-container input[type=submit]{
+            background-image: url("../img/header/icone_recherche.png");
+            background-repeat: no-repeat;
+            background-position: center right;
+            width: 30px;
+            height: 25px;
+            background-color: transparent;
+            border-radius: 360px;
+            margin-left:-35px;
+            position: relative;
+            top:-3px;
+        }
+    header .title{
+        font-size:150%;
+        text-align: center;
+    }
+    header .plateformes{
+        text-align:right;
+    }
+        header .plateformes img{
+            height:20px;
+            margin-left: 5px;
+            position: relative;
+            top:2px;
+        }

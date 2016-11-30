@@ -5,8 +5,28 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrapt.min.js') }}"></script>
     </head>
     <body>
+        <header class="container">
+            <form class="col-xs-3 recherche-container">
+                <input type="text" class="recherche">
+                <input type="submit" value="">
+            </form>
+            <div class="col-xs-6 title">
+                Spötzer
+            </div>
+            <div class="col-xs-3 plateformes">
+                <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
+                <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
+                <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
+                <img src="{{ asset('img/header/plateformes/logo_soundcloud_white.png') }}" alt="">
+                <img src="{{ asset('img/header/plateformes/logo_wikipedia_white.png') }}" alt="">
+            </div>
+        </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
