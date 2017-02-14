@@ -151,6 +151,10 @@ body{
             padding:15px;
             min-height: 300px;
         }
+            .container-tab .content .title{
+                text-align: center;
+                font-size: 150%;
+            }
             .container-tab .content .content-thumb{
                 display: none;
             }

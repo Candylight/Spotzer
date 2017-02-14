@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="container-transfer">
+        <div class="container-tab">
+            <div class="thumbnails">
+                <div class="item active" data-thumb="1">Spotify > Deezer</div>
+                <div class="item" data-thumb="2">Deezer > Spotify</div>
+                <div class="item" data-thumb="3">Entre amis</div>
+            </div>
+            <div class="content">
+                <div class="content-thumb thumb-1 active">
+                    <div class="title">
+                        Transfère entre Spotify et Deezer
+                    </div>
+                </div>
+                <div class="content-thumb thumb-2">
+                    <div class="title">
+                        Transfère entre Deezer et Spotify
+                    </div>
+                </div>
+                <div class="content-thumb thumb-3">
+                    <div class="title">
+                        Transfère entre amis
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/transfer.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+{% endblock %}
