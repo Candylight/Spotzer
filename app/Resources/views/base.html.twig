@@ -16,15 +16,18 @@
                 <input type="text" class="recherche">
                 <input type="submit" value="">
             </form>
-            <div class="col-xs-6 title">
+            <a class="col-xs-6 title" href="{{ path('homepage') }}">
                 Spötzer
-            </div>
+            </a>
             <div class="col-xs-3 plateformes">
                 <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
                 <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
                 <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
                 <img src="{{ asset('img/header/plateformes/logo_soundcloud_white.png') }}" alt="">
                 <img src="{{ asset('img/header/plateformes/logo_wikipedia_white.png') }}" alt="">
+                <a href="{{ path('account') }}">
+                    <img src="{{ asset('img/global/account.png') }}" alt="">
+                </a>
             </div>
         </header>
         {% block body %}{% endblock %}

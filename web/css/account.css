@@ -2,3 +2,49 @@
     margin-top:70px;
     color:white;
 }
+    #container-account .connect-to{
+        margin: 15px auto 15px;
+        padding-bottom:20px;
+        text-align: center;
+    }
+        #container-account .connect-to .title{
+            font-size: 25px;
+        }
+        #container-account .connect-to .plateforms{
+
+        }
+            #container-account .connect-to .plateforms img{
+                height:20px;
+                opacity: 0.2;
+                margin-left: 10px;
+            }
+                #container-account .connect-to .plateforms img.active {
+                    height: 20px;
+                    opacity: 0.9;
+                }
+    #container-account .container-tab{
+        width:50%;
+        margin:auto;
+    }
+        #container-account .container-tab .title{
+            text-align: center;
+            font-size: 150%;
+        }
+        #container-account .container form{
+            text-align: center;
+        }
+            #container-account .container-tab .content input{
+                display: block;
+                width: 200px;
+                margin:20px auto 0px;
+            }
+                #container-account .container-tab .content input[type=text]{
+                    border-radius: 2px;
+                }
+                #container-account .container-tab .content input[type=password]{
+                    border-radius: 2px;
+                }
+                #container-account .container-tab .content input[type=submit]{
+                    padding:5px;
+                    font-size:90%;
+                }
