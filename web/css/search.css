@@ -1,0 +1,169 @@
+#container-search{
+    margin:70px auto 0;
+    width: 80%;
+}
+    #container-search .container{
+        border-top:1px solid grey;
+        padding-top:25px;
+    }
+        #container-search .soundcloud .main-icon{
+            text-align: center;
+        }
+            #container-search .soundcloud .main-icon img{
+                max-height: 40px;
+            }
+    #container-search .value-search{
+        font-size: 40px;
+        text-align: center;
+        color:#e39816;
+    }
+    #container-search .wikipedia{
+        overflow: hidden;
+        margin:20px auto 0px;
+        border:none;
+    }
+        #container-search .wikipedia .part{
+            float: left;
+        }
+            #container-search .wikipedia .part.picture{
+                width: 35%;
+                text-align: center;
+            }
+                #container-search .wikipedia .part.picture img{
+                    width: 80%;
+                }
+            #container-search .wikipedia .part.content{
+                width: 65%;
+            }
+                #container-search .wikipedia .part.content .icon{
+                    text-align: center;
+                }
+                    #container-search .wikipedia .part.content .icon img{
+                        max-height:30px;
+                    }
+                #container-search .wikipedia .part.content .description{
+                    padding: 15px;
+                    text-align: justify;
+                    color: white;
+                }
+    #container-search .soundcloud{
+        margin-top:40px;
+        overflow: hidden;
+    }
+        #container-search .soundcloud .list{
+            width:50%;
+            margin:10px auto 0;
+            height:250px;
+            overflow-y: scroll;
+        }
+    #container-search .container-music-youtube{
+        margin-top:40px;
+        overflow: hidden;
+    }
+        #container-search .container-music-youtube .part{
+            width: 50%;
+            float: left;
+        }
+            #container-search .container-music-youtube .part .icon{
+                text-align: center;
+            }
+                #container-search .container-music-youtube .part .icon img{
+                    max-height: 40px;
+                }
+                    /*              MUSIC                 */
+                    #container-search .container-music-youtube .part.music .list .play{
+                        float: left;
+                        width: 15%;
+                        text-align: center;
+                    }
+                        #container-search .container-music-youtube .part.music .list .play img{
+                            max-height: 40px;
+                        }
+                    #container-search .container-music-youtube .part.music .list .content{
+                        float: left;
+                        width: 60%;
+                        color:white;
+                    }
+                        #container-search .container-music-youtube .part.music .list .content .name{
+
+                        }
+                            #container-search .container-music-youtube .part.music .list .content .name .artist{
+                                font-weight: bold;
+                            }
+                            #container-search .container-music-youtube .part.music .list .content .name .song{
+
+                            }
+                        #container-search .container-music-youtube .part.music .list .content .details{
+                            font-size:13px;
+                        }
+                    #container-search .container-music-youtube .part.music .list .actions{
+                        float: left;
+                        width: 25%;
+                        text-align: center;
+                        padding-top:6px;
+                    }
+                        #container-search .container-music-youtube .part.music .list .actions img{
+                            max-height: 30px;
+                        }
+                    /*              YOUTUBE                 */
+                    #container-search .container-music-youtube .part.youtube .list .image{
+                        float: left;
+                        width: 30%;
+                        text-align: center;
+                        overflow: hidden;
+                    }
+                        #container-search .container-music-youtube .part.youtube .list .image img{
+                            max-width: 90%;
+                        }
+                    #container-search .container-music-youtube .part.youtube .list .content{
+                        float: left;
+                        width: 70%;
+                        color:white;
+                    }
+                        #container-search .container-music-youtube .part.youtube .list .content .name{
+                            color:#e39816;
+                        }
+                            #container-search .container-music-youtube .part.youtube .list .content .name .artist{
+                                font-weight: bold;
+                            }
+                            #container-search .container-music-youtube .part.youtube .list .content .name .song{
+
+                            }
+                        #container-search .container-music-youtube .part.youtube .list .content .details{
+                            font-size:13px;
+                            text-indent: 10px;
+                        }
+                            #container-search .container-music-youtube .part.youtube .list .content .details img{
+                                max-height: 10px;
+                                margin-left: 10px;
+                            }
+                            #container-search .container-music-youtube .part.youtube .list .content .details .button{
+                                font-size:10px;
+                                padding:5px;
+                            }
+    #container-search .container-albums{
+        padding-bottom: 100px;
+    }
+        #container-search .container-albums .images{
+            width:100%;
+            overflow-x: scroll;
+        }
+            #container-search .container-albums .images .container-album{
+                float:left;
+                width: 20%;
+                text-align: center;
+                padding-bottom: 15px;
+                padding-top: 15px;
+            }
+                #container-search .container-albums .images .container-album img{
+                    max-height: 60px;
+                }
+        #container-search .container-albums .music{
+            background-color: rgba(0,0,0,0.3);
+            width: 100%;
+            min-height: 150px;
+            padding-top:100px;
+            padding-bottom:100px;
+            color:white;
+            text-align: center;
+        }

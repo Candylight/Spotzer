@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+<div id="container-search">
+    <div class="value-search">
+        Franck Sinatra
+    </div>
+    {{ include('search/searchWikipedia.html.twig') }}
+    {{ include('search/searchSoundcloud.html.twig') }}
+    {{ include('search/searchMusicYoutube.html.twig') }}
+    {{ include('search/searchAlbums.html.twig') }}
+</div>
 {% endblock %}
 
 
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/search.css') }}" />
 {% endblock %}
 
 {% block javascripts %}
