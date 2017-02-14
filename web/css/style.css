@@ -53,6 +53,9 @@ body{
         }
 
 
+/****************************************************************************************************************/
+/*                                                LISTS                                                         */
+/****************************************************************************************************************/
 
     .list{
         width: 80%;
@@ -101,6 +104,58 @@ body{
             }
                 .list .actions img{
                     max-height: 30px;
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************************************************************************************************/
+/*                                                CONTAINER TABS                                                */
+/****************************************************************************************************************/
+
+    .container-tab{
+        width:80%;
+        margin:auto;
+    }
+        .container-tab .thumbnails{
+
+        }
+            .container-tab .thumbnails .item{
+                padding:10px 20px;
+                background-color: rgba(0,0,0,0.2);
+                display: inline-block;
+                border-top:2px solid rgba(0,0,0,0.1);
+            }
+                .container-tab .thumbnails .item:hover{
+                    background-color: rgba(0,0,0,0.3);
+                    cursor: pointer;
+                }
+                .container-tab .thumbnails .item.active{
+                    background-color: rgba(0,0,0,0.5);
+                    border-top:2px solid #e39816;
+                }
+                    .container-tab .thumbnails .item.active:hover{
+                        background-color: rgba(0,0,0,0.5);
+                    }
+        .container-tab .content{
+            background-color: rgba(0,0,0,0.5);
+            padding:15px;
+            min-height: 300px;
+        }
+            .container-tab .content .content-thumb{
+                display: none;
+            }
+                .container-tab .content .content-thumb.active{
+                    display: block;
                 }
 
 /****************************************************************************************************************/
