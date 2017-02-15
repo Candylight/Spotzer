@@ -28,7 +28,15 @@ class WikipediaFunctions
     {
         $searchResults = json_decode($this->search($keyword));
 
-        $title = $searchResults[1][0];
+        if(isset($searchResults[1][0]) && $searchResults[1][0] != "")
+        {
+            $title = $searchResults[1][0];
+        }
+        else
+        {
+            return false;
+        }
+
         $content = $searchResults[2][0];
         $link = $searchResults[3][0];
 
@@ -50,6 +58,11 @@ class WikipediaFunctions
             $image = $pages['original']['source'];
         }
 
-        return array($title,$content,$link,$image);
+        return array(
+            "title" => $title,
+            "description" => $content,
+            "image" => $image,
+            "link" => $link
+        );
     }
 }

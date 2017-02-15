@@ -2,10 +2,7 @@
 
 {% block body %}
 <div id="container-search">
-    <div class="value-search">
-        {{ title }}
-    </div>
-    {{ include('search/searchWikipedia.html.twig') }}
+    {{ render(controller('AppBundle:Wikipedia:getWikiInfos',{"keyword":keyword})) }}
     {{ include('search/searchSoundcloud.html.twig') }}
     {{ include('search/searchMusicYoutube.html.twig') }}
     {{ include('search/searchAlbums.html.twig') }}
