@@ -21,9 +21,21 @@ class SearchController extends Controller
      */
     public function indexAction(Request $request)
     {
+        if($request->get('keyword') != "")
+        {
+            list($title,$content,$link,$image) = $this->get('wikipedia_functions')->getContent($request->get('keyword'));
+        }
+        else
+        {
+            list($title,$content,$link,$image) = array("","","","");
+        }
+
         // replace this example code with whatever you need
         return $this->render('search/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'title' => $title,
+            'content' => $content,
+            'link' => $link,
+            'image' => $image,
         ]);
     }
 }

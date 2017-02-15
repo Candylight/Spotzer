@@ -3,7 +3,7 @@
 {% block body %}
 <div id="container-search">
     <div class="value-search">
-        Franck Sinatra
+        {{ title }}
     </div>
     {{ include('search/searchWikipedia.html.twig') }}
     {{ include('search/searchSoundcloud.html.twig') }}
@@ -14,8 +14,6 @@
 
 
 {% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/search.css') }}" />
-{% endblock %}
-
-{% block javascripts %}
 {% endblock %}
