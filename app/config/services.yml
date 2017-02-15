@@ -4,6 +4,17 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    wikipedia_functions:
+        class: AppBundle\Services\WikipediaFunctions
+
+    youtube_functions:
+            class: AppBundle\Services\YoutubeFunctions
+
+    deezer_functions:
+            class: AppBundle\Services\DeezerFunctions
+
+    spotify_functions:
+            class: AppBundle\Services\SpotifyFunctions
+
+    soundcloud_functions:
+            class: AppBundle\Services\SoundcloudFunctions
