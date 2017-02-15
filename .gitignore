@@ -5,3 +5,4 @@
 /vendor/
 /web/bundles/
 /.idea
+*.cache
