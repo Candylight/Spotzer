@@ -227,3 +227,8 @@ header{
     margin:auto;
     padding:15px;
 }
+
+.contentBodyContainer
+{
+    padding-top: 75px;
+}

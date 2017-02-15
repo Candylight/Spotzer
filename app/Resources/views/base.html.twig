@@ -3,36 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-        <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/bootstrapt.min.js') }}"></script>
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        {% endblock %}
+
     </head>
     <body>
-        <header class="container">
-            <form class="col-xs-3 recherche-container">
-                <input type="text" class="recherche">
-                <input type="submit" value="">
-            </form>
-            <a class="col-xs-6 title" href="{{ path('homepage') }}">
-                Spötzer
-            </a>
-            <div class="col-xs-3 plateformes">
-                <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
-                <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
-                <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
-                <img src="{{ asset('img/header/plateformes/logo_soundcloud_white.png') }}" alt="">
-                <a href="{{ path('transfer') }}">
-                    <img src="{{ asset('img/global/icon-transfer.png') }}" alt="">
-                </a>
-                <a href="{{ path('account') }}">
-                    <img src="{{ asset('img/global/icon-account.png') }}" alt="">
-                </a>
-            </div>
-        </header>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {{ include(':default:header.html.twig') }}
+        <div class="contentBodyContainer">
+            {% block body %}{% endblock %}
+        </div>
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

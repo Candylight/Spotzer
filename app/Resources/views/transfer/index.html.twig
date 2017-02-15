@@ -31,9 +31,11 @@
 
 
 {% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/transfer.css') }}" />
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
 {% endblock %}

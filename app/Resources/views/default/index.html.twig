@@ -9,10 +9,11 @@
 
 
 {% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('js/dashboard/clock.js') }}"></script>
+    {{ parent() }}
     <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
 {% endblock %}
