@@ -12,6 +12,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Search;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class WikipediaController extends Controller
@@ -30,6 +31,15 @@ class WikipediaController extends Controller
         return $this->render('search/searchWikipedia.html.twig', [
             'search' => $search
         ]);
+    }
+
+    public function homeInfosPanelAction()
+    {
+        $search = $this->getMostResearched();
+
+        return $this->render('search/homePanel.html.twig',array(
+            "search" => $search
+        ));
     }
 
     /**
@@ -69,5 +79,17 @@ class WikipediaController extends Controller
         }
 
         return $search;
+    }
+
+    private function getMostResearched()
+    {
+        $topTen = $this->getDoctrine()->getRepository('AppBundle:Search')->findBy(array(),array("count"=>"DESC"),10);
+
+        if(is_array($topTen))
+        {
+            return $topTen[mt_rand(0, count($topTen) - 1)];
+        }
+
+        return false;
     }
 }

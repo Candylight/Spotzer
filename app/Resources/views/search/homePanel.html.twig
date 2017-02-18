@@ -1,0 +1,17 @@
+{% if search %}
+    <div class="title">Découverte</div>
+    <div class="image" style="background-image:url({{ search.urlImage }});"></div>
+    <div class="name">
+        <img src="{{ asset('img/dashboard/discover-artist-wikipedia.png') }}" alt="">
+        <br/>
+        {{ search.title }}
+    </div>
+    <div class="description">
+        {{ search.description }}
+    </div>
+    <a class="button" href="{{ search.url }}">
+        Découvrir
+    </a>
+{% else %}
+    Aucun artiste pour le moment
+{% endif %}

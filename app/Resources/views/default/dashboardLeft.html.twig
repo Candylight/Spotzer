@@ -25,18 +25,6 @@
         </div>
     </div>
     <div class="discover-artist">
-        <div class="title">Découverte</div>
-        <div class="image" style="background-image:url({{ asset('img/dashboard/discover-artist.jpg') }});"></div>
-        <div class="name">
-            <img src="{{ asset('img/dashboard/discover-artist-wikipedia.png') }}" alt="">
-            <br/>
-            Franck Sinatra
-        </div>
-        <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </div>
-        <a class="button">
-            Découvrir
-        </a>
+        {{ render(controller('AppBundle:Wikipedia:homeInfosPanel')) }}
     </div>
 </div>
