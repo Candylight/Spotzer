@@ -85,7 +85,7 @@ class WikipediaController extends Controller
     {
         $topTen = $this->getDoctrine()->getRepository('AppBundle:Search')->findBy(array(),array("count"=>"DESC"),10);
 
-        if(is_array($topTen))
+        if(is_array($topTen) && count($topTen) > 0)
         {
             return $topTen[mt_rand(0, count($topTen) - 1)];
         }
