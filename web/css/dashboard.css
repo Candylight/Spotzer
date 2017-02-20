@@ -1,59 +1,68 @@
 #main-container{
-    margin-top:70px !important;
     overflow: hidden;
     width:90%;
-    margin:70px auto 0;
+    margin:auto;
 }
-    #main-container .left{
-        float:left;
-        width:30%;
-        border-right:1px solid silver;
+
+    #main-container .current-hour{
+        font-size:25px;
+        text-align: center;
+    }
+        #main-container .current-hour span{
+            font-size:90px;
+        }
+    #main-container .top{
+        width: 100%;
+        border-bottom:1px solid silver;
+        padding-bottom: 50px;
+    }
+    #main-container .numbers{
+        width:100%;
         min-height: 150px;
         color:white;
         text-align: center;
+        margin-top: 50px;
     }
-        #main-container .left .current-hour{
-            font-size:25px;
+        #main-container .numbers .account-infos{
+            overflow: hidden;
         }
-            #main-container .left .current-hour span{
-                font-size:90px;
+            #main-container .numbers .account-infos .title{
+                font-size:35px;
             }
-        #main-container .left .account-infos .title{
-            font-size:35px;
-        }
-        #main-container .left .plateform{
-            width:80%;
+        #main-container .numbers .plateform{
+            width:33%;
             margin:15px auto 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-right: 1px solid rgba(255,255,255,0.2);
             color:rgba(255,255,255,0.6);
+            float: left;
         }
-            #main-container .left .plateform:last-child{
+            #main-container .numbers .plateform:last-child{
                 border: none;
             }
-            #main-container .left .plateform .icon{
+            #main-container .numbers .plateform .icon{
                 height:30px;
                 width: 100%;
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: auto 100%;
             }
-            #main-container .left .plateform .number{
+            #main-container .numbers .plateform .number{
                 font-size:100px;
                 margin-bottom: -35px;
             }
-            #main-container .left .plateform .text{
+            #main-container .numbers .plateform .text{
                 font-size:30px;
             }
-        #main-container .left .discover-artist{
+        #main-container .numbers .discover-artist{
             overflow: hidden;
             margin-top:20px;
             margin-bottom: 50px;
             padding-bottom:20px;
         }
-            #main-container .left .discover-artist .title{
+            #main-container .numbers .discover-artist .title{
                 font-size: 35px;
             }
-            #main-container .left .discover-artist .image{
+            #main-container .numbers .discover-artist .image{
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: auto 100%;
@@ -61,21 +70,16 @@
                 width: 40%;
                 float:left;
             }
-            #main-container .left .discover-artist .name{
+            #main-container .numbers .discover-artist .name{
                 width: 60%;
                 float:left;
                 color:#e39816;
                 font-size:30px;
                 height:100px;
             }
-            #main-container .left .discover-artist .description{
+            #main-container .numbers .discover-artist .description{
                 float: left;
                 text-align: justify;
                 width:90%;
                 margin: 15px auto 0
             }
-
-    #main-container .right{
-        float:left;
-        width: 69%;
-    }
