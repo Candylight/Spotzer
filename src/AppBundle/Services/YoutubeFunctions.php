@@ -21,6 +21,8 @@ class YoutubeFunctions
 
     /**
      * YoutubeFunctions constructor.
+     * @param $youtubeClientId
+     * @param $youtubeClientSecret
      */
     public function __construct($youtubeClientId, $youtubeClientSecret)
     {
@@ -31,6 +33,10 @@ class YoutubeFunctions
 
     }
 
+    /**
+     * @param $redirectUrl
+     * @return string  HttpResponse
+     */
     public function getAuthorizationUrl($redirectUrl){
 
 
@@ -45,7 +51,11 @@ class YoutubeFunctions
         return  $this->client->createAuthUrl();
 
     }
-    
+
+    /**
+     * @param $code
+     * @return array Token
+     */
     public function getToken($code){
 
         $this->client->authenticate($code);

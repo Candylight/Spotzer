@@ -9,7 +9,7 @@ services:
 
     youtube_functions:
             class: AppBundle\Services\YoutubeFunctions
-            arguments: ['%youtube_client_id%', '%youtube_client_secret%', '%youtube_redirect_uris%']
+            arguments: ['%youtube_client_id%', '%youtube_client_secret%']
 
     deezer_functions:
             class: AppBundle\Services\DeezerFunctions

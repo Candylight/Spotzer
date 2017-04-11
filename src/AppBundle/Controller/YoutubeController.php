@@ -15,15 +15,13 @@ class YoutubeController extends Controller
      * @Route("/youtube/login", name="youtube_login")
      *
      *
-     *
+     * @return httpResponse
      */
-    public function indexAction()
-    {
-        $redirectUrl = $this->generateUrl('youtube_callback',array(),UrlGeneratorInterface::ABSOLUTE_URL);
+    public function indexAction(){
+
+       $redirectUrl = $this->generateUrl('youtube_callback',array(),UrlGeneratorInterface::ABSOLUTE_URL);
 
        return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl($redirectUrl));
-
-
 
     }
 
@@ -31,17 +29,13 @@ class YoutubeController extends Controller
      * @Route("/youtube/callback", name="youtube_callback")
      *
      *
-     *
+     * @return httpResponse
      */
-    public function callbackAction()
-    {
-        /* traitement retour connexion youtube*/
+    public function callbackAction(){
 
         $session = new Session();
         $session->start();
-
         $token = $this->get('youtube_functions')->getToken($_GET['code']);
-
         $session->set('YOUTUBE_TOKEN',$token);
 
         return $this->redirectToRoute('homepage');
