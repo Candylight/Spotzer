@@ -5,7 +5,7 @@
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-4": { "": "src/" },
-        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php","vendor/google/apiclient/src/"]
     },
     "autoload-dev": {
         "psr-4": { "Tests\\": "tests/" }
@@ -25,7 +25,8 @@
         "jwilsson/spotify-web-api-php": "^1.0.0",
         "madcoda/php-youtube-api": "^1.2",
         "njasm/soundcloud": "dev-master",
-        "disceney/lucy-search-bundle": "1.0"
+        "disceney/lucy-search-bundle": "1.0",
+        "google/apiclient": "^2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
