@@ -9,6 +9,10 @@ services:
 
     youtube_functions:
             class: AppBundle\Services\YoutubeFunctions
+<<<<<<< Updated upstream
+=======
+            arguments: ['%youtube_client_id%', '%youtube_client_secret%', '%youtube_api_key%']
+>>>>>>> Stashed changes
 
     deezer_functions:
             class: AppBundle\Services\DeezerFunctions

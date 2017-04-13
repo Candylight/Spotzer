@@ -4,7 +4,7 @@
 <div id="container-search">
     {{ render(controller('AppBundle:Wikipedia:getWikiInfos',{"keyword":keyword})) }}
     {{ include('search/searchSoundcloud.html.twig') }}
-    {{ include('search/searchMusicYoutube.html.twig') }}
+    {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
     {{ include('search/searchAlbums.html.twig') }}
 </div>
 {% endblock %}
