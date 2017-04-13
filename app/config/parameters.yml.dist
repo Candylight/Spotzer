@@ -2,11 +2,11 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host:     127.0.0.1
+    database_host:     https://phpmyadmin.macroprog.com/
     database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_name:     spotzer
+    database_user:     spotzer
+    database_password:  8vc5Mx*2
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
@@ -17,5 +17,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
-
+    
+    #Youtube connection
     youtube_api_key: AIzaSyD_rUeKYNcUoXHYJRMWE2HUaOrhDB_TlkQ
+    youtube_client_id: 500566041060-vu4vv4c5u5q3d50suuquggjalmgedf24.apps.googleusercontent.com
+    youtube_client_secret: W6WlhicRjIklNGdnYiMUQzb8

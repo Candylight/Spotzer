@@ -19,11 +19,9 @@ class YoutubeController extends Controller
      */
     public function indexAction()
     {
+       $redirectUrl = $this->generateUrl('youtube_callback',array(),UrlGeneratorInterface::ABSOLUTE_URL);
 
-        $redirectUrl = $this->generateUrl('youtube_callback', array(), UrlGeneratorInterface::ABSOLUTE_URL);
-
-        return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl($redirectUrl));
-
+       return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl($redirectUrl));
     }
 
     /**
@@ -34,11 +32,11 @@ class YoutubeController extends Controller
      */
     public function callbackAction()
     {
-
         $session = new Session();
         $session->start();
         $token = $this->get('youtube_functions')->getToken($_GET['code']);
-        $session->set('YOUTUBE_TOKEN', $token);
+
+        $session->set('YOUTUBE_TOKEN',$token);
 
         return $this->redirectToRoute('homepage');
 
@@ -70,7 +68,5 @@ class YoutubeController extends Controller
             'searches' => $video
         ]);
     }
-
-
 }
 

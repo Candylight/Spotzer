@@ -1,7 +1,7 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/service_container.html
 parameters:
-#    parameter_name: value
+  # app.google.oauth: googleoauth
 
 services:
     wikipedia_functions:
@@ -9,6 +9,7 @@ services:
 
     youtube_functions:
             class: AppBundle\Services\YoutubeFunctions
+            arguments: ['%youtube_client_id%', '%youtube_client_secret%']
 
             arguments: ['%youtube_client_id%', '%youtube_client_secret%', '%youtube_api_key%']
 
