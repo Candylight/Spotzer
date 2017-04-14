@@ -9,8 +9,7 @@ services:
 
     youtube_functions:
             class: AppBundle\Services\YoutubeFunctions
-            arguments: ['%youtube_client_id%', '%youtube_client_secret%']
-
+            
             arguments: ['%youtube_client_id%', '%youtube_client_secret%', '%youtube_api_key%']
 
 
