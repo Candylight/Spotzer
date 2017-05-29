@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Credentials;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -71,9 +72,12 @@ class AccountController extends Controller
             }
             $user->addRole('ROLE_USER');
             $user = $this->encodePassword($user);
+            $credentials = new Credentials();
+            $credentials->setUser($user);
             if($this->getParameter('mail_activation') === true)
             {
                 $this->getDoctrine()->getManager()->persist($user);
+                $this->getDoctrine()->getManager()->persist($credentials);
                 $this->getDoctrine()->getManager()->flush();
                 $this->sendConfirmationMail($user);
                 return $this->render('account/confirmMail.html.twig',array(
@@ -84,6 +88,7 @@ class AccountController extends Controller
             {
                 $user->setEnable(1);
                 $this->getDoctrine()->getManager()->persist($user);
+                $this->getDoctrine()->getManager()->persist($credentials);
                 $this->getDoctrine()->getManager()->flush();
                 $this->get('session')->getFlashBag()->add('info',$this->get('translator')->trans('user.creation.enabled'));
                 $this->authenticateUser($user);

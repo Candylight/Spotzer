@@ -94,6 +94,11 @@ class User implements UserInterface
     private $dateConfirmationCode;
 
     /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Credentials", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $credentials;
+
+    /**
      * User constructor.
      */
     public function __construct()
@@ -391,5 +396,29 @@ class User implements UserInterface
     public function getDateConfirmationCode()
     {
         return $this->dateConfirmationCode;
+    }
+
+    /**
+     * Set credentials
+     *
+     * @param \AppBundle\Entity\Credentials $credentials
+     *
+     * @return User
+     */
+    public function setCredentials(\AppBundle\Entity\Credentials $credentials = null)
+    {
+        $this->credentials = $credentials;
+
+        return $this;
+    }
+
+    /**
+     * Get credentials
+     *
+     * @return \AppBundle\Entity\Credentials
+     */
+    public function getCredentials()
+    {
+        return $this->credentials;
     }
 }
