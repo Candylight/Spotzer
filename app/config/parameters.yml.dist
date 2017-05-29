@@ -14,6 +14,9 @@ parameters:
     mailer_host:       127.0.0.1
     mailer_user:       ~
     mailer_password:   ~
+    mailer_no_reply_address: no-reply@spotzer.com
+    mailer_encryption: ssl
+    mailer_port: 465
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
@@ -22,3 +25,5 @@ parameters:
     youtube_api_key: AIzaSyD_rUeKYNcUoXHYJRMWE2HUaOrhDB_TlkQ
     youtube_client_id: 500566041060-vu4vv4c5u5q3d50suuquggjalmgedf24.apps.googleusercontent.com
     youtube_client_secret: W6WlhicRjIklNGdnYiMUQzb8
+
+    mail_activation: false
