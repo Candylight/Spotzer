@@ -1,0 +1,10 @@
+<div>
+    {% if error is defined and error == true %}
+        {{ "user.creation.mailConfirmationCodeExpired"|trans }}
+    {% else %}
+        {{ "user.creation.mailConfirmationSended"|trans }}
+    {% endif %}
+
+    {{ "user.creation.mailIfNotReceived"|trans }}
+    <button>{{ "user.creation.mailSendButton"|trans }}</button>
+</div>

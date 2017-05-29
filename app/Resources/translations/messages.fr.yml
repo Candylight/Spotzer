@@ -1,0 +1,18 @@
+global:
+    connexion: 'Connexion'
+
+registration:
+    title: 'Inscription'
+
+user:
+    creation:
+        validForm: 'S''inscrire'
+        enabled: 'Votre compte est maintenant actif.'
+        mailConfirmationCodeExpired: 'Le code de validation est expiré. Un mail contenant le nouveau lien de validation à été encoyé à votre adresse'
+        mailConfirmationSended: 'Un mail contenant le lien de validation de votre compte à été envoyé à votre adresse mail.'
+        mailIfNotReceived: 'Si vous ne l''avez pas reçu cliquer sur le bouton ci-dessous'
+        mailSendButton: 'Renvoyer le mail'
+        mail:
+            title: 'Confirmation de l''inscription à Spotzer'
+            clickToConfirm: 'Cliquer ici pour confirmer votre compte'
+            text: 'Votre compte Spotzer est bientôt prêt, cliquer sur le liens suivant pour le valider. Attention, ce lien n''est valide que 24 heures.'
