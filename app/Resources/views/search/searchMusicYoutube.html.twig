@@ -165,9 +165,8 @@
         <div class="list">
             {% if searches != false %}
                 {% for items in searches %}
+                    <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
                     {% for key, item in items %}
-                        {% if key % 2 == 0 %}
-                            <div class="item">
                                 <div class="image">
                                     <img src="{{ item.snippet["thumbnails"]["default"]["url"] }}"
                                          alt="{{ item.snippet["title"] }}">
@@ -179,41 +178,25 @@
                                     <div class="details">
                                         {{ item.statistics["viewCount"] }} Vues
                                         <img src="{{ asset('img/search/youtube-dislike.png') }}" alt="">
-                                        {{ item.statistics["dislikeCount"] }}
+                                        {% if item.statistics["dislikeCount"] is defined %}
+                                            {{ item.statistics["dislikeCount"] }}
+                                        {% else %}
+                                            0
+                                        {% endif %}
                                         <img src="{{ asset('img/search/youtube-like.png') }}" alt="">
-                                        {{ item.statistics["likeCount"] }}
+                                        {% if  item.statistics["likeCount"]  is defined %}
+                                            {{ item.statistics["likeCount"] }}
+                                        {% else %}
+                                            0
+                                        {% endif %}
                                         <br/>
                                         <a href="https://www.youtube.com/watch?v={{ item["id"] }}" class="button">
                                             Regarder la vidéo
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                        {% else %}
-                            <div class="item odd">
-                                <div class="image">
-                                    <img src="{{ item.snippet["thumbnails"]["default"]["url"] }}"
-                                         alt="{{ item.snippet["title"] }}">
-                                </div>
-                                <div class="content">
-                                    <div class="name">
-                                        <span class="artist">{{ item.snippet["title"] }}</span>
-                                    </div>
-                                    <div class="details">
-                                        {{ item.statistics["viewCount"] }} Vues
-                                        <img src="{{ asset('img/search/youtube-dislike.png') }}" alt="">
-                                        {{ item.statistics["dislikeCount"] }}
-                                        <img src="{{ asset('img/search/youtube-like.png') }}" alt="">
-                                        {{ item.statistics["likeCount"] }}
-                                        <br/>
-                                        <a href="https://www.youtube.com/watch?v={{ item["id"] }}" class="button">
-                                            Regarder la vidéo
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endif %}
                     {% endfor %}
+                    </div>
                 {% endfor %}
             {% else %}
                 <div class="value-search">
