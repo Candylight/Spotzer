@@ -3,3 +3,5 @@ app:
     type:     annotation
 lucy_search:
     resource: "@LucySearchBundle/Resources/config/routing.yml"
+logout:
+    path: /logout
