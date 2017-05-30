@@ -19,5 +19,8 @@ services:
     spotify_functions:
             class: AppBundle\Services\SpotifyFunctions
 
+            arguments: ['%spotify_client_id%', '%spotify_client_secret%', 'spotify_callback', '@router']
+
+
     soundcloud_functions:
             class: AppBundle\Services\SoundcloudFunctions
