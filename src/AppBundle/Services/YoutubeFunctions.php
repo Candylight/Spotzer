@@ -9,8 +9,11 @@
 namespace AppBundle\Services;
 
 
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+
 
 class YoutubeFunctions
 {
@@ -20,42 +23,43 @@ class YoutubeFunctions
     private $client;
     private $youtube;
     private $code;
+    private $redirectUrl;
+    private $router;
+
 
     /**
      * YoutubeFunctions constructor.
      * @param $youtubeClientId
      * @param $youtubeClientSecret
      */
-    public function __construct($youtubeClientId, $youtubeClientSecret, $youtubeApiKey)
+    public function __construct($youtubeClientId, $youtubeClientSecret, $youtubeApiKey, $redirectUrl, $router)
     {
         $this->youtubeClientId = $youtubeClientId;
         $this->youtubeClientSecret = $youtubeClientSecret;
         $this->youtubeApiKey = $youtubeApiKey;
+        $this->router = $router;
+        $this->redirectUrl = $redirectUrl;
 
         $this->client = new \Google_Client();
         $this->youtube = new \Google_Service_YouTube($this->client);
         $this->client->setDeveloperKey($this->youtubeApiKey);
-
-    }
-
-    /**
-     * @param $redirectUrl
-     * @return string  HttpResponse
-     */
-    public function getAuthorizationUrl($redirectUrl)
-    {
-
-
         $this->client->setApplicationName('Spotzer');
         $this->client->setClientId($this->youtubeClientId);
         $this->client->setClientSecret($this->youtubeClientSecret);
         $this->client->setAccessType("offline");    //offline access
         $this->client->setIncludeGrantedScopes(true);  //incremental auth
         $this->client->addScope(\Google_Service_YouTube::YOUTUBE_FORCE_SSL);
-        $this->client->setRedirectUri($redirectUrl);
+        $this->client->setRedirectUri($this->router->generate($this->redirectUrl, array(), UrlGeneratorInterface::ABSOLUTE_URL));
 
+    }
+
+    /**
+     *
+     * @return string  HttpResponse
+     */
+    public function getAuthorizationUrl()
+    {
         return $this->client->createAuthUrl();
-
     }
 
     /**
@@ -64,10 +68,14 @@ class YoutubeFunctions
      */
     public function getToken($code)
     {
+        if($this->client->isAccessTokenExpired()){
+           // $this->client->refreshToken($code);
+           //$token = $this->client->setAccessToken();
+        }else{
+            $this->client->fetchAccessTokenWithAuthCode($code);
 
-        $this->client->authenticate($code);
-
-        return $this->client->getAccessToken();
+            return $this->client->getAccessToken();
+        }
     }
 
     /**
