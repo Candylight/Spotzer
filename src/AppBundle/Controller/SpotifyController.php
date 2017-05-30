@@ -39,10 +39,12 @@ class SpotifyController extends Controller
      */
     public function callbackAction()
     {
-        $session = $this->get('session');
         $token = $this->get('spotify_functions')->getToken($_GET['code']);
 
-        $session->set('SPOTIFY_TOKEN',$token);
+        $this->getUser()->getCredentials()->setSpotifyToken($token);
+        $this->getDoctrine()->getManager()->persist($this->getUser());
+        $this->getDoctrine()->getManager()->flush();
+
 
         return $this->redirectToRoute('homepage');
     }

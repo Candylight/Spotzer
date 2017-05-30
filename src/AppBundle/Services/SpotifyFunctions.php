@@ -52,9 +52,9 @@ class SpotifyFunctions
     {
         $this->session->requestAccessToken($code);
 
-        $accessToken = $this->session->getAccessToken();
+        return $this->session->getAccessToken();
 
-        return $this->api->setAccessToken($accessToken);
     }
+
 
 }
