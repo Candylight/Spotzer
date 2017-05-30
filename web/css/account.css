@@ -40,7 +40,21 @@
                 #container-account .container-tab .content input[type=password]{
                     border-radius: 2px;
                 }
+                #container-account .container-tab .content input[type=email]{
+                    border-radius: 2px;
+                }
                 #container-account .container-tab .content input[type=submit]{
                     padding:5px;
                     font-size:90%;
                 }
+            #container-account .container-tab .content .content-thumb form label{
+                display: block;
+                text-align: center;
+            }
+                #container-account .container-tab .content .content-thumb form label:after{
+                    content: " :";
+                }
+            #container-account .container-tab .content .content-thumb form input{
+                display: block;
+                margin: 0px auto 20px !important;
+            }
