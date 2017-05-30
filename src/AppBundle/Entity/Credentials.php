@@ -33,6 +33,13 @@ class Credentials
     /**
      * @var string
      *
+     * @ORM\Column(name="youtubeRefreshToken", type="string", length=255, nullable=true)
+     */
+    private $youtubeRefreshToken;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="spotifyToken", type="string", length=255, nullable=true)
      */
     private $spotifyToken;
@@ -185,5 +192,29 @@ class Credentials
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set youtubeRefreshToken
+     *
+     * @param string $youtubeRefreshToken
+     *
+     * @return Credentials
+     */
+    public function setYoutubeRefreshToken($youtubeRefreshToken)
+    {
+        $this->youtubeRefreshToken = $youtubeRefreshToken;
+
+        return $this;
+    }
+
+    /**
+     * Get youtubeRefreshToken
+     *
+     * @return string
+     */
+    public function getYoutubeRefreshToken()
+    {
+        return $this->youtubeRefreshToken;
     }
 }
