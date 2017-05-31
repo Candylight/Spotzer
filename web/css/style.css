@@ -21,7 +21,7 @@ body{
         padding:0px;
     }
 
-    input[type=text], .container input[type=password], .container input[type=email]{
+    input[type=text], input[type=password], input[type=email]{
         padding:5px;
         background-color: #a5a5a5;
         border-radius: 360px;
@@ -124,7 +124,7 @@ body{
 
     .container-tab{
         width:80%;
-        margin:auto;
+        margin:0 auto 30px !important;
     }
         .container-tab .thumbnails{
 
@@ -154,6 +154,8 @@ body{
             .container-tab .content .title{
                 text-align: center;
                 font-size: 150%;
+                text-transform: uppercase;
+                margin-bottom: 10px;
             }
             .container-tab .content .content-thumb{
                 display: none;
@@ -161,6 +163,9 @@ body{
                 .container-tab .content .content-thumb.active{
                     display: block;
                 }
+
+
+
 
 /****************************************************************************************************************/
 /*                                                HEADER                                                        */
