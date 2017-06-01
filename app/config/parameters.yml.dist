@@ -26,6 +26,10 @@ parameters:
     youtube_client_id: 500566041060-vu4vv4c5u5q3d50suuquggjalmgedf24.apps.googleusercontent.com
     youtube_client_secret: W6WlhicRjIklNGdnYiMUQzb8
 
+    #Spotify connection
+    spotify_client_id: c08eb6f7e84a400ca9057fa67cad7f7d
+    spotify_client_secret: 1a2d0df6370944fa90688afa9832c3e9
+
     mail_activation: false
 
     lastfm_api_key: f6734ae2b9887488059fc9507f2c6c60
