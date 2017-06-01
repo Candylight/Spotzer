@@ -16,3 +16,8 @@ user:
             title: 'Confirmation de l''inscription à Spotzer'
             clickToConfirm: 'Cliquer ici pour confirmer votre compte'
             text: 'Votre compte Spotzer est bientôt prêt, cliquer sur le liens suivant pour le valider. Attention, ce lien n''est valide que 24 heures.'
+
+search:
+    lastFM:
+        seeMore: 'Voir la page LastFM'
+        noResult: 'Votre recherche n''as renvoyé aucun résultat LastFM'

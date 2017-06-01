@@ -31,3 +31,5 @@ parameters:
     spotify_client_secret: 1a2d0df6370944fa90688afa9832c3e9
 
     mail_activation: false
+
+    lastfm_api_key: f6734ae2b9887488059fc9507f2c6c60
