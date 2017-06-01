@@ -7,7 +7,7 @@ services:
 
     youtube_functions:
             class: AppBundle\Services\YoutubeFunctions
-            arguments: ['%youtube_client_id%', '%youtube_client_secret%', '%youtube_api_key%']
+            arguments: ['%youtube_client_id%', '%youtube_client_secret%', '%youtube_api_key%', 'youtube_callback', '@router']
 
 
     deezer_functions:

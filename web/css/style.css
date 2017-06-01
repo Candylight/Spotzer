@@ -5,6 +5,7 @@ body{
     margin-right: 0%;
     font-family: font;
     background-color: #3b3b3b;
+    background-image: url("../img/global/background.jpg");
 }
 
 @font-face {
