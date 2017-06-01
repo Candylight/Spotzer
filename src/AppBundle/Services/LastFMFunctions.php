@@ -11,10 +11,23 @@ namespace AppBundle\Services;
 
 class LastFMFunctions
 {
+
+    private $apiKey;
+
+    /**
+     * LastFMFunctions constructor.
+     * @param $apiKey
+     */
+    public function __construct($apiKey)
+    {
+        $this->apiKey = $apiKey;
+    }
+
+
     public function search($keyword)
     {
         $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,"https://fr.wikipedia.org//w/api.php?action=opensearch&format=json&search=".str_replace(' ','_',$keyword));
+        curl_setopt($ch,CURLOPT_URL,"http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=".$keyword."&api_key=".$this->apiKey."&format=json&lang=fr");
         curl_setopt($ch,CURLOPT_HTTPHEADER,array("Accept: application/json","Accept-Language: fr_FR"));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -26,37 +39,23 @@ class LastFMFunctions
 
     public function getContent($keyword)
     {
-        $searchResults = json_decode($this->search($keyword));
+        $searchResults = json_decode($this->search($keyword),true);
 
-        if(isset($searchResults[1][0]) && $searchResults[1][0] != "")
-        {
-            $title = $searchResults[1][0];
-        }
-        else
+        if(isset($searchResults["error"]))
         {
             return false;
         }
 
-        $content = $searchResults[2][0];
-        $link = $searchResults[3][0];
+        $searchResults = $searchResults["artist"];
+        $content = $searchResults["bio"]["summary"];
 
-        $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,"https://fr.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&titles=".str_replace(' ','_',$title."&piprop=original"));
-        curl_setopt($ch,CURLOPT_HTTPHEADER,array("Accept: application/json","Accept-Language: fr_FR"));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = json_decode(curl_exec($ch),true);
+        $content = str_replace(substr($content,strpos($content, "<a")),'',$content);
 
-        curl_close($ch);
+        $link = $searchResults["bio"]["links"]["link"]["href"];
+        $link = str_replace(".fm/",".fm/fr/", $link);
 
-        $pages = reset($result['query']['pages']);
-
-        $image = "";
-
-        if(isset($pages['original']['source']))
-        {
-            $image = $pages['original']['source'];
-        }
+        $title = $searchResults["name"];
+        $image = $searchResults["image"][2]["#text"];
 
         return array(
             "title" => $title,

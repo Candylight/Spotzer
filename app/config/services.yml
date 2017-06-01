@@ -3,6 +3,7 @@ parameters:
 services:
     lastfm_functions:
         class: AppBundle\Services\LastFMFunctions
+        arguments: ['%lastfm_api_key%']
 
     youtube_functions:
             class: AppBundle\Services\YoutubeFunctions
