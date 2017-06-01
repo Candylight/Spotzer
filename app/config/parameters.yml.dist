@@ -27,3 +27,5 @@ parameters:
     youtube_client_secret: W6WlhicRjIklNGdnYiMUQzb8
 
     mail_activation: false
+
+    lastfm_api_key: f6734ae2b9887488059fc9507f2c6c60
