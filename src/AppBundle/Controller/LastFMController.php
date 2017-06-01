@@ -15,20 +15,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 
-class WikipediaController extends Controller
+/**
+ * Class LastFMController
+ * @package AppBundle\Controller
+ * @Route("lastFM")
+ */
+class LastFMController extends Controller
 {
     /**
-     * @Route("/wikipedia/search", name="wikiSearch")
+     * @Route("/search", name="lastFMSearch")
      *
      * @param string $keyword
      *
      * @return Response
      */
-    public function getWikiInfosAction($keyword)
+    public function getLastFMInfosAction($keyword)
     {
         $search = $this->getSearch($keyword);
 
-        return $this->render('search/searchWikipedia.html.twig', [
+        return $this->render('/search/searchLastFM.html.twig', [
             'search' => $search
         ]);
     }
@@ -43,7 +48,7 @@ class WikipediaController extends Controller
     }
 
     /**
-     * Check if keyword exist in database and request wikipedia otherwise
+     * Check if keyword exist in database and request lastFM otherwise
      * @param string $keyword
      *
      * @return mixed
@@ -55,7 +60,7 @@ class WikipediaController extends Controller
             $search = $this->getDoctrine()->getRepository('AppBundle:Search')->findOneBy(array('searchText' => $keyword));
             if(!is_object($search))
             {
-                $searchResult = $this->get('wikipedia_functions')->getContent($keyword);
+                $searchResult = $this->get('lastfm_functions')->getContent($keyword);
 
                 if(is_array($searchResult))
                 {
@@ -70,8 +75,12 @@ class WikipediaController extends Controller
             {
                 $search->setCount($search->getCount() + 1);
             }
-            $this->getDoctrine()->getManager()->persist($search);
-            $this->getDoctrine()->getManager()->flush();
+
+            if(is_object($search))
+            {
+                $this->getDoctrine()->getManager()->persist($search);
+                $this->getDoctrine()->getManager()->flush();
+            }
         }
         else
         {

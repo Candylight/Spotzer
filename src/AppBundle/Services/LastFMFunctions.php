@@ -9,12 +9,12 @@
 
 namespace AppBundle\Services;
 
-class WikipediaFunctions
+class LastFMFunctions
 {
     public function search($keyword)
     {
         $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,"https://fr.wikipedia.org//w/api.php?action=opensearch&format=json&search=".$keyword);
+        curl_setopt($ch,CURLOPT_URL,"https://fr.wikipedia.org//w/api.php?action=opensearch&format=json&search=".str_replace(' ','_',$keyword));
         curl_setopt($ch,CURLOPT_HTTPHEADER,array("Accept: application/json","Accept-Language: fr_FR"));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
