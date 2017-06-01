@@ -1,15 +1,12 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/service_container.html
 parameters:
-  # app.google.oauth: googleoauth
 
 services:
-    wikipedia_functions:
-        class: AppBundle\Services\WikipediaFunctions
+    lastfm_functions:
+        class: AppBundle\Services\LastFMFunctions
+        arguments: ['%lastfm_api_key%']
 
     youtube_functions:
             class: AppBundle\Services\YoutubeFunctions
-            
             arguments: ['%youtube_client_id%', '%youtube_client_secret%', '%youtube_api_key%', 'youtube_callback', '@router']
 
 
@@ -18,6 +15,9 @@ services:
 
     spotify_functions:
             class: AppBundle\Services\SpotifyFunctions
+
+            arguments: ['%spotify_client_id%', '%spotify_client_secret%', 'spotify_callback', '@router']
+
 
     soundcloud_functions:
             class: AppBundle\Services\SoundcloudFunctions
