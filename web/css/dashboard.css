@@ -3,14 +3,6 @@
     width:90%;
     margin:auto;
 }
-
-    #main-container .current-hour{
-        font-size:25px;
-        text-align: center;
-    }
-        #main-container .current-hour span{
-            font-size:90px;
-        }
     #main-container .top{
         width: 100%;
         border-bottom:1px solid silver;
