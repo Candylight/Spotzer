@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Credentials;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -19,9 +21,7 @@ class YoutubeController extends Controller
      */
     public function indexAction()
     {
-       $redirectUrl = $this->generateUrl('youtube_callback',array(),UrlGeneratorInterface::ABSOLUTE_URL);
-
-       return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl($redirectUrl));
+       return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl());
     }
 
     /**
@@ -32,11 +32,12 @@ class YoutubeController extends Controller
      */
     public function callbackAction()
     {
-        $session = new Session();
-        $session->start();
         $token = $this->get('youtube_functions')->getToken($_GET['code']);
 
-        $session->set('YOUTUBE_TOKEN',$token);
+        $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
+
+       $this->getDoctrine()->getManager()->persist($this->getUser());
+       $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('homepage');
 

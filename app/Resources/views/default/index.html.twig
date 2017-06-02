@@ -2,11 +2,6 @@
 
 {% block body %}
     <div id="main-container">
-        <div class="current-hour">
-            Il est...
-            <br/>
-            <span id="current-houre" >{{ "now"|date('H:i', "Europe/Paris") }}</span>
-        </div>
         {{ include('default/dashboardTop.html.twig') }}
         {{ include('default/dashboardNumber.html.twig') }}
     </div>
