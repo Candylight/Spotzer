@@ -21,6 +21,9 @@ $(document).ready(function () {
                 }
             });
         },
+        select: function( event, ui ) {
+            $("#lastFMSearch").parent().submit();
+        },
         minLength: 2
     } )
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
