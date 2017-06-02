@@ -38,6 +38,13 @@ class Credentials
     private $youtubeRefreshToken;
 
     /**
+     * @var datetime
+     *
+     * @ORM\Column(name="youtubeExpireAt", type="datetime", nullable=true)
+     */
+    private $youtubeExpireAt;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="spotifyToken", type="string", length=255, nullable=true)
@@ -216,5 +223,29 @@ class Credentials
     public function getYoutubeRefreshToken()
     {
         return $this->youtubeRefreshToken;
+    }
+
+    /**
+     * Set youtubeExpireAt
+     *
+     * @param \DateTime $youtubeExpireAt
+     *
+     * @return Credentials
+     */
+    public function setYoutubeExpireAt($youtubeExpireAt)
+    {
+        $this->youtubeExpireAt = $youtubeExpireAt;
+
+        return $this;
+    }
+
+    /**
+     * Get youtubeExpireAt
+     *
+     * @return \DateTime
+     */
+    public function getYoutubeExpireAt()
+    {
+        return $this->youtubeExpireAt;
     }
 }

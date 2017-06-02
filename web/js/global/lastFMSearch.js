@@ -21,6 +21,10 @@ $(document).ready(function () {
                 }
             });
         },
+        select: function( event, ui ) {
+            $("#lastFMSearch").val(ui.item.value);
+            $("#lastFMSearch").parent().submit();
+        },
         minLength: 2
     } )
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
