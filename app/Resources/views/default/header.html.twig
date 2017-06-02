@@ -1,12 +1,12 @@
 <header class="container">
-    <form action="{{ path('search') }}" method="post" class="col-xs-3 recherche-container">
+    <form action="{{ path('search') }}" method="post" class="col-md-3 recherche-container">
         <input type="text" name="keyword" class="recherche" id="lastFMSearch">
         <input type="submit" value="">
     </form>
-    <a class="col-xs-6 title" href="{{ path('homepage') }}">
+    <a class="col-md-6 title" href="{{ path('homepage') }}">
         Spötzer
     </a>
-    <div class="col-xs-3 plateformes">
+    <div class="col-md-3 plateformes">
         <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
         <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
         <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
