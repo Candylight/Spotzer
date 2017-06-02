@@ -30,4 +30,8 @@ parameters:
     spotify_client_id: c08eb6f7e84a400ca9057fa67cad7f7d
     spotify_client_secret: 1a2d0df6370944fa90688afa9832c3e9
 
+    #Deezer connection
+    deezer_client_id: 235362
+    deezer_client_secret: 501e843179399f7862abecfbf24310a7
+
     mail_activation: false

@@ -16,6 +16,9 @@ services:
     deezer_functions:
             class: AppBundle\Services\DeezerFunctions
 
+            arguments: ['%deezer_client_id%', '%deezer_client_secret%', 'deezer_callback', '@router']
+
+
     spotify_functions:
             class: AppBundle\Services\SpotifyFunctions
 
