@@ -29,8 +29,8 @@ class YoutubeFunctions
 
     /**
      * YoutubeFunctions constructor.
-     * @param $youtubeClientId
-     * @param $youtubeClientSecret
+     * @param string $youtubeClientId
+     * @param string $youtubeClientSecret
      */
     public function __construct($youtubeClientId, $youtubeClientSecret, $youtubeApiKey, $redirectUrl, $router)
     {
@@ -50,7 +50,6 @@ class YoutubeFunctions
         $this->client->setIncludeGrantedScopes(true);  //incremental auth
         $this->client->addScope(\Google_Service_YouTube::YOUTUBE_FORCE_SSL);
         $this->client->setRedirectUri($this->router->generate($this->redirectUrl, array(), UrlGeneratorInterface::ABSOLUTE_URL));
-
     }
 
     /**
@@ -63,23 +62,34 @@ class YoutubeFunctions
     }
 
     /**
-     * @param $code
+     * @param string $code
      * @return array Token
      */
     public function getToken($code)
     {
-        if($this->client->isAccessTokenExpired()){
-           // $this->client->refreshToken($code);
-           //$token = $this->client->setAccessToken();
-        }else{
-            $this->client->fetchAccessTokenWithAuthCode($code);
+        $this->client->fetchAccessTokenWithAuthCode($code);
 
-            return $this->client->getAccessToken();
+        return $this->client->getAccessToken();
+    }
+
+    /**
+     * @param string $token
+     * @param string $refreshToken
+     * @return array RefreshToken
+     */
+    public function getRefreshToken($token, $refreshToken)
+    {
+        $this->client->setAccessToken($token);
+
+        if($this->client->isAccessTokenExpired()){
+            $this->client->fetchAccessTokenWithRefreshToken($refreshToken);
+            
+           return  $this->client->refreshToken($refreshToken);
         }
     }
 
     /**
-     * @param $keyword
+     * @param string $keyword
      * @return \Google_Service_YouTube_SearchListResponse
      */
     public function search($keyword)

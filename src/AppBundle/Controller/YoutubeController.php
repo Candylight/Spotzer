@@ -32,15 +32,32 @@ class YoutubeController extends Controller
      */
     public function callbackAction()
     {
-        $token = $this->get('youtube_functions')->getToken($_GET['code']);
+            $token = $this->get('youtube_functions')->getToken($_GET['code']);
 
-        $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
+            $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
+            $this->getUser()->getCredentials()->setYoutubeExpireAt(new \DateTime($token['expires_in']));
+            $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
 
-       $this->getDoctrine()->getManager()->persist($this->getUser());
-       $this->getDoctrine()->getManager()->flush();
+            $this->getDoctrine()->getManager()->persist($this->getUser());
+            $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('homepage');
 
+    }
+
+    private function refreshToken(){
+
+        $youtubeToken = $this->getUser();
+        $youtubeRefreshToken = $this->getUser()->getCredentials()->getYoutubeRefreshToken();
+
+        $refreshToken =  $this->get('youtube_functions')->getRefreshToken($youtubeToken,$youtubeRefreshToken);
+
+        $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
+        $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
+
+
+        $this->getDoctrine()->getManager()->persist($this->getUser());
+        $this->getDoctrine()->getManager()->flush();
     }
 
     /**
