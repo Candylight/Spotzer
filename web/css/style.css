@@ -5,6 +5,7 @@ body{
     margin-right: 0%;
     font-family: font;
     background-color: #3b3b3b;
+    background-image: url("../img/global/background.jpg");
 }
 
 @font-face {
@@ -179,6 +180,7 @@ header{
     background-color: #4b4b4b;
     border-bottom: 1px solid #e39816;
     color: white;
+    z-index: 1;
 }
     header .recherche-container{
     }
@@ -203,6 +205,7 @@ header{
         text-align: center;
         color:white;
         text-decoration: none;
+        display: block;
     }
         header .title:hover{
             color:silver;
@@ -236,4 +239,32 @@ header{
 .contentBodyContainer
 {
     padding-top: 75px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 970px) {
+    header .recherche-container{
+        text-align: center;
+    }
+        header .recherche-container .recherche{
+            width: 90%;
+        }
+    header .plateformes{
+        text-align: center;
+    }
+
+    .contentBodyContainer
+    {
+        padding-top: 125px;
+    }
 }
