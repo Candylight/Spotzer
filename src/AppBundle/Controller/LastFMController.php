@@ -58,10 +58,10 @@ class LastFMController extends Controller
      */
     public function getTopAlbumsAction($keyword)
     {
-        $albums = $this->get('lastfm_functions')->searchTopAlbums($keyword);
+        $albums = json_decode($this->get('lastfm_functions')->searchTopAlbums($keyword),true);
 
         return $this->render('search/searchAlbums.html.twig',array(
-            "albums" => $albums
+            "albums" => $albums["topalbums"]["album"]
         ));
     }
 
