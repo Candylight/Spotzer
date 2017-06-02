@@ -38,12 +38,30 @@ class LastFMController extends Controller
         ]);
     }
 
+    /**
+     * Check in DB to most searched artist
+     * @return Response
+     */
     public function homeInfosPanelAction()
     {
         $search = $this->getMostResearched();
 
         return $this->render('search/homePanel.html.twig',array(
             "search" => $search
+        ));
+    }
+
+    /**
+     * get searched artist top albums
+     *
+     * @return Response
+     */
+    public function getTopAlbumsAction($keyword)
+    {
+        $albums = $this->get('lastfm_functions')->searchTopAlbums($keyword);
+
+        return $this->render('search/searchAlbums.html.twig',array(
+            "albums" => $albums
         ));
     }
 

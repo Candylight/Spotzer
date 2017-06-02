@@ -5,7 +5,7 @@
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
     {{ include('search/searchSoundcloud.html.twig') }}
     {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
-    {{ include('search/searchAlbums.html.twig') }}
+    {{ render(controller('AppBundle:LastFM:getTopAlbums',{"keyword":keyword})) }}
 </div>
 {% endblock %}
 
