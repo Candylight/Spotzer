@@ -51,6 +51,8 @@ body{
     }
         .button:hover, input[type=submit]:hover{
             background-color:#a9700c;
+            color:white;
+            text-decoration: none;
         }
 
 
@@ -180,7 +182,7 @@ header{
     background-color: #4b4b4b;
     border-bottom: 1px solid #e39816;
     color: white;
-    z-index: 1;
+    z-index: 2;
 }
     header .recherche-container{
     }
@@ -218,7 +220,40 @@ header{
             margin-left: 5px;
             position: relative;
             top:2px;
+            cursor: pointer;
         }
+
+    /************************************************************/
+    /*                          POPIN                           */
+    /************************************************************/
+    .popin {
+        position: fixed;
+        width:150px;
+        z-index: 2;
+        background-color: rgba(0,0,0,0.5);
+        top:65px;
+        right:15px;
+        padding:15px;
+        text-align: center;
+        display: none;
+    }
+        .popin .triangle {
+            width: 0;
+            height: 0;
+            border: solid 8px;
+            border-color: transparent transparent rgba(0,0,0,0.5) transparent;
+            margin:-31px auto 15px;
+            position: relative;
+            left:60px;
+        }
+        .popin .button{
+            font-size: 11px;
+            padding:7px;
+        }
+        .popin.active{
+            display: block;
+        }
+
 
 /****************************************************************************************************************/
 /*                                                GLOBAL STYLE                                                  */
