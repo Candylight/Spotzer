@@ -35,3 +35,5 @@ parameters:
     deezer_client_secret: 501e843179399f7862abecfbf24310a7
 
     mail_activation: false
+
+    lastfm_api_key: f6734ae2b9887488059fc9507f2c6c60
