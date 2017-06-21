@@ -253,6 +253,12 @@ header{
         .popin.active{
             display: block;
         }
+        .popin .inpopin{
+            display: none;
+        }
+            .popin .inpopin.active{
+                display: block;
+            }
 
 
 /****************************************************************************************************************/

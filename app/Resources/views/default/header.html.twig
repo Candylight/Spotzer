@@ -7,10 +7,10 @@
         Spötzer
     </a>
     <div class="col-md-3 plateformes">
-        <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
-        <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
-        <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
-        <img src="{{ asset('img/header/plateformes/logo_soundcloud_white.png') }}" alt="">
+        <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="" class="header-icon" id="spotify">
+        <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="" class="header-icon" id="deezer">
+        <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="" class="header-icon" id="youtube">
+        <img src="{{ asset('img/header/plateformes/logo_soundcloud_white.png') }}" alt="" class="header-icon" id="soundcloud">
         <a href="{{ path('transfer') }}">
             <img src="{{ asset('img/global/icon-transfer.png') }}" alt="">
         </a>
@@ -18,10 +18,32 @@
             <img src="{{ asset('img/global/icon-account.png') }}" alt="">
         </span>
     </div>
-    <div class="popin popin-account">
+    <div class="popin">
         <div class="triangle"></div>
-        <a class="button" href="{{ path('logout') }}">
-            Deconnexion
-        </a>
+        <div class="inpopin popin-account">
+            <a class="button" href="{{ path('logout') }}">
+                Deconnexion
+            </a>
+        </div>
+        <div class="inpopin popin-spotify">
+            <a href="{{ path('account') }}">
+                Modifier
+            </a>
+        </div>
+        <div class="inpopin popin-spotify">
+            <a href="{{ path('account') }}">
+                Modifier
+            </a>
+        </div>
+        <div class="inpopin popin-spotify">
+            <a href="{{ path('account') }}">
+                Modifier
+            </a>
+        </div>
+        <div class="inpopin popin-spotify">
+            <a href="{{ path('account') }}">
+                Modifier
+            </a>
+        </div>
     </div>
 </header>

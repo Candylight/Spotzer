@@ -3,10 +3,16 @@ $(".header-icon").click( function(){
     var id = $(this).attr('id');
     var elm = $(".popin-"+id);
 
+
+    $(".inpopin").removeClass("active");
+
     if( elm.hasClass("active")){
-        $(".popin-"+id).removeClass("active");
+        $(".popin").removeClass("active");
     }
     else{
-        $(".popin-"+id).addClass("active");
+        $(".popin").addClass("active");
     }
+
+    $(".popin-"+elm).addClass("active");
+
 });
