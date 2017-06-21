@@ -202,6 +202,15 @@ header{
             position: relative;
             top:-3px;
         }
+
+        .search-result{
+            background-color:rgba(0,0,0,0.3);
+        }
+            .search-result img{
+                height:25px;
+            }
+
+
     header .title{
         font-size:150%;
         text-align: center;

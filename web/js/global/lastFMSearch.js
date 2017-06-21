@@ -29,7 +29,7 @@ $(document).ready(function () {
     } )
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
         return $( "<li>" )
-            .append( "<div><img src='"+item.icon+"'>" + item.label + "</div>" )
+            .append( '<div class="search-result"><img src="'+item.icon+'">' + item.label + '</div>' )
             .appendTo( ul );
     };
 });
