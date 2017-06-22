@@ -204,10 +204,20 @@ header{
         }
 
         .search-result{
-            background-color:rgba(0,0,0,0.3);
+            background-color:rgba(0,0,0,0.7);
+            color:white;
+            font-size: 12px !important;
         }
+            .search-result:hover{
+                background-color:#e39816;
+                border:0px solid transparent;
+                background-repeat: no-repeat;
+                background-position: center right;
+                background-image: url("../img/global/search-hover-icon.png");
+            }
             .search-result img{
                 height:25px;
+                margin-right: 5px;
             }
 
 

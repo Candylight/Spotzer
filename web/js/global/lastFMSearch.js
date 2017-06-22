@@ -28,8 +28,12 @@ $(document).ready(function () {
         minLength: 2
     } )
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
+        var img = item.icon;
+        if( img == ""){
+            img = "http://localhost/Spotzer/web/img/global/placeholder-search.png";
+        }
         return $( "<li>" )
-            .append( '<div class="search-result"><img src="'+item.icon+'">' + item.label + '</div>' )
+            .append( '<div class="search-result"><img src="'+img+'">' + item.label + '</div>' )
             .appendTo( ul );
     };
 });
