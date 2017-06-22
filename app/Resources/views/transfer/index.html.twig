@@ -3,25 +3,54 @@
 {% block body %}
     <div id="container-transfer">
         <div class="container-tab">
-            <div class="thumbnails">
-                <div class="item active" data-thumb="1">Spotify > Deezer</div>
-                <div class="item" data-thumb="2">Deezer > Spotify</div>
-                <div class="item" data-thumb="3">Entre amis</div>
+            <div class="thumbnails CONTAINER">
+                <div class="col-xs-12 item active" style="text-align:center">Transferer vos données</div>
             </div>
             <div class="content">
-                <div class="content-thumb thumb-1 active">
+                <div class="content-thumb active container">
                     <div class="title">
-                        Transfère entre Spotify et Deezer
+                        Selectionner 2 plateformes
                     </div>
-                </div>
-                <div class="content-thumb thumb-2">
-                    <div class="title">
-                        Transfère entre Deezer et Spotify
+                    <div class="col-xs-12 container choice-plaform">
+                        <div class="col-xs-4">
+                            <label>
+                                <span class="custom-dropdown custom-dropdown--white">
+                                    <select class="custom-dropdown__select custom-dropdown__select--white">
+                                        <option>Youtube</option>
+                                        <option>Spotify</option>
+                                        <option>Deezer</option>
+                                    </select>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="col-xs-4">
+                            <img src="{{ asset("img/transfer/fleche.png") }}" alt="">
+                        </div>
+                        <div class="col-xs-4">
+                            <label>
+                                <span class="custom-dropdown custom-dropdown--white">
+                                    <select class="custom-dropdown__select custom-dropdown__select--white">
+                                        <option>Youtube</option>
+                                        <option>Spotify</option>
+                                        <option>Deezer</option>
+                                    </select>
+                                </span>
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div class="content-thumb thumb-3">
-                    <div class="title">
-                        Transfère entre amis
+                    <div class="col-xs-12 container transfer-type">
+                        <span class="type">
+                            Artistes
+                        </span>
+                        <span class="type">
+                            Albums
+                        </span>
+                        <span class="type">
+                            Playlists
+                        </span>
+                    </div>
+                    <div class="col-xs-12 container logs">
+                        <span class="button">Lancer</span>
                     </div>
                 </div>
             </div>
@@ -38,4 +67,5 @@
 {% block javascripts %}
     {{ parent() }}
     <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/type.js') }}"></script>
 {% endblock %}
