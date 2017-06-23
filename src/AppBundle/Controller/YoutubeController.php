@@ -21,7 +21,8 @@ class YoutubeController extends Controller
      */
     public function indexAction()
     {
-       return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl());
+
+        return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl());
     }
 
     /**
@@ -32,14 +33,16 @@ class YoutubeController extends Controller
      */
     public function callbackAction()
     {
-            $token = $this->get('youtube_functions')->getToken($_GET['code']);
 
-            $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
-            $this->getUser()->getCredentials()->setYoutubeExpireAt(new \DateTime($token['expires_in']));
-            $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
+        $token = $this->get('youtube_functions')->getToken($_GET['code']);
+       // $this->get('youtube_functions')->setAuthorization($token);
 
-            $this->getDoctrine()->getManager()->persist($this->getUser());
-            $this->getDoctrine()->getManager()->flush();
+        $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
+        $this->getUser()->getCredentials()->setYoutubeExpireAt(new \DateTime($token['expires_in']));
+        $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
+
+        $this->getDoctrine()->getManager()->persist($this->getUser());
+        $this->getDoctrine()->getManager()->flush();
 
         return $this->redirectToRoute('homepage');
 
@@ -86,5 +89,19 @@ class YoutubeController extends Controller
             'searches' => $video
         ]);
     }
+
+    /**
+     * @return Response
+     */
+    public function getPlaylistAction(Request $request)
+    {
+            $playlists = $this->get('youtube_functions')->getPlaylist($this->getUser()->getCredentials()->getYoutubeToken());
+
+            return $this->render(':default:dashboardNumber.html.twig', [
+                'playlists' => $playlists
+            ]);
+    }
+
+
 }
 

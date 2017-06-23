@@ -7,8 +7,7 @@ services:
 
     youtube_functions:
             class: AppBundle\Services\YoutubeFunctions
-            arguments: ['%youtube_client_id%', '%youtube_client_secret%', '%youtube_api_key%', 'youtube_callback', '@router']
-
+            arguments: ['%youtube_client_id%','%youtube_client_secret%','%youtube_api_key%','youtube_callback','@router','@doctrine.orm.default_entity_manager','@security.token_storage']
 
     deezer_functions:
             class: AppBundle\Services\DeezerFunctions

@@ -5,7 +5,9 @@
         </div>
         <div class="plateform col-md-4">
             <div class="icon" style="background-image:url({{ asset('img/dashboard/youtube.png') }});"></div>
-            <div class="number">25</div>
+            <div class="number">
+                {{ playlists.pageInfo.totalResults }}
+            </div>
             <div class="text">Youtube</div>
         </div>
         <div class="plateform col-md-4">
