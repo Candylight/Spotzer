@@ -16,7 +16,9 @@
     <body>
         {{ include(':default:header.html.twig') }}
         <div class="contentBodyContainer">
-            {% block body %}{% endblock %}
+            {% block body %}
+                {{ render(controller('AppBundle:Youtube:createPlaylist',{"createPlaylist":createPlaylist})) }}
+            {% endblock %}
         </div>
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>

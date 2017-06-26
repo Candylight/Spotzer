@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <h2 style="color: #fff; margin-left:30px"> Créer un nouveau playlist</h2>
+    <div class="col-md-4" style="margin-left:30px">
+        <form action="{{ path('create_playlist') }}" method="post" >
+            <div class="form-group">
+                <label for="exampleInputEmail1" style="color: #fff">Title</label>
+                <input type="text" class="form-control" placeholder="Title" name="create_playlist" style="color: orange !important">
+            </div>
+            <button type="submit" class="btn btn-default" value="">Créer</button>
+        </form>
+    </div>
+
+{% endblock %}
