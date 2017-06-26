@@ -41,7 +41,6 @@ class YoutubeFunctions
         $this->redirectUrl = $redirectUrl;
 
         $this->client = new \Google_Client();
-        $this->youtube = new \Google_Service_YouTube($this->client);
         $this->client->setDeveloperKey($this->youtubeApiKey);
         $this->client->setApplicationName('Spotzer');
         $this->client->setClientId($this->youtubeClientId);
@@ -60,6 +59,7 @@ class YoutubeFunctions
     {
         return $this->client->createAuthUrl();
     }
+
 
     /**
      * @param string $code
@@ -83,8 +83,8 @@ class YoutubeFunctions
 
         if($this->client->isAccessTokenExpired()){
             $this->client->fetchAccessTokenWithRefreshToken($refreshToken);
-            
-           return  $this->client->refreshToken($refreshToken);
+
+            return  $this->client->refreshToken($refreshToken);
         }
     }
 
@@ -94,6 +94,7 @@ class YoutubeFunctions
      */
     public function search($keyword)
     {
+        $this->youtube = new \Google_Service_YouTube($this->client);
 
         return $this->youtube->search->listSearch('id,snippet', ['q' => $keyword, 'order' => 'relevance', 'maxResults' => 6, 'type' => 'video']);
     }
@@ -104,6 +105,7 @@ class YoutubeFunctions
      */
     public function video($videoId)
     {
+        $this->youtube = new \Google_Service_YouTube($this->client);
 
         return $this->youtube->videos->listVideos('id,snippet,statistics', ['id' => $videoId]);
 
@@ -139,5 +141,18 @@ class YoutubeFunctions
         return $youtube->playlists->insert('snippet,status', $youTubePlaylist, array());
 
     }
+  
+    /**
+     * @return \Google_Service_YouTube_PlaylistListResponse
+     */
+   public function getPlaylist($token)
+    {
+        $this->client->setAccessToken($token);
+        $youtube = new \Google_Service_YouTube($this->client);
 
+        return $youtube->playlists->listPlaylists('snippet,contentDetails', ['mine' => true, 'maxResults' => 25] );
+    }
 }
+
+
+
