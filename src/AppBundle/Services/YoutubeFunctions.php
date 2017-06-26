@@ -109,5 +109,35 @@ class YoutubeFunctions
 
     }
 
+    /**
+     * @param $token
+     * @param $title
+     * @return \Google_Service_YouTube_Playlist
+     */
+    public function createPlaylist($token, $title){
+
+        $this->client->setAccessToken($token);
+        $youtube = new \Google_Service_YouTube($this->client);
+
+        // 1. Create the snippet for the playlist. Set its title and description.
+        $playlistSnippet = new \Google_Service_YouTube_PlaylistSnippet();
+        $playlistSnippet->setTitle($title .' '. date("Y-m-d H:i:s"));
+        $playlistSnippet->setDescription('A private playlist created with the YouTube API v3');
+
+
+        // 2. Define the playlist's status.
+        $playlistStatus = new \Google_Service_YouTube_PlaylistStatus();
+        $playlistStatus->setPrivacyStatus('private');
+
+        // 3. Define a playlist resource and associate the snippet and status
+        // defined above with that resource.
+        $youTubePlaylist = new \Google_Service_YouTube_Playlist();
+        $youTubePlaylist->setSnippet($playlistSnippet);
+        $youTubePlaylist->setStatus($playlistStatus);
+
+
+        return $youtube->playlists->insert('snippet,status', $youTubePlaylist, array());
+
+    }
 
 }

@@ -86,5 +86,30 @@ class YoutubeController extends Controller
             'searches' => $video
         ]);
     }
+
+    /**
+     * @param Request $request
+     * @param $title
+     *
+     * @Route("/youtube/createplaylist", name="create_playlist")
+     *
+     */
+    public function createPlaylistAction(Request $request,$title=null)
+    {
+        $title = $request->request->get('create_playlist');
+
+        if($title != ''){
+
+            $token = $this->getUser()->getCredentials()->getYoutubeToken();
+            $createPlaylist = $this->get('youtube_functions')->createPlaylist($token, $title);
+        }else{
+            $createPlaylist = false;
+        }
+
+        return $this->render(':youtube:createPlaylist.html.twig', [
+            'createPlaylist' => $createPlaylist
+        ]);
+
+    }
 }
 
