@@ -16,6 +16,7 @@
 
     </head>
     <body>
+    {{ include(':default:header.html.twig') }}
         <div class="contentBodyContainer">
             {% block body %}
                 {{ render(controller('AppBundle:Youtube:createPlaylist',{"createPlaylist":createPlaylist})) }}
