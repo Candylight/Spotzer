@@ -3,7 +3,6 @@
 {% block body %}
 <div id="container-search">
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
-    {{ include('search/searchSoundcloud.html.twig') }}
     {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
     {{ render(controller('AppBundle:LastFM:getTopAlbums',{"keyword":keyword})) }}
 </div>
