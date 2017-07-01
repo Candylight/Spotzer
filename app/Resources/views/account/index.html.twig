@@ -5,15 +5,30 @@
     <?php $connected = true; ?>
 
     <div id="container-account">
-        <div class="connect-to">
+        <div class="connexion-container">
             <div class="title">
                 Vous êtes connecté aux palteformes suivantes:
             </div>
-            <div class="plateforms">
-                <img class="active" src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
-                <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
-                <img class="active" src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
-                <img class="active" src="{{ asset('img/header/plateformes/logo_soundcloud_white.png') }}" alt="">
+            <div class="col-xs-4 part">
+                <img class="logo" src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
+                <div class="title">
+                    Spotify
+                </div>
+                <a class="button" href="">Se connecter</a>
+            </div>
+            <div class="col-xs-4 part">
+                <img class="logo" src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
+                <div class="title">
+                    Deezer
+                </div>
+                <a class="button" href="">Se connecter</a>
+            </div>
+            <div class="col-xs-4 part">
+                <img class="logo active" src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
+                <div class="title">
+                    Youtube
+                </div>
+                <a class="button disconnect" href="">Se deconnecter</a>
             </div>
         </div>
     </div>

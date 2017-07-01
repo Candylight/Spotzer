@@ -2,26 +2,36 @@
     margin-top:70px;
     color:white;
 }
-    #container-account .connect-to{
-        margin: 15px auto 15px;
-        padding-bottom:20px;
-        text-align: center;
-    }
-        #container-account .connect-to .title{
-            font-size: 25px;
-        }
-        #container-account .connect-to .plateforms{
+    #container-account .connexion-container{
 
+    }
+        #container-account .connexion-container .title{
+            font-size:30px;
+            text-align: center;
+            margin-bottom: 30px;
         }
-            #container-account .connect-to .plateforms img{
+        #container-account .connexion-container .part{
+            text-align: center;
+            border-left: 1px solid grey;
+        }
+            #container-account .connexion-container .part:first-child{
+                border-left: none;
+            }
+            #container-account .connexion-container .part .logo{
                 height:20px;
                 opacity: 0.2;
                 margin-left: 10px;
             }
-                #container-account .connect-to .plateforms img.active {
+                #container-account .connexion-container .part .logo.active {
                     height: 20px;
                     opacity: 0.9;
                 }
+            #container-account .connexion-container .part .name{
+                font-size: 200%;
+                margin: 10px auto 10px;
+            }
+            #container-account .connexion-container .part .button.deconnect {
+            }
     #container-account .container-tab{
         width:50%;
         margin:auto;

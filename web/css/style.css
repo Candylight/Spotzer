@@ -35,7 +35,7 @@ body{
         text-indent: 5px;
     }
     .button, input[type=submit]{
-        width: 150px;
+        min-width: 150px;
         background-color:#e39816;
         border-radius: 360px;
         margin-top:10px;
@@ -48,12 +48,19 @@ body{
         font-family: font;
         user-select: none;
         text-transform: uppercase;
+        display: inline-block;
     }
         .button:hover, input[type=submit]:hover{
             background-color:#a9700c;
             color:white;
             text-decoration: none;
         }
+        .button.disconnect, input[type=submit].disconnect{
+            background-color: #c03c3c;
+        }
+            .button.disconnect:hover, input[type=submit].disconnect:hover{
+                background-color:#b33030;
+            }
 
 
 /****************************************************************************************************************/
