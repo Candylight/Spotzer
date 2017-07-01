@@ -1,18 +1,11 @@
 
 $(".header-icon").click( function(){
-    var id = $(this).attr('id');
-    var elm = $(".popin-"+id);
-
-
-    $(".inpopin").removeClass("active");
-
+    var elm = $(".popin");
     if( elm.hasClass("active")){
-        $(".popin").removeClass("active");
+        elm.removeClass("active");
     }
     else{
-        $(".popin").addClass("active");
+        elm.addClass("active");
     }
-
-    $(".popin-"+elm).addClass("active");
 
 });
