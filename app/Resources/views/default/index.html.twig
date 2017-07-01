@@ -1,19 +1,120 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <div id="main-container">
-        {{ include('default/dashboardTop.html.twig') }}
-        {{ render(controller('AppBundle:Youtube:getPlaylist')) }}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ "global.connexion"|trans }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/welcome.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/remodal/remodal.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/remodal/remodal-default-theme.css') }}">
+</head>
+<body>
+<div class="container-welcome container">
+    <div class="before">
+        Avec
     </div>
-{% endblock %}
-
-
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
-{% endblock %}
+    <h1>Spötzer</h1>
+    <h2>Inter-connectez votre musique</h2>
+    <div class="login-register">
+        <a class="button" href="">
+            Se connecter
+        </a>
+        <a class="button" href="">
+            S'inscrire
+        </a>
+    </div>
+    <div class="plateforms col-xs-10 offset-xs-1">
+        <div class="col-xs-3 part">
+            <img class="logo" src="{{ asset('img/welcome/plateformes/logo_deezer_white.png') }}" alt="">
+            <div class="title">
+                Deezer
+            </div>
+            <div class="type">
+                Musique
+            </div>
+            <div class="screenshot">
+                <img src="{{ asset('img/welcome/screen/deezer.jpg') }}" alt="">
+            </div>
+        </div>
+        <div class="col-xs-3 part">
+            <img class="logo" src="{{ asset('img/welcome/plateformes/logo_spotify_white.png') }}" alt="">
+            <div class="title">
+                Spotify
+            </div>
+            <div class="type">
+                Musique
+            </div>
+            <div class="screenshot">
+                <img src="{{ asset('img/welcome/screen/spotify.jpg') }}" alt="">
+            </div>
+        </div>
+        <div class="col-xs-3 part">
+            <img class="logo" src="{{ asset('img/welcome/plateformes/logo_youtube_white.png') }}" alt="">
+            <div class="title">
+                Youtube
+            </div>
+            <div class="type">
+                Vidéo
+            </div>
+            <div class="screenshot">
+                <img src="{{ asset('img/welcome/screen/youtube.jpg') }}" alt="">
+            </div>
+        </div>
+        <div class="col-xs-3 part">
+            <img class="logo" src="{{ asset('img/welcome/plateformes/logo_lastfm_white.png') }}" alt="">
+            <div class="title">
+                Last FM
+            </div>
+            <div class="type">
+                Information
+            </div>
+            <div class="screenshot">
+                <img src="{{ asset('img/welcome/screen/lastfm.jpg') }}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="transfert col-xs-8 offset-xs-2">
+        <div class="col-xs-12 title">
+            Transférez vos données
+        </div>
+        <div class="col-xs-4 offset-xs-2">
+            <img class="image" src="{{ asset('img/welcome/transfert/image.png') }}" alt="">
+        </div>
+        <div class="col-xs-4">
+            <ul>
+                <li> Spotify → Deezer</li>
+                <li> Spotify → Youtube</li>
+                <li> Deezer → Youtube</li>
+                <li> Deezer → Spotify</li>
+                <li> Youtube → Deezer</li>
+                <li> Youtube → Spotify</li>
+            </ul>
+        </div>
+        <div class="col-xs-6 offset-xs-3 details">
+            <div class="triangle"></div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </div>
+    </div>
+    <div class="dashboard col-xs-10 offset-xs-1">
+        <div class="col-xs-12 title">
+            Recherchez sur toutes vos plateformes en simultané
+        </div>
+        <div class="col-xs-4 offset-xs-4 input-research">
+            <input type="text" class="recherche" placeholder="Rechercher...">
+            <input type="submit" value="">
+        </div>
+        <div class="col-xs-3 offset-xs-4 search-results">
+            <ul>
+                <li class="results">Musique de film</li>
+                <li class="results">Musique classique</li>
+                <li class="results">Musique rock</li>
+                <li class="results">Musique electronique</li>
+                <li class="results">Musique Métal</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

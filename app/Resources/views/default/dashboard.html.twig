@@ -3,6 +3,7 @@
 {% block body %}
     <div id="main-container">
         {{ include('default/dashboardTop.html.twig') }}
+        {{ render(controller('AppBundle:Youtube:getPlaylist')) }}
     </div>
 {% endblock %}
 
