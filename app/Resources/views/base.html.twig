@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
 
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('/img/global/favicon.ico') }}" />
 
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
@@ -15,11 +15,39 @@
         {% endblock %}
     </head>
     <body>
-    {{ include(':default:header.html.twig') }}
+        {{ include(':default:header.html.twig') }}
         <div class="contentBodyContainer">
             {% block body %}
                 {{ render(controller('AppBundle:Youtube:createPlaylist',{"createPlaylist":createPlaylist})) }}
             {% endblock %}
+        </div>
+        <div id="footer" class="container">
+            <div class="col-xs-3">
+                Spötzer
+                <br/>
+                <img class="logo" src="{{ asset('img/global/footer/logo.png') }}" alt="">
+            </div>
+            <div class="col-xs-3">
+                <img class="title-logo" src="{{ asset('img/global/footer/organisation.png') }}" alt="">
+                <ul>
+                    <li><a href="">Accueil</a></li>
+                    <li><a href="">Rechercher</a></li>
+                    <li><a href="">Transferer</a></li>
+                    <li><a href="">Votre compte</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-3">
+                <img class="title-logo" src="{{ asset('img/global/footer/numbers.png') }}" alt="">
+                <br/>
+                <ul>
+                    <li>750 Utilisateurs</li>
+                    <li>500 000 Recherches</li>
+                    <li>120 000 Transferts</li>
+                </ul>
+            </div>
+            <div class="col-xs-3">
+                Spotzer © 2017
+            </div>
         </div>
         {% block javascripts %}
             <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
