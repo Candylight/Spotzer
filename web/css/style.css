@@ -35,7 +35,6 @@ body{
         text-indent: 5px;
     }
     .button, input[type=submit]{
-        min-width: 150px;
         background-color:#e39816;
         border-radius: 360px;
         margin-top:10px;
