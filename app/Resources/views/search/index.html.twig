@@ -5,7 +5,7 @@
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
     <div class="container-music-youtube container">
         <div class="part music">
-            {{ render(controller('AppBundle:Spotify:getSpotifyMusic',{"keyword":keyword})) }}
+            {{ render(controller('AppBundle:Spotify:getSpotifySong',{"keyword":keyword})) }}
         </div>
         <div class="part youtube">
             {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
