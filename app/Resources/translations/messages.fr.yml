@@ -60,3 +60,15 @@ dashboard:
         followers:
             titleFollowers: 'Vos followers'
             titleFollow: 'Vos comptes suivis'
+        videos:
+            titleRecommandation: 'Vidéos proposées'
+            titleCreatePlaylist: 'Création playlist'
+            titleBestVideo: 'Meilleurs vidéos par vues / like'
+        createPlaylist:
+            name: 'Nom playlist'
+            description: 'Descripotion Playlist'
+            public: 'public'
+            private: 'private'
+            publicLabel: 'Publique'
+            privateLabel: 'Privée'
+            create: 'Créer'

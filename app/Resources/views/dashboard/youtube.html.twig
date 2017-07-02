@@ -162,20 +162,271 @@
             </div>
         </div>
         <div class="col-xs-10">
-            <div class="col-xs-12">
-                Vidéos proposées
+            <div class="col-xs-12 horizontal-part">
+                <div class="title col-xs-12">
+                    {{ "dashboard.youtube.videos.titleRecommandation"|trans }}
+                </div>
+                <div class="container container-videos">
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-12">
-                Meilleurs vidéos par vues / like
+            <div class="col-xs-12 horizontal-part">
+                <div class="title col-xs-12">
+                    {{ "dashboard.youtube.videos.titleBestVideo"|trans }}
+                </div>
+                <div class="container container-videos">
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-12">
-                Création playlist
+            <div class="col-xs-12 horizontal-part">
+                <div class="title col-xs-12">
+                    {{ "dashboard.youtube.videos.titleCreatePlaylist"|trans }}
+                </div>
+                <form class="col-xs-12">
+                    <div class="col-xs-6 part">
+                        <input type="text" value="{{ "dashboard.youtube.createPlaylist.name"|trans }}">
+                        <br/>
+                        <input type="text" value="{{ "dashboard.youtube.createPlaylist.description"|trans }}">
+                    </div>
+                    <div class="col-xs-6 part">
+                        <span class="custom-dropdown custom-dropdown--white">
+                            <select class="type-list-start custom-dropdown__select custom-dropdown__select--white">
+                                <option value="{{ "dashboard.youtube.createPlaylist.public"|trans }}">{{ "dashboard.youtube.createPlaylist.publicLabel"|trans }}</option>
+                                <option value="{{ "dashboard.youtube.createPlaylist.private"|trans }}">{{ "dashboard.youtube.createPlaylist.privateLabel"|trans }}</option>
+                            </select>
+                        </span>
+                        <br/>
+                        <input type="submit" value="{{ "dashboard.youtube.createPlaylist.create"|trans }}">
+                    </div>
+                </form>
             </div>
-            <div class="col-xs-12">
-                Playlist 1
+            <div class="col-xs-12 horizontal-part">
+                <div class="title col-xs-12">
+                    Playlist 1
+                </div>
+                <div class="container container-videos">
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-12">
-                Playlist 2
+            <div class="col-xs-12 horizontal-part">
+                <div class="title col-xs-12">
+                    Playlist 2
+                </div>
+                <div class="container container-videos">
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ asset('img/dashboard/youtube/thumbnail.jpg') }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            Titre de la vidéo
+                        </div>
+                        <button class="button">Voir la vidéo</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
