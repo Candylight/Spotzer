@@ -48,4 +48,17 @@ class SpotifyController extends Controller
 
         return $this->redirectToRoute('homepage');
     }
+
+
+    /**
+     * @param string $keyword
+     *
+     * @Route("spotify/result", name="spotify_search_result")
+     */
+    public function getSpotifyMusicAction($keyword)
+    {
+        return $this->render('search/searchSpotify.html.twig', [
+            'searches' => ""
+        ]);
+    }
 }
