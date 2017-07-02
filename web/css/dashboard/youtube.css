@@ -1,0 +1,48 @@
+.container-dashboard-youtube{
+    color:white;
+}
+    .container-dashboard-youtube .container-followers{
+        background-color: rgba(0,0,0,0.2);
+        margin-top:20px;
+        padding:15px;
+        text-align: center;
+    }
+        .container-dashboard-youtube .container-followers .title{
+            color:#e39816;
+        }
+        .container-dashboard-youtube .container-followers ul{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+            .container-dashboard-youtube .container-followers ul li{
+                list-style: none;
+                margin-top:10px;
+                background-color:rgba(255,255,255,0.3);
+                padding:2px;
+                border-radius: 4px;
+            }
+                .container-dashboard-youtube .container-followers ul li .image{
+                    text-align: center;
+                }
+                    .container-dashboard-youtube .container-followers ul li .image img{
+                        height:18px;
+                        opacity: 0.5;
+                    }
+                .container-dashboard-youtube .container-followers ul li .name{
+                    font-size:10px;
+                    padding-top: 5px;px;
+                }
+                .container-dashboard-youtube .container-followers ul li .link{
+                    background-color:rgba(255,255,255,0.1);
+                    font-size:10px;
+                    padding:2px;
+                    border-radius: 4px;
+                    color:white;
+                    text-decoration: none;
+                }
+                    .container-dashboard-youtube .container-followers ul li .link:hover{
+                        background-color:rgba(255,255,255,0.2);
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }

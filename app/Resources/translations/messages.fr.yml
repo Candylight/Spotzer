@@ -53,3 +53,10 @@ search:
         seeMore: 'Voir la page LastFM'
         noResult: 'Votre recherche n''as renvoyé aucun résultat LastFM'
         noTopAlbums: 'Aucun album trouvé'
+
+
+dashboard:
+    youtube:
+        followers:
+            titleFollowers: 'Vos followers'
+            titleFollow: 'Vos comptes suivis'
