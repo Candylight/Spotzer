@@ -1,211 +1,48 @@
-<div class="container-music-youtube container">
-    <div class="part music">
-        <div class="main-icon icon">
-            <img src="{{ asset('img/search/spotify.png') }}" alt="">
-        </div>
-        <div class="list">
-            <div class="item">
-                <div class="play">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
-                </div>
-                <div class="content">
-                    <div class="name">
-                        <span class="artist">Franck Sinatra</span>
-                        -
-                        <span class="song">My Funny Valentine</span>
+
+<div class="main-icon icon">
+    <img src="{{ asset('img/search/youtube.png') }}" alt="">
+</div>
+<div class="list">
+    {% if searches != false %}
+        {% for items in searches %}
+            <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
+                {% for key, item in items %}
+                    <div class="image">
+                        <img src="{{ item.snippet["thumbnails"]["default"]["url"] }}"
+                             alt="{{ item.snippet["title"] }}">
                     </div>
-                    <div class="details">
-                        3515 écoutes
-                    </div>
-                </div>
-                <div class="actions">
-                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
-                </div>
-            </div>
-            <div class="item odd">
-                <div class="play">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
-                </div>
-                <div class="content">
-                    <div class="name">
-                        <span class="artist">Franck Sinatra</span>
-                        -
-                        <span class="song">My Funny Valentine</span>
-                    </div>
-                    <div class="details">
-                        3515 écoutes
-                    </div>
-                </div>
-                <div class="actions">
-                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="play">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
-                </div>
-                <div class="content">
-                    <div class="name">
-                        <span class="artist">Franck Sinatra</span>
-                        -
-                        <span class="song">My Funny Valentine</span>
-                    </div>
-                    <div class="details">
-                        3515 écoutes
-                    </div>
-                </div>
-                <div class="actions">
-                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
-                </div>
-            </div>
-            <div class="item odd">
-                <div class="play">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
-                </div>
-                <div class="content">
-                    <div class="name">
-                        <span class="artist">Franck Sinatra</span>
-                        -
-                        <span class="song">My Funny Valentine</span>
-                    </div>
-                    <div class="details">
-                        3515 écoutes
-                    </div>
-                </div>
-                <div class="actions">
-                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="play">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
-                </div>
-                <div class="content">
-                    <div class="name">
-                        <span class="artist">Franck Sinatra</span>
-                        -
-                        <span class="song">My Funny Valentine</span>
-                    </div>
-                    <div class="details">
-                        3515 écoutes
-                    </div>
-                </div>
-                <div class="actions">
-                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
-                </div>
-            </div>
-            <div class="item odd">
-                <div class="play">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
-                </div>
-                <div class="content">
-                    <div class="name">
-                        <span class="artist">Franck Sinatra</span>
-                        -
-                        <span class="song">My Funny Valentine</span>
-                    </div>
-                    <div class="details">
-                        3515 écoutes
-                    </div>
-                </div>
-                <div class="actions">
-                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
-                </div>
-            </div>
-            <div class="item">
-                <div class="play">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
-                </div>
-                <div class="content">
-                    <div class="name">
-                        <span class="artist">Franck Sinatra</span>
-                        -
-                        <span class="song">My Funny Valentine</span>
-                    </div>
-                    <div class="details">
-                        3515 écoutes
-                    </div>
-                </div>
-                <div class="actions">
-                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
-                </div>
-            </div>
-            <div class="item odd">
-                <div class="play">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
-                </div>
-                <div class="content">
-                    <div class="name">
-                        <span class="artist">Franck Sinatra</span>
-                        -
-                        <span class="song">My Funny Valentine</span>
-                    </div>
-                    <div class="details">
-                        3515 écoutes
-                    </div>
-                </div>
-                <div class="actions">
-                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="part youtube">
-        <div class="main-icon icon">
-            <img src="{{ asset('img/search/youtube.png') }}" alt="">
-        </div>
-        <div class="list">
-            {% if searches != false %}
-                {% for items in searches %}
-                    <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
-                    {% for key, item in items %}
-                                <div class="image">
-                                    <img src="{{ item.snippet["thumbnails"]["default"]["url"] }}"
-                                         alt="{{ item.snippet["title"] }}">
-                                </div>
-                                <div class="content">
-                                    <div class="name">
-                                        <span class="artist">{{ item.snippet["title"] }}</span>
-                                    </div>
-                                    <div class="details">
-                                        {{ item.statistics["viewCount"] }} Vues
-                                        <img src="{{ asset('img/search/youtube-dislike.png') }}" alt="">
-                                        {% if item.statistics["dislikeCount"] is defined %}
-                                            {{ item.statistics["dislikeCount"] }}
-                                        {% else %}
-                                            0
-                                        {% endif %}
-                                        <img src="{{ asset('img/search/youtube-like.png') }}" alt="">
-                                        {% if  item.statistics["likeCount"]  is defined %}
-                                            {{ item.statistics["likeCount"] }}
-                                        {% else %}
-                                            0
-                                        {% endif %}
-                                        <br/>
+                    <div class="content">
+                        <div class="name">
+                            <span class="artist">{{ item.snippet["title"] }}</span>
+                        </div>
+                        <div class="details">
+                            {{ item.statistics["viewCount"] }} Vues
+                            <img src="{{ asset('img/search/youtube-dislike.png') }}" alt="">
+                            {% if item.statistics["dislikeCount"] is defined %}
+                                {{ item.statistics["dislikeCount"] }}
+                            {% else %}
+                                0
+                            {% endif %}
+                            <img src="{{ asset('img/search/youtube-like.png') }}" alt="">
+                            {% if  item.statistics["likeCount"]  is defined %}
+                                {{ item.statistics["likeCount"] }}
+                            {% else %}
+                                0
+                            {% endif %}
+                            <br/>
                                         <span class="video-link-popin" data-link="{{ item["id"] }}" class="button">
                                             Regarder la vidéo
                                         </span>
-                                    </div>
-                                </div>
-                    {% endfor %}
+                        </div>
                     </div>
                 {% endfor %}
-            {% else %}
-                <div class="value-search">
-                    Votre recherche n'as renvoyé aucun résultat Youtube
-                </div>
-            {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="value-search">
+            Votre recherche n'as renvoyé aucun résultat Youtube
         </div>
-
-    </div>
+    {% endif %}
 </div>
 <script type="text/javascript" src="{{ asset('js/search/jquery.js') }}"></script>
 <div class="overlay-youtube">
