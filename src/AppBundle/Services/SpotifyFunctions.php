@@ -43,7 +43,21 @@ class SpotifyFunctions
     public function getAuthorizationUrl()
     {
 
-        $options = ['scope' => ['user-read-email'],];
+        $options = ['scope' => [
+            'playlist-read-private',
+            'playlist-read-collaborative',
+            'playlist-modify-public',
+            'playlist-modify-private',
+            'streaming',
+            'user-follow-modify',
+            'user-follow-read',
+            'user-library-read',
+            'user-library-modify',
+            'user-read-private',
+            'user-read-birthdate',
+            'user-read-email',
+            'user-top-read',
+        ],];
 
         return $this->session->getAuthorizeUrl($options);
     }
@@ -56,5 +70,24 @@ class SpotifyFunctions
 
     }
 
+    public function getUserTopTracks()
+    {
+
+        return $this->api->getMyTop('tracks');
+    }
+
+    public function getArtistId($keyword, $accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->search($keyword, 'artist')->artists->items[0]->id;
+    }
+
+    public function getArtistTopTracks($keyword, $accessToken)
+    {
+        $options = ['country' => 'FR'];
+
+        return $this->api->getArtistTopTracks($this->getArtistId($keyword, $accessToken), $options);
+    }
 
 }

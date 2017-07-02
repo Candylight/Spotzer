@@ -47,9 +47,25 @@ class Credentials
     /**
      * @var string
      *
-     * @ORM\Column(name="spotifyToken", type="string", length=255, nullable=true)
+     * @ORM\Column(name="spotifyToken", type="text", nullable=true)
      */
     private $spotifyToken;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="spotifyRefreshToken", type="text", nullable=true)
+     */
+    private $spotifyRefreshToken;
+
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="spotifyExpireAt", type="datetime", nullable=true)
+     */
+    private $spotifyExpireAt;
+
 
     /**
      * @var string
@@ -128,6 +144,39 @@ class Credentials
     {
         return $this->spotifyToken;
     }
+
+    /**
+     * @return string
+     */
+    public function getSpotifyRefreshToken()
+    {
+        return $this->spotifyRefreshToken;
+    }
+
+    /**
+     * @param string $spotifyRefreshToken
+     */
+    public function setSpotifyRefreshToken($spotifyRefreshToken)
+    {
+        $this->spotifyRefreshToken = $spotifyRefreshToken;
+    }
+
+    /**
+     * @return \AppBundle\Entity\datetime
+     */
+    public function getSpotifyExpireAt()
+    {
+        return $this->spotifyExpireAt;
+    }
+
+    /**
+     * @param \AppBundle\Entity\datetime $spotifyExpireAt
+     */
+    public function setSpotifyExpireAt($spotifyExpireAt)
+    {
+        $this->spotifyExpireAt = $spotifyExpireAt;
+    }
+
 
     /**
      * Set deezerToken
