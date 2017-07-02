@@ -88,6 +88,16 @@ class YoutubeFunctions
         }
     }
 
+    public function fetchAccessTokenWithAuthCode($user){
+
+        if($user !== $this->client->isAccessTokenExpired()) {
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
     /**
      * @param string $keyword
      * @return \Google_Service_YouTube_SearchListResponse
@@ -141,16 +151,29 @@ class YoutubeFunctions
         return $youtube->playlists->insert('snippet,status', $youTubePlaylist, array());
 
     }
-  
+
     /**
      * @return \Google_Service_YouTube_PlaylistListResponse
      */
-   public function getPlaylist($token)
+    public function getPlaylist($token)
     {
         $this->client->setAccessToken($token);
         $youtube = new \Google_Service_YouTube($this->client);
 
         return $youtube->playlists->listPlaylists('snippet,contentDetails', ['mine' => true, 'maxResults' => 25] );
+    }
+
+    /**
+     * @param $token
+     * @param $playlistId
+     * @return \Google_Service_YouTube_PlaylistItemListResponse
+     */
+    public function getPlaylistItems($token, $playlistId){
+
+        $this->client->setAccessToken($token);
+        $youtube = new \Google_Service_YouTube($this->client);
+
+        return $youtube->playlistItems->listPlaylistItems('snippet,contentDetails', ['playlistId'=> $playlistId]);
     }
 }
 
