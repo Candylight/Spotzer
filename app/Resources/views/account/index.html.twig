@@ -4,29 +4,48 @@
     <div id="container-account">
         <div class="connexion-container">
             <div class="title">
-                Vous êtes connecté aux palteformes suivantes:
+                {{ "account.platforms.title"|trans }} :
             </div>
             <div class="col-xs-4 part">
                 <img class="logo" src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
                 <div class="title">
                     Spotify
                 </div>
-                <a class="button" href="">Se connecter</a>
+                {% if spotifyConnected == true %}
+                    <a class="button disconnect" href="">{{ "account.platforms.disconnect"|trans }}</a>
+                {% else %}
+                    <a class="button" href="{{ path('youtube_login') }}">{{ "account.platforms.connect"|trans }}</a>
+                {% endif %}
             </div>
             <div class="col-xs-4 part">
                 <img class="logo" src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
                 <div class="title">
                     Deezer
                 </div>
-                <a class="button" href="">Se connecter</a>
+                {% if deezerConnected == true %}
+                    <a class="button disconnect" href="{{ path('deezer_logout') }}">{{ "account.platforms.disconnect"|trans }}</a>
+                {% else %}
+                    <a class="button" href="{{ path('deezer_login') }}">{{ "account.platforms.connect"|trans }}</a>
+                {% endif %}
             </div>
             <div class="col-xs-4 part">
                 <img class="logo active" src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
                 <div class="title">
                     Youtube
                 </div>
-                <a class="button disconnect" href="{{ youtube }}">Se deconnecter</a>
+                {% if youtubeConnected == true %}
+                    <a class="button disconnect" href="">{{ "account.platforms.disconnect"|trans }}</a>
+                {% else %}
+                    <a class="button" href="{{ path('youtube_login') }}">{{ "account.platforms.connect"|trans }}</a>
+                {% endif %}
             </div>
+        </div>
+
+        <div>
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            <input class="button" type="submit" value="{{ "account.personnalDatas.valid"|trans }}">
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}

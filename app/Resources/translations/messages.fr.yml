@@ -72,3 +72,12 @@ dashboard:
             publicLabel: 'Publique'
             privateLabel: 'Privée'
             create: 'Créer'
+account:
+    platforms:
+        title: 'Connexion aux plateformes'
+        connect: 'Se connecter'
+        disconnect: 'Se déconnecter'
+
+    personnalDatas:
+        title: 'Mes données'
+        valid: 'Enregistrer'

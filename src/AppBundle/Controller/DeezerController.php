@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -22,7 +24,7 @@ class DeezerController extends Controller
      * @Route("/deezer/login", name="deezer_login")
      *
      *
-     * @return httpResponse
+     * @return RedirectResponse
      */
     public function indexAction()
     {
@@ -34,7 +36,7 @@ class DeezerController extends Controller
      * @Route("/deezer/callback", name="deezer_callback")
      *
      *
-     * @return httpResponse
+     * @return RedirectResponse
      */
     public function callbackAction()
     {
@@ -46,5 +48,22 @@ class DeezerController extends Controller
 
 
         return $this->redirectToRoute('homepage');
+    }
+
+    /**
+     * @Route("/deezer/logout", name="deezer_logout")
+     * @return RedirectResponse
+     */
+    public function logout()
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $user->getCredentials()->setDeezerToken('');
+
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('account');
     }
 }
