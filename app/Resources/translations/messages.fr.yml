@@ -1,8 +1,37 @@
 global:
     connexion: 'Connexion'
 
+welcome:
+    with: 'Avec'
+    subtitle: 'Inter-connectez votre musique'
+    trasnferData:
+        title: 'Transférez vos données'
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    search:
+        placeholder: 'Rechercher...'
+        title: 'Recherchez sur toutes vos plateformes en simultané'
+        sample:
+            film: 'Musique de film'
+            classic: 'Musique classique'
+            rock: 'Musique rock'
+            electronic: 'Musique electronique'
+            metal: 'Musique Métal'
+    connect: 'Se connecter'
+    register: 'S''inscrire'
+    utility:
+        music: 'Musique'
+        video: 'Vidéo'
+        information: 'Informations'
+
 registration:
     title: 'Inscription'
+
+login:
+    title: 'Connexion'
+    connect: 'Se connecter'
+    placeholder:
+        username: 'Identifiant'
+        password: 'Mot de passe'
 
 user:
     creation:
