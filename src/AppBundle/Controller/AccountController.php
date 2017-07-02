@@ -14,11 +14,9 @@ use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
@@ -68,7 +66,7 @@ class AccountController extends Controller
                 /**
                  * TODO: add error message to flashbag
                  */
-                return $this->redirectToRoute('login');
+                return $this->redirectToRoute('register');
             }
             $user->addRole('ROLE_USER');
             $user = $this->encodePassword($user);
@@ -93,7 +91,7 @@ class AccountController extends Controller
                 $this->get('session')->getFlashBag()->add('info',$this->get('translator')->trans('user.creation.enabled'));
                 $this->authenticateUser($user);
 
-                return $this->redirectToRoute('homepage');
+                return $this->redirectToRoute('dashboard');
             }
         }
         else
@@ -101,7 +99,7 @@ class AccountController extends Controller
             /**
              * TODO: add error message to flashbag
              */
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('register');
         }
     }
 
@@ -138,7 +136,7 @@ class AccountController extends Controller
         $this->get('session')->getFlashBag()->add('info',$this->get('translator')->trans('user.creation.enabled'));
         $this->authenticateUser($user);
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('dashboard');
     }
 
     /**
