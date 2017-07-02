@@ -75,6 +75,29 @@
             }
 
 
+.overlay-youtube{
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    display: none;
+    z-index:2 ;
+}
+    .overlay-youtube.active{
+        display: block;
+    }
+    .overlay-youtube .close{
+        display: inline-block;
+        margin-top: 2%;
+        text-align: center;
+    }
+    .overlay-youtube .video{
+        margin-top:10%;
+    }
+
+
 @media screen and (max-width: 970px) {
     #main-container .numbers .plateform{
         border-left: none;
