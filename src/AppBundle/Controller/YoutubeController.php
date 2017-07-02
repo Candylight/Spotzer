@@ -109,7 +109,7 @@ class YoutubeController extends Controller
             $playlists = false;
         }
 
-        return $this->render(':default:dashboardNumber.html.twig', [
+        return $this->render('dashboard/indexNumber.html.twig', [
             'playlists' => $playlists
         ]);
     }
@@ -125,7 +125,7 @@ class YoutubeController extends Controller
             $items = $this->get('youtube_functions')->getPlaylistItems($token, $playlist['id']);
         }
 
-        return $this->render(':default:dashboardTop.html.twig', [
+        return $this->render('dashboard/indexNumber.html.twig', [
             'items' => $items
         ]);
     }
