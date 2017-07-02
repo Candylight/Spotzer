@@ -24,10 +24,12 @@ security:
                 check_path: login
             logout:
                 path:   /logout
-                target: /login
+                target: /welcome
 
     access_control:
             - { path: ^/admin, roles: ROLE_ADMIN }
             - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/registration/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+            - { path: ^/welcome, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/, roles: IS_AUTHENTICATED_FULLY  }
