@@ -32,6 +32,8 @@ login:
     placeholder:
         username: 'Identifiant'
         password: 'Mot de passe'
+    noaccount:
+        message: "Je n'ai pas de compte"
 
 user:
     creation:

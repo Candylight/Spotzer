@@ -3,7 +3,6 @@
 {% block body %}
     <div id="main-container">
         {{ include('default/dashboardTop.html.twig') }}
-
         {% if app.session.get('access_token') is defined and app.session.get('access_token') is not null %}
             {{ render(controller('AppBundle:Youtube:getPlaylist')) }}
         {% else %}
