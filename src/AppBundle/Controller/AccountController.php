@@ -217,6 +217,10 @@ class AccountController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('account/index.html.twig');
+        $youtube = $this->get('youtube_functions')->getAuthorizationUrl();
+
+        return $this->render('account/index.html.twig', [
+            'youtube' => $youtube
+        ]);
     }
 }
