@@ -85,7 +85,7 @@ class YoutubeController extends Controller
             $video = false;
         }
 
-        return $this->render('search/searchMusicYoutube.html.twig', [
+        return $this->render('search/searchYoutube.html.twig', [
             'searches' => $video
         ]);
     }
