@@ -2,6 +2,13 @@
     color:white;
     padding-bottom: 50px;
 }
+    .container-dashboard-youtube .logo-sidebar{
+        text-align: center;
+    }
+        .container-dashboard-youtube .logo-sidebar img{
+            width: 50%;
+            opacity: 0.7;
+        }
     .container-dashboard-youtube .container-followers{
         background-color: rgba(0,0,0,0.2);
         margin-top:20px;
