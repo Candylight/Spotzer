@@ -54,8 +54,6 @@ search:
         noResult: 'Votre recherche n''as renvoyé aucun résultat LastFM'
         noTopAlbums: 'Aucun album trouvé'
 
-<<<<<<< Updated upstream
-
 dashboard:
     youtube:
         followers:

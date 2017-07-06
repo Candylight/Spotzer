@@ -31,34 +31,4 @@ class DefaultController extends Controller
             return $this->redirectToRoute('homepage');
         }
     }
-
-    /**
-     * @Route("/", name="default")
-     */
-    public function defaultAction()
-    {
-        if($this->getUser() != null)
-        {
-            return $this->redirectToRoute('dashboard');
-        }
-        else
-        {
-            return $this->redirectToRoute('homepage');
-        }
-    }
-
-    /**
-     * @Route("/", name="default")
-     */
-    public function defaultAction()
-    {
-        if($this->getUser() != null)
-        {
-            return $this->redirectToRoute('dashboard');
-        }
-        else
-        {
-            return $this->redirectToRoute('homepage');
-        }
-    }
 }
