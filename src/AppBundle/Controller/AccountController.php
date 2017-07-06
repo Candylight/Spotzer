@@ -248,21 +248,35 @@ class AccountController extends Controller
     {
         /** @var User $user */
         $user = $this->getUser();
+        $password = $user->getPassword();
         $form = $this->createForm(ProfileType::class,$user);
 
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $platform = $request->get('preferedPlatform');
+            if($user->getPassword() == null || $user->getPassword() == "")
+            {
+                $user->setPassword($password);
+            }
+            else
+            {
+                $this->encodePassword($user);
+            }
+            $platform = $form->get('preferedPlatform')->getData();
 
             if($platform == "spotify")
             {
                 $user->setDeezerPrefered(false);
                 $user->setSpotifyPrefered(true);
             }
-            else
+            else if($platform == "deezer")
             {
                 $user->setDeezerPrefered(true);
+                $user->setSpotifyPrefered(false);
+            }
+            else
+            {
+                $user->setDeezerPrefered(false);
                 $user->setSpotifyPrefered(false);
             }
 

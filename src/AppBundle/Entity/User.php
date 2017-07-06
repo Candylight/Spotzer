@@ -101,14 +101,14 @@ class User implements UserInterface
     /**
      * @var boolean
      *
-     * @ORM\Column(name="$spotifyPrefered", type="boolean")
+     * @ORM\Column(name="spotifyPrefered", type="boolean")
      */
     private $spotifyPrefered;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="$deezerPrefered", type="boolean")
+     * @ORM\Column(name="deezerPrefered", type="boolean")
      */
     private $deezerPrefered;
 
@@ -119,6 +119,8 @@ class User implements UserInterface
     {
         $this->enable = 0;
         $this->active = 1;
+        $this->deezerPrefered = false;
+        $this->spotifyPrefered = false;
         $this->dateConfirmationCode = new \DateTime();
     }
 

@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,6 +19,7 @@ class ProfileType extends AbstractType
     {
         $builder
             ->add('password',PasswordType::class,array(
+                'required' => false,
                 'label' => 'user.create.password',
                 'attr' => array(
                     'class' => ''
@@ -37,6 +39,18 @@ class ProfileType extends AbstractType
             ))
             ->add('lastname',TextType::class,array(
                 'label' => 'user.create.lastname',
+                'attr' => array(
+                    'class' => ''
+                )
+            ))
+            ->add('preferedPlatform', ChoiceType::class,array(
+                'label' => 'user.profile.platformePrefered',
+                'mapped' => false,
+                'choices' => array(
+                    "Aucune" => "",
+                    "Spotify" => "spotify",
+                    "Deezer" => "deezer"
+                ),
                 'attr' => array(
                     'class' => ''
                 )
