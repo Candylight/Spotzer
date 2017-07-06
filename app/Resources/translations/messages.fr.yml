@@ -72,6 +72,28 @@ dashboard:
             publicLabel: 'Publique'
             privateLabel: 'Privée'
             create: 'Créer'
+    spotify:
+        followers:
+            titleFollowers: 'Ils vous suivent'
+            titleFollow: 'Vous les suivez'
+        playlists:
+            title: 'Vos playlists'
+        infos:
+            title:
+                lastSongs: 'Derniers sont joués'
+                artists: 'Vos artists'
+                albums: 'Vos albums'
+    deezer:
+        followers:
+            titleFollowers: 'Ils vous suivent'
+            titleFollow: 'Vous les suivez'
+        playlists:
+            title: 'Vos playlists'
+        infos:
+            title:
+                lastSongs: 'Derniers sont joués'
+                artists: 'Vos artists'
+                albums: 'Vos albums'
 account:
     platforms:
         title: 'Connexion aux plateformes'
