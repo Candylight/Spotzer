@@ -103,9 +103,13 @@ account:
         title: 'Mes données'
         valid: 'Enregistrer'
 transfer:
-    selection:
-        title: 'Selectionnez 2 plateformes'
-    button: 'Lancer'
-    playlists:
-        title: 'Selectionnez une playlist à transferer'
     title: 'Transferez vos données'
+    selection:
+        title: 'Suivez les étapes pour effectuer le transfert'
+    button: 'Lancer'
+    steps:
+        step1: 'Plateforme de départ'
+        step2: 'Type de données à transferer'
+        step3: 'Selection des données'
+        step4: 'Plateforme de destination'
+        step5: 'Lancer le transfert'

@@ -2,83 +2,122 @@
 
 {% block body %}
     <div id="container-transfer">
-        <div class="container-tab">
-            <div class="thumbnails CONTAINER">
-                <div class="col-xs-12 item active" style="text-align:center">
-                    {{ "transfer.title"|trans }}
+        <div class="col-xs-4 offset-xs-4 container-center">
+            <div class="col-xs-12 title">
+                {{ "transfer.title"|trans }}
+            </div>
+            <div class="advice">
+                {{ "transfer.selection.title"|trans }}
+            </div>
+            <div class="part container">
+                <div class="col-xs-3 number">
+                    <div class="out">
+                        <div class="in">
+                            1
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 title-part">
+                    {{ "transfer.steps.step1"|trans }}
+                </div>
+                <div class="col-xs-12 content active">
+                    <span class="custom-dropdown custom-dropdown--white">
+                        <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white">
+                            <option value="deezer">Deezer</option>
+                            <option value="youtube">Youtube</option>
+                            <option value="spotify">Spotify</option>
+                        </select>
+                    </span>
+                </div>
+                <script>
+                    var url_playlist = '{{ path('transfer_getplaylists', {'playlist': 'playlist-placeholder'}) }}';
+                </script>
+            </div>
+            <div class="part container">
+                <div class="col-xs-3 number">
+                    <div class="out">
+                        <div class="in">
+                            2
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 title-part">
+                    {{ "transfer.steps.step2"|trans }}
+                </div>
+                <div class="col-xs-12 content items-select">
+                    <span class="custom-dropdown custom-dropdown--white">
+                        <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white  playlists-choices">
+                            <option>Paylists</option>
+                            <option>Artistes</option>
+                            <option>Albums</option>
+                        </select>
+                    </span>
                 </div>
             </div>
-            <div class="content">
-                <div class="content-thumb active container">
-                    <div class="title">
-                        {{ "transfer.selection.title"|trans }}
-                    </div>
-                    <div class="col-xs-12 container choice-plaform">
-                        <div class="col-xs-4">
-                            <label>
-                                <span class="custom-dropdown custom-dropdown--white">
-                                    <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white">
-                                        <option value="deezer">Deezer</option>
-                                        <option value="youtube">Youtube</option>
-                                        <option value="spotify">Spotify</option>
-                                    </select>
-                                </span>
-                            </label>
-                            <script type="text/javascript">
-                                $(document).ready(function () {
-                                    $("#plateform-choice").on('change', function(){
-                                        var playlist = $(this).val();
-                                        var url = '{{ path('transfer_getplaylists', {'playlist': 'playlist-placeholder'}) }}';
-                                        url = url.replace('placeholder-placeholder', playlist);
-                                        $.ajax({
-                                            type:'GET',
-                                            url: url,
-                                            data: {playlist: $(this).val()},
-                                            success: function(view) {
-                                                $('.playlists-choices').html(view);
-                                            }
-                                        })
-                                    })
-                                });
-                            </script>
+            <div class="part container">
+                <div class="col-xs-3 number">
+                    <div class="out">
+                        <div class="in">
+                            3
                         </div>
-                        <div class="col-xs-4">
-                            <div class="playlists-choices">
-                            </div>
-                        </div>
-                        <div class="col-xs-4">
-                            <label>
-                                <span class="custom-dropdown custom-dropdown--white">
-                                    <select class="custom-dropdown__select custom-dropdown__select--white">
-                                        <option value="video">Youtube</option>
-                                        <option value="music">Spotify</option>
-                                        <option value="music">Deezer</option>
-                                    </select>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 container items-select">
-                        <div class="title">
-                            {{ "transfer.playlists.title"|trans }}
-                        </div>
-                        <div>
-                            <span class="active">Playlist g fhdfh</span>
-                            <span>Playlist gfd</span>
-                            <span>Playlist mqlsf</span>
-                            <span>Playlist =sdfe</span>
-                            <span>Playli</span>
-                            <span>Playlist dfgsedtr er26</span>
-                            <span>Playlist 15/06</span>
-                            <span>Playlist</span>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 container logs">
-                        <span class="button launch-transfer">
-                            {{ "transfer.button"|trans }}
-                        </span>
                     </div>
                 </div>
+                <div class="col-xs-9 title-part">
+                    {{ "transfer.steps.step3"|trans }}
+                </div>
+                <div class="col-xs-12 content items-select">
+                    <span class="custom-dropdown custom-dropdown--white">
+                        <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white  playlists-choices">
+                            <option class="active">Playlist g fhdfh</option>
+                            <option>Playlist gfd</option>
+                            <option>Playlist mqlsf</option>
+                            <option>Playlist =sdfe</option>
+                            <option>Playli</option>
+                            <option>Playlist dfgsedtr er26</option>
+                            <option>Playlist 15/06</option>
+                            <option>Playlist</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="part container">
+                <div class="col-xs-3 number">
+                    <div class="out">
+                        <div class="in">
+                            4
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 title-part">
+                    {{ "transfer.steps.step4"|trans }}
+                </div>
+                <div class="col-xs-12 content">
+                        <span class="custom-dropdown custom-dropdown--white">
+                            <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white">
+                                <option value="deezer">Deezer</option>
+                                <option value="youtube">Youtube</option>
+                                <option value="spotify">Spotify</option>
+                            </select>
+                        </span>
+                </div>
+            </div>
+            <div class="part container">
+                <div class="col-xs-3 number">
+                    <div class="out">
+                        <div class="in">
+                            5
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9 title-part">
+                    {{ "transfer.steps.step5"|trans }}
+                </div>
+                <div class="col-xs-12 content">
+                <span class="button launch-transfer">
+                    {{ "transfer.button"|trans }}
+                </span>
+                </div>
+            </div>
             </div>
         </div>
     </div>
