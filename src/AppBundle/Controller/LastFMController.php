@@ -34,7 +34,8 @@ class LastFMController extends Controller
         $search = $this->getSearch($keyword);
 
         return $this->render('/search/searchLastFM.html.twig', [
-            'search' => $search
+            'search' => $search,
+            'keyword' => $keyword
         ]);
     }
 
@@ -62,6 +63,26 @@ class LastFMController extends Controller
 
         return $this->render('search/searchAlbums.html.twig',array(
             "albums" => $albums["topalbums"]["album"]
+        ));
+    }
+
+    /**
+     * get artist tags
+     *
+     * @return Response
+     */
+    public function getTagsAction($keyword)
+    {
+        $tags = json_decode($this->get('lastfm_functions')->searchTags($keyword),true);
+        $tags = $tags['toptags']['tag'];
+
+        if(count($tags) > 10)
+        {
+            $tags = array_slice($tags, 0, 10);
+        }
+
+        return $this->render('search/searchTags.html.twig',array(
+            "tags" => $tags
         ));
     }
 

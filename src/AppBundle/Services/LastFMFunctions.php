@@ -23,7 +23,6 @@ class LastFMFunctions
         $this->apiKey = $apiKey;
     }
 
-
     public function search($keyword)
     {
         $ch = curl_init();
@@ -69,6 +68,20 @@ class LastFMFunctions
     {
         $ch = curl_init();
         curl_setopt($ch,CURLOPT_URL,"http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=".$keyword."&api_key=".$this->apiKey."&format=json&lang=fr&limit=5");
+        curl_setopt($ch,CURLOPT_HTTPHEADER,array("Accept: application/json","Accept-Language: fr_FR"));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+
+        curl_close($ch);
+
+        return $result;
+    }
+
+    public function searchTags($keyword)
+    {
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,"http://ws.audioscrobbler.com/2.0/?method=artist.getTopTags&artist=".$keyword."&api_key=".$this->apiKey."&format=json&lang=fr");
         curl_setopt($ch,CURLOPT_HTTPHEADER,array("Accept: application/json","Accept-Language: fr_FR"));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
