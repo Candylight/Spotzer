@@ -13,26 +13,22 @@
     <body>
         <div class="contentBodyContainer">
             <div id="container-account">
-                <div class="container-tab">
-                    <div class="content">
-                        <div class="content-thumb thumb-1 active">
-                            <div class="title">
-                                {{ "login.title"|trans }}
-                            </div>
-                            <form action="" method="POST">
-                                <input name="_username" type="text" placeholder="{{ "login.placeholder.username"|trans }}" value="{{ lastUsername }}">
-                                <input name="_password" type="password" placeholder="{{ "login.placeholder.password"|trans }}">
-                                <input class="button" type="submit" value="{{ "login.connect"|trans }}">
-                            </form>
-                            <div class="register">
-                                <div class="title">
-                                    {{ "login.noaccount.message"|trans }}
-                                </div>
-                                <a class="button" href="{{ path('register') }}">
-                                    {{ "welcome.register"|trans }}
-                                </a>
-                            </div>
+                <div class="col-xs-4 offset-xs-4 container-form login">
+                    <div class="title">
+                        {{ "login.title"|trans }}
+                    </div>
+                    <form action="" method="POST">
+                        <input name="_username" type="text" placeholder="{{ "login.placeholder.username"|trans }}" value="{{ lastUsername }}">
+                        <input name="_password" type="password" placeholder="{{ "login.placeholder.password"|trans }}">
+                        <input class="button" type="submit" value="{{ "login.connect"|trans }}">
+                    </form>
+                    <div class="register">
+                        <div class="title">
+                            {{ "login.noaccount.message"|trans }}
                         </div>
+                        <a class="button" href="{{ path('register') }}">
+                            {{ "welcome.register"|trans }}
+                        </a>
                     </div>
                 </div>
             </div>

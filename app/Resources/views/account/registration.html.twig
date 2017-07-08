@@ -13,18 +13,14 @@
 <body>
 <div class="contentBodyContainer">
     <div id="container-account">
-        <div class="container-tab">
-            <div class="content">
-                <div class="content-thumb thumb-1 active">
-                    <div class="title">
-                        {{ "registration.title"|trans }}
-                    </div>
-                    {{ form_start(form) }}
-                    {{ form_rest(form) }}
-                    <input class="button" type="submit" value="{{ "user.creation.validForm"|trans }}">
-                    {{ form_end(form) }}
-                </div>
+        <div class="col-xs-4 offset-xs-4 container-form connexion-container">
+            <div class="title">
+                {{ "registration.title"|trans }}
             </div>
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            <input class="button" type="submit" value="{{ "user.creation.validForm"|trans }}">
+            {{ form_end(form) }}
         </div>
     </div>
 </div>

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="container-account">
+        <div class="col-xs-4 offset-xs-4 container-form">
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            <input class="button" type="submit" value="{{ "account.personnalDatas.valid"|trans }}">
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+{% endblock %}

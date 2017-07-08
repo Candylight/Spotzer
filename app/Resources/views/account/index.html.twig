@@ -2,7 +2,7 @@
 
 {% block body %}
     <div id="container-account">
-        <div class="connexion-container">
+        <div class="connexion-container container">
             <div class="title">
                 {{ "account.platforms.title"|trans }} :
             </div>
@@ -39,13 +39,6 @@
                     <a class="button" href="">{{ "account.platforms.connect"|trans }}</a>
                 {% endif %}
             </div>
-        </div>
-
-        <div>
-            {{ form_start(form) }}
-            {{ form_rest(form) }}
-            <input class="button" type="submit" value="{{ "account.personnalDatas.valid"|trans }}">
-            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}

@@ -219,20 +219,30 @@ class AccountController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $form = $this->createForm(ProfileType::class,$this->getUser(),array(
-            'action' => $this->generateUrl('profile_save')
-        ));
-
         //TODO: Add check connexion functions call
         $deezerConnected = false;
         $youtubeConnected = false;
         $spotifyConnected = false;
 
         return $this->render('account/index.html.twig',array(
-            'form' => $form->createView(),
             'deezerConnected' => $deezerConnected,
             'youtubeConnected' => $youtubeConnected,
             'spotifyConnected' => $spotifyConnected
+        ));
+    }
+
+
+    /**
+     * @Route("/account/modify", name="account_modify")
+     */
+    public function modifyAction(Request $request)
+    {
+        $form = $this->createForm(ProfileType::class,$this->getUser(),array(
+            'action' => $this->generateUrl('profile_save')
+        ));
+
+        return $this->render('account/modify.html.twig',array(
+            'form' => $form->createView()
         ));
     }
 
