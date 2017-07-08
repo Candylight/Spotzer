@@ -9,7 +9,6 @@
         padding-bottom: 50px;
     }
     #main-container .numbers{
-        width:100%;
         min-height: 150px;
         color:white;
         text-align: center;
@@ -75,6 +74,44 @@
             }
 
 
+ .lastfm{
+    overflow: hidden;
+    margin:20px auto 0px;
+    border:none;
+    color: white;
+}
+ .lastfm .picture{
+    text-align: center;
+}
+ .lastfm .picture img{
+    width: 60%;
+    border-radius: 360px;
+}
+ .lastfm .content{
+}
+ .lastfm .content .icon{
+    text-align: center;
+}
+ .lastfm .content .icon img{
+    max-height:30px;
+}
+ .lastfm .content .description{
+    padding: 15px;
+    text-align: justify;
+}
+ .lastfm .numbers{
+    border-left: 1px solid grey;
+    min-height:200px;
+}
+ .lastfm .numbers .title{
+    text-align: center;
+    color:#e39816;
+    font-size:200%;
+}
+            
+            
+            
+            
 .overlay-youtube{
     position: fixed;
     background-color: rgba(0,0,0,0.5);
