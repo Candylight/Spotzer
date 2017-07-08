@@ -9,7 +9,6 @@ $(document).ready(function () {
             success: function(view) {
                 $('.playlists-choices').html(view);
                 step_2_data = choice;
-                alert_data();
                 $('.content-3').addClass("active");
             }
         })
