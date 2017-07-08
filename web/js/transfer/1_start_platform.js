@@ -8,7 +8,7 @@ $(document).ready(function () {
             data: {playlist: $(this).val()},
             success: function(view) {
                 $('.playlists-choices').html(view);
-                step_2_data = choice;
+                step_1_plateform_start = choice;
                 $('.content-2').addClass("active");
             }
         })
