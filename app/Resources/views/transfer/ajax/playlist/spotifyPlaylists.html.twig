@@ -1,3 +1,3 @@
 {% for spotifyPlaylist in spotifyPlaylists %}
-    <option>{{ spotifyPlaylist.name }}</option>
+    <option value="{{ spotifyPlaylist.id }}">{{ spotifyPlaylist.name }}</option>
 {% endfor %}
