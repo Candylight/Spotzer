@@ -10,4 +10,11 @@ namespace AppBundle\Repository;
  */
 class SearchRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getNumberSearch()
+    {
+        $q = $this->createQueryBuilder('s')
+            ->select('SUM(s.count) as nbSearch');
+
+        return $q->getQuery()->getOneOrNullResult();
+    }
 }

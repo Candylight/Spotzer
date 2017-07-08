@@ -46,11 +46,7 @@
                 <div class="col-xs-3">
                     <img class="title-logo" src="{{ asset('img/global/footer/numbers.png') }}" alt="">
                     <br/>
-                    <ul>
-                        <li>750 Utilisateurs</li>
-                        <li>500 000 Recherches</li>
-                        <li>120 000 Transferts</li>
-                    </ul>
+                    {{ render(controller('AppBundle:Default:footerNumbers')) }}
                 </div>
                 <div class="col-xs-3">
                     Spotzer © 2017
