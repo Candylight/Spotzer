@@ -9,18 +9,17 @@ function alert_data(){
 
 
 function launchTransfer(){
-    alert_data();
-    /*
     $.ajax({
         type:'GET',
-        url: url_playlist,
-        data: {playlist: $(this).val()},
+        url: url_transfer,
+        data: {
+            plateform_start: encodeURI(step_1_plateform_start),
+            playlist: encodeURI(step_2_playlist),
+            plateform_end: encodeURI(step_3_plateform_end)
+        },
         success: function(view) {
-            $('.playlists-choices').html(view);
-            step_2_data = choice;
-            $('.content-3').addClass("active");
+            alert("ok");
         }
     });
-    */
 }
 
