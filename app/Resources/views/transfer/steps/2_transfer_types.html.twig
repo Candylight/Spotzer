@@ -10,7 +10,7 @@
     </div>
     <div class="col-xs-12 content content-2 items-select">
         <span class="custom-dropdown custom-dropdown--white">
-            <select id="type-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white  playlists-choices">
+            <select id="type-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white">
                 <option value="playlist">Paylists</option>
                 <option value="artist">Artistes</option>
                 <option value="album">Albums</option>
@@ -18,5 +18,5 @@
         </span>
     </div>
     <script>
-        var url = '{{ path('transfer_getplaylists', {'playlist': 'playlist-placeholder'}) }}';
+        var url_playlist = '{{ path('transfer_getplaylists', {'playlist': 'playlist-placeholder'}) }}';
     </script>

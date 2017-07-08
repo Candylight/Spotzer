@@ -9,3 +9,16 @@ function alert_data(){
 }
 
 
+function launchTransfer(){
+    $.ajax({
+        type:'GET',
+        url: url_playlist,
+        data: {playlist: $(this).val()},
+        success: function(view) {
+            $('.playlists-choices').html(view);
+            step_2_data = choice;
+            $('.content-3').addClass("active");
+        }
+    });
+}
+

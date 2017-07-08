@@ -53,6 +53,15 @@ class TransferController extends Controller
                     break;
             }
         }
+    }
 
+    /**
+     * @Route("/transfer/launch", name="transfer_launch")
+     */
+    public function launchAction(Request $request)
+    {
+        return $this->render('transfer/ajax/result.html.twig', [
+            'result' => "",
+        ]);
     }
 }
