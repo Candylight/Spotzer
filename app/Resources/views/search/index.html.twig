@@ -4,11 +4,36 @@
 <div id="container-search">
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
     <div class="container-music-youtube container">
-        <div class="part music">
-            {{ render(controller('AppBundle:Spotify:getSpotifySong',{"keyword":keyword})) }}
+        <div class="col-xs-6 part music">
+            {% if app.user.credentials.spotifyToken != null %}
+                {{ render(controller('AppBundle:Spotify:getSpotifySong',{"keyword":keyword})) }}
+            {% else %}
+                <div class="noconnect">
+                    <div class="details">
+                        {{ "search.spotifyDeezer.notConnected"|trans }}
+                    </div>
+                    <div class="images">
+                        <img src="{{ asset('img/logo/deezer.png') }}" alt="">
+                        <img src="{{ asset('img/logo/spotify.png') }}" alt="">
+                    </div>
+                    <a class="button" href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+                </div>
+            {% endif %}
         </div>
-        <div class="part youtube">
-            {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
+        <div class="col-xs-6 part youtube">
+            {% if app.user.credentials.youtubeToken != null %}
+                {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
+            {% else %}
+                <div class="noconnect">
+                    <div class="details">
+                        {{ "search.youtube.notConnected"|trans }}
+                    </div>
+                    <div class="images">
+                        <img src="{{ asset('img/logo/youtube.png') }}" alt="">
+                    </div>
+                    <a class="button" href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+                </div>
+            {% endif %}
         </div>
     </div>
     {{ render(controller('AppBundle:LastFM:getTopAlbums',{"keyword":keyword})) }}

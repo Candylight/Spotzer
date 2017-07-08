@@ -30,6 +30,10 @@ class AccountController extends Controller
      */
     public function loginAction()
     {
+        if($this->getUser() != null)
+        {
+            return $this->redirectToRoute('dashboard');
+        }
         $authenticationUtils = $this->get('security.authentication_utils');
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
@@ -45,6 +49,10 @@ class AccountController extends Controller
      */
     public function registerAction()
     {
+        if($this->getUser() != null)
+        {
+            return $this->redirectToRoute('dashboard');
+        }
         $form = $this->createForm(UserType::class, new User(), array('method' => 'POST', 'action' => $this->generateUrl('saveAccount')));
         return $this->render(':account:registration.html.twig',array(
             'form' => $form->createView()

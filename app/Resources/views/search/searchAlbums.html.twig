@@ -9,7 +9,9 @@
             {{ "search.lastFM.noTopAlbums"|trans }}
         {% endfor %}
     </div>
-    <div class="music">
-        Choisir un album pour afficher les morceaux...
-    </div>
+    {% if albums|length != 0 %}
+        <div class="music">
+            Choisir un album pour afficher les morceaux...
+        </div>
+    {% endif %}
 </div>

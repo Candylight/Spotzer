@@ -31,4 +31,16 @@ class DefaultController extends Controller
             return $this->redirectToRoute('homepage');
         }
     }
+
+    public function footerNumbersAction()
+    {
+        $nbUsers = $this->getDoctrine()->getRepository('AppBundle:User')->getNumberUser();
+        $nbSearch = $this->getDoctrine()->getRepository('AppBundle:Search')->getNumberSearch();
+
+        return $this->render('default/footerNumbers.html.twig',array(
+            "nbUsers" => $nbUsers['nbUsers'],
+            "nbSearch" => $nbSearch['nbSearch'],
+            "nbTransfer" => 0
+        ));
+    }
 }

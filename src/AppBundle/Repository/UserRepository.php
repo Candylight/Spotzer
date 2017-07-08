@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getNumberUser()
+    {
+        $q = $this->createQueryBuilder('u')
+            ->select('COUNT(u.id) as nbUsers')
+            ->where('u.active = 1')
+            ->andWhere('u.enable = 1');
+
+        return $q->getQuery()->getOneOrNullResult();
+    }
 }
