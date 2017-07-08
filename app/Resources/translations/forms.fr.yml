@@ -5,3 +5,5 @@ user:
         mail: 'Adresse mail'
         firstname: 'Prénom'
         lastname: 'Nom'
+    profile:
+        platformePrefered: 'Plateforme préférée'

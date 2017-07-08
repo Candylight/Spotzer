@@ -11,9 +11,11 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Credentials;
 use AppBundle\Entity\User;
+use AppBundle\Form\ProfileType;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -215,12 +217,73 @@ class AccountController extends Controller
     /**
      * @Route("/account", name="account")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $youtube = $this->get('youtube_functions')->getAuthorizationUrl();
+        $form = $this->createForm(ProfileType::class,$this->getUser(),array(
+            'action' => $this->generateUrl('profile_save')
+        ));
 
-        return $this->render('account/index.html.twig', [
-            'youtube' => $youtube
-        ]);
+        //TODO: Add check connexion functions call
+        $deezerConnected = false;
+        $youtubeConnected = false;
+        $spotifyConnected = false;
+
+        return $this->render('account/index.html.twig',array(
+            'form' => $form->createView(),
+            'deezerConnected' => $deezerConnected,
+            'youtubeConnected' => $youtubeConnected,
+            'spotifyConnected' => $spotifyConnected
+        ));
+    }
+
+    /**
+     * @Route("/account/save", name="profile_save")
+     * @Method("POST")
+     *
+     * @param Request $request
+     *
+     * @return RedirectResponse
+     */
+    public function changeProfile(Request $request)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $password = $user->getPassword();
+        $form = $this->createForm(ProfileType::class,$user);
+
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            if($user->getPassword() == null || $user->getPassword() == "")
+            {
+                $user->setPassword($password);
+            }
+            else
+            {
+                $this->encodePassword($user);
+            }
+            $platform = $form->get('preferedPlatform')->getData();
+
+            if($platform == "spotify")
+            {
+                $user->setDeezerPrefered(false);
+                $user->setSpotifyPrefered(true);
+            }
+            else if($platform == "deezer")
+            {
+                $user->setDeezerPrefered(true);
+                $user->setSpotifyPrefered(false);
+            }
+            else
+            {
+                $user->setDeezerPrefered(false);
+                $user->setSpotifyPrefered(false);
+            }
+
+            $this->getDoctrine()->getManager()->persist($user);
+            $this->getDoctrine()->getManager()->flush();
+        }
+
+        return $this->redirectToRoute('account');
     }
 }

@@ -54,7 +54,6 @@ search:
         noResult: 'Votre recherche n''as renvoyé aucun résultat LastFM'
         noTopAlbums: 'Aucun album trouvé'
 
-
 dashboard:
     youtube:
         followers:
@@ -94,3 +93,12 @@ dashboard:
                 lastSongs: 'Derniers sont joués'
                 artists: 'Vos artists'
                 albums: 'Vos albums'
+account:
+    platforms:
+        title: 'Connexion aux plateformes'
+        connect: 'Se connecter'
+        disconnect: 'Se déconnecter'
+
+    personnalDatas:
+        title: 'Mes données'
+        valid: 'Enregistrer'

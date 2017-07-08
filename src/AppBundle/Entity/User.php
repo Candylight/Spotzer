@@ -99,12 +99,28 @@ class User implements UserInterface
     private $credentials;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="spotifyPrefered", type="boolean")
+     */
+    private $spotifyPrefered;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="deezerPrefered", type="boolean")
+     */
+    private $deezerPrefered;
+
+    /**
      * User constructor.
      */
     public function __construct()
     {
         $this->enable = 0;
         $this->active = 1;
+        $this->deezerPrefered = false;
+        $this->spotifyPrefered = false;
         $this->dateConfirmationCode = new \DateTime();
     }
 
@@ -420,5 +436,53 @@ class User implements UserInterface
     public function getCredentials()
     {
         return $this->credentials;
+    }
+
+    /**
+     * Set spotifyPrefered
+     *
+     * @param boolean $spotifyPrefered
+     *
+     * @return User
+     */
+    public function setSpotifyPrefered($spotifyPrefered)
+    {
+        $this->spotifyPrefered = $spotifyPrefered;
+
+        return $this;
+    }
+
+    /**
+     * Get spotifyPrefered
+     *
+     * @return boolean
+     */
+    public function getSpotifyPrefered()
+    {
+        return $this->spotifyPrefered;
+    }
+
+    /**
+     * Set deezerPrefered
+     *
+     * @param boolean $deezerPrefered
+     *
+     * @return User
+     */
+    public function setDeezerPrefered($deezerPrefered)
+    {
+        $this->deezerPrefered = $deezerPrefered;
+
+        return $this;
+    }
+
+    /**
+     * Get deezerPrefered
+     *
+     * @return boolean
+     */
+    public function getDeezerPrefered()
+    {
+        return $this->deezerPrefered;
     }
 }
