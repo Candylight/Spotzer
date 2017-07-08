@@ -3,11 +3,11 @@
 {% block body %}
     <div id="main-container">
 
-        {{ include('dashboard/indexTop.html.twig') }}
+        {{ include('dashboard/parts/connexions.html.twig') }}
+        {{ include('dashboard/parts/transfers.html.twig') }}
+        {{ include('dashboard/parts/discover.html.twig') }}
         {% if app.session.get('access_token') is defined and app.session.get('access_token') is not null %}
             {{ render(controller('AppBundle:Youtube:getPlaylist')) }}
-        {% else %}
-            {{ include('dashboard/indexNumber.html.twig')  }}
         {% endif %}
 
 
