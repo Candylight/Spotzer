@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#plateform-choice").on('change', function(){
+    $(".type-choice").on('change', function(){
         var playlist = $(this).val();
         url_playlist = url.replace('placeholder-placeholder', playlist);
         $.ajax({
@@ -8,7 +8,7 @@ $(document).ready(function () {
             data: {playlist: $(this).val()},
             success: function(view) {
                 $('.playlists-choices').html(view);
-                $('.content-2').addClass("active");
+                $('.content-3').addClass("active");
             }
         })
     })

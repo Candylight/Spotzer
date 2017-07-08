@@ -10,114 +10,19 @@
                 {{ "transfer.selection.title"|trans }}
             </div>
             <div class="part container">
-                <div class="col-xs-3 number">
-                    <div class="out">
-                        <div class="in">
-                            1
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-9 title-part">
-                    {{ "transfer.steps.step1"|trans }}
-                </div>
-                <div class="col-xs-12 content content-1 active">
-                    <span class="custom-dropdown custom-dropdown--white">
-                        <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white">
-                            <option value="deezer">Deezer</option>
-                            <option value="youtube">Youtube</option>
-                            <option value="spotify">Spotify</option>
-                        </select>
-                    </span>
-                </div>
-                <script>
-                    var url = '{{ path('transfer_getplaylists', {'playlist': 'playlist-placeholder'}) }}';
-                </script>
+                {{ include('transfer/steps/1_start_plateform.html.twig')  }}
             </div>
             <div class="part container">
-                <div class="col-xs-3 number">
-                    <div class="out">
-                        <div class="in">
-                            2
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-9 title-part">
-                    {{ "transfer.steps.step2"|trans }}
-                </div>
-                <div class="col-xs-12 content content-2 items-select">
-                    <span class="custom-dropdown custom-dropdown--white">
-                        <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white  playlists-choices">
-                            <option>Paylists</option>
-                            <option>Artistes</option>
-                            <option>Albums</option>
-                        </select>
-                    </span>
-                </div>
+                {{ include('transfer/steps/2_transfer_types.html.twig')  }}
             </div>
             <div class="part container">
-                <div class="col-xs-3 number">
-                    <div class="out">
-                        <div class="in">
-                            3
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-9 title-part">
-                    {{ "transfer.steps.step3"|trans }}
-                </div>
-                <div class="col-xs-12 content content-3 items-select">
-                    <span class="custom-dropdown custom-dropdown--white">
-                        <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white  playlists-choices">
-                            <option class="active">Playlist g fhdfh</option>
-                            <option>Playlist gfd</option>
-                            <option>Playlist mqlsf</option>
-                            <option>Playlist =sdfe</option>
-                            <option>Playli</option>
-                            <option>Playlist dfgsedtr er26</option>
-                            <option>Playlist 15/06</option>
-                            <option>Playlist</option>
-                        </select>
-                    </span>
-                </div>
+                {{ include('transfer/steps/3_playlists_select.html.twig')  }}
             </div>
             <div class="part container">
-                <div class="col-xs-3 number">
-                    <div class="out">
-                        <div class="in">
-                            4
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-9 title-part">
-                    {{ "transfer.steps.step4"|trans }}
-                </div>
-                <div class="col-xs-12 content content-4">
-                        <span class="custom-dropdown custom-dropdown--white">
-                            <select id="plateform-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white">
-                                <option value="deezer">Deezer</option>
-                                <option value="youtube">Youtube</option>
-                                <option value="spotify">Spotify</option>
-                            </select>
-                        </span>
-                </div>
+                {{ include('transfer/steps/4_end_plateform.html.twig')  }}
             </div>
             <div class="part container">
-                <div class="col-xs-3 number">
-                    <div class="out">
-                        <div class="in">
-                            5
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-9 title-part">
-                    {{ "transfer.steps.step5"|trans }}
-                </div>
-                <div class="col-xs-12 content content-5">
-                <span class="button launch-transfer">
-                    {{ "transfer.button"|trans }}
-                </span>
-                </div>
-            </div>
+                {{ include('transfer/steps/5_transfer.html.twig')  }}
             </div>
         </div>
     </div>
@@ -132,6 +37,6 @@
 {% block javascripts %}
     {{ parent() }}
     <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/transfer/type.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/transfer/playlists.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/1_types.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/2_playlists.js') }}"></script>
 {% endblock %}
