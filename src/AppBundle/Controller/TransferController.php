@@ -71,30 +71,21 @@ class TransferController extends Controller
 
             switch ($plateform_start) {
                 case 'youtube':
-                    // Création de la playlist sur la plateforme de fin
-                    // Récupération de toutes les tracks de la playlist
-                    // for(tracks)
-                        // get nom vidéo
-                        // Recherche de nom+album dans plateforme de fin
-                        // SI EXISTE
-                            // Ajout de la track dans la playlist venant d'être créée
-                            // Ajout valeur de succès dans un tableau
-                        // SI EXISTE PAS
-                            // Ajout d'une valeur d'erreur dans un tableau
-
+                    
                 case 'spotify':
-                    // Création de la playlist sur la plateforme de fin
-                    // Récupération de toutes les tracks de la playlist
-                    // for(tracks)
-                        // get nom artiste
-                        // get nom album
-                        // Recherche de nom+album dans plateforme de fin
-                        // SI EXISTE
-                            // Ajout de la track dans la playlist venant d'être créée
-                            // Ajout valeur de succès dans un tableau
-                        // SI EXISTE PAS
-                            // Ajout d'une valeur d'erreur dans un tableau
-
+                    $playlistSpotifyName = $this->get('spotify_functions')->getPlaylistByID($this->getUser()->getCredentials()->getSpotifyToken(), $playlist)->name;
+                    $tracks = $this->get('spotify_functions')->getPlaylistItem($this->getUser()->getCredentials()->getSpotifyToken(), $playlist)->items;
+                    if ($plateform_end == 'youtube') {
+                        $youtubePlaylist = $this->get('youtube_functions')->createPlaylist($this->getUser()->getCredentials()->getYoutubeToken(), $playlistSpotifyName);
+                        foreach ($tracks as $track) {
+                            $youtubeTracks = $this->get('youtube_functions')->searchBestResult($track->track->name . ' ' . $track->track->artists[0]->name);
+                            foreach ($youtubeTracks as $item) {
+                                $trackId = $item->getId()->videoId;
+                            }
+                            $this->get('youtube_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getYoutubeToken(), $youtubePlaylist->id, $trackId);
+                        }
+                        die();
+                    }
                 case 'deezer':
                     // Création de la playlist sur la plateforme de fin
                     // Récupération de toutes les tracks de la playlist
@@ -110,7 +101,6 @@ class TransferController extends Controller
             }
 
             return $this->render('transfer/ajax/result.html.twig', [
-                'result' => "",// renvoi du tableau global
             ]);
         }
     }
