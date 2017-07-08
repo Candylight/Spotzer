@@ -94,35 +94,47 @@
 /***************************************************************/
 /*                        ACCOUNT                              */
 /***************************************************************/
-#container-account .connexion-container{
+    #container-account .connexion-container{
 
-}
-    #container-account .connexion-container .title{
-        font-size:30px;
-        text-align: center;
-        margin-bottom: 30px;
     }
-    #container-account .connexion-container .part{
-        text-align: center;
-        border-left: 1px solid grey;
-    }
-        #container-account .connexion-container .part:first-child{
-            border-left: none;
+        #container-account .connexion-container .title{
+            font-size:30px;
+            text-align: center;
+            margin-bottom: 30px;
         }
-        #container-account .connexion-container .part .logo{
-            height:20px;
-            opacity: 0.2;
-            margin-left: 10px;
+        #container-account .connexion-container .part{
+            text-align: center;
+            border-left: 1px solid grey;
         }
-            #container-account .connexion-container .part .logo.active {
-                height: 20px;
-                opacity: 0.9;
+            #container-account .connexion-container .part:first-child{
+                border-left: none;
             }
-        #container-account .connexion-container .part .name{
-            font-size: 200%;
-            margin: 10px auto 10px;
+            #container-account .connexion-container .part .logo{
+                height:20px;
+                opacity: 0.2;
+                margin-left: 10px;
+            }
+                #container-account .connexion-container .part .logo.active {
+                    height: 20px;
+                    opacity: 0.9;
+                }
+            #container-account .connexion-container .part .name{
+                font-size: 200%;
+                margin: 10px auto 10px;
+            }
+            #container-account .connexion-container .part .button.deconnect {
+            }
+    #container-account .redirect-modify{
+        text-align: center;
+        background-color: rgba(0,0,0,0.4);
+        padding:30px;
+        margin-top:70px;
+        margin-bottom:40px;
+    }
+        #container-account .redirect-modify .title{
+            font-size: 30px;
         }
-        #container-account .connexion-container .part .button.deconnect {
+        #container-account .redirect-modify .button{
         }
 
 
@@ -136,6 +148,3 @@
 /***********************************************************************************************************/
 /*                                  PAGE MODIFICATION DE COMPTE                                            */
 /***********************************************************************************************************/
-    #container-account .container-form{
-
-    }
