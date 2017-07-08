@@ -7,15 +7,21 @@
         Spötzer
     </a>
     <div class="col-md-3 plateformes">
-        <a href="{{ path('account') }}" title="Gérer la connexion Spotify">
-            <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="" class="header-icon" id="spotify">
-        </a>
-        <a href="{{ path('account') }}" title="Gérer la connexion Deezer">
-            <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="" class="header-icon" id="deezer">
-        </a>
-        <a href="{{ path('account') }}" title="Gérer la connexion Youtube">
-            <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="" class="header-icon" id="youtube">
-        </a>
+        {% if app.user.credentials.spotifyToken != null %}
+            <a href="{{ path('account') }}" title="Gérer la connexion Spotify">
+                <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="" class="header-icon" id="spotify">
+            </a>
+        {% endif %}
+        {% if app.user.credentials.deezerToken != null %}
+            <a href="{{ path('account') }}" title="Gérer la connexion Deezer">
+                <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="" class="header-icon" id="deezer">
+            </a>
+        {% endif %}
+        {% if app.user.credentials.youtubeToken %}
+            <a href="{{ path('account') }}" title="Gérer la connexion Youtube">
+                <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="" class="header-icon" id="youtube">
+            </a>
+        {% endif %}
         <a href="{{ path('transfer') }}">
             <img src="{{ asset('img/global/icon-transfer.png') }}" alt="" title="Transfert de données">
         </a>
