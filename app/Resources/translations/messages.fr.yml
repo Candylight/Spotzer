@@ -56,8 +56,8 @@ search:
         tags:
             title: 'Tags de l''artiste'
             noResults: 'Aucun tag trouvé'
-    spotify:
-        notConnected: 'Merci de vous connecter à Spotify afin d''afficher ces résultats'
+    spotifyDeezer:
+        notConnected: 'Merci de vous connecter à Spotify ou Deezer afin d''afficher ces résultats'
     youtube:
         notConnected: 'Merci de vous connecter à Youtube afin d''afficher ces résultats'
 
