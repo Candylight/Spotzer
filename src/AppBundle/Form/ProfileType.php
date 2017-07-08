@@ -18,6 +18,18 @@ class ProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('firstname',TextType::class,array(
+                'label' => 'user.create.firstname',
+                'attr' => array(
+                    'class' => ''
+                )
+            ))
+            ->add('lastname',TextType::class,array(
+                'label' => 'user.create.lastname',
+                'attr' => array(
+                    'class' => ''
+                )
+            ))
             ->add('password',PasswordType::class,array(
                 'required' => false,
                 'label' => 'user.create.password',
@@ -27,18 +39,6 @@ class ProfileType extends AbstractType
             ))
             ->add('mail',EmailType::class,array(
                 'label' => 'user.create.mail',
-                'attr' => array(
-                    'class' => ''
-                )
-            ))
-            ->add('firstname',TextType::class,array(
-                'label' => 'user.create.firstname',
-                'attr' => array(
-                    'class' => ''
-                )
-            ))
-            ->add('lastname',TextType::class,array(
-                'label' => 'user.create.lastname',
                 'attr' => array(
                     'class' => ''
                 )
