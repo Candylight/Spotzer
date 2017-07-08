@@ -48,7 +48,7 @@
         }
             #container-search .lastfm .numbers .title{
                 text-align: center;
-                color:#e39816;
+                color: #7e520d;
                 font-size:200%;
             }
         #container-search .lastfm .numbers .tags{
@@ -57,8 +57,8 @@
         }
             #container-search .lastfm .numbers .tags span{
                 background-color:#e39816;
-                padding-left: 15px;
-                padding-right: 3px;
+                padding-left: 7px;
+                padding-right: 7px;
                 border-radius: 7px;
                 margin-top:5px;
                 display: inline-block;
