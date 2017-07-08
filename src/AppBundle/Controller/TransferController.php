@@ -71,7 +71,7 @@ class TransferController extends Controller
 
             switch ($plateform_start) {
                 case 'youtube':
-                    
+
                 case 'spotify':
                     $playlistSpotifyName = $this->get('spotify_functions')->getPlaylistByID($this->getUser()->getCredentials()->getSpotifyToken(), $playlist)->name;
                     $tracks = $this->get('spotify_functions')->getPlaylistItem($this->getUser()->getCredentials()->getSpotifyToken(), $playlist)->items;
@@ -84,7 +84,6 @@ class TransferController extends Controller
                             }
                             $this->get('youtube_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getYoutubeToken(), $youtubePlaylist->id, $trackId);
                         }
-                        die();
                     }
                 case 'deezer':
                     // Création de la playlist sur la plateforme de fin
