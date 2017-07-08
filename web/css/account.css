@@ -144,6 +144,27 @@
 /*                        MODIFY ACCOUNT                       */
 /***************************************************************/
 
+    #container-account .form-modify select{
+        display: none;
+    }
+    #container-account .form-modify .favorite-plateform-choice{
+        margin-top:20px;
+    }
+        #container-account .form-modify .favorite-plateform-choice div{
+            background-color: rgba(0,0,0,0.4);
+            padding:15px 0;
+        }
+            #container-account .form-modify .favorite-plateform-choice div:hover{
+                background-color: rgba(255,255,255,0.1);
+                cursor: pointer;
+                user-select: none;
+            }
+            #container-account .form-modify .favorite-plateform-choice div.active{
+                background-color: #a66c13;
+            }
+            #container-account .form-modify .favorite-plateform-choice div img{
+                height:15px;
+            }
 
 /***********************************************************************************************************/
 /*                                  PAGE MODIFICATION DE COMPTE                                            */
