@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(".type-choice").on('change', function(){
+    $("#type-choice").on('change', function(){
         var playlist = $(this).val();
         url_playlist = url.replace('placeholder-placeholder', playlist);
         $.ajax({
