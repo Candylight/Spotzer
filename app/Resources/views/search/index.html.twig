@@ -5,7 +5,7 @@
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
     <div class="container-music-youtube container">
         <div class="col-xs-6 part music">
-            {% if app.user.credentials.spotifyRefreshToken != null %}
+            {% if app.user.credentials.spotifyToken != null %}
                 {{ render(controller('AppBundle:Spotify:getSpotifySong',{"keyword":keyword})) }}
             {% else %}
                 <div class="noconnect">
@@ -21,7 +21,7 @@
             {% endif %}
         </div>
         <div class="col-xs-6 part youtube">
-            {% if app.user.credentials.youtubeRefreshToken != null %}
+            {% if app.user.credentials.youtubeToken != null %}
                 {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
             {% else %}
                 <div class="noconnect">
