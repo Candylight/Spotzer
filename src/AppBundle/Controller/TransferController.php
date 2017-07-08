@@ -41,13 +41,13 @@ class TransferController extends Controller
             switch ($playlists) {
                 case 'youtube':
                     $youtubePLaylists = $this->get('youtube_functions')->getPlaylist($this->getUser()->getCredentials()->getYoutubeToken());
-                    return $this->render('transfer/youtubePlaylists.html.twig', [
+                    return $this->render('transfer/ajax/playlist/youtubePlaylists.html.twig', [
                         'youtubePlaylists' => $youtubePLaylists,
                     ]);
                     break;
                 case 'spotify':
                     $spotifyPlaylists = $this->get('spotify_functions')->getUserPlaylist($this->getUser()->getCredentials()->getSpotifyToken())->items;
-                    return $this->render('transfer/spotifyPlaylists.html.twig', [
+                    return $this->render('transfer/ajax/playlist/spotifyPlaylists.html.twig', [
                         'spotifyPlaylists' => $spotifyPlaylists,
                     ]);
                     break;
