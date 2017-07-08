@@ -56,15 +56,29 @@
         overflow: hidden;
     }
         #container-search .container-music-youtube .part{
-            width: 50%;
-            float: left;
         }
+            #container-search .container-music-youtube .part .noconnect{
+                text-align: center;
+                color:white;
+                padding:40px 0;
+            }
+                #container-search .container-music-youtube .part .noconnect .details{
+                }
+                #container-search .container-music-youtube .part .noconnect .images{
+                    margin: 20px auto 20px;
+                }
+                    #container-search .container-music-youtube .part .noconnect .images img{
+                        width:10%;
+                    }
+                #container-search .container-music-youtube .part .noconnect .button{
+                }
             #container-search .container-music-youtube .part .icon{
                 text-align: center;
             }
                 #container-search .container-music-youtube .part .icon img{
                     max-height: 40px;
                 }
+
                     /*              MUSIC                 */
                     #container-search .container-music-youtube .part.music .list .play{
                         float: left;

@@ -4,20 +4,35 @@
 <div id="container-search">
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
     <div class="container-music-youtube container">
-        <div class="part music">
+        <div class="col-xs-6 part music">
             {% if app.user.credentials.spotifyRefreshToken != null %}
                 {{ render(controller('AppBundle:Spotify:getSpotifySong',{"keyword":keyword})) }}
             {% else %}
-                <p>{{ "search.spotify.notConnected"|trans }}</p>
-                <a href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+                <div class="noconnect">
+                    <div class="details">
+                        {{ "search.spotifyDeezer.notConnected"|trans }}
+                    </div>
+                    <div class="images">
+                        <img src="{{ asset('img/logo/deezer.png') }}" alt="">
+                        <img src="{{ asset('img/logo/spotify.png') }}" alt="">
+                    </div>
+                    <a class="button" href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+                </div>
             {% endif %}
         </div>
-        <div class="part youtube">
+        <div class="col-xs-6 part youtube">
             {% if app.user.credentials.youtubeRefreshToken != null %}
                 {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
             {% else %}
-                <p>{{ "search.youtube.notConnected"|trans }}</p>
-                <a href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+                <div class="noconnect">
+                    <div class="details">
+                        {{ "search.youtube.notConnected"|trans }}
+                    </div>
+                    <div class="images">
+                        <img src="{{ asset('img/logo/youtube.png') }}" alt="">
+                    </div>
+                    <a class="button" href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+                </div>
             {% endif %}
         </div>
     </div>
