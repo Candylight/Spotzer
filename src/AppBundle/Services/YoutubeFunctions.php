@@ -109,6 +109,13 @@ class YoutubeFunctions
         return $this->youtube->search->listSearch('id,snippet', ['q' => $keyword, 'order' => 'relevance', 'maxResults' => 6, 'type' => 'video']);
     }
 
+    public function searchBestResult($keyword)
+    {
+        $this->youtube = new \Google_Service_YouTube($this->client);
+
+        return $this->youtube->search->listSearch('id,snippet', ['q' => $keyword, 'maxResults' => 1, 'type' => 'video']);
+    }
+
     /**
      * @param $videoId
      * @return \Google_Service_YouTube_VideoListResponse
@@ -150,6 +157,22 @@ class YoutubeFunctions
 
         return $youtube->playlists->insert('snippet,status', $youTubePlaylist, array());
 
+    }
+
+    public function addItemToPlaylist($token, $playlistID, $videoID)
+    {
+        $this->client->setAccessToken($token);
+        $youtube = new \Google_Service_YouTube($this->client);
+        $playlistItemSnippet = new \Google_Service_YouTube_PlaylistItemSnippet();
+        $playlistItemSnippet->setPlaylistId($playlistID);
+        $resourceID = new \Google_Service_YouTube_ResourceId();
+        $resourceID->setKind('youtube#video');
+        $resourceID->setVideoId($videoID);
+        $playlistItemSnippet->setResourceId($resourceID);
+        $youtubePlaylistItem = new \Google_Service_YouTube_PlaylistItem();
+        $youtubePlaylistItem->setSnippet($playlistItemSnippet);
+
+        return $youtube->playlistItems->insert('snippet', $youtubePlaylistItem );
     }
 
     /**
