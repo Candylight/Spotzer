@@ -51,6 +51,19 @@
                 color:#e39816;
                 font-size:200%;
             }
+        #container-search .lastfm .numbers .tags{
+            width:90%;
+            margin:auto;
+        }
+            #container-search .lastfm .numbers .tags span{
+                background-color:#e39816;
+                padding-left: 15px;
+                padding-right: 3px;
+                border-radius: 7px;
+                margin-top:5px;
+                display: inline-block;
+                font-size:80%;
+            }
     #container-search .container-music-youtube{
         margin-top:40px;
         overflow: hidden;
