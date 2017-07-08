@@ -12,6 +12,18 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class YoutubeController extends Controller
 {
+
+    /**
+     * @Route("/youtube/login", name="youtube_login")
+     *
+     *
+     * @return httpResponse
+     */
+    public function indexAction()
+    {
+         return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl());
+    }
+
     /**
      * @Route("/youtube/callback", name="youtube_callback")
      *
@@ -27,7 +39,7 @@ class YoutubeController extends Controller
 
         $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
         $this->getUser()->getCredentials()->setYoutubeExpireAt(new \DateTime($token['expires_in']));
-        $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
+        //$this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
 
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();

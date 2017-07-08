@@ -4,6 +4,15 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
 
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/jquery-ui.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/global/popin.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/global/lastFMSearch.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/library/remodal/remodal.js') }}"></script>
+        {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('/img/global/favicon.ico') }}" />
 
         {% block stylesheets %}
@@ -49,13 +58,5 @@
                 </div>
             </div>
         </div>
-        {% block javascripts %}
-            <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/jquery-ui.min.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/global/popin.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/global/lastFMSearch.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/library/remodal/remodal.js') }}"></script>
-        {% endblock %}
     </body>
 </html>

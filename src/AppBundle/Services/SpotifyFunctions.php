@@ -70,10 +70,12 @@ class SpotifyFunctions
 
     }
 
-    public function getUserTopTracks()
+    public function getUserPlaylist($accessToken)
     {
+        $this->api->setAccessToken($accessToken);
 
-        return $this->api->getMyTop('tracks');
+
+        return $this->api->getMyPlaylists();
     }
 
     public function getArtistId($keyword, $accessToken)
@@ -88,6 +90,20 @@ class SpotifyFunctions
         $options = ['country' => 'FR'];
 
         return $this->api->getArtistTopTracks($this->getArtistId($keyword, $accessToken), $options);
+    }
+
+    public function createPlaylist($accessToken, $title)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->createUserPlaylist($this->getCurrentUserId($accessToken), $title);
+    }
+
+    public function getCurrentUserId($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->me()->id;
     }
 
 }
