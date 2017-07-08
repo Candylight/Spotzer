@@ -5,10 +5,20 @@
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
     <div class="container-music-youtube container">
         <div class="part music">
-            {{ render(controller('AppBundle:Spotify:getSpotifySong',{"keyword":keyword})) }}
+            {% if app.user.credentials.spotifyRefreshToken != null %}
+                {{ render(controller('AppBundle:Spotify:getSpotifySong',{"keyword":keyword})) }}
+            {% else %}
+                <p>{{ "search.spotify.notConnected"|trans }}</p>
+                <a href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+            {% endif %}
         </div>
         <div class="part youtube">
-            {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
+            {% if app.user.credentials.youtubeRefreshToken != null %}
+                {{ render(controller('AppBundle:Youtube:getYoutubeVideo',{"keyword":keyword})) }}
+            {% else %}
+                <p>{{ "search.youtube.notConnected"|trans }}</p>
+                <a href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+            {% endif %}
         </div>
     </div>
     {{ render(controller('AppBundle:LastFM:getTopAlbums',{"keyword":keyword})) }}
