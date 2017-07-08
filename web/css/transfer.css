@@ -148,3 +148,31 @@
         .logs .launch-transfer.active{
             display: inline;
         }
+
+.items-select{
+    background-color: rgba(0,0,0,0.3);
+    margin-top:40px;
+    padding:20px;
+}
+    .items-select span{
+        background-color: #7e520d;
+        padding:7px;
+        padding-left:25px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        background-image: url("../img/transfer/image-playlist.png");
+        background-repeat: no-repeat;
+        background-position: 3px center;
+        background-size: auto 50%;
+        margin-left: 10px;
+        border-radius: 4px;
+    }
+        .items-select span:hover{
+            background-color:rgba(255,255,255,0.1);
+        }
+        .items-select span.active{
+            background-color:#e39816;
+        }

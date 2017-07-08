@@ -102,3 +102,10 @@ account:
     personnalDatas:
         title: 'Mes données'
         valid: 'Enregistrer'
+transfer:
+    selection:
+        title: 'Selectionnez 2 plateformes'
+    button: 'Lancer'
+    playlists:
+        title: 'Selectionnez une playlist à transferer'
+    title: 'Transferez vos données'
