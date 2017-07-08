@@ -13,16 +13,13 @@
                 {{ include('transfer/steps/1_start_plateform.html.twig')  }}
             </div>
             <div class="part container">
-                {{ include('transfer/steps/2_transfer_types.html.twig')  }}
+                {{ include('transfer/steps/2_playlists_select.html.twig')  }}
             </div>
             <div class="part container">
-                {{ include('transfer/steps/3_playlists_select.html.twig')  }}
+                {{ include('transfer/steps/3_end_plateform.html.twig')  }}
             </div>
             <div class="part container">
-                {{ include('transfer/steps/4_end_plateform.html.twig')  }}
-            </div>
-            <div class="part container">
-                {{ include('transfer/steps/5_transfer.html.twig')  }}
+                {{ include('transfer/steps/4_transfer.html.twig')  }}
             </div>
         </div>
     </div>
@@ -38,8 +35,7 @@
     {{ parent() }}
     <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/transfer/1_start_platform.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/transfer/2_data.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/transfer/3_playlist.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/transfer/4_end_platform.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/transfer/5_transfer.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/2_playlist.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/3_end_platform.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/4_transfer.js') }}"></script>
 {% endblock %}
