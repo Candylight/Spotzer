@@ -10,15 +10,11 @@
             <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
             <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('js/jquery-ui.min.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/global/popin.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/global/lastFMSearch.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/library/remodal/remodal.js') }}"></script>
         {% endblock %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('/img/global/favicon.ico') }}" />
 
         {% block stylesheets %}
-
             <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" />
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
@@ -61,5 +57,8 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript" src="{{ asset('js/global/popin.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/global/lastFMSearch.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/library/remodal/remodal.js') }}"></script>
     </body>
 </html>
