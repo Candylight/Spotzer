@@ -7,9 +7,15 @@
         Spötzer
     </a>
     <div class="col-md-3 plateformes">
-        <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="" class="header-icon" id="spotify">
-        <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="" class="header-icon" id="deezer">
-        <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="" class="header-icon" id="youtube">
+        <a href="{{ path('account') }}" title="Gérer la connexion Spotify">
+            <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="" class="header-icon" id="spotify">
+        </a>
+        <a href="{{ path('account') }}" title="Gérer la connexion Deezer">
+            <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="" class="header-icon" id="deezer">
+        </a>
+        <a href="{{ path('account') }}" title="Gérer la connexion Youtube">
+            <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="" class="header-icon" id="youtube">
+        </a>
         <a href="{{ path('transfer') }}">
             <img src="{{ asset('img/global/icon-transfer.png') }}" alt="" title="Transfert de données">
         </a>
