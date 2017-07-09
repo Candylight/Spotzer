@@ -10,19 +10,9 @@
             {{ "search.lastFM.noTopAlbums"|trans }}
         {% endfor %}
     </div>
-    {% if albums|length != 0 %}
+    {% if albums|length != 0 and (app.user.credentials.spotifyToken != null or app.user.credentials.deezerToken) %}
         <div class="music song-album-list">
             Choisir un album pour afficher les morceaux...
         </div>
     {% endif %}
-    <script>
-        var url_get_song_from_album = '{{ path('search_song_album') }}';
-        {% if app.user.spotifyPrefered %}
-            var prefered_plateform = 'spotify';
-        {% elseif app.user.deezerPrefered %}
-            var prefered_plateform = 'deezer';
-        {% else %}
-            var prefered_plateform = 'noconnexion';
-        {% endif %}
-    </script>
 </div>

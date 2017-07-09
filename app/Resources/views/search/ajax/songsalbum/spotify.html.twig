@@ -1,8 +1,5 @@
 <ul>
-    <li>Musique spotify 1</li>
-    <li>Musique spotify 2</li>
-    <li>Musique spotify 3</li>
-    <li>Musique spotify 4</li>
-    <li>Musique spotify 5</li>
-    <li>Musique spotify 6</li>
+    {% for song in songs %}
+        <li data-songs-id="{{ song.id }}">{{ song.title }}</li>
+    {% endfor %}
 </ul>

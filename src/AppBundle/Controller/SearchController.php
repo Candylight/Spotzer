@@ -38,27 +38,36 @@ class SearchController extends Controller
      */
     public function songOfAlbumAction(Request $request)
     {
-        //ajax ?
+        $songs = array();
+
         if ($request->isXmlHttpRequest()) {
             // retrieve playlist parameter from ajax request
-            $artist = $request->query->get('playlist');
-            $album = $request->query->get('playlist');
-            $plateform = $request->query->get('playlist');
-            switch ($plateform) {
-                case 'youtube':
-                    //$youtubePLaylists = $this->get('youtube_functions')->getPlaylist($this->getUser()->getCredentials()->getYoutubeToken());
+            $artist = $request->query->get('artist');
+            $album = $request->query->get('album');
+
+            if($this->getUser()->getSpotifyPrefered())
+            {
+                if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+                {
+
+                }
+            }
+            elseif ($this->getUser()->getDeezerPrefered())
+            {
+                if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+                {
+                    $songs = $this->get('deezer_functions')->getAlbumSongs($album);
+
                     return $this->render('search/ajax/songsalbum/deezer.html.twig', [
-                        'youtubePlaylists' => "",
+                        'songs' => $songs,
                     ]);
-                    break;
-                case 'spotify':
-                    //$spotifyPlaylists = $this->get('spotify_functions')->getUserPlaylist($this->getUser()->getCredentials()->getSpotifyToken())->items;
-                    return $this->render('search/ajax/songsalbum/spotify.html.twig', [
-                        'spotifyPlaylists' => "",
-                    ]);
-                    break;
+                }
             }
         }
+
+        return $this->render('search/ajax/songsalbum/spotify.html.twig', [
+            'songs' => $songs,
+        ]);
     }
 
 

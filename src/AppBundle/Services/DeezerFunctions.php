@@ -96,4 +96,29 @@ class DeezerFunctions
 
         return $result->data[0]->id;
     }
+
+    /**
+     * @param string $album
+     *
+     * @return array
+     */
+    public function getAlbumSongs($album)
+    {
+        $albumId = $this->getAlbumId($album);
+        $album = $this->api->getAlbum($albumId);
+        $songs = $this->api->getAlbumSongs($album->tracklist);
+
+        return $songs->data;
+    }
+
+    /**
+     * @param string $album
+     */
+    public function getAlbumId($album)
+    {
+        $result = $this->api->search($album,array(),"album",false);
+
+        return $result->data[0]->id;
+    }
+
 }
