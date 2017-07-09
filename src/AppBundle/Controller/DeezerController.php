@@ -42,12 +42,17 @@ class DeezerController extends Controller
     {
         $token = $this->get('deezer_functions')->getToken($_GET['code']);
 
-        $this->getUser()->getCredentials()->setDeezerToken($token);
+        $this->getUser()->getCredentials()->setDeezerToken($token['token']);
+
+        $date = new\DateTime();
+        $date->setTimestamp($token['expirationDate']);
+        $this->getUser()->getCredentials()->setDeezerExpireAt($date);
+
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();
 
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('account');
     }
 
     /**
@@ -59,7 +64,8 @@ class DeezerController extends Controller
         /** @var User $user */
         $user = $this->getUser();
 
-        $user->getCredentials()->setDeezerToken('');
+        $user->getCredentials()->setDeezerToken(null);
+        $user->getCredentials()->setDeezerExpireAt(null);
 
         $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->flush();

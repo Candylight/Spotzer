@@ -38,7 +38,7 @@ class Credentials
     private $youtubeRefreshToken;
 
     /**
-     * @var datetime
+     * @var \datetime
      *
      * @ORM\Column(name="youtubeExpireAt", type="datetime", nullable=true)
      */
@@ -60,7 +60,7 @@ class Credentials
 
 
     /**
-     * @var datetime
+     * @var \datetime
      *
      * @ORM\Column(name="spotifyExpireAt", type="datetime", nullable=true)
      */
@@ -73,6 +73,13 @@ class Credentials
      * @ORM\Column(name="deezerToken", type="string", length=255, nullable=true)
      */
     private $deezerToken;
+
+    /**
+     * @var \datetime
+     *
+     * @ORM\Column(name="deezerExpireAt", type="datetime", nullable=true)
+     */
+    private $deezerExpireAt;
 
     /**
      * @var string
@@ -296,5 +303,29 @@ class Credentials
     public function getYoutubeExpireAt()
     {
         return $this->youtubeExpireAt;
+    }
+
+    /**
+     * Set deezerExpireAt
+     *
+     * @param \DateTime $deezerExpireAt
+     *
+     * @return Credentials
+     */
+    public function setDeezerExpireAt($deezerExpireAt)
+    {
+        $this->deezerExpireAt = $deezerExpireAt;
+
+        return $this;
+    }
+
+    /**
+     * Get deezerExpireAt
+     *
+     * @return \DateTime
+     */
+    public function getDeezerExpireAt()
+    {
+        return $this->deezerExpireAt;
     }
 }

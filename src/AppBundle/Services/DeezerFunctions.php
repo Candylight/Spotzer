@@ -9,6 +9,7 @@
 namespace AppBundle\Services;
 
 
+use AppBundle\Entity\Credentials;
 use AppBundle\Library\DeezerAPI\DeezerAPI;
 use AppBundle\Library\DeezerAPI\Session;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,10 +52,26 @@ class DeezerFunctions
 
     public function getToken($code)
     {
-
         $this->session->requestAccessToken($code);
 
-        return $this->session->getAccessToken();
+        return array(
+            "token" => $this->session->getAccessToken(),
+            "expirationDate" => $this->session->getTokenExpiration());
+    }
 
+    /**
+     * @param Credentials $credentials
+     *
+     * @return bool
+     */
+    public function checkTokenValidity($credentials)
+    {
+        if($credentials->getDeezerToken() != null)
+        {
+            if($credentials->getDeezerExpireAt() > new \DateTime())
+                return true;
+        }
+
+        return false;
     }
 }
