@@ -101,7 +101,7 @@ class AccountController extends Controller
                 $this->get('session')->getFlashBag()->add('info',$this->get('translator')->trans('user.creation.enabled'));
                 $this->authenticateUser($user);
 
-                return $this->redirectToRoute('dashboard');
+                return $this->redirectToRoute('tutorial');
             }
         }
         else

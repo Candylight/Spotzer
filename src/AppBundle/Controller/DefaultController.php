@@ -18,6 +18,14 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/tutorial", name="tutorial")
+     */
+    public function tutorialAction(Request $request)
+    {
+        return $this->render('default/tutorial.html.twig');
+    }
+
+    /**
      * @Route("/", name="default")
      */
     public function defaultAction()
