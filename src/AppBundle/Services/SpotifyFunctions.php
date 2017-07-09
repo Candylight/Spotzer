@@ -106,4 +106,20 @@ class SpotifyFunctions
         return $this->api->me()->id;
     }
 
+    public function getPlaylistItem($accessToken, $playlistID)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getUserPlaylistTracks($this->getCurrentUserId($accessToken), $playlistID);
+
+    }
+
+    public function getPlaylistByID($accessToken, $playlistID)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getUserPlaylist($this->getCurrentUserId($accessToken), $playlistID);
+
+    }
+
 }

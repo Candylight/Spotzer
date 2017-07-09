@@ -1,0 +1,31 @@
+<div class="part-connexion container">
+
+    {% if app.user.credentials.spotifyToken == null or app.user.credentials.deezerToken == null or app.user.credentials.youtubeToken == null %}
+        <div class="col-xs-3 offset-xs-3">
+            {% if app.user.credentials.spotifyToken == null and app.user.credentials.deezerToken == null %}
+                <img src="{{ asset('img/dashboard/index/music.png') }}" alt="">
+                <br/>
+                Connectez vous à une plateforme musicale <br/> pour profiter du contenu audio
+                <br/>
+                <a class="button" href="{{ path('account') }}">
+                    Se connecter
+                </a>
+            {% else %}
+                Vous êtes connecté à une plateforme musicale
+            {% endif %}
+        </div>
+        <div class="col-xs-3">
+            {% if app.user.credentials.youtubeToken == null %}
+                <img src="{{ asset('img/dashboard/index/video.png') }}" alt="">
+                <br/>
+                Connectez vous à youtube <br/> pour profiter du contenu vidéo
+                <br/>
+                <a class="button" href="{{ path('account') }}">
+                    Se connecter
+                </a>
+            {% else %}
+                Vous êtes connecté à youtube
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
