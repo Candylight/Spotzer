@@ -224,10 +224,17 @@ and (max-device-width : 667px) {
         width: 100% !important;
         margin:0 !important;
     }
-    .button{
+    .login .button{
         font-size:5em !important;
         width:100% !important;
     }
+        .login input[type=text],.login input[type=password],.login input[type=email]{
+            width:90%  !important;
+            font-size:5em !important;
+        }
+        .login .title{
+            font-size:5em !important;
+        }
 
 
 
