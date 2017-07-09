@@ -11,6 +11,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Credentials;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,12 +42,17 @@ class SpotifyController extends Controller
     {
         $token = $this->get('spotify_functions')->getToken($_GET['code']);
 
-        $this->getUser()->getCredentials()->setSpotifyToken($token);
+        $this->getUser()->getCredentials()->setSpotifyToken($token['token']);
+
+        $date = new\DateTime();
+        $date->setTimestamp($token['expirationDate']);
+        $this->getUser()->getCredentials()->setSpotifyExpireAt($date);
+
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();
 
 
-        return $this->redirectToRoute('homepage');
+        return $this->redirectToRoute('account');
     }
 
 
@@ -68,5 +74,22 @@ class SpotifyController extends Controller
         return $this->render('search/searchSpotify.html.twig', [
             'musics' => $musics
         ]);
+    }
+
+    /**
+     * @Route("/spotify/logout", name="spotify_logout")
+     */
+    public function logout()
+    {
+        /** @var Credentials $credentials */
+        $credentials = $this->getUser()->getCredentials();
+
+        $credentials->setSpotifyToken(null);
+        $credentials->setSpotifyRefreshToken(null);
+
+        $this->getDoctrine()->getManager()->persist($credentials);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('account');
     }
 }
