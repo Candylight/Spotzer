@@ -11,21 +11,46 @@
                     Se connecter
                 </a>
             {% else %}
-                Vous êtes connecté à une plateforme musicale
+                    Découvrez tout de suite votre actualité
+                    <br/>
+                {% if app.user.credentials.spotifyToken != null and app.user.credentials.deezerToken != null %}
+                        {% if app.user.spotifyPrefered %}
+                                <a class="button" href="{{ path('dashboard_spotify') }}">
+                                        Mon dashboard
+                                </a>
+                        {% else %}
+                                <a class="button" href="{{ path('dashboard_deezer') }}">
+                                        Mon dashboard
+                                </a>
+                        {% endif %}
+                {% elseif app.user.credentials.spotifyToken == null %}
+                        <a class="button" href="{{ path('dashboard_deezer') }}">
+                                Mon dashboard
+                        </a>
+                {% else %}
+                        <a class="button" href="{{ path('dashboard_spotify') }}">
+                                Mon dashboard
+                        </a>
+                {% endif %}
+
             {% endif %}
         </div>
         <div class="col-xs-3">
-            {% if app.user.credentials.youtubeToken == null %}
                 <img src="{{ asset('img/dashboard/index/video.png') }}" alt="">
                 <br/>
-                Connectez vous à youtube <br/> pour profiter du contenu vidéo
-                <br/>
-                <a class="button" href="{{ path('account') }}">
-                    Se connecter
-                </a>
-            {% else %}
-                Vous êtes connecté à youtube
-            {% endif %}
+                {% if app.user.credentials.youtubeToken == null %}
+                        Connectez vous à youtube <br/> pour profiter du contenu vidéo
+                        <br/>
+                        <a class="button" href="{{ path('account') }}">
+                            Se connecter
+                        </a>
+                {% else %}
+                        Découvrez tout de suite votre actualité
+                        <br/>
+                        <a class="button" href="{{ path('dashboard_youtube') }}">
+                            Mon dashboard
+                        </a>
+                {% endif %}
         </div>
     {% endif %}
 </div>
