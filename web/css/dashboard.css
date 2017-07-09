@@ -120,13 +120,56 @@
     }
 
 
+
 /********************************************************************************************/
 /*                                      RESPONSIVE                                          */
 /********************************************************************************************/
-@media screen and (max-width: 970px) {
-    #main-container .numbers .plateform{
-        border-left: none;
-        border-top: 1px solid rgba(255,255,255,0.2);
-        padding-top:20px;
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+    .contentBodyContainer {
+        padding: 0 !important;
     }
+
+    .part-connexion {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+        .part-connexion .part {
+            width: 100% !important;
+            margin: 0 !important;
+            margin-bottom: 20px !important;
+        }
+
+            .part-connexion .part .button {
+                font-size: 1.5em !important;
+            }
+
+    .part-transfer {
+        font-size: 1.5em;
+    }
+
+    .part-discover {
+        font-size: 1.5em;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+        .part-discover .title{
+            font-size: 1.5em !important;
+        }
+        .part-discover .part{
+            width:100% !important;
+        }
+            .part-discover .part .title{
+                font-size: 1em !important;
+            }
+            .part-discover .part .description{
+                width: 100% !important;
+                font-size: 0.7em !important;
+            }
+            .part-discover .part.numbers{
+                display: none !important;
+            }
 }

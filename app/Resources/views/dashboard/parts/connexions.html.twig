@@ -1,7 +1,7 @@
 <div class="part-connexion container">
 
     {% if app.user.credentials.spotifyToken == null or app.user.credentials.deezerToken == null or app.user.credentials.youtubeToken == null %}
-        <div class="col-xs-3 offset-xs-3">
+        <div class="col-xs-3 offset-xs-3 part">
             {% if app.user.credentials.spotifyToken == null and app.user.credentials.deezerToken == null %}
                 <img src="{{ asset('img/dashboard/index/music.png') }}" alt="">
                 <br/>
@@ -35,7 +35,7 @@
 
             {% endif %}
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-3 part">
                 <img src="{{ asset('img/dashboard/index/video.png') }}" alt="">
                 <br/>
                 {% if app.user.credentials.youtubeToken == null %}

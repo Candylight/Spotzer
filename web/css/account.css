@@ -183,3 +183,49 @@
 /***********************************************************************************************************/
 /*                                  PAGE MODIFICATION DE COMPTE                                            */
 /***********************************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************************************************************/
+/*                                      RESPONSIVE                                          */
+/********************************************************************************************/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+    #container-account .header-login{
+        font-size:50px;
+    }
+        #container-account .header-login span{
+            font-size:130px;
+        }
+        #container-account .header-login img{
+            display: none;
+        }
+    .container-form{
+        width: 100% !important;
+        margin:0 !important;
+    }
+    .button{
+        font-size:5em !important;
+        width:100% !important;
+    }
+}

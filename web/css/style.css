@@ -455,16 +455,19 @@ header{
 
 
 
-
-
-
-@media screen and (max-width: 970px) {
+/********************************************************************************************/
+/*                                      RESPONSIVE                                          */
+/********************************************************************************************/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
     header .recherche-container{
         text-align: center;
+        position: relative;
     }
-        header .recherche-container .recherche{
-            width: 90%;
-        }
+    header .recherche-container .recherche{
+        width: 90%;
+    }
     header .plateformes{
         text-align: center;
     }
@@ -472,5 +475,45 @@ header{
     .contentBodyContainer
     {
         padding-top: 125px;
+    }
+
+    #container-account .header-login{
+        font-size:50px;
+    }
+    #container-account .header-login span{
+        font-size:130px;
+    }
+    #container-account .header-login img{
+        display: none;
+    }
+    .container-form{
+        width: 100% !important;
+        margin:0 !important;
+    }
+    .button{
+        font-size:5em !important;
+        width:100% !important;
+    }
+    .title{
+        font-size:5em !important;
+    }
+
+    input[type=text], input[type=password], input[type=email]{
+        width:90%  !important;
+        font-size:5em !important;
+    }
+    header{
+        position: relative;
+    }
+    header .title{
+        font-size:1em !important;
+    }
+
+    header input[type=text], header input[type=password], header input[type=email]{
+        width:90%  !important;
+        font-size:1em !important;
+    }
+    header form{
+        width:100%;
     }
 }
