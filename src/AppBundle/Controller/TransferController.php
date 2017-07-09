@@ -89,6 +89,22 @@ class TransferController extends Controller
                                 }
                             }
                         }
+                    } elseif ($plateform_end == 'deezer') {
+                        $deezerPlaylist = $this->get('deezer_functions')->createPlaylist($this->getUser()->getCredentials()->getDeezerToken(), $playlistYoutubeName);
+                        foreach ($tracks as $track) {
+                            $sanitizeTitle = preg_replace('/\([^)]+\)/','',$track->getSnippet()->title);
+                            $sanitizeTitle = preg_replace('/\[[^)]+\]/', '', $sanitizeTitle);
+                            $sanitizeTitle = preg_replace('/[^A-Za-z0-9\s]/', '', $sanitizeTitle);
+                            if ($sanitizeTitle !== ''){
+                                $deezerTracks = $this->get('deezer_functions')->searchBestResult($sanitizeTitle);
+                                foreach ($deezerTracks as $item) {
+                                    if (is_array($item)&& !empty($item)) {
+                                        $trackId = $item[0]->id;
+                                    }
+                                }
+                                $this->get('deezer_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getDeezerToken(), preg_replace('/\.[^.]*$/', '', $deezerPlaylist->id), $trackId);
+                            }
+                        }die;
                     }
                 break;
                 case 'spotify':
@@ -108,7 +124,7 @@ class TransferController extends Controller
                         foreach ($tracks as $track) {
                             $deezerTracks = $this->get('deezer_functions')->searchBestResult($track->track->name . ' ' . $track->track->artists[0]->name);
                             foreach ($deezerTracks as $item) {
-                                if (is_array($item) ){
+                                if (is_array($item)&& !empty($item)){
                                     $trackId = $item[0]->id;
                                 }
                             }
