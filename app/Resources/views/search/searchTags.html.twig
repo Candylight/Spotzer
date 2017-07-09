@@ -1,5 +1,5 @@
 {% for tag in tags %}
-    <span><a href="{{ tag['url'] }}">{{ tag['name'] }}</a></span>
+    <span><a target="_blank" href="{{ tag['url'] }}">{{ tag['name'] }}</a></span>
 {% else %}
     {{ "search.lastFM.tags.noResults"|trans }}
 {% endfor %}

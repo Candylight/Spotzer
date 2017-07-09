@@ -92,6 +92,19 @@
                     }
 
 
+.numbers .tags{
+    width:90%;
+    margin:auto;
+}
+.numbers .tags span{
+    background-color:#e39816;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 7px;
+    margin-top:5px;
+    display: inline-block;
+    font-size:80%;
+}
 
 /********************************************************************************************/
 /*                                      POPIN YOUTUBE                                       */
