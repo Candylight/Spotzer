@@ -130,7 +130,7 @@ class DeezerAPI
      */
     public function getAlbum($albumId)
     {
-        $response = $this->request->api('GET', '/album/' . $albumId);
+        $response = $this->request->api('GET', '/album/' . $albumId,  [], [], false);
         return $response['body'];
     }
     
@@ -142,7 +142,7 @@ class DeezerAPI
     public function getUserPlaylists()
     {
          $options = array(
-             'access_token' 		=> $this->accessToken,
+             'access_token' => $this->accessToken,
          );
 
          $response = $this->request->api('GET', '/user/me/playlists', $options);
@@ -215,6 +215,19 @@ class DeezerAPI
      * @return array
      */
     public function getTopSongs($url)
+    {
+        $response = $this->request->api('GET', $url, [], [], false, true);
+        return $response['body'];
+    }
+
+    /**
+     * Get songs of album
+     *
+     * @param string $url
+     *
+     * @return array
+     */
+    public function getAlbumSongs($url)
     {
         $response = $this->request->api('GET', $url, [], [], false, true);
         return $response['body'];
