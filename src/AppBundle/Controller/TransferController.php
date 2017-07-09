@@ -103,6 +103,17 @@ class TransferController extends Controller
                             }
                             $this->get('youtube_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getYoutubeToken(), $youtubePlaylist->id, $trackId);
                         }
+                    } elseif ($plateform_end == 'deezer'){
+                        $deezerPlaylist = $this->get('deezer_functions')->createPlaylist($this->getUser()->getCredentials()->getDeezerToken(), $playlistSpotifyName);
+                        foreach ($tracks as $track) {
+                            $deezerTracks = $this->get('deezer_functions')->searchBestResult($track->track->name . ' ' . $track->track->artists[0]->name);
+                            foreach ($deezerTracks as $item) {
+                                if (is_array($item) ){
+                                    $trackId = $item[0]->id;
+                                }
+                            }
+                            $this->get('deezer_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getDeezerToken(), preg_replace('/\.[^.]*$/', '', $deezerPlaylist->id), $trackId);
+                        }
                     }
                 break;
                 case 'deezer':

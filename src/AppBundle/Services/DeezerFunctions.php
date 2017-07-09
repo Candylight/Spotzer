@@ -45,7 +45,7 @@ class DeezerFunctions
     public function getAuthorizationUrl()
     {
 
-        $options = ['perms' => ['basic_access'],];
+        $options = ['perms' => ['basic_access', 'email', 'offline_access', 'manage_library', 'manage_community', 'delete_library', 'listening_history'],];
 
         return $this->session->getAuthorizeUrl($options);
     }
@@ -83,7 +83,6 @@ class DeezerFunctions
         $id = $this->getArtistId($artist);
         $artist = $this->api->getArtist($id);
         $topSongs = $this->api->getTopSongs($artist->tracklist);
-        //dump($topSongs->data);die;
         return $topSongs->data;
     }
 
@@ -95,5 +94,29 @@ class DeezerFunctions
         $result = $this->api->search($artist,array(),"artist",false);
 
         return $result->data[0]->id;
+    }
+
+    public function createPlaylist($accessToken, $title)
+    {
+
+        $this->api->setAccessToken($accessToken);
+
+        $options = [
+            'title' => $title,
+        ];
+
+        return $this->api->createUserPlaylist($options, false);
+    }
+
+    public function searchBestResult($track)
+    {
+        return $this->api->search($track,[], 'track', false);
+    }
+
+    public function addItemToPlaylist($accessToken ,$playlistId, $trackId)
+    {
+          $this->api->setAccessToken($accessToken);
+
+        return $this->api->addUserPlaylistTracks($playlistId, $trackId);
     }
 }

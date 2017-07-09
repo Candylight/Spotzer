@@ -56,7 +56,7 @@ class DeezerAPI
      *
      * @return id The id of the new playlist
      */
-    public function createUserPlaylist($options)
+    public function createUserPlaylist($options, $bodyParser = true)
     {
         $defaults = array(
             'title' =>  ''
@@ -68,7 +68,7 @@ class DeezerAPI
             'access_token' 		=> $this->accessToken
         ));
 
-        $response = $this->request->api('POST', '/user/me/playlists', $options);
+        $response = $this->request->api('POST', '/user/me/playlists', $options, [], $bodyParser);
 
         return $response['body'];
     }

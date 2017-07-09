@@ -50,6 +50,7 @@ class Session
             'scope' => isset($options['scope']) ? implode(' ', $options['scope']) : null,
             'show_dialog' => !empty($options['show_dialog']) ? 'true' : null,
             'state' => isset($options['state']) ? $options['state'] : null,
+            'perms' => $options['perms']
         ];
 
         return Request::ACCOUNT_URL . '/oauth/auth.php?' . http_build_query($parameters);
