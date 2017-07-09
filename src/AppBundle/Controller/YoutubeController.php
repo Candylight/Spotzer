@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Credentials;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -28,7 +29,7 @@ class YoutubeController extends Controller
      * @Route("/youtube/callback", name="youtube_callback")
      *
      *
-     * @return httpResponse
+     * @return RedirectResponse
      */
     public function callbackAction(Request $request)
     {
@@ -47,7 +48,7 @@ class YoutubeController extends Controller
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();
 
-        return $this->redirectToRoute('dashboard');
+        return $this->redirectToRoute('account');
 
     }
 
@@ -231,7 +232,7 @@ class YoutubeController extends Controller
     {
         $user = $this->getUser();
 
-        $user->getCredentials()->setYoutubeToken('');
+        $user->getCredentials()->setYoutubeToken(null);
         $user->getCredentials()->setYoutubeExpireAt(null);
 
         $this->getDoctrine()->getManager()->persist($user);
