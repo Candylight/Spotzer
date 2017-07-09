@@ -1,5 +1,5 @@
 #container-account{
-    margin:70px auto 100px;
+    margin:0 auto 100px;
     color:white;
 }
 /***********************************************************************************************************/
@@ -50,6 +50,20 @@
             font-size:90%;
             margin-top:30px;
         }
+    #container-account .header-login{
+        text-align: center;
+        font-size:25px;
+    }
+        #container-account .header-login span{
+            font-size:40px;
+            color:#e39816;
+        }
+        #container-account .header-login img{
+            margin-top:20px;
+            margin-bottom:20px;
+            height:100px;
+        }
+
 /***************************************************************/
 /*                        LOGIN                                */
 /***************************************************************/
