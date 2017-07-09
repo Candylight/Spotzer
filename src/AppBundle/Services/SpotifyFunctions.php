@@ -9,6 +9,7 @@
 
 namespace AppBundle\Services;
 
+use AppBundle\Entity\Credentials;
 use SpotifyWebAPI\SpotifyWebAPI;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -137,6 +138,22 @@ class SpotifyFunctions
         $this->api->setAccessToken($accessToken);
 
         return $this->api->addUserPlaylistTracks($this->getCurrentUserId($accessToken), $playlistId, [$trackId]);
+    }
+
+    /**
+     * @param Credentials $credentials
+     *
+     * @return bool
+     */
+    public function checkTokenValidity($credentials)
+    {
+        if($credentials->getSpotifyToken() != null)
+        {
+            if($credentials->getSpotifyExpireAt() > new \DateTime())
+                return true;
+        }
+
+        return false;
     }
 
 }
