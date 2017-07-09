@@ -6,3 +6,5 @@
 /web/bundles/
 /.idea
 *.cache
+
+*.php~

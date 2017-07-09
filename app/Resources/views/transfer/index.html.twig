@@ -2,28 +2,24 @@
 
 {% block body %}
     <div id="container-transfer">
-        <div class="container-tab">
-            <div class="thumbnails">
-                <div class="item active" data-thumb="1">Spotify > Deezer</div>
-                <div class="item" data-thumb="2">Deezer > Spotify</div>
-                <div class="item" data-thumb="3">Entre amis</div>
+        <div class="col-xs-4 offset-xs-4 container-center">
+            <div class="col-xs-12 title">
+                {{ "transfer.title"|trans }}
             </div>
-            <div class="content">
-                <div class="content-thumb thumb-1 active">
-                    <div class="title">
-                        Transfère entre Spotify et Deezer
-                    </div>
-                </div>
-                <div class="content-thumb thumb-2">
-                    <div class="title">
-                        Transfère entre Deezer et Spotify
-                    </div>
-                </div>
-                <div class="content-thumb thumb-3">
-                    <div class="title">
-                        Transfère entre amis
-                    </div>
-                </div>
+            <div class="advice">
+                {{ "transfer.selection.title"|trans }}
+            </div>
+            <div class="part container">
+                {{ include('transfer/steps/1_start_plateform.html.twig')  }}
+            </div>
+            <div class="part container">
+                {{ include('transfer/steps/2_playlists_select.html.twig')  }}
+            </div>
+            <div class="part container">
+                {{ include('transfer/steps/3_end_plateform.html.twig')  }}
+            </div>
+            <div class="part container">
+                {{ include('transfer/steps/4_transfer.html.twig')  }}
             </div>
         </div>
     </div>
@@ -38,4 +34,8 @@
 {% block javascripts %}
     {{ parent() }}
     <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/1_start_platform.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/2_playlist.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/3_end_platform.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/transfer/4_transfer.js') }}"></script>
 {% endblock %}

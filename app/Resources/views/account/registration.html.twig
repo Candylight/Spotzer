@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ "global.connexion"|trans }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/remodal/remodal.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/remodal/remodal-default-theme.css') }}">
+</head>
+<body>
+<div class="contentBodyContainer">
+    <div id="container-account">
+        <div class="col-xs-4 offset-xs-4 container-form connexion-container">
+            <div class="title">
+                {{ "registration.title"|trans }}
+            </div>
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            <input class="button" type="submit" value="{{ "user.creation.validForm"|trans }}">
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{{ include('library/remodal/popin.html.twig',{'type': 'information'}) }}
+<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/library/remodal/remodal.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/library/remodal/config.js') }}"></script>
+</body>
+</html>

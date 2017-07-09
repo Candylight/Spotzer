@@ -1,0 +1,19 @@
+<form class="col-xs-12" action="{{ path('create_playlist') }}" method="post">
+    <div class="col-xs-6 part">
+        <input type="text" value="{{ "dashboard.youtube.createPlaylist.name"|trans }}" name="title">
+        <br/>
+        <input type="text" value="{{ "dashboard.youtube.createPlaylist.description"|trans }}" name="description">
+    </div>
+    <div class="col-xs-6 part">
+                        <span class="custom-dropdown custom-dropdown--white">
+                            <select class="type-list-start custom-dropdown__select custom-dropdown__select--white"
+                                    name="status">
+                                <option value="{{ "dashboard.youtube.createPlaylist.public"|trans }}">{{ "dashboard.youtube.createPlaylist.publicLabel"|trans }}</option>
+                                <option value="{{ "dashboard.youtube.createPlaylist.private"|trans }}">{{ "dashboard.youtube.createPlaylist.privateLabel"|trans }}</option>
+                            </select>
+                        </span>
+        <br/>
+        <input type="submit" value="{{ "dashboard.youtube.createPlaylist.create"|trans }}">
+    </div>
+</form>
+

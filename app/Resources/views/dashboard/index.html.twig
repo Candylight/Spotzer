@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="main-container">
+        {{ include('dashboard/indexTop.html.twig') }}
+        {{ render(controller('AppBundle:Youtube:getPlaylist')) }}
+    </div>
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+{% endblock %}

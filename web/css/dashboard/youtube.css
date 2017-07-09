@@ -1,0 +1,105 @@
+.container-dashboard-youtube{
+    color:white;
+    padding-bottom: 50px;
+}
+    .container-dashboard-youtube .logo-sidebar{
+        text-align: center;
+    }
+        .container-dashboard-youtube .logo-sidebar img{
+            width: 50%;
+            opacity: 0.7;
+        }
+    .container-dashboard-youtube .container-followers{
+        background-color: rgba(0,0,0,0.2);
+        margin-top:20px;
+        padding:15px;
+        text-align: center;
+    }
+        .container-dashboard-youtube .container-followers .title{
+            color:#e39816;
+            font-size:150%;
+        }
+        .container-dashboard-youtube .container-followers ul{
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+            .container-dashboard-youtube .container-followers ul li{
+                list-style: none;
+                margin-top:10px;
+                background-color:rgba(255,255,255,0.3);
+                padding:2px;
+                border-radius: 4px;
+            }
+                .container-dashboard-youtube .container-followers ul li .image{
+                    text-align: center;
+                }
+                    .container-dashboard-youtube .container-followers ul li .image img{
+                        height:18px;
+                        opacity: 0.5;
+                    }
+                .container-dashboard-youtube .container-followers ul li .name{
+                    font-size:10px;
+                    padding-top: 5px;
+                }
+                .container-dashboard-youtube .container-followers ul li .link{
+                    background-color:rgba(255,255,255,0.1);
+                    font-size:10px;
+                    padding:2px;
+                    border-radius: 4px;
+                    color:white;
+                    text-decoration: none;
+                }
+                    .container-dashboard-youtube .container-followers ul li .link:hover{
+                        background-color:rgba(255,255,255,0.2);
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+
+    .container-dashboard-youtube .horizontal-part{
+        background-color: rgba(0,0,0,0.2);
+        margin-top:20px;
+        padding:15px;
+    }
+        .container-dashboard-youtube .horizontal-part .title{
+            text-align: left;
+            font-size:180%;
+            color:#e39816;
+            margin-bottom: 15px;
+        }
+        .container-dashboard-youtube .horizontal-part .container-videos{
+            text-align: left;
+            overflow: hidden;
+        }
+            .container-dashboard-youtube .horizontal-part .container-videos .parts{
+                display: inline-block;
+                text-align: center;
+                width:15%;
+            }
+                .container-dashboard-youtube .horizontal-part .container-videos .image{
+                }
+                    .container-dashboard-youtube .horizontal-part .container-videos .image img {
+                        width: 80%;
+                        max-width: 100px;
+                        border:1px solid grey;
+                    }
+                .container-dashboard-youtube .horizontal-part .container-videos .title{
+                    text-align: center;
+                    font-size:13px;
+                }
+                .container-dashboard-youtube .horizontal-part .container-videos .button{
+                    padding-top:5px;
+                    padding-bottom: 5px;
+                    font-size:10px;
+                }
+        .container-dashboard-youtube .horizontal-part form{
+            text-align: center;
+        }
+            .container-dashboard-youtube .horizontal-part form .part:first-child{
+                border-right: 1px solid grey;
+            }
+            .container-dashboard-youtube .horizontal-part form input[type=text]{
+                width:100%;
+                margin-bottom: 15px;
+            }
+

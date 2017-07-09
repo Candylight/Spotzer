@@ -1,0 +1,18 @@
+    <div class="col-xs-3 number">
+        <div class="out">
+            <div class="in">
+                5
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-9 title-part">
+        {{ "transfer.steps.step5"|trans }}
+    </div>
+    <div class="col-xs-12 content content-4">
+        <span class="button launch-transfer" onclick="launchTransfer()">
+            {{ "transfer.button"|trans }}
+        </span>
+    </div>
+    <script>
+        var url_transfer = '{{ path('transfer_launch') }}';
+    </script>

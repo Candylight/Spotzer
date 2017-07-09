@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        {% if error is defined and error == true %}
+            {{ "user.creation.mailConfirmationCodeExpired"|trans }}
+        {% else %}
+            {{ "user.creation.mailConfirmationSended"|trans }}
+        {% endif %}
+
+        <br/>
+        {{ "user.creation.mailIfNotReceived"|trans }}
+        <br/>
+        <button class="button">{{ "user.creation.mailSendButton"|trans }}</button>
+    </div>
+{% endblock %}

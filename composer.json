@@ -12,7 +12,7 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "symfony/symfony": "3.1.*",
+        "symfony/symfony": "3.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
@@ -24,7 +24,6 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "jwilsson/spotify-web-api-php": "^1.0.0",
         "madcoda/php-youtube-api": "^1.2",
-        "njasm/soundcloud": "dev-master",
         "disceney/lucy-search-bundle": "1.0",
         "google/apiclient": "^2.0"
     },

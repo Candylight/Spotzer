@@ -5,6 +5,7 @@ body{
     margin-right: 0%;
     font-family: font;
     background-color: #3b3b3b;
+    background-image: url("../img/global/background.jpg");
 }
 
 @font-face {
@@ -21,7 +22,7 @@ body{
         padding:0px;
     }
 
-    input[type=text], .container input[type=password], .container input[type=email]{
+    input[type=text], input[type=password], input[type=email]{
         padding:5px;
         background-color: #a5a5a5;
         border-radius: 360px;
@@ -34,7 +35,6 @@ body{
         text-indent: 5px;
     }
     .button, input[type=submit]{
-        width: 150px;
         background-color:#e39816;
         border-radius: 360px;
         margin-top:10px;
@@ -47,12 +47,130 @@ body{
         font-family: font;
         user-select: none;
         text-transform: uppercase;
+        display: inline-block;
     }
         .button:hover, input[type=submit]:hover{
             background-color:#a9700c;
+            color:white;
+            text-decoration: none;
+        }
+        .button.disconnect, input[type=submit].disconnect{
+            background-color: #c03c3c;
+        }
+            .button.disconnect:hover, input[type=submit].disconnect:hover{
+                background-color:#b33030;
+            }
+    a{
+        color:white;
+        text-decoration: none;
+    }
+        a:hover{
+            color:white;
+            text-decoration: underline;
+        }
+        a:active{
+            color:white;
+            text-decoration: underline;
         }
 
 
+.custom-dropdown--large {
+    font-size: 1.5em;
+}
+
+.custom-dropdown--small {
+    font-size: .7em;
+}
+
+.custom-dropdown__select{
+    font-size: inherit; /* inherit size from .custom-dropdown */
+    padding: .5em; /* add some space*/
+    margin: 0; /* remove default margins */
+}
+
+.custom-dropdown__select--white {
+    background-color: #e3e3e3;
+    color: #444;
+}
+
+@supports (pointer-events: none) and
+              ((-webkit-appearance: none) or
+              (-moz-appearance: none) or
+              (appearance: none)) {
+
+    .custom-dropdown {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .custom-dropdown__select {
+        padding-right: 2.5em; /* accommodate with the pseudo elements for the dropdown arrow */
+        border: 0;
+        border-radius: 3px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .custom-dropdown::before,
+    .custom-dropdown::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .custom-dropdown::after { /*  Custom dropdown arrow */
+        content: "\25BC";
+        height: 1em;
+        font-size: .625em;
+        line-height: 1;
+        right: 1.2em;
+        top: 50%;
+        margin-top: -.5em;
+    }
+
+    .custom-dropdown::before { /*  Custom dropdown arrow cover */
+        width: 2em;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: 0 3px 3px 0;
+    }
+
+    .custom-dropdown__select[disabled] {
+        color: rgba(0, 0, 0, .3);
+    }
+
+    .custom-dropdown.custom-dropdown--disabled::after {
+        color: rgba(0, 0, 0, .1);
+    }
+
+    /* White dropdown style */
+    .custom-dropdown--white::before {
+        top: .5em;
+        bottom: .5em;
+        background-color: #e3e3e3;
+        border-left: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    .custom-dropdown--white::after {
+        color: rgba(0, 0, 0, .9);
+    }
+
+    /* FF only temp fix */
+    @-moz-document url-prefix() {
+        .custom-dropdown__select {
+            padding-right: .9em
+        }
+        .custom-dropdown--large .custom-dropdown__select {
+            padding-right: 1.3em
+        }
+        .custom-dropdown--small .custom-dropdown__select {
+            padding-right: .5em
+        }
+    }
+}
 /****************************************************************************************************************/
 /*                                                LISTS                                                         */
 /****************************************************************************************************************/
@@ -124,7 +242,7 @@ body{
 
     .container-tab{
         width:80%;
-        margin:auto;
+        margin:0 auto 30px !important;
     }
         .container-tab .thumbnails{
 
@@ -154,6 +272,8 @@ body{
             .container-tab .content .title{
                 text-align: center;
                 font-size: 150%;
+                text-transform: uppercase;
+                margin-bottom: 10px;
             }
             .container-tab .content .content-thumb{
                 display: none;
@@ -161,6 +281,9 @@ body{
                 .container-tab .content .content-thumb.active{
                     display: block;
                 }
+
+
+
 
 /****************************************************************************************************************/
 /*                                                HEADER                                                        */
@@ -174,6 +297,7 @@ header{
     background-color: #4b4b4b;
     border-bottom: 1px solid #e39816;
     color: white;
+    z-index: 2;
 }
     header .recherche-container{
     }
@@ -193,11 +317,31 @@ header{
             position: relative;
             top:-3px;
         }
+
+        .search-result{
+            background-color:rgba(0,0,0,0.7);
+            color:white;
+            font-size: 12px !important;
+        }
+            .search-result:hover{
+                background-color:#e39816;
+                border:0px solid transparent;
+                background-repeat: no-repeat;
+                background-position: center right;
+                background-image: url("../img/global/search-hover-icon.png");
+            }
+            .search-result img{
+                height:25px;
+                margin-right: 5px;
+            }
+
+
     header .title{
         font-size:150%;
         text-align: center;
         color:white;
         text-decoration: none;
+        display: block;
     }
         header .title:hover{
             color:silver;
@@ -210,7 +354,77 @@ header{
             margin-left: 5px;
             position: relative;
             top:2px;
+            cursor: pointer;
         }
+
+    /************************************************************/
+    /*                          POPIN                           */
+    /************************************************************/
+    .popin {
+        position: fixed;
+        width:150px;
+        z-index: 2;
+        background-color: rgba(0,0,0,0.5);
+        top:65px;
+        right:15px;
+        padding:15px;
+        text-align: center;
+        display: none;
+    }
+        .popin .triangle {
+            width: 0;
+            height: 0;
+            border: solid 8px;
+            border-color: transparent transparent rgba(0,0,0,0.5) transparent;
+            margin:-31px auto 15px;
+            position: relative;
+            left:60px;
+        }
+        .popin .button{
+            font-size: 11px;
+            padding:7px;
+        }
+        .popin.active{
+            display: block;
+        }
+        .popin .inpopin{
+            display: block;
+        }
+
+
+
+
+
+/****************************************************************************************************************/
+/*                                                FOOTER                                                        */
+/****************************************************************************************************************/
+#footer{
+    background-color: rgba(0,0,0,0.8);
+    width: 100%;
+    padding:20px;
+    color:white;
+    text-align: center;
+    display: block;
+    float: left;
+}
+    #footer ul{
+        padding:0;
+        margin:0;
+    }
+        #footer ul li{
+            list-style: none;
+        }
+
+    #footer .logo{
+        width:90%;
+        max-width: 100px;
+        margin-top:15px;
+    }
+    #footer .title-logo{
+        width:20px;
+        opacity: 0.5;
+        margin-bottom:15px;
+    }
 
 /****************************************************************************************************************/
 /*                                                GLOBAL STYLE                                                  */
@@ -231,4 +445,32 @@ header{
 .contentBodyContainer
 {
     padding-top: 75px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 970px) {
+    header .recherche-container{
+        text-align: center;
+    }
+        header .recherche-container .recherche{
+            width: 90%;
+        }
+    header .plateformes{
+        text-align: center;
+    }
+
+    .contentBodyContainer
+    {
+        padding-top: 125px;
+    }
 }

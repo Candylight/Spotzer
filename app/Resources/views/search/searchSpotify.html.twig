@@ -1,0 +1,35 @@
+
+<div class="main-icon icon">
+    <img src="{{ asset('img/search/spotify.png') }}" alt="">
+</div>
+<div class="list">
+    {% if musics != false %}
+        {% for items in musics %}
+            <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
+                {% for key, item in items %}
+                <div class="play">
+                    <img src="{{ asset('img/search/play.png') }}" alt="">
+                </div>
+                <div class="content">
+                    <div class="name">
+                        <span class="artist">{{ item.artists[0].name }}</span>
+                        -
+                        <span class="song">{{ item.name }}</span>
+                    </div>
+                    <div class="details">
+                        {{ item.album.name }}
+                    </div>
+                </div>
+                <div class="actions">
+                    <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
+                    <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
+                </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="value-search">
+            Votre recherche n'as renvoyé aucun résultat Spotify
+        </div>
+    {% endif %}
+</div>

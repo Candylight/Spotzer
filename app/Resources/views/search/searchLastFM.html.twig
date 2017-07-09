@@ -1,0 +1,30 @@
+<div class="lastfm container">
+    {% if search != false %}
+        <div class="value-search col-xs-12">
+            {{ search.searchText }}
+        </div>
+        <div class="picture col-xs-3">
+            {% if search.urlImage != "" %}
+                <img src="{{ search.urlImage }}" alt="">
+            {% endif %}
+        </div>
+        <div class="content col-xs-6">
+            <div class="icon">
+                <a target="_blank" href="{{ search.url }}" title="{{ "search.lastFM.seeMore"|trans }}"><img src="{{ asset('img/search/lastFM-icon.png') }}" alt=""></a>
+            </div>
+            <div class="description">
+                {{ search.description }}
+            </div>
+        </div>
+        <div class="numbers col-xs-3">
+            <div class="title">{{ "search.lastFM.tags.title"|trans }}</div>
+            <div class="tags">
+                {{ render(controller('AppBundle:LastFM:getTags',{"keyword":keyword})) }}
+            </div>
+        </div>
+    {% else %}
+        <div class="value-search">
+            {{ "search.lastFM.noResult"|trans }}
+        </div>
+    {% endif %}
+</div>

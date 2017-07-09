@@ -1,46 +1,171 @@
 #container-account{
-    margin-top:70px;
+    margin:70px auto 100px;
     color:white;
 }
-    #container-account .connect-to{
-        margin: 15px auto 15px;
-        padding-bottom:20px;
+/***********************************************************************************************************/
+/*                                  PAGE DE CONNEXION / INSCRIPTION                                        */
+/***********************************************************************************************************/
+
+#container-account .container-form{
+    background-color: rgba(0,0,0,0.4);
+    padding: 30px;
+    margin-bottom: 50px;
+}
+    #container-account .container-form .title{
+        font-size:30px;
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+        #container-account .container-form .title:first-child{
+            margin-top: 0px;
+        }
+    #container-account .container-form form{
         text-align: center;
     }
-        #container-account .connect-to .title{
-            font-size: 25px;
+        #container-account .container-form input{
+            display: block;
+            width: 200px;
+            margin:0px auto 0px;
         }
-        #container-account .connect-to .plateforms{
+        #container-account .container-form input[type=text]{
+            border-radius: 2px;
+        }
+        #container-account .container-form input[type=password]{
+            border-radius: 2px;
+        }
+        #container-account .container-form input[type=email]{
+            border-radius: 2px;
+        }
+        #container-account .container-form form label{
+            display: block;
+            text-align: center;
+            margin-top:20px;
+        }
+            #container-account .container-form form label:after{
+                content: " :";
+            }
+        #container-account .container-form form input[type=submit]{
+            padding:5px;
+            font-size:90%;
+            margin-top:30px;
+        }
+/***************************************************************/
+/*                        LOGIN                                */
+/***************************************************************/
 
+
+    #container-account .container-form.login input[type=text]{
+        margin-bottom: 10px;
+        border-radius: 2px;
+    }
+    #container-account .container-form.login input[type=password]{
+        margin-bottom: 10px;
+        border-radius: 2px;
+    }
+    #container-account .container-form.login input[type=email]{
+        margin-bottom: 10px;
+        border-radius: 2px;
+    }
+
+
+
+/***************************************************************/
+/*                            REGISTER                         */
+/***************************************************************/
+
+    #container-account .container-form .register{
+        text-align: center;
+        border-top: 1px solid grey;
+        margin-top:30px;
+    }
+        #container-account .container-form .register .title{
+            margin-top:15px;
+            margin-bottom: 0px;
         }
-            #container-account .connect-to .plateforms img{
+
+
+
+/***********************************************************************************************************/
+/*                                  TEMPLATE DE LA PARTIE "ACCOUNT"                                        */
+/***********************************************************************************************************/
+
+
+/***************************************************************/
+/*                        ACCOUNT                              */
+/***************************************************************/
+    #container-account .connexion-container{
+
+    }
+        #container-account .connexion-container .title{
+            font-size:30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #container-account .connexion-container .part{
+            text-align: center;
+            border-left: 1px solid grey;
+        }
+            #container-account .connexion-container .part:first-child{
+                border-left: none;
+            }
+            #container-account .connexion-container .part .logo{
                 height:20px;
                 opacity: 0.2;
                 margin-left: 10px;
             }
-                #container-account .connect-to .plateforms img.active {
+                #container-account .connexion-container .part .logo.active {
                     height: 20px;
                     opacity: 0.9;
                 }
-    #container-account .container-tab{
-        width:50%;
-        margin:auto;
-    }
-        #container-account .container form{
-            text-align: center;
-        }
-            #container-account .container-tab .content input{
-                display: block;
-                width: 200px;
-                margin:20px auto 0px;
+            #container-account .connexion-container .part .name{
+                font-size: 200%;
+                margin: 10px auto 10px;
             }
-                #container-account .container-tab .content input[type=text]{
-                    border-radius: 2px;
-                }
-                #container-account .container-tab .content input[type=password]{
-                    border-radius: 2px;
-                }
-                #container-account .container-tab .content input[type=submit]{
-                    padding:5px;
-                    font-size:90%;
-                }
+            #container-account .connexion-container .part .button.deconnect {
+            }
+    #container-account .redirect-modify{
+        text-align: center;
+        background-color: rgba(0,0,0,0.4);
+        padding:30px;
+        margin-top:70px;
+        margin-bottom:40px;
+    }
+        #container-account .redirect-modify .title{
+            font-size: 30px;
+        }
+        #container-account .redirect-modify .button{
+        }
+
+
+
+
+/***************************************************************/
+/*                        MODIFY ACCOUNT                       */
+/***************************************************************/
+
+    #container-account .form-modify select{
+        display: none;
+    }
+    #container-account .form-modify .favorite-plateform-choice{
+        margin-top:20px;
+    }
+        #container-account .form-modify .favorite-plateform-choice div{
+            background-color: rgba(0,0,0,0.4);
+            padding:15px 0;
+        }
+            #container-account .form-modify .favorite-plateform-choice div:hover{
+                background-color: rgba(255,255,255,0.1);
+                cursor: pointer;
+                user-select: none;
+            }
+            #container-account .form-modify .favorite-plateform-choice div.active{
+                background-color: #a66c13;
+            }
+            #container-account .form-modify .favorite-plateform-choice div img{
+                height:15px;
+            }
+
+/***********************************************************************************************************/
+/*                                  PAGE MODIFICATION DE COMPTE                                            */
+/***********************************************************************************************************/

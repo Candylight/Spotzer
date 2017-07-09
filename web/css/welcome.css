@@ -1,0 +1,131 @@
+.container-welcome{
+    text-align: center;
+    color:white;
+    margin-bottom: 100px;
+}
+    .container-welcome .before{
+        margin-top:40px;
+        font-size:200%;
+    }
+    .container-welcome h1{
+        color:#e39816;
+        font-size:100px;
+     }
+    .container-welcome h2{
+
+    }
+    .container-welcome .login-register{
+        font-size:13px;
+    }
+        .container-welcome .login-register .button{
+            padding-top:2px;
+            padding-bottom:2px;
+        }
+            .container-welcome .login-register .button:last-child{
+                margin-left: 30px;
+            }
+    .container-welcome .plateforms{
+        margin-top:50px;
+    }
+        .container-welcome .plateforms .logo{
+            height:30px;
+        }
+        .container-welcome .plateforms .title{
+            font-size:200%;
+        }
+        .container-welcome .plateforms .type{
+            font-size:90%;
+            margin-bottom: 15px;
+        }
+        .container-welcome .plateforms .screenshot img{
+            border-radius: 360px;
+            border:1px solid silver;
+            width:50%;
+            opacity: 0.7;
+        }
+    .container-welcome .transfert{
+        text-align: center;
+        margin-top:70px;
+        background-color: rgba(255,255,255,0.1);
+        padding-bottom: 30px;
+    }
+        .container-welcome .transfert .title{
+            font-size:40px;
+            margin-bottom: 50px;
+        }
+        .container-welcome .transfert .image{
+            max-width: 100%;
+            width:300px;
+        }
+        .container-welcome .transfert ul{
+            list-style: none;
+        }
+            .container-welcome .transfert ul li{
+                max-width: 100%;
+                width:300px;
+                padding:5px;
+                background-color: rgba(0,0,0,0.4);
+                display: inline-block;
+                border-radius: 4px;
+                margin-top:10px;
+            }
+                .container-welcome .transfert ul li:hover{
+                    background-color: rgba(0,0,0,0.3);
+                }
+        .container-welcome .transfert .details{
+            background-color: rgba(0,0,0,0.5);
+            padding:10px;
+            margin-top: 40px;
+            color:silver;
+        }
+            .container-welcome .transfert .details .triangle{
+                width: 0;
+                height: 0;
+                border: solid 8px;
+                border-color: transparent transparent rgba(0,0,0,0.5) transparent;
+                margin:-26px auto 15px;
+                position: relative;
+                left:60px;
+            }
+    .container-welcome .dashboard{
+        margin-top:50px;
+    }
+        .container-welcome .dashboard .title{
+            font-size:40px;
+            margin-bottom: 20px;
+        }
+        .container-welcome .dashboard .input-research {
+        }
+            .container-welcome .dashboard .input-research .recherche{
+                width: 90%;
+                padding-right: 35px;
+            }
+            .container-welcome .dashboard .input-research input[type=submit]{
+                background-image: url("../img/header/icone_recherche.png");
+                background-repeat: no-repeat;
+                background-position: center right;
+                width: 30px;
+                height: 25px;
+                background-color: transparent;
+                border-radius: 360px;
+                margin-left:-40px;
+                position: relative;
+                top:-3px;
+            }
+        .container-welcome .dashboard .search-results{
+        }
+            .container-welcome .dashboard .search-results .results{
+                 list-style: none;
+                background-color: rgba(0,0,0,0.3);
+            }
+                .container-welcome .dashboard .search-results .results:hover{
+                    background-color:#e39816;
+                    border:0px solid transparent;
+                    background-repeat: no-repeat;
+                    background-position: center right;
+                    background-image: url("../img/global/search-hover-icon.png");
+                }
+                .container-welcome .dashboard .search-results .results img{
+                    height:25px;
+                    margin-right: 5px;
+                }

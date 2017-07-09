@@ -1,0 +1,8 @@
+<h1>{{ "user.creation.mail.title"|trans }}</h1>
+
+<div>
+    <p>
+        {{ "user.creation.mail.text"|trans }}
+    </p>
+    <a href="{{ url('confirmAccount',{'code':user.confirmationCode}) }}">{{ "user.creation.mail.clickToConfirm"|trans }}</a>
+</div>

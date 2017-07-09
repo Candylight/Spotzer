@@ -1,24 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-    <?php $connected = true; ?>
-
     <div id="container-account">
-        <div class="connect-to">
+        <div class="connexion-container container">
             <div class="title">
-                Vous êtes connecté aux palteformes suivantes:
+                {{ "account.platforms.title"|trans }} :
             </div>
-            <div class="plateforms">
-                <img class="active" src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
-                <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
-                <img class="active" src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
-                <img class="active" src="{{ asset('img/header/plateformes/logo_soundcloud_white.png') }}" alt="">
+            <div class="col-xs-4 part">
+                <img class="logo" src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
+                <div class="title">
+                    Spotify
+                </div>
+                {% if spotifyConnected == true %}
+                    <a class="button disconnect" href="">{{ "account.platforms.disconnect"|trans }}</a>
+                {% else %}
+                    <a class="button" href="">{{ "account.platforms.connect"|trans }}</a>
+                {% endif %}
+            </div>
+            <div class="col-xs-4 part">
+                <img class="logo" src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
+                <div class="title">
+                    Deezer
+                </div>
+                {% if deezerConnected == true %}
+                    <a class="button disconnect" href="{{ path('deezer_logout') }}">{{ "account.platforms.disconnect"|trans }}</a>
+                {% else %}
+                    <a class="button" href="{{ path('deezer_login') }}">{{ "account.platforms.connect"|trans }}</a>
+                {% endif %}
+            </div>
+            <div class="col-xs-4 part">
+                <img class="logo active" src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
+                <div class="title">
+                    Youtube
+                </div>
+                {% if youtubeConnected == true %}
+                    <a class="button disconnect" href="">{{ "account.platforms.disconnect"|trans }}</a>
+                {% else %}
+                    <a class="button" href="">{{ "account.platforms.connect"|trans }}</a>
+                {% endif %}
             </div>
         </div>
-        <div class="container-tab">
-            {{ include('account/login.html.twig') }}
-            {{ include('account/connexion.html.twig') }}
+        <div class="redirect-modify col-xs-4 offset-xs-4">
+            <div class="title">
+                Modifier votre compte et vos préférences
+            </div>
+            <a href="{{ path('account_modify') }}" class="button">
+                Cliquez-ici
+            </a>
         </div>
     </div>
 {% endblock %}

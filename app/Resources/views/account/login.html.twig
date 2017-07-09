@@ -1,26 +1,42 @@
-<div class="thumbnails">
-    <div class="item active" data-thumb="1">Connexion</div>
-    <div class="item" data-thumb="2">Inscription</div>
-</div>
-<div class="content">
-    <div class="content-thumb thumb-1 active">
-        <div class="title">
-            Connexion
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{{ "global.connexion"|trans }}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/account.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/remodal/remodal.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/remodal/remodal-default-theme.css') }}">
+    </head>
+    <body>
+        <div class="contentBodyContainer">
+            <div id="container-account">
+                <div class="col-xs-4 offset-xs-4 container-form login">
+                    <div class="title">
+                        {{ "login.title"|trans }}
+                    </div>
+                    <form action="" method="POST">
+                        <input name="_username" type="text" placeholder="{{ "login.placeholder.username"|trans }}" value="{{ lastUsername }}">
+                        <input name="_password" type="password" placeholder="{{ "login.placeholder.password"|trans }}">
+                        <input class="button" type="submit" value="{{ "login.connect"|trans }}">
+                    </form>
+                    <div class="register">
+                        <div class="title">
+                            {{ "login.noaccount.message"|trans }}
+                        </div>
+                        <a class="button" href="{{ path('register') }}">
+                            {{ "welcome.register"|trans }}
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <form action="" method="POST">
-            <input type="text" placeholder="Identifiant...">
-            <input type="text" placeholder="Mot de passe...">
-            <input class="button" type="submit" value="Se connecter">
-        </form>
-    </div>
-    <div class="content-thumb thumb-2">
-        <div class="title">
-            Inscription
-        </div>
-        <form action="" method="POST">
-            <input type="text" placeholder="Identifiant...">
-            <input type="text" placeholder="Mot de passe...">
-            <input class="button" type="submit" value="Se connecter">
-        </form>
-    </div>
-</div>
+        {{ include('library/remodal/popin.html.twig',{'type': 'information'}) }}
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/library/remodal/remodal.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/library/remodal/config.js') }}"></script>
+    </body>
+</html>

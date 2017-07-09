@@ -1,0 +1,47 @@
+{% if items != false %}
+    {% for item in items %}
+        <div class="col-xs-12 horizontal-part">
+            <div class="title col-xs-12">
+                Playlist
+            </div>
+            <div class="container container-videos">
+                {% for playlist in item %}
+                    <div class="parts">
+                        <div class="image col-xs-12">
+                            <img src="{{ playlist.snippet.thumbnails.default.url }}" alt="">
+                        </div>
+                        <div class="name col-xs-12">
+                            {{ playlist.snippet.title[:18] }}
+                        </div>
+                        <button class="button video-link-popin"
+                                data-link="{{ playlist.snippet.resourceId.videoId }}">
+                            Voir la vidéo
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="col-xs-12 horizontal-part">
+        <div class="title col-xs-12">
+            Playlist
+        </div>
+        <div class="container container-videos">
+            <div class="parts">
+                <div class="image col-xs-12">
+                    <img src="#" alt="">
+                </div>
+                <div class="name col-xs-12">
+                </div>
+                <button class="button video-link-popin"
+                        data-link="#">
+                    Voir la vidéo
+                </button>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+

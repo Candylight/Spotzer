@@ -1,0 +1,122 @@
+global:
+    connexion: 'Connexion'
+
+welcome:
+    with: 'Avec'
+    subtitle: 'Inter-connectez votre musique'
+    trasnferData:
+        title: 'Transférez vos données'
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    search:
+        placeholder: 'Rechercher...'
+        title: 'Recherchez sur toutes vos plateformes en simultané'
+        sample:
+            film: 'Musique de film'
+            classic: 'Musique classique'
+            rock: 'Musique rock'
+            electronic: 'Musique electronique'
+            metal: 'Musique Métal'
+    connect: 'Se connecter'
+    register: 'S''inscrire'
+    utility:
+        music: 'Musique'
+        video: 'Vidéo'
+        information: 'Informations'
+
+registration:
+    title: 'Inscription'
+
+login:
+    title: 'Connexion'
+    connect: 'Se connecter'
+    placeholder:
+        username: 'Identifiant'
+        password: 'Mot de passe'
+    noaccount:
+        message: "Je n'ai pas de compte"
+
+user:
+    creation:
+        validForm: 'S''inscrire'
+        enabled: 'Votre compte est maintenant actif.'
+        mailConfirmationCodeExpired: 'Le code de validation est expiré. Un mail contenant le nouveau lien de validation à été encoyé à votre adresse'
+        mailConfirmationSended: 'Un mail contenant le lien de validation de votre compte à été envoyé à votre adresse mail.'
+        mailIfNotReceived: 'Si vous ne l''avez pas reçu cliquer sur le bouton ci-dessous'
+        mailSendButton: 'Renvoyer le mail'
+        mail:
+            title: 'Confirmation de l''inscription à Spotzer'
+            clickToConfirm: 'Cliquer ici pour confirmer votre compte'
+            text: 'Votre compte Spotzer est bientôt prêt, cliquer sur le liens suivant pour le valider. Attention, ce lien n''est valide que 24 heures.'
+
+search:
+    lastFM:
+        seeMore: 'Voir la page LastFM'
+        noResult: 'Votre recherche n''as renvoyé aucun résultat LastFM'
+        noTopAlbums: 'Aucun album trouvé'
+        tags:
+            title: 'Tags de l''artiste'
+            noResults: 'Aucun tag trouvé'
+    spotifyDeezer:
+        notConnected: 'Merci de vous connecter à Spotify ou Deezer afin d''afficher ces résultats'
+    youtube:
+        notConnected: 'Merci de vous connecter à Youtube afin d''afficher ces résultats'
+
+dashboard:
+    youtube:
+        followers:
+            titleFollowers: 'Vos followers'
+            titleFollow: 'Vos comptes suivis'
+        videos:
+            titleRecommandation: 'Vidéos proposées'
+            titleCreatePlaylist: 'Création playlist'
+            titleBestVideo: 'Meilleurs vidéos par vues / like'
+        createPlaylist:
+            name: 'Nom playlist'
+            description: 'Descripotion Playlist'
+            public: 'public'
+            private: 'private'
+            publicLabel: 'Publique'
+            privateLabel: 'Privée'
+            create: 'Créer'
+    spotify:
+        followers:
+            titleFollowers: 'Ils vous suivent'
+            titleFollow: 'Vous les suivez'
+        playlists:
+            title: 'Vos playlists'
+        infos:
+            title:
+                lastSongs: 'Derniers sont joués'
+                artists: 'Vos artists'
+                albums: 'Vos albums'
+    deezer:
+        followers:
+            titleFollowers: 'Ils vous suivent'
+            titleFollow: 'Vous les suivez'
+        playlists:
+            title: 'Vos playlists'
+        infos:
+            title:
+                lastSongs: 'Derniers sont joués'
+                artists: 'Vos artists'
+                albums: 'Vos albums'
+account:
+    platforms:
+        title: 'Connexion aux plateformes'
+        connect: 'Se connecter'
+        disconnect: 'Se déconnecter'
+
+    personnalDatas:
+        title: 'Mes données'
+        valid: 'Enregistrer'
+transfer:
+    title: 'Transferez vos données'
+    selection:
+        title: 'Suivez les étapes pour effectuer le transfert'
+    button: 'Lancer'
+    steps:
+        step1: 'Plateforme de départ'
+        step2: 'Type de données à transferer'
+        step3: 'Selection des données'
+        step4: 'Plateforme de destination'
+        step5: 'Lancer le transfert'

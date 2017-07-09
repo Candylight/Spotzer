@@ -2,6 +2,57 @@
     margin-top:70px;
     color:white;
 }
-    #container-transfer .container-tab{
-        width: 70%;
+    #container-transfer .container-center{
+        background-color: rgba(0,0,0,0.4);
+        padding:30px;
+        margin-bottom: 50px;
+        text-align: center;
     }
+        #container-transfer .container-center .title{
+            font-size:30px;
+            text-align: center;
+        }
+        #container-transfer .container-center .part{
+            background-color: rgba(0,0,0,0.3);
+            margin-top:40px;
+            text-align: center;
+        }
+            #container-transfer .container-center .part .number{
+                height:40px;
+                margin-top:20px;
+                margin-bottom:20px;
+            }
+                #container-transfer .container-center .part .number .out{
+                    -ms-transform: rotate(45deg); /* IE 9 */
+                    -webkit-transform: rotate(45deg); /* Safari */
+                    transform: rotate(45deg);
+                    height:40px;
+                    width:40px;
+                    background-color: #a66c13;
+                    text-align: center;
+                    margin:auto;
+                }
+                    #container-transfer .container-center .part .number .out .in{
+                        -ms-transform: rotate(-45deg); /* IE 9 */
+                        -webkit-transform: rotate(-45deg); /* Safari */
+                        transform: rotate(-45deg);
+                        font-size:27px;
+                    }
+            #container-transfer .container-center .part .title-part{
+                font-size:30px;
+                margin-top:15px;
+            }
+            #container-transfer .container-center .part .content{
+                border-top: 1px solid #404040;
+                padding: 10px 0;
+                display: none;
+            }
+                #container-transfer .container-center .part .content.active{
+                    display: block;
+                }
+                #container-transfer .container-center .part .content .custom-dropdown{
+                    width:90%;
+                }
+                    #container-transfer .container-center .part .content .custom-dropdown .custom-dropdown__select{
+                        width:100%;
+                    }

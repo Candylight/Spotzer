@@ -1,0 +1,205 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="main-container" class="container-dashboard-deezer container">
+        <div class="col-xs-2">
+            <div class="logo-sidebar">
+                <img src="{{ asset('img/logo/deezer.png') }}" alt="">
+            </div>
+            <div class="container-followers container">
+                <div class="title">
+                    {{ "dashboard.deezer.followers.titleFollowers"|trans }}
+                </div>
+                <ul>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="container-followers container">
+                <div class="title">
+                    {{ "dashboard.deezer.followers.titleFollow"|trans }}
+                </div>
+                <ul>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                    <li class="container">
+                        <div class="col-xs-2 image">
+                            <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
+                        </div>
+                        <div class="col-xs-7 name">
+                            Follower name
+                        </div>
+                        <div class="col-xs-3 link">
+                            <a href="#">Voir</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-8">
+            <div class="horizontal-part">
+                <div class="title">
+                    {{ "dashboard.deezer.infos.title.lastSongs"|trans }}
+                </div>
+            </div>
+            <div class="horizontal-part">
+                <div class="title">
+                    {{ "dashboard.deezer.infos.title.artists"|trans }}
+                </div>
+            </div>
+            <div class="horizontal-part">
+                <div class="title">
+                    {{ "dashboard.deezer.infos.title.albums"|trans }}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2 container-playlists">
+            <div class="title">
+                {{ "dashboard.deezer.playlists.title"|trans }}
+            </div>
+            <span class="custom-dropdown custom-dropdown--white">
+                <select class="type-list-start custom-dropdown__select custom-dropdown__select--white">
+                    <option>Playlist 1</option>
+                    <option>Playlist 2</option>
+                    <option>Playlist 3</option>
+                    <option>Playlist 4</option>
+                    <option>Playlist 5</option>
+                    <option>Playlist 6</option>
+                </select>
+            </span>
+            <ul class="tracks">
+                <li>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/dashboard/deezer.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+{% endblock %}
