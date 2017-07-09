@@ -66,7 +66,9 @@ class SpotifyFunctions
     {
         $this->session->requestAccessToken($code);
 
-        return $this->session->getAccessToken();
+        return array(
+            "token" => $this->session->getAccessToken(),
+            "expirationDate" => $this->session->getTokenExpiration());
 
     }
 
