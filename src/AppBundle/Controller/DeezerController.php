@@ -48,6 +48,11 @@ class DeezerController extends Controller
         $date->setTimestamp($token['expirationDate']);
         $this->getUser()->getCredentials()->setDeezerExpireAt($date);
 
+        if(!$this->getUser()->getSpotifyPrefered() && !$this->getUser()->getDeezerPrefered())
+        {
+            $this->getUser()->setDeezerPrefered(true);
+        }
+
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();
 

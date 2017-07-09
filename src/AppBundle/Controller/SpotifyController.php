@@ -48,6 +48,11 @@ class SpotifyController extends Controller
         $date->setTimestamp($token['expirationDate']);
         $this->getUser()->getCredentials()->setSpotifyExpireAt($date);
 
+        if(!$this->getUser()->getSpotifyPrefered() && !$this->getUser()->getDeezerPrefered())
+        {
+            $this->getUser()->setSpotifyPrefered(true);
+        }
+
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();
 
