@@ -214,3 +214,46 @@
             color:white;
             text-align: center;
         }
+
+
+
+/********************************************************************************************/
+/*                                      RESPONSIVE                                          */
+/********************************************************************************************/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+    .part-discover {
+        font-size: 1.5em;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+    .part-discover .title{
+        font-size: 1.5em !important;
+    }
+    .part-discover .part{
+        width:100% !important;
+    }
+    .part-discover .part .title{
+        font-size: 1em !important;
+    }
+    .part-discover .part .description{
+        width: 100% !important;
+        font-size: 0.7em !important;
+    }
+    .part-discover .part.numbers{
+        display: none !important;
+    }
+    .part-discover .value-search{
+        font-size: 1.5em !important;
+    }
+
+
+    .container-music-youtube .part{
+        width:100% !important;
+    }
+        .container-music-youtube .part .button{
+            font-size: 1.5em !important;
+        }
+}
