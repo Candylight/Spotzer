@@ -1,116 +1,114 @@
 #main-container{
-    overflow: hidden;
+}
+
+
+/********************************************************************************************/
+/*                                      CONNEXIONS                                          */
+/********************************************************************************************/
+.part-connexion{
+    text-align: center;
+}
+    .part-connexion img{
+        height: 30px;
+        opacity: 0.5;
+    }
+    .part-connexion .button{
+        font-size: 80%;
+        padding:5px 10px;
+    }
+
+
+
+/********************************************************************************************/
+/*                                      TRANSFERTS                                          */
+/********************************************************************************************/
+.part-transfer{
+    background-color: rgba(0,0,0,0.4);
+    margin:30px auto 30px;
+    text-align: center;
+    font-size:30px;
+    padding: 40px;
+}
+    .part-transfer img{
+        height:200px;
+        margin-top:30px;
+    }
+
+
+
+
+
+
+/********************************************************************************************/
+/*                                      DECOUVERTE                                          */
+/********************************************************************************************/
+
+.part-discover{
+    text-align: center;
+    border-top:1px solid grey;
+    padding-top:40px;
+}
+    .part-discover .title{
+        color:#e39816;
+        font-size:40px;
+    }
+         .lastfm{
+            overflow: hidden;
+            margin:30px auto 30px;
+            border:none;
+            color: white;
+        }
+            .lastfm .value-search{
+                font-size:20px;
+                margin-bottom: 20px;
+            }
+             .lastfm .picture{
+                text-align: center;
+            }
+                 .lastfm .picture img{
+                    width: 40%;
+                    border-radius: 360px;
+                }
+             .lastfm .content{
+            }
+                 .lastfm .content .icon{
+                    text-align: center;
+                }
+                     .lastfm .content .icon img{
+                        max-height:30px;
+                    }
+                 .lastfm .content .description{
+                    padding: 15px;
+                    text-align: justify;
+                }
+                 .lastfm .numbers{
+                    border-left: 1px solid grey;
+                    min-height:200px;
+                }
+                 .lastfm .numbers .title{
+                        text-align: center;
+                        color:#e39816;
+                        font-size:200%;
+                    }
+
+
+.numbers .tags{
     width:90%;
     margin:auto;
 }
-    #main-container .top{
-        width: 100%;
-        border-bottom:1px solid silver;
-        padding-bottom: 50px;
-    }
-    #main-container .numbers{
-        min-height: 150px;
-        color:white;
-        text-align: center;
-        margin-top: 50px;
-    }
-        #main-container .numbers .account-infos{
-            overflow: hidden;
-        }
-            #main-container .numbers .account-infos .title{
-                font-size:35px;
-            }
-        #main-container .numbers .plateform{
-            margin:15px auto 0;
-            border-left: 1px solid rgba(255,255,255,0.2);
-            color:rgba(255,255,255,0.6);
-        }
-            #main-container .numbers .plateform:first-child{
-                border: none;
-            }
-            #main-container .numbers .plateform .icon{
-                height:30px;
-                width: 100%;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: auto 100%;
-            }
-            #main-container .numbers .plateform .number{
-                font-size:100px;
-                margin-bottom: -35px;
-            }
-            #main-container .numbers .plateform .text{
-                font-size:30px;
-            }
-        #main-container .numbers .discover-artist{
-            overflow: hidden;
-            margin-top:20px;
-            margin-bottom: 50px;
-            padding-bottom:20px;
-        }
-            #main-container .numbers .discover-artist .title{
-                font-size: 35px;
-            }
-            #main-container .numbers .discover-artist .image{
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: auto 100%;
-                height:100px;
-                width: 40%;
-                float:left;
-            }
-            #main-container .numbers .discover-artist .name{
-                width: 60%;
-                float:left;
-                color:#e39816;
-                font-size:30px;
-                height:100px;
-            }
-            #main-container .numbers .discover-artist .description{
-                float: left;
-                text-align: justify;
-                width:90%;
-                margin: 15px auto 0
-            }
+.numbers .tags span{
+    background-color:#e39816;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 7px;
+    margin-top:5px;
+    display: inline-block;
+    font-size:80%;
+}
 
-
- .lastfm{
-    overflow: hidden;
-    margin:20px auto 0px;
-    border:none;
-    color: white;
-}
- .lastfm .picture{
-    text-align: center;
-}
- .lastfm .picture img{
-    width: 60%;
-    border-radius: 360px;
-}
- .lastfm .content{
-}
- .lastfm .content .icon{
-    text-align: center;
-}
- .lastfm .content .icon img{
-    max-height:30px;
-}
- .lastfm .content .description{
-    padding: 15px;
-    text-align: justify;
-}
- .lastfm .numbers{
-    border-left: 1px solid grey;
-    min-height:200px;
-}
- .lastfm .numbers .title{
-    text-align: center;
-    color:#e39816;
-    font-size:200%;
-}
-            
-            
-            
+/********************************************************************************************/
+/*                                      POPIN YOUTUBE                                       */
+/********************************************************************************************/
             
 .overlay-youtube{
     position: fixed;
@@ -135,10 +133,52 @@
     }
 
 
-@media screen and (max-width: 970px) {
-    #main-container .numbers .plateform{
-        border-left: none;
-        border-top: 1px solid rgba(255,255,255,0.2);
-        padding-top:20px;
+
+/********************************************************************************************/
+/*                                      RESPONSIVE                                          */
+/********************************************************************************************/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+    .part-connexion {
+        width: 100% !important;
+        margin: 0 !important;
     }
+
+        .part-connexion .part {
+            width: 100% !important;
+            margin: 0 !important;
+            margin-bottom: 20px !important;
+        }
+
+            .part-connexion .part .button {
+                font-size: 1.5em !important;
+            }
+
+    .part-transfer {
+        font-size: 1.5em;
+    }
+
+    .part-discover {
+        font-size: 1.5em;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+        .part-discover .title{
+            font-size: 1.5em !important;
+        }
+        .part-discover .part{
+            width:100% !important;
+        }
+            .part-discover .part .title{
+                font-size: 1em !important;
+            }
+            .part-discover .part .description{
+                width: 100% !important;
+                font-size: 0.7em !important;
+            }
+            .part-discover .part.numbers{
+                display: none !important;
+            }
 }

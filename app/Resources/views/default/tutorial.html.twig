@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block title %}Tutoriel{% endblock %}
+{% block body %}
+    <div class="container-tutorial">
+        <div class="title">
+            Page de tutoriel
+        </div>
+        <div class="part-platforms">
+            Description des plateformes disponibles
+        </div>
+        <div class="part-connexions">
+            Description des connexions aux plateformes
+        </div>
+        <div class="part-arbo">
+            Description de l'arborescence du site web
+        </div>
+        <div class="part-transfer">
+            Description de la phase de transfert
+        </div>
+        <a class="button" href="{{ path('dashboard') }}">
+            dashboard
+        </a>
+    </div>
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/tutorial.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

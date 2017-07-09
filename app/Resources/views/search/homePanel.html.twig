@@ -4,12 +4,12 @@
         <div class="value-search col-xs-12">
             {{ search.title }}
         </div>
-        <div class="picture col-xs-3">
+        <div class="picture col-xs-3 part">
             {% if search.urlImage != "" %}
                 <img src="{{ search.urlImage }}" alt="">
             {% endif %}
         </div>
-        <div class="content col-xs-6">
+        <div class="content col-xs-6 part">
             <div class="icon">
                 <a target="_blank" href="{{ search.url }}" title="{{ "search.lastFM.seeMore"|trans }}"><img src="{{ asset('img/search/lastFM-icon.png') }}" alt=""></a>
             </div>
@@ -17,8 +17,11 @@
                 {{ search.description }}
             </div>
         </div>
-        <div class="numbers col-xs-3">
-            <div class="title">Chiffres</div>
+        <div class="numbers col-xs-3 part">
+            <div class="title">{{ "search.lastFM.tags.title"|trans }}</div>
+            <div class="tags">
+                {{ render(controller('AppBundle:LastFM:getTags',{"keyword":keyword})) }}
+            </div>
         </div>
     </div>
 {% else %}

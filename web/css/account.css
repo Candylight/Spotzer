@@ -1,5 +1,5 @@
 #container-account{
-    margin:70px auto 100px;
+    margin:0 auto 100px;
     color:white;
 }
 /***********************************************************************************************************/
@@ -50,6 +50,20 @@
             font-size:90%;
             margin-top:30px;
         }
+    #container-account .header-login{
+        text-align: center;
+        font-size:25px;
+    }
+        #container-account .header-login span{
+            font-size:40px;
+            color:#e39816;
+        }
+        #container-account .header-login img{
+            margin-top:20px;
+            margin-bottom:20px;
+            height:100px;
+        }
+
 /***************************************************************/
 /*                        LOGIN                                */
 /***************************************************************/
@@ -169,3 +183,82 @@
 /***********************************************************************************************************/
 /*                                  PAGE MODIFICATION DE COMPTE                                            */
 /***********************************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************************************************************/
+/*                                      RESPONSIVE                                          */
+/********************************************************************************************/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+    #container-account .header-login{
+        font-size:50px;
+    }
+        #container-account .header-login span{
+            font-size:130px;
+        }
+        #container-account .header-login img{
+            display: none;
+        }
+    .container-form{
+        width: 100% !important;
+        margin:0 !important;
+    }
+    .login .button{
+        font-size:5em !important;
+        width:100% !important;
+    }
+        .login input[type=text],.login input[type=password],.login input[type=email]{
+            width:90%  !important;
+            font-size:5em !important;
+        }
+        .login .title{
+            font-size:5em !important;
+        }
+
+
+
+
+
+
+    .connexion-container{
+        border-bottom: 1px solid grey;
+    }
+    .connexion-container .part{
+        width: 100% !important;
+    }
+    .connexion-container .part .button{
+        font-size: 1em !important;
+        margin-bottom:15px; !important;
+    }
+    .connexion-container .part .title{
+        margin:0 !important;
+    }
+    .redirect-modify{
+        width: 100% !important;
+        margin:0 !important;
+    }
+        .redirect-modify .button{
+            font-size: 1.5em !important;
+        }
+}

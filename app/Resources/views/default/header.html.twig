@@ -29,15 +29,16 @@
             <img src="{{ asset('img/global/icon-account.png') }}" alt="">
         </span>
     </div>
-    <div class="popin">
-        <div class="triangle"></div>
-        <div class="inpopin">
-            <a href="{{ path('account') }}">
-                Mon compte
-            </a>
-            <a href="{{ path('logout') }}">
-                Deconnexion
-            </a>
-        </div>
-    </div>
 </header>
+<div class="popin">
+    <div class="triangle"></div>
+    <div class="inpopin">
+        <a href="{{ path('account') }}">
+            Mon compte
+        </a>
+        <br/>
+        <a href="{{ path('logout') }}">
+            Deconnexion
+        </a>
+    </div>
+</div>

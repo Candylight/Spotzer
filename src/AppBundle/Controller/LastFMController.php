@@ -48,6 +48,7 @@ class LastFMController extends Controller
         $search = $this->getMostResearched();
 
         return $this->render('search/homePanel.html.twig',array(
+            "keyword" => $search->getSearchText(),
             "search" => $search
         ));
     }
@@ -61,8 +62,17 @@ class LastFMController extends Controller
     {
         $albums = json_decode($this->get('lastfm_functions')->searchTopAlbums($keyword),true);
 
+        if(isset($albums['error']) || !is_array($albums) || count($albums) == 0 || !is_array($albums["topalbums"]["album"]) || count($albums["topalbums"]["album"]) == 0)
+        {
+            $albums = array();
+        }
+        else
+        {
+            $albums = $albums["topalbums"]["album"];
+        }
+
         return $this->render('search/searchAlbums.html.twig',array(
-            "albums" => $albums["topalbums"]["album"]
+            "albums" => $albums
         ));
     }
 

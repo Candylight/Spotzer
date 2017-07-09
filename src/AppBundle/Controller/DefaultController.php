@@ -18,6 +18,14 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/tutorial", name="tutorial")
+     */
+    public function tutorialAction(Request $request)
+    {
+        return $this->render('default/tutorial.html.twig');
+    }
+
+    /**
      * @Route("/", name="default")
      */
     public function defaultAction()
@@ -30,5 +38,17 @@ class DefaultController extends Controller
         {
             return $this->redirectToRoute('homepage');
         }
+    }
+
+    public function footerNumbersAction()
+    {
+        $nbUsers = $this->getDoctrine()->getRepository('AppBundle:User')->getNumberUser();
+        $nbSearch = $this->getDoctrine()->getRepository('AppBundle:Search')->getNumberSearch();
+
+        return $this->render('default/footerNumbers.html.twig',array(
+            "nbUsers" => $nbUsers['nbUsers'],
+            "nbSearch" => $nbSearch['nbSearch'],
+            "nbTransfer" => 0
+        ));
     }
 }

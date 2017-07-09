@@ -96,7 +96,7 @@ class SpotifyFunctions
     {
         $this->api->setAccessToken($accessToken);
 
-        return $this->api->createUserPlaylist($this->getCurrentUserId($accessToken), $title);
+        return $this->api->createUserPlaylist($this->getCurrentUserId($accessToken), ['name' => $title, 'public' => false]);
     }
 
     public function getCurrentUserId($accessToken)
@@ -104,6 +104,37 @@ class SpotifyFunctions
         $this->api->setAccessToken($accessToken);
 
         return $this->api->me()->id;
+    }
+
+    public function getPlaylistItem($accessToken, $playlistID)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getUserPlaylistTracks($this->getCurrentUserId($accessToken), $playlistID);
+
+    }
+
+    public function getPlaylistByID($accessToken, $playlistID)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getUserPlaylist($this->getCurrentUserId($accessToken), $playlistID);
+
+    }
+
+    public function searchBestResult($accessToken, $keyword)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->search($keyword, 'track', ['limit' => 1]);
+
+    }
+
+    public function addItemToPlaylist($accessToken, $playlistId, $trackId)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->addUserPlaylistTracks($this->getCurrentUserId($accessToken), $playlistId, [$trackId]);
     }
 
 }
