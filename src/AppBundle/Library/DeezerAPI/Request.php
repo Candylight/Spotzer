@@ -16,6 +16,7 @@ class Request
     protected $returnAssoc = false;
     protected $returnType = self::RETURN_OBJECT;
 
+    private $bodyParser = true;
     /**
      * Parse the response body and handle API errors.
      *
@@ -28,9 +29,17 @@ class Request
      */
     protected function parseBody($body, $status)
     {
-        parse_str($body, $output);
+        if($this->bodyParser)
+        {
+            parse_str($body, $output);
+            $this->lastResponse['body'] = json_decode(\GuzzleHttp\json_encode($output), $this->returnType == self::RETURN_ASSOC);
+        }
+        else
+        {
+            $this->lastResponse['body'] = json_decode($body, $this->returnType == self::RETURN_ASSOC);
+            $this->bodyParser = true;
+        }
 
-        $this->lastResponse['body'] = json_decode(\GuzzleHttp\json_encode($output), $this->returnType == self::RETURN_ASSOC);
 
         if ($status >= 200 && $status <= 299) {
             return $this->lastResponse['body'];
@@ -101,6 +110,8 @@ class Request
      * @param string $uri The URI to request.
      * @param array $parameters Optional. Query parameters.
      * @param array $headers Optional. HTTP headers.
+     * @param bool $bodyParser Optional. Check if the body must be parsed
+     * @param bool $fullUrl Optional. Check if the api url must be add
      *
      * @return array Response data.
      * - array|object body The response body. Type is controlled by `Request::setReturnType()`.
@@ -108,9 +119,20 @@ class Request
      * - int status HTTP status code.
      * - string url The requested URL.
      */
-    public function api($method, $uri, $parameters = [], $headers = [])
+    public function api($method, $uri, $parameters = [], $headers = [], $bodyParser = true, $fullUrl = false)
     {
-        return $this->send($method, self::API_URL . $uri, $parameters, $headers);
+        $this->bodyParser = $bodyParser;
+
+        if (!$fullUrl)
+        {
+            $url = self::API_URL . $uri;
+        }
+        else
+        {
+            $url = $uri;
+        }
+
+        return $this->send($method, $url, $parameters, $headers);
     }
 
     /**

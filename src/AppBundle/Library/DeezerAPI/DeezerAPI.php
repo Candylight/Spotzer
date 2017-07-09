@@ -158,14 +158,16 @@ class DeezerAPI
      * @param string $type The type of item to search for; "album", "artist", or "track".
      * - string strict Optional. Disable the fuzzy mode (on/off)
      * - string order Optional. (RANKING, TRACK_ASC, TRACK_DESC, ARTIST_ASC, ARTIST_DESC, ALBUM_ASC, ALBUM_DESC, RATING_ASC, RATING_DESC, DURATION_ASC, DURATION_DESC)
+     * @param bool $bodyParser check if response body must be parsed
      *
      * @return array
      */
-    public function search($query, $options = array(), $type = false)
+    public function search($query, $options = array(), $type = false, $bodyParser = true)
     {
         $defaults = array(
             'strict' => 'off',
             'order' => 'RANKING',
+            'parseBody' => true
         );
 
         $type = implode(',', (array) $type);
@@ -176,7 +178,7 @@ class DeezerAPI
             'q' => $query,
         ));
 
-        $response = $this->request->api('GET', '/search' . ($type? '/'. $type : ''), $options);
+        $response = $this->request->api('GET', '/search' . ($type? '/'. $type : ''), $options, [], $bodyParser);
 
         return $response['body'];
     }
@@ -191,5 +193,30 @@ class DeezerAPI
     public function setAccessToken($accessToken)
     {
         $this->accessToken = $accessToken;
+    }
+
+    /**
+     * Get a single artist
+     *
+     * @param integer $artistId
+     * @return array
+     */
+    public function getArtist($artistId)
+    {
+        $response = $this->request->api('GET', '/artist/' . $artistId, [], [], false);
+        return $response['body'];
+    }
+
+    /**
+     * Get artist top songs
+     *
+     * @param string $url
+     *
+     * @return array
+     */
+    public function getTopSongs($url)
+    {
+        $response = $this->request->api('GET', $url, [], [], false, true);
+        return $response['body'];
     }
 }

@@ -61,6 +61,27 @@ class DeezerController extends Controller
     }
 
     /**
+     * @Route("/deezer/result", name="deezer_search_result")
+     *
+     * @param string $keyword
+     *
+     * @return Response
+     */
+    public function getTopSongAction($keyword)
+    {
+        $musics = array();
+
+        if ($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+        {
+            $musics = $this->get('deezer_functions')->getArtistTopTracks($keyword);
+        }
+
+        return $this->render('search/searchDeezer.html.twig', [
+            'musics' => $musics
+        ]);
+    }
+
+    /**
      * @Route("/deezer/logout", name="deezer_logout")
      * @return RedirectResponse
      */

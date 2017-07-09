@@ -74,4 +74,26 @@ class DeezerFunctions
 
         return false;
     }
+
+    /**
+     * @param string $artist
+     */
+    public function getArtistTopTracks($artist)
+    {
+        $id = $this->getArtistId($artist);
+        $artist = $this->api->getArtist($id);
+        $topSongs = $this->api->getTopSongs($artist->tracklist);
+        //dump($topSongs->data);die;
+        return $topSongs->data;
+    }
+
+    /**
+     * @param string $artist
+     */
+    public function getArtistId($artist)
+    {
+        $result = $this->api->search($artist,array(),"artist",false);
+
+        return $result->data[0]->id;
+    }
 }

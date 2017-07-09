@@ -5,8 +5,10 @@
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
     <div class="container-music-youtube container">
         <div class="col-xs-6 part music">
-            {% if app.user.credentials.spotifyToken != null %}
+            {% if app.user.credentials.spotifyToken != null and app.user.spotifyPrefered %}
                 {{ render(controller('AppBundle:Spotify:getSpotifySong',{"keyword":keyword})) }}
+            {% elseif app.user.credentials.deezerToken != null and app.user.deezerPrefered %}
+                {{ render(controller('AppBundle:Deezer:getTopSong',{"keyword":keyword})) }}
             {% else %}
                 <div class="noconnect">
                     <div class="details">
