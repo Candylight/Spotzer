@@ -56,3 +56,29 @@
                     #container-transfer .container-center .part .content .custom-dropdown .custom-dropdown__select{
                         width:100%;
                     }
+
+/********************************************************************************************/
+/*                                      RESPONSIVE                                          */
+/********************************************************************************************/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+    .contentBodyContainer{
+        padding:0;
+    }
+    #container-transfer{
+        width:100% !important;
+        margin:0 !important;
+    }
+        #container-transfer .container-center{
+            width:100% !important;
+            margin:0 !important;
+        }
+        #container-transfer .title{
+            font-size: 1.5em !important;
+        }
+        #container-transfer .title-part{
+            font-size: 1em !important;
+            padding-top:12px !important;
+        }
+}
