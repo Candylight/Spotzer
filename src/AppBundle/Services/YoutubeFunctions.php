@@ -9,6 +9,7 @@
 namespace AppBundle\Services;
 
 
+use AppBundle\Entity\Credentials;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -88,13 +89,18 @@ class YoutubeFunctions
         }
     }
 
-    public function fetchAccessTokenWithAuthCode($user){
+    /**
+     * @param Credentials $credentials
+     * @return bool
+     */
+    public function checkTokenValidity($credentials){
 
-        if($user !== $this->client->isAccessTokenExpired()) {
-            return true;
-        }else{
-            return false;
-        }
+       if($credentials->getYoutubeToken() != null) {;
+           if ($credentials->getYoutubeExpireAt() > new \DateTime()) {
+               return true;
+           }
+       }
+       return false;
 
     }
 
@@ -122,24 +128,56 @@ class YoutubeFunctions
     }
 
     /**
+     * @return \Google_Service_YouTube_VideoCategoryListResponse
+     */
+    public function getVideoCategory()
+    {
+        $this->youtube = new \Google_Service_YouTube($this->client);
+
+        return $this->youtube->videoCategories->listVideoCategories('snippet', ['regionCode' => 'FR']);
+    }
+
+    /**
+     * @return \Google_Service_YouTube_VideoListResponse
+     */
+    public function getVideoByLike($credentials)
+    {
+        $this->youtube = $this->createServiceYoutubeObject($credentials);
+
+        return $this->youtube->videos->listVideos('id,snippet,statistics', ['myRating' => 'like', 'maxResults' => 7]);
+
+    }
+
+    /**
+     * @return \Google_Service_YouTube_VideoListResponse
+     */
+    public function getMostPopularVideo()
+    {
+        $this->youtube = new \Google_Service_YouTube($this->client);
+
+        return $this->youtube->videos->listVideos('id, snippet', ['chart' => 'mostPopular', 'maxResults' => 6]);
+
+    }
+
+
+    /**
      * @param $token
      * @param $title
      * @return \Google_Service_YouTube_Playlist
      */
-    public function createPlaylist($token, $title){
+    public function createPlaylist($credentials, $title, $desc, $status){
 
-        $this->client->setAccessToken($token);
-        $youtube = new \Google_Service_YouTube($this->client);
+        $this->youtube = $this->createServiceYoutubeObject($credentials);
 
         // 1. Create the snippet for the playlist. Set its title and description.
         $playlistSnippet = new \Google_Service_YouTube_PlaylistSnippet();
-        $playlistSnippet->setTitle($title .' '. date("Y-m-d H:i:s"));
-        $playlistSnippet->setDescription('A private playlist created with the YouTube API v3');
+        $playlistSnippet->setTitle($title);
+        $playlistSnippet->setDescription($desc);
 
 
         // 2. Define the playlist's status.
         $playlistStatus = new \Google_Service_YouTube_PlaylistStatus();
-        $playlistStatus->setPrivacyStatus('private');
+        $playlistStatus->setPrivacyStatus($status);
 
         // 3. Define a playlist resource and associate the snippet and status
         // defined above with that resource.
@@ -148,19 +186,18 @@ class YoutubeFunctions
         $youTubePlaylist->setStatus($playlistStatus);
 
 
-        return $youtube->playlists->insert('snippet,status', $youTubePlaylist, array());
+        return $this->youtube->playlists->insert('snippet,status', $youTubePlaylist, array());
 
     }
 
     /**
      * @return \Google_Service_YouTube_PlaylistListResponse
      */
-    public function getPlaylist($token)
+    public function getPlaylist($credentials)
     {
-        $this->client->setAccessToken($token);
-        $youtube = new \Google_Service_YouTube($this->client);
+        $this->youtube = $this->createServiceYoutubeObject($credentials);
 
-        return $youtube->playlists->listPlaylists('snippet,contentDetails', ['mine' => true, 'maxResults' => 25] );
+        return $this->youtube->playlists->listPlaylists('snippet,contentDetails', ['mine' => true, 'maxResults' => 25] );
     }
 
     /**
@@ -168,12 +205,53 @@ class YoutubeFunctions
      * @param $playlistId
      * @return \Google_Service_YouTube_PlaylistItemListResponse
      */
-    public function getPlaylistItems($token, $playlistId){
+    public function getPlaylistItems($credentials, $playlistId){
 
-        $this->client->setAccessToken($token);
-        $youtube = new \Google_Service_YouTube($this->client);
+        $this->youtube = $this->createServiceYoutubeObject($credentials);
 
-        return $youtube->playlistItems->listPlaylistItems('snippet,contentDetails', ['playlistId'=> $playlistId]);
+        return $this->youtube->playlistItems->listPlaylistItems('snippet,contentDetails', ['playlistId'=> $playlistId]);
+    }
+
+    /**
+     * @param $token
+     * @return \Google_Service_YouTube_SubscriptionListResponse
+     */
+    public function getSubscription($credentials)
+    {
+        $this->youtube = $this->createServiceYoutubeObject($credentials);
+
+        return $this->youtube->subscriptions->listSubscriptions('snippet, contentDetails,subscriberSnippet', ['mine'=>true, 'maxResults'=>50]);
+    }
+
+
+    /**
+     * @param $token
+     * @return \Google_Service_YouTube_ChannelListResponse
+     */
+    public function getMyChannels($credentials)
+    {
+        $this->youtube = $this->createServiceYoutubeObject($credentials);
+
+        return $this->youtube->channels->listChannels('snippet, contentDetails, statistics, status, topicDetails', ['mine' =>true, 'maxResults'=>50]);
+    }
+
+    /**
+     * @param Credentials $credentials
+     * @return \Google_Service_YouTube
+     */
+    public function createServiceYoutubeObject($credentials)
+    {
+        if($credentials->getYoutubeToken() != null) {
+            if ($credentials->getYoutubeExpireAt() > new \DateTime()) {
+                $this->client->setAccessToken($credentials->getYoutubeToken());
+                $this->youtube = new \Google_Service_YouTube($this->client);
+            }else{
+                $this->client->fetchAccessTokenWithRefreshToken($credentials->getYoutubeRefreshToken());
+                $this->client->refreshToken($credentials->getYoutubeRefreshToken());
+                $this->youtube = new \Google_Service_YouTube($this->client);
+            }
+        }
+        return $this->youtube;
     }
 }
 

@@ -21,7 +21,7 @@ class YoutubeController extends Controller
      */
     public function indexAction()
     {
-         return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl());
+        return $this->redirect($this->get('youtube_functions')->getAuthorizationUrl());
     }
 
     /**
@@ -38,8 +38,12 @@ class YoutubeController extends Controller
         $accessToken = $session->set('access_token', $token['access_token']);
 
         $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
-        $this->getUser()->getCredentials()->setYoutubeExpireAt(new \DateTime($token['expires_in']));
-        //$this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
+
+        $date = new \DateTime();
+        $date->add(new \DateInterval('PT' . $token['expires_in'] . 'S'));
+
+        $this->getUser()->getCredentials()->setYoutubeExpireAt($date);
+        $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
 
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();
@@ -55,8 +59,8 @@ class YoutubeController extends Controller
 
         $refreshToken = $this->get('youtube_functions')->getRefreshToken($youtubeToken, $youtubeRefreshToken);
 
-        $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
-        $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
+        $this->getUser()->getCredentials()->setYoutubeToken($youtubeToken);
+        $this->getUser()->getCredentials()->setYoutubeRefreshToken($youtubeRefreshToken);
 
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();
@@ -86,24 +90,26 @@ class YoutubeController extends Controller
 
     /**
      * @param Request $request
-     * @param $title
-     *
+     * @return Response
      * @Route("/youtube/createplaylist", name="create_playlist")
-     *
      */
-    public function createPlaylistAction(Request $request, $title = null)
+    public function createPlaylistAction(Request $request)
     {
-        $title = $request->request->get('create_playlist');
-        if ($title != '') {
-            $token = $this->getUser()->getCredentials()->getYoutubeToken();
-            $createPlaylist = $this->get('youtube_functions')->createPlaylist($token, $title);
-        } else {
-            $createPlaylist = false;
-        }
+        if ($this->checkConnexion()) {
 
-        return $this->render(':youtube:createPlaylist.html.twig', [
-            'createPlaylist' => $createPlaylist
-        ]);
+            $title = $request->request->get('title');
+            $desc = $request->request->get('description');
+            $status = $request->request->get('status');
+
+            if (($request->isMethod('POST')) && ($title != '') && ($desc != '')) {
+                $createPlaylist = $this->get('youtube_functions')->createPlaylist($this->getUser()->getCredentials(), $title, $desc, $status);
+            } else {
+                $createPlaylist = false;
+            }
+        } else {
+            $playlists = false;
+        }
+        return $this->render('youtube/createPlaylist.html.twig');
 
     }
 
@@ -112,14 +118,12 @@ class YoutubeController extends Controller
      */
     public function getPlaylistAction(Request $request)
     {
-        $token = $this->getToken();
-        $access =  $this->get('youtube_functions')->fetchAccessTokenWithAuthCode($token);
-
-        if($access == true){
-            $playlists = $this->get('youtube_functions')->getPlaylist($this->getUser()->getCredentials()->getYoutubeToken());
-        } else{
+        if ($this->checkConnexion()) {
+            $playlists = $this->get('youtube_functions')->getPlaylist($this->getUser()->getCredentials());
+        } else {
             $playlists = false;
         }
+
 
         return $this->render('dashboard/indexNumber.html.twig', [
             'playlists' => $playlists
@@ -131,14 +135,68 @@ class YoutubeController extends Controller
      */
     public function getPlaylistItemsAction()
     {
-        $token = $this->getToken();
-        $playlists = $this->get('youtube_functions')->getPlaylist($token);
-        foreach ($playlists as $playlist) {
-            $items = $this->get('youtube_functions')->getPlaylistItems($token, $playlist['id']);
+        if ($this->checkConnexion()) {
+
+            $playlists = $this->get('youtube_functions')->getPlaylist($this->getUser()->getCredentials());
+
+            foreach ($playlists as $playlist) {
+                $items[] = $this->get('youtube_functions')->getPlaylistItems($this->getUser()->getCredentials(), $playlist['id']);
+            }
+        } else {
+            $items = false;
         }
 
-        return $this->render('dashboard/indexNumber.html.twig', [
+        return $this->render('youtube/playlistItems.html.twig', [
             'items' => $items
+        ]);
+    }
+
+    /**
+     * @return Response
+     */
+    public function getRecommendationVideoAction()
+    {
+        if ($this->checkConnexion()) {
+
+            $recomVideos[] = $this->get('youtube_functions')->getMostPopularVideo();
+        } else {
+            $recomVideos = false;
+        }
+
+        return $this->render('youtube/recommendationVideo.html.twig', [
+            'recomVideos' => $recomVideos
+        ]);
+
+    }
+
+    /**
+     * @return Response
+     */
+    public function getVideoByLikeAction()
+    {
+        if ($this->checkConnexion()) {
+
+            $videos[] = $this->get('youtube_functions')->getVideoByLike($this->getUser()->getCredentials());
+        } else {
+            $videos = false;
+        }
+
+        return $this->render('youtube/videoByLike.html.twig', [
+            'videos' => $videos
+        ]);
+    }
+
+    public function getMyChannelsAction()
+    {
+        if ($this->checkConnexion()) {
+
+            $myChannels = $this->get('youtube_functions')->getSubscription($this->getUser()->getCredentials());
+        } else {
+            $myChannels = false;
+        }
+
+        return $this->render('youtube/myChannels.html.twig', [
+            'myChannels' => $myChannels
         ]);
     }
 
@@ -149,5 +207,32 @@ class YoutubeController extends Controller
     {
         return $this->getUser()->getCredentials()->getYoutubeToken();
     }
+
+
+    private function checkConnexion()
+    {
+        if (!$this->get('youtube_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @Route("youtube/logout", name="youtube_logout")
+     *
+     */
+    public function logout()
+    {
+        $user = $this->getUser();
+
+        $user->getCredentials()->setYoutubeToken('');
+
+        $this->getDoctrine()->getManager()->persist($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('account');
+    }
+
 }
 

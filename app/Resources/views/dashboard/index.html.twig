@@ -2,15 +2,8 @@
 
 {% block body %}
     <div id="main-container">
-
         {{ include('dashboard/indexTop.html.twig') }}
-        {% if app.session.get('access_token') is defined and app.session.get('access_token') is not null %}
-            {{ render(controller('AppBundle:Youtube:getPlaylist')) }}
-        {% else %}
-            {{ include('dashboard/indexNumber.html.twig')  }}
-        {% endif %}
-
-
+        {{ render(controller('AppBundle:Youtube:getPlaylist')) }}
     </div>
 {% endblock %}
 

@@ -6,17 +6,11 @@
         <div class="plateform col-md-4">
             <div class="icon" style="background-image:url({{ asset('img/dashboard/youtube.png') }});"></div>
             <div class="number">
-
-                {% if playlists is defined %}
-                        {% if playlists==false %}
-                            0
-                        {% else %}
-                            {{ playlists.pageInfo.totalResults }}
-                        {% endif %}
+                {% if playlists != false %}
+                    {{ playlists.pageInfo.totalResults }}
                 {% else %}
                     0
                 {% endif %}
-
             </div>
             <div class="text">Youtube</div>
         </div>
