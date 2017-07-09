@@ -6,12 +6,12 @@
             {{ form_start(form) }}
             {{ form_rest(form) }}
             <div class="container favorite-plateform-choice">
-                <div data-value="spotify" class="col-xs-5 plateform-choice">
+                <div data-value="spotify" class="col-xs-5 plateform-choice {% if app.user.spotifyPrefered == true %}active{% endif %}">
                     <img src="{{ asset('img/account/modify/spotify.png') }}" alt="">
                     <br/>
                     Spotify
                 </div>
-                <div data-value="deezer" class="col-xs-5 offset-xs-2 plateform-choice">
+                <div data-value="deezer" class="col-xs-5 offset-xs-2 plateform-choice {% if app.user.deezerPrefered == true %}active{% endif %}">
                     <img src="{{ asset('img/account/modify/deezer.png') }}" alt="">
                     <br/>
                     Deezer
