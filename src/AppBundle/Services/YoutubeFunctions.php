@@ -200,9 +200,9 @@ class YoutubeFunctions
 
     }
 
-    public function addItemToPlaylist($token, $playlistID, $videoID)
+    public function addItemToPlaylist($credentials, $playlistID, $videoID)
     {
-        $this->client->setAccessToken($token);
+        $this->youtube = $this->createServiceYoutubeObject($credentials);
         $youtube = new \Google_Service_YouTube($this->client);
         $playlistItemSnippet = new \Google_Service_YouTube_PlaylistItemSnippet();
         $playlistItemSnippet->setPlaylistId($playlistID);
@@ -236,7 +236,7 @@ class YoutubeFunctions
 
         $this->youtube = $this->createServiceYoutubeObject($credentials);
 
-        return $this->youtube->playlistItems->listPlaylistItems('snippet,contentDetails', ['playlistId' => $playlistId]);
+        return $this->youtube->playlistItems->listPlaylistItems('snippet,contentDetails', ['playlistId' => $playlistId, 'maxResults' => 50]);
     }
 
     /**
@@ -262,6 +262,15 @@ class YoutubeFunctions
 
         return $this->youtube->channels->listChannels('snippet, contentDetails, statistics, status, topicDetails', ['mine' => true, 'maxResults' => 50]);
     }
+
+    public function getPlaylistById($credentials, $playlistId)
+    {
+        $this->youtube = $this->createServiceYoutubeObject($credentials);
+
+        $youtube = new \Google_Service_YouTube($this->client);
+        return $youtube->playlists->listPlaylists('snippet,contentDetails', ['id' => $playlistId, 'maxResults' => 25] );
+    }
+
 
     /**
      * @param Credentials $credentials
