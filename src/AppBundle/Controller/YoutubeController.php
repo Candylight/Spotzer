@@ -109,6 +109,12 @@ class YoutubeController extends Controller
         } else {
             $playlists = false;
         }
+
+        if($request->isMethod('POST'))
+        {
+            return $this->redirectToRoute('dashboard_youtube');
+        }
+
         return $this->render('youtube/createPlaylist.html.twig');
 
     }
