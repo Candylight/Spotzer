@@ -32,18 +32,17 @@ class YoutubeController extends Controller
      */
     public function callbackAction(Request $request)
     {
-        $session = $request->getSession();
         $token = $this->get('youtube_functions')->getToken($_GET['code']);
-        $accessToken = $session->get('access_token');
-        $accessToken = $session->set('access_token', $token['access_token']);
-
         $this->getUser()->getCredentials()->setYoutubeToken($token['access_token']);
 
         $date = new \DateTime();
         $date->add(new \DateInterval('PT' . $token['expires_in'] . 'S'));
 
         $this->getUser()->getCredentials()->setYoutubeExpireAt($date);
-        $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
+        if(isset($token['refresh_token']))
+        {
+            $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
+        }
 
         $this->getDoctrine()->getManager()->persist($this->getUser());
         $this->getDoctrine()->getManager()->flush();
@@ -233,6 +232,7 @@ class YoutubeController extends Controller
         $user = $this->getUser();
 
         $user->getCredentials()->setYoutubeToken('');
+        $user->getCredentials()->setYoutubeExpireAt(null);
 
         $this->getDoctrine()->getManager()->persist($user);
         $this->getDoctrine()->getManager()->flush();
