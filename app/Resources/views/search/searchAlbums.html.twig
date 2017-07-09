@@ -1,8 +1,9 @@
 <div class="container-albums container">
     <div class="images">
         {% for album in albums %}
-            <div class="container-album">
+            <div class="container-album get-music-album" data-artist="{{ artist }}" data-album="{{ album['name'] }}">
                 <img src="{{ album['image'][1]['#text'] }}" alt="{{ album['name'] }}">
+                <br/>
                 <span class="searchAlbumTitle">{{ album['name'] }}</span>
             </div>
         {% else %}
@@ -10,8 +11,18 @@
         {% endfor %}
     </div>
     {% if albums|length != 0 %}
-        <div class="music">
+        <div class="music song-album-list">
             Choisir un album pour afficher les morceaux...
         </div>
     {% endif %}
+    <script>
+        var url_get_song_from_album = '{{ path('search_song_album') }}';
+        {% if app.user.spotifyPrefered %}
+            var prefered_plateform = 'spotify';
+        {% elseif app.user.deezerPrefered %}
+            var prefered_plateform = 'deezer';
+        {% else %}
+            var prefered_plateform = 'noconnexion';
+        {% endif %}
+    </script>
 </div>

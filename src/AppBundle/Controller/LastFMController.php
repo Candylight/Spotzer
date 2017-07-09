@@ -72,7 +72,8 @@ class LastFMController extends Controller
         }
 
         return $this->render('search/searchAlbums.html.twig',array(
-            "albums" => $albums
+            "albums" => $albums,
+            "artist" => $keyword
         ));
     }
 
