@@ -156,4 +156,26 @@ class SpotifyFunctions
         return false;
     }
 
+    /**
+     * @param $album
+     *
+     * @return array
+     */
+    public function getAlbumSongs($accessToken, $album)
+    {
+        $this->api->setAccessToken($accessToken);
+        $albumId = $this->getAlbumId($album);
+        $songs = $this->api->getAlbumTracks($albumId);
+
+        return $songs->items;
+    }
+
+    /**
+     * @param $album
+     */
+    public function getAlbumId($album)
+    {
+        $result = $this->api->search($album, 'album', ['limit' => 1]);
+        return $result->albums->items[0]->id;
+    }
 }

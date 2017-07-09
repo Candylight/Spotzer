@@ -42,14 +42,17 @@ class SearchController extends Controller
 
         if ($request->isXmlHttpRequest()) {
             // retrieve playlist parameter from ajax request
-            $artist = $request->query->get('artist');
             $album = $request->query->get('album');
 
             if($this->getUser()->getSpotifyPrefered())
             {
                 if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials()))
                 {
+                    $songs = $this->get('spotify_functions')->getAlbumSongs($this->getUser()->getCredentials()->getSpotifyToken(),$album);
 
+                    return $this->render('search/ajax/songsalbum/spotify.html.twig', array(
+                        'songs' => $songs,
+                    ));
                 }
             }
             elseif ($this->getUser()->getDeezerPrefered())
@@ -58,9 +61,9 @@ class SearchController extends Controller
                 {
                     $songs = $this->get('deezer_functions')->getAlbumSongs($album);
 
-                    return $this->render('search/ajax/songsalbum/deezer.html.twig', [
+                    return $this->render('search/ajax/songsalbum/deezer.html.twig', array(
                         'songs' => $songs,
-                    ]);
+                    ));
                 }
             }
         }
