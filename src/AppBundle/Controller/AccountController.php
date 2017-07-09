@@ -227,10 +227,9 @@ class AccountController extends Controller
      */
     public function indexAction(Request $request)
     {
-        //TODO: Add check connexion functions call
-        $deezerConnected = false;
-        $youtubeConnected = false;
-        $spotifyConnected = false;
+        $deezerConnected = $this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials());
+        $youtubeConnected = $this->get('youtube_functions')->checkTokenValidity($this->getUser()->getCredentials());
+        $spotifyConnected = $this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials());
 
         return $this->render('account/index.html.twig',array(
             'deezerConnected' => $deezerConnected,
