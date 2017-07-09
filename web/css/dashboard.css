@@ -128,10 +128,6 @@
 and (min-device-width : 375px)
 and (max-device-width : 667px) {
 
-    .contentBodyContainer {
-        padding: 0 !important;
-    }
-
     .part-connexion {
         width: 100% !important;
         margin: 0 !important;

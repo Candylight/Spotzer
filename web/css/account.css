@@ -228,4 +228,30 @@ and (max-device-width : 667px) {
         font-size:5em !important;
         width:100% !important;
     }
+
+
+
+
+
+
+    .connexion-container{
+        border-bottom: 1px solid grey;
+    }
+    .connexion-container .part{
+        width: 100% !important;
+    }
+    .connexion-container .part .button{
+        font-size: 1em !important;
+        margin-bottom:15px; !important;
+    }
+    .connexion-container .part .title{
+        margin:0 !important;
+    }
+    .redirect-modify{
+        width: 100% !important;
+        margin:0 !important;
+    }
+        .redirect-modify .button{
+            font-size: 1.5em !important;
+        }
 }
