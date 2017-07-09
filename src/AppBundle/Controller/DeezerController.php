@@ -74,6 +74,10 @@ class DeezerController extends Controller
         if ($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials()))
         {
             $musics = $this->get('deezer_functions')->getArtistTopTracks($keyword);
+            if($musics > 10)
+            {
+                $musics = array_slice($musics,0 , 11);
+            }
         }
 
         return $this->render('search/searchDeezer.html.twig', [
