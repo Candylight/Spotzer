@@ -71,7 +71,26 @@ class TransferController extends Controller
 
             switch ($plateform_start) {
                 case 'youtube':
-
+                    $playlistYoutubeName = $this->get('youtube_functions')->getPlaylistById($this->getUser()->getCredentials()->getYoutubeToken(), $playlist)->getItems()[0]['modelData']['snippet']['title'];
+                    $tracks = $this->get('youtube_functions')->getPlaylistItems($this->getUser()->getCredentials()->getYoutubeToken(), $playlist);
+                    if ($plateform_end == 'spotify') {
+                        $spotifyPlaylist = $this->get('spotify_functions')->createPlaylist($this->getUser()->getCredentials()->getSpotifyToken(),$playlistYoutubeName );
+                        foreach ($tracks as $track) {
+                            $sanitizeTitle = preg_replace('/\([^)]+\)/','',$track->getSnippet()->title);
+                            $sanitizeTitle = preg_replace('/\[[^)]+\]/', '', $sanitizeTitle);
+                            $sanitizeTitle = preg_replace('/[^A-Za-z0-9\s]/', '', $sanitizeTitle);
+                            if ($sanitizeTitle !== ''){
+                                $spotifyTracks = $this->get('spotify_functions')->searchBestResult($this->getUser()->getCredentials()->getSpotifyToken(), $sanitizeTitle);
+                                foreach ($spotifyTracks as $item){
+                                    if (!empty($item->items)){
+                                        $trackId = $item->items[0]->id;
+                                        $this->get('spotify_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getSpotifyToken(), $spotifyPlaylist->id, $trackId);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                break;
                 case 'spotify':
                     $playlistSpotifyName = $this->get('spotify_functions')->getPlaylistByID($this->getUser()->getCredentials()->getSpotifyToken(), $playlist)->name;
                     $tracks = $this->get('spotify_functions')->getPlaylistItem($this->getUser()->getCredentials()->getSpotifyToken(), $playlist)->items;
@@ -85,6 +104,7 @@ class TransferController extends Controller
                             $this->get('youtube_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getYoutubeToken(), $youtubePlaylist->id, $trackId);
                         }
                     }
+                break;
                 case 'deezer':
                     // Création de la playlist sur la plateforme de fin
                     // Récupération de toutes les tracks de la playlist

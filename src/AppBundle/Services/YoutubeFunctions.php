@@ -196,7 +196,15 @@ class YoutubeFunctions
         $this->client->setAccessToken($token);
         $youtube = new \Google_Service_YouTube($this->client);
 
-        return $youtube->playlistItems->listPlaylistItems('snippet,contentDetails', ['playlistId'=> $playlistId]);
+        return $youtube->playlistItems->listPlaylistItems('snippet,contentDetails', ['playlistId'=> $playlistId, 'maxResults' => 50]);
+    }
+
+    public function getPlaylistById($token, $playlistId)
+    {
+        $this->client->setAccessToken($token);
+        $youtube = new \Google_Service_YouTube($this->client);
+
+        return $youtube->playlists->listPlaylists('snippet,contentDetails', ['id' => $playlistId, 'maxResults' => 25] );
     }
 }
 
