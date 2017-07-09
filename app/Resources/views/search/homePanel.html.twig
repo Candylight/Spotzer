@@ -18,7 +18,10 @@
             </div>
         </div>
         <div class="numbers col-xs-3">
-            <div class="title">Chiffres</div>
+            <div class="title">{{ "search.lastFM.tags.title"|trans }}</div>
+            <div class="tags">
+                {{ render(controller('AppBundle:LastFM:getTags',{"keyword":keyword})) }}
+            </div>
         </div>
     </div>
 {% else %}

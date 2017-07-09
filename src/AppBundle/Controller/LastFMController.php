@@ -48,6 +48,7 @@ class LastFMController extends Controller
         $search = $this->getMostResearched();
 
         return $this->render('search/homePanel.html.twig',array(
+            "keyword" => $search->getSearchText(),
             "search" => $search
         ));
     }
