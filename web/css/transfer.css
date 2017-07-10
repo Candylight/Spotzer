@@ -57,6 +57,23 @@
                         width:100%;
                     }
 
+
+
+
+    .loader{
+        display: none;
+    }
+        .loader.active{
+            display: inline-block;
+        }
+    .button-refresh {
+        display: none;
+    }
+        .button-refresh.active{
+            display: inline-block;
+        }
+                            .
+
 /********************************************************************************************/
 /*                                      RESPONSIVE                                          */
 /********************************************************************************************/
