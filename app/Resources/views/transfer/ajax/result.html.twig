@@ -6,7 +6,7 @@
 </div>
 {% for successLog in successLogs %}
     <div class="line">
-        {{ successLog }}
+        {{ successLog|truncate(20)}}
     </div>
 {% endfor %}
 <div class="title-log error">
@@ -14,6 +14,6 @@
 </div>
 {% for errorLog in errorLogs %}
     <div class="line">
-        {{ errorLog }}
+        {{ errorLog|truncate(20) }}
     </div>
 {% endfor %}
