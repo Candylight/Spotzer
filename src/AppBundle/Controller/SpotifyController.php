@@ -60,7 +60,59 @@ class SpotifyController extends Controller
         return $this->redirectToRoute('account');
     }
 
+    public function getMySavedAlbumsAction()
+    {
+        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+        $albums = $this->get('spotify_functions')->getMySavedAlbums($acessToken);
+        return $this->render('spotify/mySavedAlbums.html.twig', [
+                'albums' => $albums
+        ]);
+    }
 
+    public function getMyTopTracksAction()
+    {
+        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+        $topTracks = $this->get('spotify_functions')->getMyTopTracks($acessToken);
+        return $this->render('spotify/myTopTracks.html.twig', [
+            'topTracks' => $topTracks
+        ]);
+    }
+
+    public function getMyTopArtistsAction()
+    {
+        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+        $topArtists = $this->get('spotify_functions')->getMyTopArtists($acessToken);
+        return $this->render('spotify/myTopArtists.html.twig', [
+            'topArtists' => $topArtists
+        ]);
+    }
+
+    public function getMyFollowedAction()
+    {
+        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+        $myFollowed = $this->get('spotify_functions')->getMyFollowed($acessToken);
+
+        return $this->render('spotify/myFollowed.html.twig',[
+            'myFollowed' => $myFollowed
+        ]);
+    }
+
+    public function getRecommendationsAction()
+    {
+        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+        $recommendations = $this->get('spotify_functions')->getRecommendations($acessToken);
+        return $this->render('spotify/recommendations.html.twig',[
+            'recommendations' => $recommendations
+        ]);
+    }
+
+    public function getPlaylistsAction()
+    {
+        $spotifyPlaylists = $this->get('spotify_functions')->getUserPlaylist($this->getUser()->getCredentials()->getSpotifyToken())->items;
+        return $this->render('transfer/ajax/playlist/spotifyPlaylists.html.twig', [
+            'spotifyPlaylists' => $spotifyPlaylists,
+        ]);
+    }
 
     /**
      * @param string $keyword

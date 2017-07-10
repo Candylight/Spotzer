@@ -1,0 +1,5 @@
+{% for topArtist in topArtists.items %}
+    {{ topArtist.name }}
+    {{ topArtist.images[0].url }}
+    {{ topArtist.followers.total }}
+{% endfor %}
