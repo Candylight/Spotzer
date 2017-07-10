@@ -6,7 +6,7 @@
 </div>
 {% for successLog in successLogs %}
     <div class="line">
-        {{ successLog|truncate(20)}}
+        {{ successLog|length > 20 ? successLog|slice(0, 20) ~ '...' : successLog  }}
     </div>
 {% endfor %}
 <div class="title-log error">
@@ -14,6 +14,6 @@
 </div>
 {% for errorLog in errorLogs %}
     <div class="line">
-        {{ errorLog|truncate(20) }}
+        {{ errorLog|length > 20 ? errorLog|slice(0, 20) ~ '...' : errorLog  }}
     </div>
 {% endfor %}
