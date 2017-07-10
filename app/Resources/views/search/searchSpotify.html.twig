@@ -5,8 +5,8 @@
 <div class="list">
     {% if musics != false %}
         {% for items in musics %}
-            <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
-                {% for key, item in items %}
+            {% for key, item in items %}
+            <div class="{% if loop.index is even %}item {% else %} item odd {% endif %} playTrack" data-song-id="{{ item.id }}" data-platform="spotify">
                 <div class="play col-xs-3">
                     <img src="{{ asset('img/search/play.png') }}" alt="">
                 </div>
@@ -18,8 +18,8 @@
                         {{ item.album.name|truncate(75, true, '...') }}
                     </div>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         {% endfor %}
     {% else %}
         <div class="value-search">
