@@ -40,8 +40,7 @@ class YoutubeController extends Controller
         $date->add(new \DateInterval('PT' . $token['expires_in'] . 'S'));
 
         $this->getUser()->getCredentials()->setYoutubeExpireAt($date);
-        if(isset($token['refresh_token']))
-        {
+        if (isset($token['refresh_token'])) {
             $this->getUser()->getCredentials()->setYoutubeRefreshToken($token['refresh_token']);
         }
 
@@ -110,8 +109,7 @@ class YoutubeController extends Controller
             $playlists = false;
         }
 
-        if($request->isMethod('POST'))
-        {
+        if ($request->isMethod('POST')) {
             return $this->redirectToRoute('dashboard_youtube');
         }
 
@@ -130,7 +128,6 @@ class YoutubeController extends Controller
             $playlists = false;
         }
 
-
         return $this->render('dashboard/indexNumber.html.twig', [
             'playlists' => $playlists
         ]);
@@ -141,19 +138,24 @@ class YoutubeController extends Controller
      */
     public function getPlaylistItemsAction()
     {
+        $titles = [];
+        $subject = [];
         if ($this->checkConnexion()) {
 
             $playlists = $this->get('youtube_functions')->getPlaylist($this->getUser()->getCredentials());
 
             foreach ($playlists as $playlist) {
                 $items[] = $this->get('youtube_functions')->getPlaylistItems($this->getUser()->getCredentials(), $playlist['id']);
+                $titles[$playlist['id']] = $playlist['snippet']['title'];
             }
         } else {
             $items = false;
+            $titles = false;
         }
 
         return $this->render('youtube/playlistItems.html.twig', [
-            'items' => $items
+            'items' => $items,
+            'titles' => $titles
         ]);
     }
 
