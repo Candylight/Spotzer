@@ -68,8 +68,7 @@ class DeezerFunctions
     {
         if($credentials->getDeezerToken() != null)
         {
-            if($credentials->getDeezerExpireAt() > new \DateTime())
-                return true;
+            return true;
         }
 
         return false;
