@@ -11,7 +11,7 @@
                     Se connecter
                 </a>
             {% else %}
-                    Découvrez tout de suite votre actualité
+                    Découvrez tout de suite votre actualité musicale
                     <br/>
                 {% if app.user.credentials.spotifyToken != null and app.user.credentials.deezerToken != null %}
                         {% if app.user.spotifyPrefered %}
@@ -32,7 +32,6 @@
                                 Mon dashboard
                         </a>
                 {% endif %}
-
             {% endif %}
         </div>
         <div class="col-xs-3 part">
@@ -45,12 +44,37 @@
                             Se connecter
                         </a>
                 {% else %}
-                        Découvrez tout de suite votre actualité
+                        Découvrez tout de suite votre actualité youtube
                         <br/>
                         <a class="button" href="{{ path('dashboard_youtube') }}">
                             Mon dashboard
                         </a>
                 {% endif %}
+        </div>
+    {% else %}
+        <div class="col-xs-2 offset-xs-4">
+            <img src="{{ asset('img/dashboard/index/music.png') }}" alt="">
+            <br/>
+            Découvrez tout de suite votre actualité musicale
+            <br/>
+            {% if app.user.spotifyPrefered %}
+                <a class="button" href="{{ path('dashboard_spotify') }}">
+                    Mon dashboard
+                </a>
+            {% else %}
+                <a class="button" href="{{ path('dashboard_deezer') }}">
+                    Mon dashboard
+                </a>
+            {% endif %}
+        </div>
+        <div class="col-xs-2 offset-xs-4">
+            <img src="{{ asset('img/dashboard/index/video.png') }}" alt="">
+            <br/>
+            Découvrez tout de suite votre actualité youtube
+            <br/>
+            <a class="button" href="{{ path('dashboard_youtube') }}">
+                Mon dashboard
+            </a>
         </div>
     {% endif %}
 </div>
