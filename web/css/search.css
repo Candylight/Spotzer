@@ -1,6 +1,4 @@
 #container-search{
-    margin:0px auto 0;
-    width: 80%;
 }
     #container-search .container{
         border-top:1px solid grey;
@@ -69,6 +67,7 @@
         overflow: hidden;
     }
         #container-search .container-music-youtube .part{
+            padding-top:40px;
         }
             #container-search .container-music-youtube .part .noconnect{
                 text-align: center;
@@ -91,19 +90,18 @@
                 #container-search .container-music-youtube .part .icon img{
                     max-height: 40px;
                 }
+                    #container-search .container-music-youtube .part .item{
+                        cursor: pointer;
+                    }
 
                     /*              MUSIC                 */
                     #container-search .container-music-youtube .part.music .list .play{
-                        float: left;
-                        width: 15%;
                         text-align: center;
                     }
                         #container-search .container-music-youtube .part.music .list .play img{
                             max-height: 40px;
                         }
                     #container-search .container-music-youtube .part.music .list .content{
-                        float: left;
-                        width: 60%;
                         color:white;
                     }
                         #container-search .container-music-youtube .part.music .list .content .name{
@@ -118,19 +116,8 @@
                         #container-search .container-music-youtube .part.music .list .content .details{
                             font-size:13px;
                         }
-                    #container-search .container-music-youtube .part.music .list .actions{
-                        float: left;
-                        width: 25%;
-                        text-align: center;
-                        padding-top:6px;
-                    }
-                        #container-search .container-music-youtube .part.music .list .actions img{
-                            max-height: 30px;
-                        }
                     /*              YOUTUBE                 */
                     #container-search .container-music-youtube .part.youtube .list .image{
-                        float: left;
-                        width: 30%;
                         text-align: center;
                         overflow: hidden;
                     }
@@ -138,8 +125,6 @@
                             max-width: 90%;
                         }
                     #container-search .container-music-youtube .part.youtube .list .content{
-                        float: left;
-                        width: 70%;
                         color:white;
                     }
                         #container-search .container-music-youtube .part.youtube .list .content .name{
@@ -170,6 +155,7 @@
                 height: 100%;
                 width: 100%;
                 top:0px;
+                left:0px;
                 display: none;
                 z-index:2 ;
             }
@@ -190,31 +176,51 @@
         cursor: pointer;
     }
         #container-search .container-albums .images{
-            width:100%;
-            overflow-x: scroll;
         }
-            #container-search .container-albums .images .container-album{
-                float:left;
-                width: 20%;
+            #container-search .container-albums .images .title{
                 text-align: center;
-                padding-bottom: 15px;
-                padding-top: 15px;
+                color:white;
+                padding:15px 0;
+                background-color: rgba(0,0,0,0.2);
             }
+            #container-search .container-albums .images .container-album{
+                text-align: center;
+                padding:30px 0;
+                background-color:rgba(0,0,0,0.2);
+            }
+                #container-search .container-albums .images .container-album:hover{
+                    background-color:rgba(0,0,0,0.4);
+                }
                 #container-search .container-albums .images .container-album img{
                     max-height: 60px;
                 }
                 .searchAlbumTitle{
                     color:white;
                 }
-        #container-search .container-albums .music{
+        #container-search .container-albums .song-album-list{
             background-color: rgba(0,0,0,0.3);
-            width: 100%;
-            min-height: 150px;
-            padding-top:100px;
-            padding-bottom:100px;
             color:white;
             text-align: center;
+            min-height: 500px;
         }
+            #container-search .container-albums .song-album-list ul{
+                list-style: none;
+                margin:0;
+                padding:0;
+            }
+                #container-search .container-albums .song-album-list ul li{
+                    list-style: none;
+                    margin:0;
+                    padding:10px 0;
+                }
+                    #container-search .container-albums .song-album-list ul li:hover{
+                        background-color: rgba(255,255,255,0.2);
+                        cursor: pointer;
+                    }
+            #container-search .container-albums .song-album-list .message{
+                padding:10px 0;
+                border-bottom: 1px solid grey;
+            }
 
 
 

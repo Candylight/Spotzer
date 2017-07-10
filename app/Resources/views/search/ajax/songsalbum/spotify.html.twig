@@ -1,5 +1,8 @@
+<div class="col-xs-10 offset-xs-1 message">
+    Cliquer sur une musique pour la lancer
+</div>
 <ul>
     {% for song in songs %}
-        <li data-songs-id="{{ song.id }}">{{ song.name }}</li>
+        <li data-song-id="{{ song.id }}" data-platform="spotify" class="playTrack">{{ song.name }}</li>
     {% endfor %}
 </ul>

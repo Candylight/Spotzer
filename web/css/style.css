@@ -183,7 +183,6 @@ body{
 /****************************************************************************************************************/
 
     .list{
-        width: 80%;
         margin:15px auto 20px;
     }
         .list .item{
@@ -197,16 +196,12 @@ body{
             }
 
             .list .play{
-                float: left;
-                width: 15%;
                 text-align: center;
             }
                 .list .play img{
                     max-height: 40px;
                 }
             .list .content{
-                float: left;
-                width: 70%;
                 color:white;
             }
                 .list .content .name{
@@ -221,19 +216,6 @@ body{
                 .list .content .details{
                     font-size:13px;
                 }
-            .list .actions{
-                float: left;
-                width: 15%;
-                text-align: center;
-                padding-top:6px;
-            }
-                .list .actions img{
-                    max-height: 30px;
-                }
-
-
-
-
 
 
 
@@ -364,8 +346,20 @@ header{
             cursor: pointer;
         }
 
+
+
     /************************************************************/
-    /*                          POPIN                           */
+    /*                          POPIN SONGS                     */
+    /************************************************************/
+    .popin-song{
+        position: fixed;
+        top:0px;
+        height:150px;
+        background-color: rgba(0,0,0,0.2);
+        width:100%;
+    }
+    /************************************************************/
+    /*                          POPIN ACCOUNT                   */
     /************************************************************/
     .popin {
         position: fixed;

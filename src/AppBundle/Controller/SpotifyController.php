@@ -118,14 +118,20 @@ class SpotifyController extends Controller
      * @param string $keyword
      *
      * @Route("spotify/result", name="spotify_search_result")
+     *
+     * @return Response
      */
     public function getSpotifySongAction($keyword)
     {
-        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
-        $topTracks = $this->get('spotify_functions')->getArtistTopTracks($keyword, $acessToken);
-        $musics = [];
-        foreach ($topTracks as $topTrack){
-            $musics[] = $topTrack;
+        $musics = array();
+        if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+        {
+            $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+            $topTracks = $this->get('spotify_functions')->getArtistTopTracks($keyword, $acessToken);
+            $musics = [];
+            foreach ($topTracks as $topTrack){
+                $musics[] = $topTrack;
+            }
         }
         
         return $this->render('search/searchSpotify.html.twig', [

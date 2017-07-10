@@ -1,7 +1,19 @@
 <div class="container-albums container">
-    <div class="images">
+    {% if app.user.credentials.spotifyToken == null and app.user.credentials.deezerToken == null %}
+        {% set widthcol = '2' %}
+        {% set widthalbum = '12' %}
+        {% set widthalbumoffset = '0' %}
+    {% else %}
+        {% set widthcol = '6' %}
+        {% set widthalbum = '5' %}
+        {% set widthalbumoffset = '1' %}
+    {% endif %}
+    <div class="col-xs-{{ widthalbum }} offset-xs-{{ widthalbumoffset }} images">
+        <div class="col-xs-12 title">
+            Liste des albums
+        </div>
         {% for album in albums %}
-            <div class="container-album get-music-album" data-artist="{{ artist }}" data-album="{{ album['name'] }}">
+            <div class="col-xs-{{ widthcol }} container-album get-music-album" data-artist="{{ artist }}" data-album="{{ album['name'] }}">
                 <img src="{{ album['image'][1]['#text'] }}" alt="{{ album['name'] }}">
                 <br/>
                 <span class="searchAlbumTitle">{{ album['name'] }}</span>
@@ -10,9 +22,13 @@
             {{ "search.lastFM.noTopAlbums"|trans }}
         {% endfor %}
     </div>
-    {% if albums|length != 0 and (app.user.credentials.spotifyToken != null or app.user.credentials.deezerToken) %}
-        <div class="music song-album-list">
-            Choisir un album pour afficher les morceaux...
+    {% if app.user.credentials.spotifyToken != null or app.user.credentials.deezerToken != null %}
+        <div class="col-xs-6 music song-album-list">
+            {% if albums|length == 0 %}
+                Cet artiste n'a pas d'album
+                {% else %}
+                    Choisir un album pour afficher les morceaux...
+            {% endif %}
         </div>
     {% endif %}
 </div>

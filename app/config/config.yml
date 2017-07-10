@@ -67,3 +67,9 @@ swiftmailer:
     encryption:  "%mailer_encryption%"
     port:        "%mailer_port%"
     spool:       { type: memory }
+
+services:
+    twig.extension.text:
+       class: Twig_Extensions_Extension_Text
+       tags:
+           - { name: twig.extension }
