@@ -1,13 +1,15 @@
 <div class="container-albums container">
     {% if app.user.credentials.spotifyToken == null and app.user.credentials.deezerToken == null %}
-        {% set widthcol = '12' %}
+        {% set widthcol = '2' %}
         {% set widthalbum = '12' %}
+        {% set widthalbumoffset = '0' %}
     {% else %}
         {% set widthcol = '6' %}
         {% set widthalbum = '5' %}
+        {% set widthalbumoffset = '1' %}
     {% endif %}
-    <div class="col-xs-5 offset-xs-1 images">
-        <div class="col-xs-{{ widthalbum }} title">
+    <div class="col-xs-{{ widthalbum }} offset-xs-{{ widthalbumoffset }} images">
+        <div class="col-xs-12 title">
             Liste des albums
         </div>
         {% for album in albums %}
