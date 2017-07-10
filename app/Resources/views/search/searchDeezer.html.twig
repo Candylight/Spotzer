@@ -6,14 +6,14 @@
     {% for item in musics %}
         <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
             <div class="play col-xs-3">
-                <img src="{{ asset('img/search/play.png') }}" alt="">
+                <img src="{{ asset('img/search/play.png') }}" alt="" class="playTrack" data-song-id="{{ item.id }}" data-platform="deezer">
             </div>
             <div class="content col-xs-9">
                 <div class="name">
-                    <span class="artist">{{ item.title }}</span>
+                    <span class="artist">{{ item.title|truncate(35, true, '...')  }}</span>
                 </div>
                 <div class="details">
-                    {{ item.album.title }}
+                    {{ item.album.title|truncate(45, true, '...') }}
                 </div>
             </div>
         </div>
