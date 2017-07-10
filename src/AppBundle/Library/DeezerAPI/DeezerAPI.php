@@ -106,7 +106,7 @@ class DeezerAPI
      */
     public function getPlaylist($playlistId)
     {
-        $response = $this->request->api('GET', '/playlist/' . $playlistId);
+        $response = $this->request->api('GET', '/playlist/' . $playlistId, [], [], false);
         return $response['body'];
     }
 
@@ -145,7 +145,7 @@ class DeezerAPI
              'access_token' => $this->accessToken,
          );
 
-         $response = $this->request->api('GET', '/user/me/playlists', $options);
+         $response = $this->request->api('GET', '/user/me/playlists', $options, [], false);
          return $response['body'];
     }
 
