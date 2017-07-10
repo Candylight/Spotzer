@@ -110,7 +110,7 @@ class DeezerFunctions
 
     public function searchBestResult($track)
     {
-        return $this->api->search($track,[], 'track', false);
+        return $this->api->search($track,['limit' => 1], 'track', false);
     }
 
     public function addItemToPlaylist($accessToken ,$playlistId, $trackId)
