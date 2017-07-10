@@ -51,6 +51,12 @@ class TransferController extends Controller
                         'spotifyPlaylists' => $spotifyPlaylists,
                     ]);
                     break;
+                case 'deezer':
+                    $deezerPlaylists = $this->get('deezer_functions')->getPlaylist($this->getUser()->getCredentials()->getDeezerToken())->data;
+                    return $this->render('transfer/ajax/playlist/deezerPlaylists.html.twig', [
+                        'deezerPlaylists' => $deezerPlaylists,
+                    ]);
+                    break;
             }
         }
     }
@@ -133,17 +139,30 @@ class TransferController extends Controller
                     }
                 break;
                 case 'deezer':
-                    // Création de la playlist sur la plateforme de fin
-                    // Récupération de toutes les tracks de la playlist
-                    // for(tracks)
-                        // get nom artiste
-                        // get nom album
-                        // Recherche de nom+album dans plateforme de fin
-                        // SI EXISTE
-                            // Ajout de la track dans la playlist venant d'être créée
-                            // Ajout valeur de succès dans un tableau
-                        // SI EXISTE PAS
-                            // Ajout d'une valeur d'erreur dans un tableau
+                    $playlistDeezer = $this->get('deezer_functions')->getPlaylistById($this->getUser()->getCredentials()->getDeezerToken(), $playlist);
+                    $playlistDeezerName = $playlistDeezer->title;
+                    $tracks = $playlistDeezer->tracks->data;
+                    if ($plateform_end == 'spotify'){
+                        $spotifyPlaylist = $this->get('spotify_functions')->createPlaylist($this->getUser()->getCredentials()->getSpotifyToken(),$playlistDeezerName );
+                        foreach ($tracks as $track){
+                            $spotifyTracks = $this->get('spotify_functions')->searchBestResult($this->getUser()->getCredentials()->getSpotifyToken(), $track->title.' '.$track->artist->name);
+                            foreach ($spotifyTracks as $item){
+                                if (!empty($item->items)){
+                                    $trackId = $item->items[0]->id;
+                                    $this->get('spotify_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getSpotifyToken(), $spotifyPlaylist->id, $trackId);
+                                }
+                            }
+                        }
+                    } elseif ($plateform_end == 'youtube'){
+                        $youtubePlaylist = $this->get('youtube_functions')->createPlaylist($this->getUser()->getCredentials(), $playlistDeezerName, '', 'private');
+                        foreach ($tracks as $track) {
+                            $youtubeTracks = $this->get('youtube_functions')->searchBestResult($track->title.' '.$track->artist->name);
+                            foreach ($youtubeTracks as $item) {
+                                $trackId = $item->getId()->videoId;
+                            }
+                            $this->get('youtube_functions')->addItemToPlaylist($this->getUser()->getCredentials(), $youtubePlaylist->id, $trackId);
+                        }
+                    }
             }
 
             return $this->render('transfer/ajax/result.html.twig', [
