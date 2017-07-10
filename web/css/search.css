@@ -90,6 +90,9 @@
                 #container-search .container-music-youtube .part .icon img{
                     max-height: 40px;
                 }
+                    #container-search .container-music-youtube .part .item{
+                        cursor: pointer;
+                    }
 
                     /*              MUSIC                 */
                     #container-search .container-music-youtube .part.music .list .play{
@@ -211,7 +214,8 @@
                     padding:10px 0;
                 }
                     #container-search .container-albums .song-album-list ul li:hover{
-                        background-color: rgba(0,0,0,0.2);
+                        background-color: rgba(255,255,255,0.2);
+                        cursor: pointer;
                     }
             #container-search .container-albums .song-album-list .message{
                 padding:10px 0;
