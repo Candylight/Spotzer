@@ -90,7 +90,7 @@ class SearchController extends Controller
             }
             else if($platform == "deezer")
             {
-                $response = "<iframe scrolling=\"no\" frameborder=\"0\" allowTransparency=\"true\" src=\"https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=".$trackId."\" width=\"700\" height=\"350\"></iframe>";
+                $response = "<iframe scrolling=\"no\" frameborder=\"0\" allowTransparency=\"true\" src=\"https://www.deezer.com/plugins/player?format=classic&autoplay=true&playlist=false&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=".$trackId."\" width=\"700\" height=\"350\"></iframe>";
             }
         }
 
