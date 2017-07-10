@@ -10,10 +10,10 @@
             </div>
             <div class="content col-xs-9">
                 <div class="name">
-                    <span class="artist">{{ item.title }}</span>
+                    <span class="artist">{{ item.title|truncate(35, true, '...')  }}</span>
                 </div>
                 <div class="details">
-                    {{ item.album.title }}
+                    {{ item.album.title|truncate(45, true, '...') }}
                 </div>
             </div>
         </div>
