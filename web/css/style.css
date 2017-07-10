@@ -74,6 +74,13 @@ body{
         }
 
 
+.no-connect-message{
+    text-align: center;
+    padding:40px 0;
+}
+
+
+
 .custom-dropdown--large {
     font-size: 1.5em;
 }
@@ -393,6 +400,34 @@ header{
 
 
 
+
+/********************************************************************************************/
+/*                                      POPIN YOUTUBE                                       */
+/********************************************************************************************/
+
+.overlay-youtube{
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    display: none;
+    z-index:2 ;
+}
+    .overlay-youtube.active{
+        display: block;
+    }
+    .overlay-youtube .close{
+        display: inline-block;
+        margin-top: 80px;
+        text-align: center;
+        opacity: 1;
+        float: none;
+    }
+    .overlay-youtube .video{
+        margin-top:30px;
+    }
 
 
 /****************************************************************************************************************/
