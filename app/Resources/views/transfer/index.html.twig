@@ -3,23 +3,26 @@
 {% block body %}
     <div id="container-transfer">
         <div class="col-xs-4 offset-xs-4 container-center">
-            <div class="col-xs-12 title">
-                {{ "transfer.title"|trans }}
-            </div>
-            <div class="advice">
-                {{ "transfer.selection.title"|trans }}
-            </div>
-            <div class="part container">
-                {{ include('transfer/steps/1_start_plateform.html.twig')  }}
-            </div>
-            <div class="part container">
-                {{ include('transfer/steps/2_playlists_select.html.twig')  }}
-            </div>
-            <div class="part container">
-                {{ include('transfer/steps/3_end_plateform.html.twig')  }}
-            </div>
-            <div class="part container">
-                {{ include('transfer/steps/4_transfer.html.twig')  }}
+            <img class="loader" src="{{ asset('img/transfer/loading.gif') }}" alt="">
+            <div class="all-steps">
+                <div class="col-xs-12 title">
+                    {{ "transfer.title"|trans }}
+                </div>
+                <div class="advice">
+                    {{ "transfer.selection.title"|trans }}
+                </div>
+                <div class="part container">
+                    {{ include('transfer/steps/1_start_plateform.html.twig')  }}
+                </div>
+                <div class="part container">
+                    {{ include('transfer/steps/2_playlists_select.html.twig')  }}
+                </div>
+                <div class="part container">
+                    {{ include('transfer/steps/3_end_plateform.html.twig')  }}
+                </div>
+                <div class="part container">
+                    {{ include('transfer/steps/4_transfer.html.twig')  }}
+                </div>
             </div>
         </div>
     </div>
