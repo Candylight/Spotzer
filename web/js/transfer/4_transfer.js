@@ -21,11 +21,14 @@ function launchTransfer(){
                 plateform_end: encodeURI(step_3_plateform_end)
             },
             success: function(view) {
+                $(".loader").removeClass("active");
                 $(".all-steps").html('Transfert OK');
+                $(".button-refresh").addClass("active");
             }
         });
     }
     else{
+        $(".all-steps").html('Rafraichir la page pour essayer à nouveau');
         alert("Une erreur est survenue, veuillez recharger la page");
     }
 }
