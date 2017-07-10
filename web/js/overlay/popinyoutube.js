@@ -17,8 +17,8 @@ $(".video-link-popin").click( function(){
 
         iframe.setAttribute( "frameborder", "0" );
         iframe.setAttribute( "allowfullscreen", "" );
-        iframe.setAttribute( "height", "315" );
-        iframe.setAttribute( "width", "420" );
+        iframe.setAttribute( "height", "525" );
+        iframe.setAttribute( "width", "700" );
         iframe.setAttribute( "src", "https://www.youtube.com/embed/"+ $id_video +"?rel=0&showinfo=0&autoplay=1" );
 
         container_video.appendChild( iframe );
