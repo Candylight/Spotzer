@@ -359,6 +359,7 @@ header{
         width:100%;
         padding-top:60px;
         overflow: hidden;
+        z-index: 1;
     }
     /************************************************************/
     /*                          POPIN ACCOUNT                   */
