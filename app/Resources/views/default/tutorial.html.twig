@@ -3,23 +3,148 @@
 {% block body %}
     <div class="container-tutorial">
         <div class="title">
-            Page de tutoriel
         </div>
-        <div class="part-platforms">
-            Description des plateformes disponibles
+        <div class="part-platforms container">
+            <div class="title-part">
+                Connectez-vous au plateformes ou profitez simples des informations
+            </div>
+            <div class="col-xs-3 part">
+                <img class="logo" src="{{ asset('img/welcome/plateformes/logo_deezer_white.png') }}" alt="">
+                <div class="title">
+                    Deezer
+                </div>
+                <div class="type">
+                    {{ "welcome.utility.music"|trans }}
+                </div>
+                <div class="screenshot">
+                    <img src="{{ asset('img/welcome/screen/deezer.jpg') }}" alt="">
+                </div>
+            </div>
+            <div class="col-xs-3 part">
+                <img class="logo" src="{{ asset('img/welcome/plateformes/logo_spotify_white.png') }}" alt="">
+                <div class="title">
+                    Spotify
+                </div>
+                <div class="type">
+                    {{ "welcome.utility.music"|trans }}
+                </div>
+                <div class="screenshot">
+                    <img src="{{ asset('img/welcome/screen/spotify.jpg') }}" alt="">
+                </div>
+            </div>
+            <div class="col-xs-3 part">
+                <img class="logo" src="{{ asset('img/welcome/plateformes/logo_youtube_white.png') }}" alt="">
+                <div class="title">
+                    Youtube
+                </div>
+                <div class="type">
+                    {{ "welcome.utility.video"|trans }}
+                </div>
+                <div class="screenshot">
+                    <img src="{{ asset('img/welcome/screen/youtube.jpg') }}" alt="">
+                </div>
+            </div>
+            <div class="col-xs-3 part">
+                <img class="logo" src="{{ asset('img/welcome/plateformes/logo_lastfm_white.png') }}" alt="">
+                <div class="title">
+                    Last FM
+                </div>
+                <div class="type">
+                    {{ "welcome.utility.information"|trans }}
+                </div>
+                <div class="screenshot">
+                    <img src="{{ asset('img/welcome/screen/lastfm.jpg') }}" alt="">
+                </div>
+            </div>
         </div>
         <div class="part-connexions">
-            Description des connexions aux plateformes
+            <div class="title-part">
+                Rendez-vous dans votre compte personnel pour<br/> vous connectez aux plateformes disponibles
+            </div>
+            <div>
+                <div class="connexion-container container">
+                    <div class="col-xs-4 part">
+                        <img class="logo" src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="">
+                        <div class="title">
+                            Spotify
+                        </div>
+                        <a class="button disconnect">Se deconnecter</a>
+                    </div>
+                    <div class="col-xs-4 part">
+                        <img class="logo" src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="">
+                        <div class="title">
+                            Deezer
+                        </div>
+                        <a class="button">Se connecter</a>
+                    </div>
+                    <div class="col-xs-4 part">
+                        <img class="logo" src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="">
+                        <div class="title">
+                            Youtube
+                        </div>
+                        <a class="button">Se connecter</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="part-arbo">
-            Description de l'arborescence du site web
+            <div class="title-part">
+                Profitez de toutes les fonctionnalités de Spötzer
+            </div>
+            <img class="logo" src="{{ asset('img/global/tutorial/arbo.png') }}" alt="">
         </div>
         <div class="part-transfer">
-            Description de la phase de transfert
+            <div class="title-part">
+                Description de la phase de transfert
+            </div>
+            <div class="container">
+                <div class="col-xs-2 offset-xs-2 number">
+                    <div class="out">
+                        <div class="in">
+                            1
+                        </div>
+                    </div>
+                    <div class="description">
+                        Choix de la plateforme<br/> de départ
+                    </div>
+                </div>
+                <div class="col-xs-2 number">
+                    <div class="out">
+                        <div class="in">
+                            2
+                        </div>
+                    </div>
+                    <div class="description">
+                        Choix de la playlist
+                    </div>
+                </div>
+                <div class="col-xs-2 number">
+                    <div class="out">
+                        <div class="in">
+                            3
+                        </div>
+                    </div>
+                    <div class="description">
+                        Choix de la plateforme<br/> d'arrivée
+                    </div>
+                </div>
+                <div class="col-xs-2 number">
+                    <div class="out">
+                        <div class="in">
+                            4
+                        </div>
+                    </div>
+                    <div class="description">
+                        Lancer le transfert
+                    </div>
+                </div>
+            </div>
         </div>
-        <a class="button" href="{{ path('dashboard') }}">
-            dashboard
-        </a>
+        <div class="part-godashboard">
+            <a class="button" href="{{ path('dashboard') }}">
+                Aller au dashboard
+            </a>
+        </div>
     </div>
 {% endblock %}
 
