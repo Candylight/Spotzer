@@ -52,6 +52,7 @@
     {{ parent() }}
     <script type="text/javascript">
         var url_get_song_from_album = '{{ path('search_song_album') }}';
+        var urlGetSong = '{{ path('search_track') }}';
         {% if app.user.spotifyPrefered %}
             var prefered_plateform = 'spotify';
         {% elseif app.user.deezerPrefered %}
@@ -60,5 +61,7 @@
             var prefered_plateform = 'noconnexion';
         {% endif %}
     </script>
+    <script type="text/javascript" src="{{ asset('js/overlay/popinyoutube.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/search/album.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/global/playTrack.js') }}"></script>
 {% endblock %}

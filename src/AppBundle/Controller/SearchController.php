@@ -73,6 +73,27 @@ class SearchController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/search/track", name="search_track")
+     */
+    public function getTrackAction(Request $request)
+    {
+        $response = "";
 
+        if ($request->isXmlHttpRequest()) {
+            $trackId = $request->query->get('trackId');
+            $platform = $request->query->get('platform');
 
+            if($platform == "spotify")
+            {
+
+            }
+            else if($platform == "deezer")
+            {
+                $response = "<iframe scrolling=\"no\" frameborder=\"0\" allowTransparency=\"true\" src=\"https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=false&width=700&height=350&color=007FEB&layout=dark&size=medium&type=tracks&id=".$trackId."\" width=\"700\" height=\"350\"></iframe>";
+            }
+        }
+
+        return new Response($response);
+    }
 }
