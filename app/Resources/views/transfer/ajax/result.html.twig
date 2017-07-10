@@ -4,16 +4,16 @@
 <div class="title-log success">
     Transfert OK :
 </div>
-{% for success in reportLogs.success %}
+{% for successLog in successLogs %}
     <div class="line">
-        {{ success }}
+        {{ successLog }}
     </div>
 {% endfor %}
 <div class="title-log error">
     Transfert NOK :
 </div>
-{% for error in reportLogs.error %}
+{% for errorLog in errorLogs %}
     <div class="line">
-        {{ error }}
+        {{ errorLog }}
     </div>
 {% endfor %}
