@@ -5,10 +5,10 @@
 <div class="list">
     {% for item in musics %}
         <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
-            <div class="play">
+            <div class="play col-xs-3">
                 <img src="{{ asset('img/search/play.png') }}" alt="">
             </div>
-            <div class="content">
+            <div class="content col-xs-9">
                 <div class="name">
                     <span class="artist">{{ item.artist.name }}</span>
                     -
@@ -17,10 +17,6 @@
                 <div class="details">
                     {{ item.album.title }}
                 </div>
-            </div>
-            <div class="actions">
-                <img src="{{ asset('img/search/icon-like-song.png') }}" alt="">
-                <img src="{{ asset('img/search/icon-addplaylist-song.png') }}" alt="">
             </div>
         </div>
     {% else %}

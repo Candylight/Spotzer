@@ -95,16 +95,12 @@
 
                     /*              MUSIC                 */
                     #container-search .container-music-youtube .part.music .list .play{
-                        float: left;
-                        width: 15%;
                         text-align: center;
                     }
                         #container-search .container-music-youtube .part.music .list .play img{
                             max-height: 40px;
                         }
                     #container-search .container-music-youtube .part.music .list .content{
-                        float: left;
-                        width: 60%;
                         color:white;
                     }
                         #container-search .container-music-youtube .part.music .list .content .name{
@@ -119,19 +115,8 @@
                         #container-search .container-music-youtube .part.music .list .content .details{
                             font-size:13px;
                         }
-                    #container-search .container-music-youtube .part.music .list .actions{
-                        float: left;
-                        width: 25%;
-                        text-align: center;
-                        padding-top:6px;
-                    }
-                        #container-search .container-music-youtube .part.music .list .actions img{
-                            max-height: 30px;
-                        }
                     /*              YOUTUBE                 */
                     #container-search .container-music-youtube .part.youtube .list .image{
-                        float: left;
-                        width: 30%;
                         text-align: center;
                         overflow: hidden;
                     }
@@ -139,8 +124,6 @@
                             max-width: 90%;
                         }
                     #container-search .container-music-youtube .part.youtube .list .content{
-                        float: left;
-                        width: 70%;
                         color:white;
                     }
                         #container-search .container-music-youtube .part.youtube .list .content .name{
@@ -171,6 +154,7 @@
                 height: 100%;
                 width: 100%;
                 top:0px;
+                left:0px;
                 display: none;
                 z-index:2 ;
             }
