@@ -12,9 +12,15 @@
     <div class="col-xs-12 content content-1 active">
         <span class="custom-dropdown custom-dropdown--white">
             <select id="plateform-start-choice" class="type-list-start custom-dropdown__select custom-dropdown__select--white">
-                <option value="deezer">Deezer</option>
-                <option value="youtube">Youtube</option>
-                <option value="spotify">Spotify</option>
+                {% if app.user.credentials.deezerToken != null %}
+                    <option value="deezer">Deezer</option>
+                {% endif %}
+                {% if app.user.credentials.youtubeToken != null %}
+                    <option value="youtube">Youtube</option>
+                {% endif %}
+                {% if app.user.credentials.spotifyToken != null %}
+                    <option value="spotify">Spotify</option>
+                {% endif %}
             </select>
         </span>
     </div>
