@@ -78,6 +78,8 @@ dashboard:
             publicLabel: 'Publique'
             privateLabel: 'Privée'
             create: 'Créer'
+        channels:
+            channelsList: 'Liste des canaux'
     spotify:
         followers:
             titleFollowers: 'Ils vous suivent'

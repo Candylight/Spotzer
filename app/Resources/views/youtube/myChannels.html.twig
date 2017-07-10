@@ -1,12 +1,12 @@
 <div class="container-followers container">
     <div class="title">
-        {{ "dashboard.youtube.followers.titleFollow"|trans }}
+        {{ "dashboard.youtube.channels.channelsList"|trans }}
     </div>
     <ul>
         {% if myChannels != false %}
             {% for channel in myChannels %}
                 <li class="container">
-                    <a href="https://www.youtube.com/channel/{{ channel.snippet.channelId }}">
+                    <a href="https://www.youtube.com/channel/{{ channel.snippet.resourceId.channelId }}">
                         <div class="col-xs-2 image">
                             <img src="{{ channel.snippet.thumbnails.default.url }}" alt="{{ channel.snippet.title }}">
                         </div>
