@@ -365,7 +365,7 @@ header{
     }
         .popin-song.active{
             transition: all 1s;
-            top:-150px;
+            top:0px;
         }
     /************************************************************/
     /*                          POPIN ACCOUNT                   */

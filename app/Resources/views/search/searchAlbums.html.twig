@@ -8,10 +8,10 @@
         {% set widthalbum = '5' %}
         {% set widthalbumoffset = '1' %}
     {% endif %}
+    <div class="col-xs-12 title">
+        Liste des albums
+    </div>
     <div class="col-xs-{{ widthalbum }} offset-xs-{{ widthalbumoffset }} images">
-        <div class="col-xs-12 title">
-            Liste des albums
-        </div>
         {% for album in albums %}
             <div class="col-xs-{{ widthcol }} container-album get-music-album" data-artist="{{ artist }}" data-album="{{ album['name'] }}">
                 <img src="{{ album['image'][1]['#text'] }}" alt="{{ album['name'] }}">
