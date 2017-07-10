@@ -353,14 +353,20 @@ header{
     /************************************************************/
     .popin-song{
         position: fixed;
-        top:0px;
+        top:-150px;
         height:150px;
-        background-color: rgba(0,0,0,0.2);
+        background-color: rgba(0,0,0,0.4);
         width:100%;
         padding-top:60px;
         overflow: hidden;
         z-index: 1;
+        text-align: center;
+        transition: all 1s;
     }
+        .popin-song.active{
+            transition: all 1s;
+            top:-150px;
+        }
     /************************************************************/
     /*                          POPIN ACCOUNT                   */
     /************************************************************/

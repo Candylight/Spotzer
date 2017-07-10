@@ -12,6 +12,7 @@ $(document).ready(function(){
            },
            success: function(view) {
                $('.popin-song').html(view);
+               $('.popin-song').addClass("active");
            }
        })
    });
