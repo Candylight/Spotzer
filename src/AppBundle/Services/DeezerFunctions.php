@@ -144,4 +144,20 @@ class DeezerFunctions
         return $result->data[0]->id;
     }
 
+    public function getPlaylist($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+
+        return $this->api->getUserPlaylists();
+    }
+
+    public function getPlaylistById($accessToken, $playlistId)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getPlaylist($playlistId);
+
+    }
+
 }
