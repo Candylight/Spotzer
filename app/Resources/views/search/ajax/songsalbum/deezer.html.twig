@@ -1,7 +1,7 @@
 <div class="message">
     Cliquer sur une musique pour la lancer
 </div>
-<ul>
+<ul class="col-xs-12">
     {% for song in songs %}
         <li data-song-id="{{ song.id }}" data-platform="deezer" class="playTrack">{{ song.title }}</li>
     {% endfor %}
