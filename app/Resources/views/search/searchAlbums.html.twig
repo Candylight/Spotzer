@@ -1,7 +1,10 @@
 <div class="container-albums container">
-    <div class="images">
+    <div class="col-xs-5 offset-xs-1 images">
+        <div class="col-xs-12 title">
+            Liste des albums
+        </div>
         {% for album in albums %}
-            <div class="container-album get-music-album" data-artist="{{ artist }}" data-album="{{ album['name'] }}">
+            <div class="col-xs-6 container-album get-music-album" data-artist="{{ artist }}" data-album="{{ album['name'] }}">
                 <img src="{{ album['image'][1]['#text'] }}" alt="{{ album['name'] }}">
                 <br/>
                 <span class="searchAlbumTitle">{{ album['name'] }}</span>
@@ -10,9 +13,16 @@
             {{ "search.lastFM.noTopAlbums"|trans }}
         {% endfor %}
     </div>
-    {% if albums|length != 0 and (app.user.credentials.spotifyToken != null or app.user.credentials.deezerToken) %}
-        <div class="music song-album-list">
+    <div class="col-xs-6 music song-album-list">
+        {% if albums|length == 0 %}
+            Cet artiste n'a pas d'album
+        {% endif %}
+        {% if app.user.credentials.spotifyToken != null or app.user.credentials.deezerToken %}
             Choisir un album pour afficher les morceaux...
-        </div>
-    {% endif %}
+        {% else %}
+            <div class="no-connect-message">
+                Vous devez être connecté à une plateforme musicale <br/> pour afficher les musique
+            </div>
+        {% endif %}
+    </div>
 </div>
