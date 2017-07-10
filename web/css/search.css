@@ -196,12 +196,29 @@
                 .searchAlbumTitle{
                     color:white;
                 }
-        #container-search .container-albums .music{
+        #container-search .container-albums .song-album-list{
             background-color: rgba(0,0,0,0.3);
             color:white;
             text-align: center;
             min-height: 500px;
         }
+            #container-search .container-albums .song-album-list ul{
+                list-style: none;
+                margin:0;
+                padding:0;
+            }
+                #container-search .container-albums .song-album-list ul li{
+                    list-style: none;
+                    margin:0;
+                    padding:10px 0;
+                }
+                    #container-search .container-albums .song-album-list ul li:hover{
+                        background-color: rgba(0,0,0,0.2);
+                    }
+            #container-search .container-albums .song-album-list .message{
+                padding:10px 0;
+                border-bottom: 1px solid grey;
+            }
 
 
 
