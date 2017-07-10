@@ -57,8 +57,9 @@
                         width:100%;
                     }
 
-
-
+/********************************************************************************************/
+/*                                      REPONSES                                            */
+/********************************************************************************************/
 
     .loader{
         display: none;
@@ -72,7 +73,21 @@
         .button-refresh.active{
             display: inline-block;
         }
-                            .
+    .container-logs{
+
+    }
+        .container-logs .title-log{
+            font-size:25px;
+        }
+            .container-logs .title-log.error{
+                color:red;
+            }
+            .container-logs .title-log.success{
+                color:green;
+            }
+        .container-logs .line{
+            font-size:15px;
+        }
 
 /********************************************************************************************/
 /*                                      RESPONSIVE                                          */

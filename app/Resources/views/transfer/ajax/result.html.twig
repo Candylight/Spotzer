@@ -1,6 +1,19 @@
-<div class="">
-    Informations globales
+<div class="title">
+    Rapport de transfert
 </div>
-<div class="">
-    Details
+<div class="title-log success">
+    Transfert OK :
 </div>
+{% for success in reportLogs.success %}
+    <div class="line">
+        {{ success }}
+    </div>
+{% endfor %}
+<div class="title-log error">
+    Transfert NOK :
+</div>
+{% for error in reportLogs.error %}
+    <div class="line">
+        {{ error }}
+    </div>
+{% endfor %}

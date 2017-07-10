@@ -22,7 +22,7 @@ function launchTransfer(){
             },
             success: function(view) {
                 $(".loader").removeClass("active");
-                $(".all-steps").html('Transfert OK');
+                $(".container-logs").html(view);
                 $(".button-refresh").addClass("active");
             }
         });
