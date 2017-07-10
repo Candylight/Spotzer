@@ -29,10 +29,11 @@
                 <div class="col-xs-3">
                     <img class="title-logo" src="{{ asset('img/global/footer/organisation.png') }}" alt="">
                     <ul>
-                        <li><a href="">Accueil</a></li>
-                        <li><a href="">Rechercher</a></li>
-                        <li><a href="">Transferer</a></li>
-                        <li><a href="">Votre compte</a></li>
+                        <li><a href="{{ path("dashboard") }}">Accueil</a></li>
+                        <li><a href="{{ path("dashboard") }}">Rechercher</a></li>
+                        <li><a href="{{ path("transfer") }}">Transferer</a></li>
+                        <li><a href="{{ path("account") }}">Votre compte</a></li>
+                        <li><a href="{{ path("tutorial") }}">Tutoriel</a></li>
                     </ul>
                 </div>
                 <div class="col-xs-3">

@@ -22,10 +22,13 @@
                 <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="" class="header-icon" id="youtube">
             </a>
         {% endif %}
+        <span class="header-icon" id="account" title="Last FM">
+            <img src="{{ asset('img/search/lastFM-icon.png') }}" alt="">
+        </span>
         <a href="{{ path('transfer') }}">
             <img src="{{ asset('img/global/icon-transfer.png') }}" alt="" title="Transfert de données">
         </a>
-        <span href="{{ path('account') }}" class="header-icon" id="account" title="Votre compte">
+        <span class="header-icon" id="account" title="Votre compte">
             <img src="{{ asset('img/global/icon-account.png') }}" alt="">
         </span>
     </div>
