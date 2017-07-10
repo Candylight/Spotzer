@@ -2,9 +2,9 @@
 
     {% if app.user.credentials.spotifyToken == null or app.user.credentials.deezerToken == null or app.user.credentials.youtubeToken == null %}
         <div class="col-xs-3 offset-xs-3 part">
+            <img src="{{ asset('img/dashboard/index/music.png') }}" alt="">
+            <br/>
             {% if app.user.credentials.spotifyToken == null and app.user.credentials.deezerToken == null %}
-                <img src="{{ asset('img/dashboard/index/music.png') }}" alt="">
-                <br/>
                 Connectez vous à une plateforme musicale <br/> pour profiter du contenu audio
                 <br/>
                 <a class="button" href="{{ path('account') }}">
