@@ -6,7 +6,7 @@
     {% for item in musics %}
         <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
             <div class="play col-xs-3">
-                <img src="{{ asset('img/search/play.png') }}" alt="">
+                <img src="{{ asset('img/search/play.png') }}" alt="" class="playTrack" data-song-id="{{ item.id }}" data-platform="deezer">
             </div>
             <div class="content col-xs-9">
                 <div class="name">
