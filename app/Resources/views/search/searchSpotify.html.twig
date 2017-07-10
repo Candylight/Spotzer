@@ -12,12 +12,10 @@
                 </div>
                 <div class="content col-xs-9">
                     <div class="name">
-                        <span class="artist">{{ item.artists[0].name }}</span>
-                        -
-                        <span class="song">{{ item.name }}</span>
+                        <span class="song">{{ item.name|truncate(50, true, '...') }}</span>
                     </div>
                     <div class="details">
-                        {{ item.album.name }}
+                        {{ item.album.name|truncate(75, true, '...') }}
                     </div>
                 </div>
                 {% endfor %}
