@@ -11,7 +11,7 @@ $(document).ready(function(){
                platform: platform
            },
            success: function(view) {
-               $('.song-album-list').html(view);
+               $('.popin-song').html(view);
            }
        })
    });
