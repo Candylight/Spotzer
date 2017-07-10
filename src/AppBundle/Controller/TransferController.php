@@ -66,9 +66,7 @@ class TransferController extends Controller
      */
     public function launchAction(Request $request)
     {
-        // tableau de result
-        // tableau["success"] = []
-        // tableau["erreur"] = []
+        $reportLogs = [];
         if ($request->isXmlHttpRequest()) {
             // retrieve playlist parameter from ajax request
             $plateform_start = $request->query->get('plateform_start');
@@ -91,6 +89,9 @@ class TransferController extends Controller
                                     if (!empty($item->items)){
                                         $trackId = $item->items[0]->id;
                                         $this->get('spotify_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getSpotifyToken(), $spotifyPlaylist->id, $trackId);
+                                        $reportLogs['success'][] = $track->getSnippet()->title;
+                                    } else {
+                                        $reportLogs['error'][] = $track->getSnippet()->title;
                                     }
                                 }
                             }
@@ -102,15 +103,20 @@ class TransferController extends Controller
                             $sanitizeTitle = preg_replace('/\[[^)]+\]/', '', $sanitizeTitle);
                             $sanitizeTitle = preg_replace('/[^A-Za-z0-9\s]/', '', $sanitizeTitle);
                             if ($sanitizeTitle !== ''){
-                                $deezerTracks = $this->get('deezer_functions')->searchBestResult($sanitizeTitle);
-                                foreach ($deezerTracks as $item) {
-                                    if (is_array($item)&& !empty($item)) {
-                                        $trackId = $item[0]->id;
+                                $deezerTracks = $this->get('deezer_functions')->searchBestResult($sanitizeTitle)->data;
+                                if (!empty($deezerTracks)){
+                                    foreach ($deezerTracks as $item){
+                                        $trackId = $item->id;
+                                        $this->get('deezer_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getDeezerToken(), preg_replace('/\.[^.]*$/', '', $deezerPlaylist->id), $trackId);
+                                        $reportLogs['success'][] = $track->getSnippet()->title;
                                     }
+                                } else {
+                                    $reportLogs['error'][] = $track->getSnippet()->title;
                                 }
-                                $this->get('deezer_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getDeezerToken(), preg_replace('/\.[^.]*$/', '', $deezerPlaylist->id), $trackId);
+                            } else {
+                                $reportLogs['error'][] = $track->getSnippet()->title;
                             }
-                        }die;
+                        }
                     }
                 break;
                 case 'spotify':
@@ -124,17 +130,21 @@ class TransferController extends Controller
                                 $trackId = $item->getId()->videoId;
                             }
                             $this->get('youtube_functions')->addItemToPlaylist($this->getUser()->getCredentials(), $youtubePlaylist->id, $trackId);
+                            $reportLogs['success'][] = $track->track->name . ' ' . $track->track->artists[0]->name;
                         }
                     } elseif ($plateform_end == 'deezer'){
                         $deezerPlaylist = $this->get('deezer_functions')->createPlaylist($this->getUser()->getCredentials()->getDeezerToken(), $playlistSpotifyName);
                         foreach ($tracks as $track) {
-                            $deezerTracks = $this->get('deezer_functions')->searchBestResult($track->track->name . ' ' . $track->track->artists[0]->name);
-                            foreach ($deezerTracks as $item) {
-                                if (is_array($item)&& !empty($item)){
-                                    $trackId = $item[0]->id;
+                            $deezerTracks = $this->get('deezer_functions')->searchBestResult($track->track->name . ' ' . $track->track->artists[0]->name)->data;
+                            if (!empty($deezerTracks)) {
+                                foreach ($deezerTracks as $item) {
+                                    $trackId = $item->id;
+                                    $this->get('deezer_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getDeezerToken(), preg_replace('/\.[^.]*$/', '', $deezerPlaylist->id), $trackId);
+                                    $reportLogs['success'][] = $track->track->name . ' ' . $track->track->artists[0]->name;
                                 }
+                            } else {
+                                $reportLogs['error'][] = $track->track->name . ' ' . $track->track->artists[0]->name;
                             }
-                            $this->get('deezer_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getDeezerToken(), preg_replace('/\.[^.]*$/', '', $deezerPlaylist->id), $trackId);
                         }
                     }
                 break;
@@ -150,6 +160,9 @@ class TransferController extends Controller
                                 if (!empty($item->items)){
                                     $trackId = $item->items[0]->id;
                                     $this->get('spotify_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getSpotifyToken(), $spotifyPlaylist->id, $trackId);
+                                    $reportLogs['success'][] = $track->title.' '.$track->artist->name;
+                                } else {
+                                    $reportLogs['error'][] = $track->title.' '.$track->artist->name;
                                 }
                             }
                         }
@@ -161,11 +174,13 @@ class TransferController extends Controller
                                 $trackId = $item->getId()->videoId;
                             }
                             $this->get('youtube_functions')->addItemToPlaylist($this->getUser()->getCredentials(), $youtubePlaylist->id, $trackId);
+                            $reportLogs['success'][] = $track->title.' '.$track->artist->name;
                         }
                     }
             }
 
             return $this->render('transfer/ajax/result.html.twig', [
+                'reportLogs' => $reportLogs
             ]);
         }
     }
