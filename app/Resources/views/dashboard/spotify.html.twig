@@ -9,75 +9,10 @@
                 </div>
                 <div class="container-followers container">
                     <div class="title">
-                        {{ "dashboard.spotify.followers.titleFollowers"|trans }}
+                        {{ "dashboard.spotify.followers.titleRecommendations"|trans }}
                     </div>
                     <ul>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
+                        {{ render(controller('AppBundle:Spotify:getRecommendations')) }}
                     </ul>
                 </div>
                 <div class="container-followers container">
@@ -85,72 +20,7 @@
                         {{ "dashboard.spotify.followers.titleFollow"|trans }}
                     </div>
                     <ul>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
+                        {{ render(controller('AppBundle:Spotify:getMyFollowed')) }}
                     </ul>
                 </div>
             </div>
@@ -159,15 +29,24 @@
                     <div class="title">
                         {{ "dashboard.spotify.infos.title.lastSongs"|trans }}
                     </div>
+                    <div>
+                        {{ render(controller('AppBundle:Spotify:getMyTopTracks')) }}
+                    </div>
                 </div>
                 <div class="horizontal-part">
                     <div class="title">
                         {{ "dashboard.spotify.infos.title.artists"|trans }}
                     </div>
+                    <div>
+                        {{ render(controller('AppBundle:Spotify:getMyTopArtists')) }}
+                    </div>
                 </div>
                 <div class="horizontal-part">
                     <div class="title">
                         {{ "dashboard.spotify.infos.title.albums"|trans }}
+                    </div>
+                    <div>
+                        {{ render(controller('AppBundle:Spotify:getMySavedAlbums')) }}
                     </div>
                 </div>
             </div>
@@ -177,12 +56,7 @@
             </div>
              <span class="custom-dropdown custom-dropdown--white">
                 <select class="type-list-start custom-dropdown__select custom-dropdown__select--white">
-                    <option>Playlist 1</option>
-                    <option>Playlist 2</option>
-                    <option>Playlist 3</option>
-                    <option>Playlist 4</option>
-                    <option>Playlist 5</option>
-                    <option>Playlist 6</option>
+                    {{ render(controller('AppBundle:Spotify:getPlaylists')) }}
                 </select>
             </span>
             <ul class="tracks">

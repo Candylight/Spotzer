@@ -82,15 +82,15 @@ dashboard:
             channelsList: 'Liste des canaux'
     spotify:
         followers:
-            titleFollowers: 'Ils vous suivent'
+            titleRecommendations: 'Vous aimerez'
             titleFollow: 'Vous les suivez'
         playlists:
             title: 'Vos playlists'
         infos:
             title:
-                lastSongs: 'Derniers sont joués'
-                artists: 'Vos artists'
-                albums: 'Vos albums'
+                lastSongs: 'Vos musiques les plus écoutées'
+                artists: 'Vos artistes les plus écoutés'
+                albums: 'Vos albums sauvegardés'
     deezer:
         followers:
             titleFollowers: 'Ils vous suivent'

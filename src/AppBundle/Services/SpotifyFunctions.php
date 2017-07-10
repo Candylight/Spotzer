@@ -178,4 +178,47 @@ class SpotifyFunctions
         $result = $this->api->search($album, 'album', ['limit' => 1]);
         return $result->albums->items[0]->id;
     }
+
+    public function getMySavedAlbums($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getMySavedAlbums();
+    }
+
+    public function getMyTopTracks($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getMyTop('tracks');
+    }
+
+    public function getMyTopArtists($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getMyTop('artists');
+    }
+
+    public function getMyFollowed($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getUserFollowedArtists();
+    }
+
+    public function getRecommendations($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+        $artists = $this->getMyTopArtists($accessToken);
+        $artistsIds = [];
+        foreach ($artists->items as $artist) {
+            $artistsIds[] = $artist->id;
+        }
+
+        $options = [
+            'seed_artists' => array_slice($artistsIds, 0, 5)
+        ];
+        return $this->api->getRecommendations($options);
+    }
 }
