@@ -18,7 +18,6 @@
         {{ include(':default:header.html.twig') }}
         <div class="contentBodyContainer">
             {% block body %}
-                {{ render(controller('AppBundle:Youtube:createPlaylist',{"createPlaylist":createPlaylist})) }}
             {% endblock %}
             <div id="footer" class="container">
                 <div class="col-xs-3">
