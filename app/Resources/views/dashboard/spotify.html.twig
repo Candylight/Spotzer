@@ -191,11 +191,13 @@
             </ul>
         </div>
         {% else %}
-            Vous n'êtespas connecté à Spotify
-            <br/>
-            <a href="{{ path('account') }}" class="button">
-                Se connecter
-            </a>
+            <div class="no-connect-message">
+                Vous n'êtes pas connecté à Spotify
+                <br/>
+                <a href="{{ path('account') }}" class="button">
+                    Se connecter
+                </a>
+            </div>
         {% endif %}
     </div>
 {% endblock %}
