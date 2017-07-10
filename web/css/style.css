@@ -197,16 +197,12 @@ body{
             }
 
             .list .play{
-                float: left;
-                width: 15%;
                 text-align: center;
             }
                 .list .play img{
                     max-height: 40px;
                 }
             .list .content{
-                float: left;
-                width: 70%;
                 color:white;
             }
                 .list .content .name{
@@ -221,19 +217,6 @@ body{
                 .list .content .details{
                     font-size:13px;
                 }
-            .list .actions{
-                float: left;
-                width: 15%;
-                text-align: center;
-                padding-top:6px;
-            }
-                .list .actions img{
-                    max-height: 30px;
-                }
-
-
-
-
 
 
 
