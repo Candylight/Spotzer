@@ -71,8 +71,10 @@
             text-align: center;
         }
             .container-dashboard-spotify .horizontal-part .container-songs-images img{
-                width:80%;
+                width:auto;
+                max-width: 100%;
                 border: 1px solid grey;
+                height:130px;
             }
             .container-dashboard-spotify .horizontal-part .container-songs-images .name{
                 color:#e39816;
