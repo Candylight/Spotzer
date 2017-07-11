@@ -8,12 +8,12 @@
             {% for key, item in items %}
             <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
                 <div class="actions col-xs-1">
-                    <span class="add-to-playlist" data-type="spotify" data-name="{{ item.name }}" data-id="{{ item.id }}">
+                    <span title="Ajouter à une playlist" class="add-to-playlist" data-type="spotify" data-name="{{ item.name }}" data-id="{{ item.id }}">
                         +
                     </span>
                 </div>
                 <div class="actions col-xs-1">
-                    <span class="playTrack" data-song-id="{{ item.id }}" data-platform="spotify">
+                    <span title="Ecouter la musique" class="playTrack" data-song-id="{{ item.id }}" data-platform="spotify">
                         ►
                     </span>
                 </div>

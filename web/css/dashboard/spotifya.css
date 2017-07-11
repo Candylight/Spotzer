@@ -116,6 +116,9 @@
                     .container-dashboard-spotify .horizontal-part .container-songs-list ul li .actions span{
                         cursor: pointer;
                     }
+                        .container-dashboard-spotify .horizontal-part .container-songs-list ul li .actions span:hover{
+                            opacity:0.7;
+                        }
                     .container-dashboard-spotify .horizontal-part .container-songs-list ul li .song{
                         padding-right:30px;
                         background-image: url('../../img/dashboard/list-song.png');

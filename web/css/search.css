@@ -100,8 +100,8 @@
                         font-size:40px;
                         color:white;
                     }
-                        #container-search .container-music-youtube .part.music .list .actions span{
-
+                        #container-search .container-music-youtube .part.music .list .actions span:hover{
+                            opacity:0.7;
                         }
                     #container-search .container-music-youtube .part.music .list .content{
                         color:white;

@@ -3,12 +3,12 @@
         {% for song in flow %}
             <li class="container {% if loop.index is odd %}odd{% endif %}">
                 <div class="col-xs-1 actions">
-                    <span class="add-to-playlist" data-type="deezer" data-name="{{ song.title }}" data-id="{{ song.id }}">
+                    <span title="Ajouter à une playlist" class="add-to-playlist" data-type="deezer" data-name="{{ song.title }}" data-id="{{ song.id }}">
                         +
                     </span>
                 </div>
                 <div class="col-xs-1 actions">
-                    <span class="playTrack" data-song-id="{{ song.id }}" data-platform="deezer">
+                    <span title="Ecouter la musique" class="playTrack" data-song-id="{{ song.id }}" data-platform="deezer">
                         ►
                     </span>
                 </div>

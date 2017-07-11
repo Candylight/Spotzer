@@ -5,12 +5,12 @@
     {% for song in songs %}
         <li class="container">
             <div class="col-xs-1">
-                <span class="add-to-playlist" data-type="spotify" data-name="{{ song.name }}" data-id="{{ song.id }}">
+                <span title="Ajouter à une playlist" class="add-to-playlist" data-type="spotify" data-name="{{ song.name }}" data-id="{{ song.id }}">
                     +
                 </span>
             </div>
             <div class="col-xs-1">
-                <span data-song-id="{{ song.id }}" data-platform="spotify" class="playTrack">
+                <span title="Ecouter la musique" data-song-id="{{ song.id }}" data-platform="spotify" class="playTrack">
                     ►
                 </span>
             </div>

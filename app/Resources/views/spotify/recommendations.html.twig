@@ -4,12 +4,12 @@
             {% for track in recommendations.tracks %}
                 <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %}">
                     <div class="col-xs-1 actions">
-                        <span class="add-to-playlist" data-type="spotify" data-name="{{ track.name }}" data-id="{{ track.id }}">
+                        <span title="Ajouter à une playlist" class="add-to-playlist" data-type="spotify" data-name="{{ track.name }}" data-id="{{ track.id }}">
                             +
                         </span>
                     </div>
                     <div class="col-xs-1 actions">
-                        <span class="playTrack" data-song-id="{{ track.id }}" data-platform="spotify">
+                        <span title="Ecouter la musique" class="playTrack" data-song-id="{{ track.id }}" data-platform="spotify">
                             ►
                         </span>
                     </div>
