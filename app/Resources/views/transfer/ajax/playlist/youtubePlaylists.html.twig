@@ -1,4 +1,4 @@
 <option value="null">Choisir une playlist Youtube...</option>
 {% for youtubePlaylist in youtubePlaylists %}
-    <option value="{{ youtubePlaylist.id }}">{{ youtubePlaylist.modelData.snippet.title }}</option>
+    <option value="{{ youtubePlaylist.id }}">{{ youtubePlaylist.snippet.title }}</option>
 {% endfor %}
