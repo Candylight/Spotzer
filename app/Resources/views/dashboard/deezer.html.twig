@@ -44,6 +44,12 @@
                     </div>
                 </div>
                 <div class="col-xs-12 horizontal-part">
+                    <div class="title col-xs-12">
+                        {{ "dashboard.deezer.titleCreatePlaylist"|trans }}
+                    </div>
+                    {{ render(controller('AppBundle:Deezer:createPlaylist')) }}
+                </div>
+                <div class="col-xs-12 horizontal-part">
                     <div class="title">
                         {{ "dashboard.deezer.infos.title.artists"|trans }}
                     </div>

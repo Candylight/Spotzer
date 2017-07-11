@@ -6,6 +6,7 @@ use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -146,17 +147,39 @@ class DeezerController extends Controller
         ]);
     }
 
-    public function getPlaylistsAction()
+    /**
+     * @Route("/deezer/playlist/create", name="deezer_create_playlist")
+     * @param Request $request
+     * @return RedirectResponse|Response
+     */
+    public function getPlaylistsAction(Request $request)
     {
-        $playlists = array();
-        if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
-            $playlists = $this->get('deezer_functions')->getPlaylist($this->getUser()->getCredentials()->getDeezerToken())->data;
+        if($request->isMethod('POST'))
+        {
+            return $this->redirectToRoute('dashboard_deezer');
         }
-        return $this->render('transfer/ajax/playlist/deezerPlaylists.html.twig', [
-            'deezerPlaylists' => $playlists,
-        ]);
+
+        return $this->render('deezer/createPlaylist.html.twig');
     }
 
+    /**
+     * @Route("/deezer/playlist/create", name="deezer_create_playlist")
+     * @param Request $request
+     * @return RedirectResponse|Response
+     */
+    public function createPlaylistAction(Request $request)
+    {
+        if($request->isMethod('POST'))
+        {
+            if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+            {
+                $this->get('deezer_functions')->createPlaylist($this->getUser()->getCredentials()->getDeezerToken(),$request->get('name'));
+            }
+            return $this->redirectToRoute('dashboard_deezer');
+        }
+
+        return $this->render('deezer/createPlaylist.html.twig');
+    }
     /**
      * @Route("deezer/getsongsplaylist", name="deezer_get_songs_playlist")
      */
