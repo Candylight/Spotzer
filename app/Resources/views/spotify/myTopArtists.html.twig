@@ -1,5 +1,15 @@
-{% for topArtist in topArtists.items %}
-    {{ topArtist.name }}
-    {{ topArtist.images[0].url }}
-    {{ topArtist.followers.total }}
-{% endfor %}
+<div class="container-songs-images">
+    {% for topArtist in topArtists.items %}
+        <div class="col-xs-2 container">
+            <div class="col-xs-12 image">
+                <img src="{{ topArtist.images[0].url }}" alt="">
+            </div>
+            <div class="col-xs-12 name">
+                {{ topArtist.name }}
+            </div>
+            <div class="col-xs-12 followers">
+                {{ topArtist.followers.total }}
+            </div>
+        </div>
+    {% endfor %}
+</div>s

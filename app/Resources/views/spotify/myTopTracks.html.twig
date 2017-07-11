@@ -1,4 +1,14 @@
-{% for topTrack in topTracks.items %}
-    {{ topTrack.name }}
-    {{ topTrack.artists[0].name }}
-{% endfor %}
+<div class="container-songs-list">
+    {% for topTrack in topTracks.items %}
+        <ul>
+            <li class="container">
+                <div class="col-xs-6 artist">
+                    {{ topTrack.name }}
+                </div>
+                <div class="col-xs-6">
+                    {{ topTrack.artists[0].name }}
+                </div>
+            </li>
+        </ul>
+    {% endfor %}
+</div>

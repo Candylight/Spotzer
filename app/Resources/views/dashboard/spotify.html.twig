@@ -9,14 +9,6 @@
                 </div>
                 <div class="container-followers container">
                     <div class="title">
-                        {{ "dashboard.spotify.followers.titleRecommendations"|trans }}
-                    </div>
-                    <ul>
-                        {{ render(controller('AppBundle:Spotify:getRecommendations')) }}
-                    </ul>
-                </div>
-                <div class="container-followers container">
-                    <div class="title">
                         {{ "dashboard.spotify.followers.titleFollow"|trans }}
                     </div>
                     <ul>
@@ -39,6 +31,14 @@
                     </div>
                     <div>
                         {{ render(controller('AppBundle:Spotify:getMyTopArtists')) }}
+                    </div>
+                </div>
+                <div class="horizontal-part">
+                    <div class="title">
+                        {{ "dashboard.spotify.followers.titleRecommendations"|trans }}
+                    </div>
+                    <div>
+                        {{ render(controller('AppBundle:Spotify:getRecommendations')) }}
                     </div>
                 </div>
                 <div class="horizontal-part">

@@ -1,13 +1,14 @@
-{% for track in recommendations.tracks %}
-    <li class="container">
-        <div class="col-xs-2">
-            {{ track.artists[0].name }}
-        </div>
-        <div class="col-xs-7 name">
-            {{ track.name }}
-        </div>
-        <div class="col-xs-3 link">
-            <a href="{{ track.uri }}">Voir</a>
-        </div>
-    </li>
-{% endfor %}
+<div class="container-songs-list">
+    {% for track in recommendations.tracks %}
+        <ul>
+            <li class="container">
+                <div class="col-xs-6 artist">
+                    {{ track.artists[0].name }}
+                </div>
+                <div class="col-xs-6">
+                    {{ track.name }}
+                </div>
+            </li>
+        </ul>
+    {% endfor %}
+</div>
