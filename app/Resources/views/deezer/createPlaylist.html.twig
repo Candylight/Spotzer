@@ -1,9 +1,6 @@
 <form class="col-xs-12" action="{{ path('deezer_create_playlist') }}" method="post">
-    <div class="col-xs-6 part">
-        <input type="text" value="{{ "dashboard.deezer.createPlaylist.name"|trans }}" name="name">
-    </div>
-    <div class="col-xs-6 part">
-        <input type="submit" value="{{ "dashboard.youtube.createPlaylist.create"|trans }}">
-    </div>
+    <input type="text" value="{{ "dashboard.deezer.createPlaylist.name"|trans }}" name="name">
+    <br/>
+    <input type="submit" class="button" value="{{ "dashboard.youtube.createPlaylist.create"|trans }}">
 </form>
 

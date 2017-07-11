@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $(document).on('click','.list-playlist',function(){
+    $(document).on('change','.list-playlist',function(){
         var playlist_id = $(this).val();
         $.ajax({
             type:'GET',

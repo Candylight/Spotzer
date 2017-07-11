@@ -1,1 +1,10 @@
-test
+{% for song in songs %}
+    <div class="item {% if loop.index is odd %}odd{% endif %}">
+        <div class="song">
+            {{ song.track.name }}
+        </div>
+        <div class="artist">
+            {{ song.track.artists[0].name }}
+        </div>
+    </div>
+{% endfor %}
