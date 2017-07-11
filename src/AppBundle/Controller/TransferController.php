@@ -119,7 +119,7 @@ class TransferController extends Controller
                                 $errorLogs[] = $track->getSnippet()->title;
                             }
                         }
-                    }die();
+                    }
                 break;
                 case 'spotify':
                     $playlistSpotifyName = $this->get('spotify_functions')->getPlaylistByID($this->getUser()->getCredentials()->getSpotifyToken(), $playlist)->name;
