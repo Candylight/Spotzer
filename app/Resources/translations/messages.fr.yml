@@ -46,12 +46,12 @@ user:
         mail:
             title: 'Confirmation de l''inscription à Spotzer'
             clickToConfirm: 'Cliquer ici pour confirmer votre compte'
-            text: 'Votre compte Spotzer est bientôt prêt, cliquer sur le liens suivant pour le valider. Attention, ce lien n''est valide que 24 heures.'
+            text: 'Votre compte Spotzer est bientôt prêt, cliquer sur le liens suivants pour le valider. Attention, ce lien n''est valide que 24 heures.'
 
 search:
     lastFM:
         seeMore: 'Voir la page LastFM'
-        noResult: 'Votre recherche n''as renvoyé aucun résultat LastFM'
+        noResult: 'Votre recherche n''a renvoyé aucun résultat LastFM'
         noTopAlbums: 'Aucun album trouvé'
         tags:
             title: 'Tags de l''artiste'
@@ -69,19 +69,19 @@ dashboard:
         videos:
             titleRecommandation: 'Vidéos proposées'
             titleCreatePlaylist: 'Création playlist'
-            titleBestVideo: 'Meilleurs vidéos par vues / like'
+            titleBestVideo: 'Meilleures vidéos par vues / like'
         createPlaylist:
             name: 'Nom playlist'
-            description: 'Descripotion Playlist'
+            description: 'Description Playlist'
             public: 'public'
             private: 'private'
             publicLabel: 'Publique'
             privateLabel: 'Privée'
             create: 'Créer'
         channels:
-            channelsList: 'Liste des canaux'
+            channelsList: 'Liste des chaînes suivies'
     spotify:
-        notConnected: 'Attention, votre session Spotify a expirée. Merci de vous reconnecter.'
+        notConnected: 'Attention, votre session Spotify a expiré. Merci de vous reconnecter.'
         followers:
             titleRecommendations: 'Vous aimerez'
             titleFollow: 'Vous les suivez'
@@ -94,7 +94,7 @@ dashboard:
                 albums: 'Vos albums sauvegardés'
         titleCreatePlaylist: 'Créer une playlist'
     deezer:
-        notConnected: 'Attention, votre session Deezer a expirée. Merci de vous reconnecter.'
+        notConnected: 'Attention, votre session Deezer a expiré. Merci de vous reconnecter.'
         followers:
             titleRecommendations: 'Vous aimerez'
             titleFollow: 'Vous les suivez'
