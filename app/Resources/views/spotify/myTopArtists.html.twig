@@ -3,7 +3,11 @@
         {% for topArtist in topArtists.items %}
             <div class="col-xs-3">
                 <div class="col-xs-12 image">
-                    <img src="{{ topArtist.images[0].url }}" alt="">
+                    {% if topArtist.images|length > 0 %}
+                        <img src="{{ topArtist.images[0].url }}" alt="">
+                    {% else %}
+                        <img src="{{ asset('img/dashboard/album-cover.png') }}" alt="" width="142" height="142">
+                    {% endif %}
                 </div>
                 <div class="col-xs-12 name">
                     {{ topArtist.name }}
