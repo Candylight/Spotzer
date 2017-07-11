@@ -3,7 +3,7 @@
         {% for album in albums.items %}
             <div class="col-xs-3">
                 <div class="col-xs-12 image">
-                    <img src="{{ album.album.images[0].url }}" alt="">
+                    <img src="{{ album.album.images[0].url }}" alt="Image album {{ album.album.name }} {{ album.album.artists[0].name }}">
                 </div>
                 <div class="col-xs-12 album-name">
                     {{ album.album.name|truncate(15, true, '...') }}

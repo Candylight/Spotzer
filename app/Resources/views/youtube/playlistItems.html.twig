@@ -19,7 +19,7 @@
                     {% for playlist in item %}
                         <div class="parts">
                             <div class="image col-xs-12">
-                                <img src="{{ playlist.snippet.thumbnails.default.url }}" alt="">
+                                <img src="{{ playlist.snippet.thumbnails.default.url }}" alt="Apercu vidéo youtube {{ playlist.snippet.title[:18] }}">
                             </div>
                             <div class="name col-xs-12">
                                 {{ playlist.snippet.title[:18] }}

@@ -2,7 +2,7 @@
     {% for follow in myFollowed.artists.items %}
     <li class="container">
         <div class="col-xs-2 image">
-            <img src="{{ follow.images[0].url }}" alt="">
+            <img src="{{ follow.images[0].url }}" alt="Image {{ follow.name }}">
         </div>
         <div class="col-xs-6 name">
             {{ follow.name }}

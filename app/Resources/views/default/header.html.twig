@@ -12,28 +12,28 @@
         {% if app.user != null %}
             {% if app.user.credentials.spotifyToken != null %}
                 <a href="{{ path('dashboard_spotify') }}" title="Dashboard Spotify">
-                    <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="" class="header-icon" id="spotify">
+                    <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="Logo Spotify blanc" class="header-icon" id="spotify">
                 </a>
             {% endif %}
             {% if app.user.credentials.deezerToken != null %}
                 <a href="{{ path('dashboard_deezer') }}" title="Dashboard Deezer">
-                    <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="" class="header-icon" id="deezer">
+                    <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="Logo Deezer blanc" class="header-icon" id="deezer">
                 </a>
             {% endif %}
             {% if app.user.credentials.youtubeToken %}
                 <a href="{{ path('dashboard_youtube') }}" title="Dashboard Youtube">
-                    <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="" class="header-icon" id="youtube">
+                    <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="Logo Youtube blanc" class="header-icon" id="youtube">
                 </a>
             {% endif %}
         {% endif %}
         <span class="header-icon" title="Last FM">
-            <img src="{{ asset('img/search/lastFM-icon.png') }}" alt="">
+            <img src="{{ asset('img/search/lastFM-icon.png') }}" alt="Logo LastFM blanc">
         </span>
         <a href="{{ path('transfer') }}">
-            <img src="{{ asset('img/global/icon-transfer.png') }}" alt="" title="Transfert de données">
+            <img src="{{ asset('img/global/icon-transfer.png') }}" alt="Icone transfert" title="Transfert de données">
         </a>
         <span class="header-icon" id="account" title="Votre compte">
-            <img src="{{ asset('img/global/icon-account.png') }}" alt="">
+            <img src="{{ asset('img/global/icon-account.png') }}" alt="Icone compte client">
         </span>
     </div>
 </header>

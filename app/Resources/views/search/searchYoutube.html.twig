@@ -1,6 +1,6 @@
 
 <div class="main-icon icon">
-    <img src="{{ asset('img/search/youtube.png') }}" alt="">
+    <img src="{{ asset('img/search/youtube.png') }}" alt="Logo recherche Youtube">
 </div>
 <div class="list">
     {% if searches != false %}
@@ -17,15 +17,15 @@
                         </div>
                         <div class="details">
                             {{ item.statistics["viewCount"] }} Vues
-                            <img src="{{ asset('img/search/youtube-dislike.png') }}" alt="">
-                            {% if item.statistics["dislikeCount"] is defined %}
-                                {{ item.statistics["dislikeCount"] }}
+                            <img src="{{ asset('img/search/youtube-like.png') }}" alt="Icone Youtube like">
+                            {% if  item.statistics["likeCount"]  is defined %}
+                                {{ item.statistics["likeCount"] }}
                             {% else %}
                                 0
                             {% endif %}
-                            <img src="{{ asset('img/search/youtube-like.png') }}" alt="">
-                            {% if  item.statistics["likeCount"]  is defined %}
-                                {{ item.statistics["likeCount"] }}
+                            <img src="{{ asset('img/search/youtube-dislike.png') }}" alt="Icone Youtube dislike">
+                            {% if item.statistics["dislikeCount"] is defined %}
+                                {{ item.statistics["dislikeCount"] }}
                             {% else %}
                                 0
                             {% endif %}

@@ -2,7 +2,7 @@
     {% for follow in myFollowed %}
     <li class="container">
         <div class="col-xs-2 image">
-            <img src="{{ follow.picture_medium }}" alt="">
+            <img src="{{ follow.picture_medium }}" alt="Image {{ follow.name }}">
         </div>
         <div class="col-xs-6 name">
             {{ follow.name }}
