@@ -1,4 +1,6 @@
 <option value="null">Choisir une playlist Spotify...</option>
 {% for spotifyPlaylist in spotifyPlaylists %}
-    <option value="{{ spotifyPlaylist.id }}">{{ spotifyPlaylist.name }}</option>
+    {% if spotifyPlaylist.owner.id == userId %}
+        <option value="{{ spotifyPlaylist.id }}">{{ spotifyPlaylist.name }}</option>
+    {% endif %}
 {% endfor %}
