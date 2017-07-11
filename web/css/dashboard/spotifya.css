@@ -78,15 +78,20 @@
                 color:#e39816;
                 font-size: 90%;
             }
+            .container-dashboard-spotify .horizontal-part .container-songs-images .artist{
+                font-size:10px;
+            }
             .container-dashboard-spotify .horizontal-part .container-songs-images .followers{
                 font-size:10px;
             }
             .container-dashboard-spotify .horizontal-part .container-songs-images .album-name{
-                width:80%;
+                color:#e39816;
+                font-size: 90%;
+                font-size:10px;
             }
         .container-dashboard-spotify .horizontal-part .container-songs-list {
             text-align: center;
-            height:20px;
+            height:250px;
             overflow-x: scroll;
         }
             .container-dashboard-spotify .horizontal-part .container-songs-list ul{
