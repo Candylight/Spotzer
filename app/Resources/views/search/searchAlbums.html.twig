@@ -23,7 +23,7 @@
         {% endfor %}
     </div>
     {% if app.user.credentials.spotifyToken != null or app.user.credentials.deezerToken != null %}
-        <div class="col-xs-6 music song-album-list">
+        <div class="col-xs-5 music song-album-list">
             {% if albums|length == 0 %}
                 Cet artiste n'a pas d'album
                 {% else %}
