@@ -52,6 +52,9 @@
         <div class="video" id="overlay-video">
         </div>
     </div>
+    <div id="overlay-add-playlist" class="overlay-add-playlist">
+
+    </div>
 {% endblock %}
 
 
@@ -63,6 +66,9 @@
 
 {% block javascripts %}
     {{ parent() }}
+    <script type="text/javascript">
+        var url_get_playlists = '{{ path('get_playList_for_platform') }}';
+    </script>
     <script type="text/javascript" src="{{ asset('js/overlay/popinyoutube.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/global/addToPlaylist.js') }}"></script>
 {% endblock %}

@@ -80,6 +80,9 @@
             </div>
         {% endif %}
     </div>
+    <div id="overlay-add-playlist" class="overlay-add-playlist">
+
+    </div>
 {% endblock %}
 
 
@@ -95,6 +98,7 @@
     <script type="text/javascript">
         var urlGetSong = '{{ path('search_track') }}';
         var urlSongsFromPlaylist = '{{ path('deezer_get_songs_playlist') }}';
+        var url_get_playlists = '{{ path('get_playList_for_platform') }}';
     </script>
     <script type="text/javascript" src="{{ asset('js/global/playTrack.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dashboard/getPlaylists.js') }}"></script>

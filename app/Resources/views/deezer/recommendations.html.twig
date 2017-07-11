@@ -3,7 +3,7 @@
         {% for track in recommendations %}
             <li class="container {% if loop.index is odd %}odd{% endif %}">
                 <div class="col-xs-1 actions">
-                    <span class="add-to-playlist" data-type="deezer" data-name="{{ track.name }}" data-id="{{ track.id }}">
+                    <span class="add-to-playlist" data-type="deezer" data-name="{{ track.title }}" data-id="{{ track.id }}">
                         +
                     </span>
                 </div>
