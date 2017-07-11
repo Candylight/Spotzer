@@ -4,10 +4,10 @@
             {% for topTrack in topTracks.items %}
                 <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %} playTrack" data-song-id="{{ topTrack.id }}" data-platform="spotify">
                     <div class="col-xs-6 song">
-                        {{ topTrack.name }}
+                        {{ topTrack.name|truncate(20, true, '...') }}
                     </div>
                     <div class="col-xs-6 artist">
-                        {{ topTrack.artists[0].name }}
+                        {{ topTrack.artists[0].name|truncate(20, true, '...') }}
                     </div>
                 </li>
             {% endfor %}

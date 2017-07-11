@@ -1,15 +1,15 @@
 <div class="container-songs-images">
     {% if albums|length > 0 %}
         {% for album in albums %}
-            <div class="col-xs-2">
+            <div class="col-xs-3">
                 <div class="col-xs-12 image">
                     <img src="{{ album.cover_medium }}" alt="">
                 </div>
                 <div class="col-xs-12 album-name">
-                    {{ album.title }}
+                    {{ album.title|truncate(15, true, '...') }}
                 </div>
                 <div class="col-xs-12 artist">
-                    {{ album.artist.name }}
+                    {{ album.artist.name|truncate(15, true, '...') }}
                 </div>
             </div>
         {% endfor %}

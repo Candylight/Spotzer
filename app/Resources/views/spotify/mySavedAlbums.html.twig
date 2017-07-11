@@ -6,10 +6,10 @@
                     <img src="{{ album.album.images[0].url }}" alt="">
                 </div>
                 <div class="col-xs-12 album-name">
-                    {{ album.album.name }}
+                    {{ album.album.name|truncate(15, true, '...') }}
                 </div>
                 <div class="col-xs-12 artist">
-                    {{ album.album.artists[0].name }}
+                    {{ album.album.artists[0].name|truncate(15, true, '...') }}
                 </div>
             </div>
         {% endfor %}
