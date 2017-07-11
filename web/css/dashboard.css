@@ -118,10 +118,10 @@
 /*                                      PLALISTS                                            */
 /********************************************************************************************/
 .tracks-from-playlist{
-
+    padding-top:15px;
 }
     .tracks-from-playlist .item{
-        padding:7px 0px;
+        padding:5px 0px;
     }
         .tracks-from-playlist .item.odd{
             background-color: rgba(255,255,255,0.2);
@@ -134,7 +134,7 @@
             font-weight: bold;
         }
         .tracks-from-playlist .item .artist{
-            font-size: 9px;
+            font-size: 10px;
         }
 
 /********************************************************************************************/
