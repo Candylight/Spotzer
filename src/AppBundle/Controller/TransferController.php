@@ -103,6 +103,7 @@ class TransferController extends Controller
                             $sanitizeTitle = preg_replace('/\([^)]+\)/','',$track->getSnippet()->title);
                             $sanitizeTitle = preg_replace('/\[[^)]+\]/', '', $sanitizeTitle);
                             $sanitizeTitle = preg_replace('/[^A-Za-z0-9\s]/', '', $sanitizeTitle);
+                            sleep(1);
                             if ($sanitizeTitle !== ''){
                                 $deezerTracks = $this->get('deezer_functions')->searchBestResult($sanitizeTitle)->data;
                                 if (!empty($deezerTracks)){
@@ -118,7 +119,7 @@ class TransferController extends Controller
                                 $errorLogs[] = $track->getSnippet()->title;
                             }
                         }
-                    }
+                    }die();
                 break;
                 case 'spotify':
                     $playlistSpotifyName = $this->get('spotify_functions')->getPlaylistByID($this->getUser()->getCredentials()->getSpotifyToken(), $playlist)->name;
@@ -136,6 +137,7 @@ class TransferController extends Controller
                     } elseif ($plateform_end == 'deezer'){
                         $deezerPlaylist = $this->get('deezer_functions')->createPlaylist($this->getUser()->getCredentials()->getDeezerToken(), $playlistSpotifyName);
                         foreach ($tracks as $track) {
+                            sleep(1);
                             $deezerTracks = $this->get('deezer_functions')->searchBestResult($track->track->name . ' ' . $track->track->artists[0]->name)->data;
                             if (!empty($deezerTracks)) {
                                 foreach ($deezerTracks as $item) {
