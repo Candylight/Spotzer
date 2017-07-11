@@ -65,13 +65,11 @@
                     {{ "dashboard.deezer.playlists.title"|trans }}
                 </div>
                 <span class="custom-dropdown custom-dropdown--white">
-                    <select class="type-list-start custom-dropdown__select custom-dropdown__select--white">
+                    <select class="type-list-start custom-dropdown__select custom-dropdown__select--white list-playlist">
                         {{ render(controller('AppBundle:Deezer:getPlaylists')) }}
                     </select>
                 </span>
-                <ul class="tracks">
-                    <li>
-                    </li>
+                <ul class="tracks-from-playlist">
                 </ul>
             </div>
         {% else %}
@@ -98,7 +96,8 @@
     {{ parent() }}
     <script type="text/javascript">
         var urlGetSong = '{{ path('search_track') }}';
+        var urlSongsFromPlaylist = '{{ path('deezer_get_songs_playlist') }}';
     </script>
     <script type="text/javascript" src="{{ asset('js/global/playTrack.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/dashboard/getPlaylists.js.js') }}"></script>
 {% endblock %}
