@@ -2,7 +2,7 @@
     <ul>
         {% for track in recommendations %}
             <li class="container {% if loop.index is odd %}odd{% endif %} playTrack" data-song-id="{{ track.id }}" data-platform="deezer">
-                <div class="col-xs-6">
+                <div class="col-xs-6 song">
                     {{ track.title|truncate(20, true, '...') }}
                 </div>
                 <div class="col-xs-6 artist">
