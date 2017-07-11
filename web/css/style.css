@@ -556,6 +556,9 @@ and (max-device-width : 667px) {
     header .plateformes{
         text-align: center;
     }
+        header .plateformes a{
+            text-decoration: none;
+        }
 
     .contentBodyContainer
     {

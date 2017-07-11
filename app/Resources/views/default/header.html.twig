@@ -11,22 +11,22 @@
     <div class="col-md-3 plateformes">
         {% if app.user != null %}
             {% if app.user.credentials.spotifyToken != null %}
-                <a href="{{ path('account') }}" title="Gérer la connexion Spotify">
+                <a href="{{ path('dashboard_spotify') }}" title="Dashboard Spotify">
                     <img src="{{ asset('img/header/plateformes/logo_spotify_white.png') }}" alt="" class="header-icon" id="spotify">
                 </a>
             {% endif %}
             {% if app.user.credentials.deezerToken != null %}
-                <a href="{{ path('account') }}" title="Gérer la connexion Deezer">
+                <a href="{{ path('dashboard_deezer') }}" title="Dashboard Deezer">
                     <img src="{{ asset('img/header/plateformes/logo_deezer_white.png') }}" alt="" class="header-icon" id="deezer">
                 </a>
             {% endif %}
             {% if app.user.credentials.youtubeToken %}
-                <a href="{{ path('account') }}" title="Gérer la connexion Youtube">
+                <a href="{{ path('dashboard_youtube') }}" title="Dashboard Youtube">
                     <img src="{{ asset('img/header/plateformes/logo_youtube_white.png') }}" alt="" class="header-icon" id="youtube">
                 </a>
             {% endif %}
         {% endif %}
-        <span class="header-icon" id="account" title="Last FM">
+        <span class="header-icon" title="Last FM">
             <img src="{{ asset('img/search/lastFM-icon.png') }}" alt="">
         </span>
         <a href="{{ path('transfer') }}">
