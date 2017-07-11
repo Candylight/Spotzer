@@ -139,19 +139,19 @@ class SpotifyController extends Controller
      */
     public function getTracksFromPlaylistAction(Request $request)
     {
+        $spotifyItems = array();
+
         if($request->isXmlHttpRequest()){
+
             $playlistId = $request->query->get('playlistid');
             if ($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
                 $spotifyItems = $this->get('spotify_functions')->getPlaylistItem($this->getUser()->getCredentials()->getSpotifyToken(), $playlistId)->items;
             }
-            else{
-                $spotifyItems = "null";
-            }
-
-            return $this->render('dashboard/ajax/songsFromAlbumsSpotify.html.twig', [
-                'songs' => $spotifyItems
-            ]);
         }
+
+        return $this->render('dashboard/ajax/songsFromAlbumsSpotify.html.twig', [
+            'songs' => $spotifyItems
+        ]);
     }
 
     /**
