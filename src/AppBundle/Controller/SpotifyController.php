@@ -62,8 +62,12 @@ class SpotifyController extends Controller
 
     public function getMySavedAlbumsAction()
     {
-        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
-        $albums = $this->get('spotify_functions')->getMySavedAlbums($acessToken);
+        $albums = array();
+        if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+        {
+            $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+            $albums = $this->get('spotify_functions')->getMySavedAlbums($acessToken);
+        }
         return $this->render('spotify/mySavedAlbums.html.twig', [
                 'albums' => $albums
         ]);
@@ -71,8 +75,11 @@ class SpotifyController extends Controller
 
     public function getMyTopTracksAction()
     {
-        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
-        $topTracks = $this->get('spotify_functions')->getMyTopTracks($acessToken);
+        $topTracks = array();
+        if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+            $topTracks = $this->get('spotify_functions')->getMyTopTracks($acessToken);
+        }
         return $this->render('spotify/myTopTracks.html.twig', [
             'topTracks' => $topTracks
         ]);
@@ -80,8 +87,11 @@ class SpotifyController extends Controller
 
     public function getMyTopArtistsAction()
     {
-        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
-        $topArtists = $this->get('spotify_functions')->getMyTopArtists($acessToken);
+        $topArtists = array();
+        if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+            $topArtists = $this->get('spotify_functions')->getMyTopArtists($acessToken);
+        }
         return $this->render('spotify/myTopArtists.html.twig', [
             'topArtists' => $topArtists
         ]);
@@ -89,9 +99,11 @@ class SpotifyController extends Controller
 
     public function getMyFollowedAction()
     {
-        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
-        $myFollowed = $this->get('spotify_functions')->getMyFollowed($acessToken);
-
+        $myFollowed = array();
+        if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+            $myFollowed = $this->get('spotify_functions')->getMyFollowed($acessToken);
+        }
         return $this->render('spotify/myFollowed.html.twig',[
             'myFollowed' => $myFollowed
         ]);
@@ -99,8 +111,11 @@ class SpotifyController extends Controller
 
     public function getRecommendationsAction()
     {
-        $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
-        $recommendations = $this->get('spotify_functions')->getRecommendations($acessToken);
+        $recommendations =  array();
+        if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $acessToken = $this->getUser()->getCredentials()->getSpotifyToken();
+            $recommendations = $this->get('spotify_functions')->getRecommendations($acessToken);
+        }
         return $this->render('spotify/recommendations.html.twig',[
             'recommendations' => $recommendations
         ]);
@@ -108,7 +123,10 @@ class SpotifyController extends Controller
 
     public function getPlaylistsAction()
     {
-        $spotifyPlaylists = $this->get('spotify_functions')->getUserPlaylist($this->getUser()->getCredentials()->getSpotifyToken())->items;
+        $spotifyPlaylists = array();
+        if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $spotifyPlaylists = $this->get('spotify_functions')->getUserPlaylist($this->getUser()->getCredentials()->getSpotifyToken())->items;
+        }
         return $this->render('transfer/ajax/playlist/spotifyPlaylists.html.twig', [
             'spotifyPlaylists' => $spotifyPlaylists,
         ]);
