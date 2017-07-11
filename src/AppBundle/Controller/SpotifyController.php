@@ -202,6 +202,15 @@ class SpotifyController extends Controller
         return $this->render('spotify/createPlaylist.html.twig');
     }
 
+
+    /**
+     * @Route("/spotify/addSongToPlaylist", name="spotify_add_track_to_playlist")
+     */
+    public function addSongToPlaylistAction(Request $request)
+    {
+
+    }
+
     /**
      * @Route("/spotify/logout", name="spotify_logout")
      */

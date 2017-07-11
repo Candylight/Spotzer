@@ -1,0 +1,12 @@
+<div class="part-playlist col-xs-12">
+    Créez tout de suite votre playlist pour y ajouter
+    <br/>
+    toutes les découvertes que vous ferez aujourd'hui
+    <div class="form-create-playlist">
+        {% if app.user.spotifyPrefered %}
+            {{ render(controller('AppBundle:Spotify:createPlaylist')) }}
+        {% elseif app.user.deezerPrefered %}
+            {{ render(controller('AppBundle:Deezer:createPlaylist')) }}
+        {% endif %}
+    </div>
+</div>
