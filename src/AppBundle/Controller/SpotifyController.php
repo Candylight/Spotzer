@@ -133,6 +133,14 @@ class SpotifyController extends Controller
     }
 
     /**
+     * @Route("spotify/getsongsplaylist", name="spotify_get_songs_playlist")
+     */
+    public function getTracksFromPlaylistAction()
+    {
+
+    }
+
+    /**
      * @param string $keyword
      *
      * @Route("spotify/result", name="spotify_search_result")

@@ -158,6 +158,14 @@ class DeezerController extends Controller
     }
 
     /**
+     * @Route("deezer/getsongsplaylist", name="deezer_get_songs_playlist")
+     */
+    public function getTracksFromPlaylistAction()
+    {
+
+    }
+
+    /**
      * @Route("/deezer/logout", name="deezer_logout")
      * @return RedirectResponse
      */
