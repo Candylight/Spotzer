@@ -79,7 +79,7 @@ dashboard:
             privateLabel: 'Privée'
             create: 'Créer'
         channels:
-            channelsList: 'Liste des canaux'
+            channelsList: 'Liste des chaînes suivies'
     spotify:
         notConnected: 'Attention, votre session Spotify a expiré. Merci de vous reconnecter.'
         followers:
