@@ -4,10 +4,10 @@
             {% for track in recommendations.tracks %}
                 <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %} playTrack" data-song-id="{{ track.id }}" data-platform="spotify">
                     <div class="col-xs-6 song">
-                        {{ track.name|truncate(20, true, '...') }}
+                        {{ track.name|truncate(15, false, '...') }}
                     </div>
                     <div class="col-xs-6 artist">
-                        {{ track.artists[0].name|truncate(20, true, '...') }}
+                        {{ track.artists[0].name|truncate(15, false, '...') }}
                     </div>
                 </li>
             {% endfor %}
