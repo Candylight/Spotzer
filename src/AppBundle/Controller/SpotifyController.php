@@ -135,7 +135,7 @@ class SpotifyController extends Controller
     }
 
     /**
-     * @Route("spotify/getsongsplaylist", name="spotify_get_songs_playlist")
+     * @Route("/spotify/getsongsplaylist", name="spotify_get_songs_playlist")
      */
     public function getTracksFromPlaylistAction(Request $request)
     {

@@ -179,23 +179,22 @@ class DeezerController extends Controller
     }
 
     /**
-     * @Route("deezer/getsongsplaylist", name="deezer_get_songs_playlist")
+     * @Route("/deezer/getsongsplaylist", name="deezer_get_songs_playlist")
      */
     public function getTracksFromPlaylistAction(Request $request)
     {
+        $deezerItems = array();
+
         if($request->isXmlHttpRequest()){
             $playlistId = $request->query->get('playlistid');
             if ($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
-                $deezerItems = $this->get('deezer_functions')->getPlaylistById($this->getUser()->getCredentials()->getSpotifyToken(), $playlistId)->tracks->data;
+                $deezerItems = $this->get('deezer_functions')->getPlaylistById($this->getUser()->getCredentials()->getDeezerToken(), $playlistId)->tracks->data;
             }
-            else{
-                $deezerItems = "null";
-            }
-
-            return $this->render('dashboard/ajax/songsFromAlbumsDeezer.html.twig', [
-                'songs' => $deezerItems
-            ]);
         }
+
+        return $this->render('dashboard/ajax/songsFromAlbumsDeezer.html.twig', [
+            'songs' => $deezerItems
+        ]);
     }
 
     /**
