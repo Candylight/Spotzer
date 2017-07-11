@@ -29,8 +29,14 @@
             {% endfor %}
         {% endfor %}
     {% else %}
-        <div class="value-search">
+        <div class="value-search no-result">
             Votre recherche n'as renvoyé aucun résultat Spotify
+            <br/>
+            Vérifiez ici que vous êtes bien connecté
+            <br/>
+            <a class="button"  href="{{ path("account") }}">
+                Mon compte
+            </a>
         </div>
     {% endif %}
 </div>

@@ -15,6 +15,13 @@
         color:#e39816;
         margin-bottom: 40px;
     }
+    .list .value-search{
+        font-size:15px;
+        color:white;
+    }
+        .list .value-search .button{
+            font-size: 10px;
+        }
     #container-search .lastfm{
         overflow: hidden;
         margin:20px auto 0px;
