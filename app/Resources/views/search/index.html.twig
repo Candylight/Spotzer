@@ -3,6 +3,10 @@
 {% block body %}
 <div id="container-search">
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
+
+    <span class="add-to-playlist" data-type="spotify" data-name="Musique n°1" data-id="123456">
+        Ajouter à playlist
+    </span>
     <div class="container-music-youtube container">
         <div class="col-xs-6 part music">
             {% if app.user.credentials.spotifyToken != null and app.user.spotifyPrefered %}
@@ -47,27 +51,51 @@
         </div>
     </div>
     <div class="overlay-add-playlist">
-        <div class="close button video-link-popin">
+        <div class="close button add-to-playlist">
             Fermer
         </div>
         <form action="{{ path('youtube_add_track_to_playlist') }}" method="POST" class="active add-form youtube-add-form">
-            <select>
-                <option>a</option>
-            </select>
+            <div class="sentence-to-add">
+                Nom de la vidéo :
+            </div>
+            <div class="name name-add-to"></div>
+            <input type="hidden" name="id_track" class="id-track" value="">
+            <br/>
+            <span class="custom-dropdown custom-dropdown--white">
+                <select name="id_playlist" class="type-list-start custom-dropdown__select custom-dropdown__select--white list-playlist">
+                    <option value="">a</option>
+                </select>
+            </span>
             <br/>
             <input type="submit" value="Ajouter à la playlist">
         </form>
         <form action="{{ path('deezer_add_track_to_playlist') }}" method="POST" class="add-form deezer-add-form">
-            <select>
-                <option>a</option>
-            </select>
+            <div class="sentence-to-add">
+                Nom de la musique :
+            </div>
+            <div class="name name-add-to"></div>
+            <input type="hidden" name="id_track" class="id-track" value="">
+            <br/>
+            <span class="custom-dropdown custom-dropdown--white">
+                <select name="id_playlist" class="type-list-start custom-dropdown__select custom-dropdown__select--white list-playlist">
+                    <option value="">a</option>
+                </select>
+            </span>
             <br/>
             <input type="submit" value="Ajouter à la playlist">
         </form>
         <form action="{{ path('spotify_add_track_to_playlist') }}" method="POST" class="add-form spotify-add-form">
-            <select>
-                <option>a</option>
-            </select>
+            <div class="sentence-to-add">
+                Nom de la musique :
+            </div>
+            <div class="name name-add-to"></div>
+            <input type="hidden" name="id_track" class="id-track" value="">
+            <br/>
+            <span class="custom-dropdown custom-dropdown--white">
+                <select name="id_playlist" class="type-list-start custom-dropdown__select custom-dropdown__select--white list-playlist">
+                    <option value="">a</option>
+                </select>
+            </span>
             <br/>
             <input type="submit" value="Ajouter à la playlist">
         </form>
@@ -97,4 +125,5 @@
     <script type="text/javascript" src="{{ asset('js/overlay/popinyoutube.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/search/album.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/global/playTrack.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/global/addToPlaylist.js') }}"></script>
 {% endblock %}

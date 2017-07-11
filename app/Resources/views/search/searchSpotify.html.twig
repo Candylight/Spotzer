@@ -8,11 +8,6 @@
             {% for key, item in items %}
             <div class="{% if loop.index is even %}item {% else %} item odd {% endif %} playTrack" data-song-id="{{ item.id }}" data-platform="spotify">
                 <div class="play col-xs-3">
-                    <span class="add-to-playlist" data-type="spotify" data-idsong="1">
-                        Ajouter playlist
-                    </span>
-                </div>
-                <div class="play col-xs-3">
                     <img src="{{ asset('img/search/play.png') }}" alt="">
                 </div>
                 <div class="content col-xs-9">

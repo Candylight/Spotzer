@@ -434,7 +434,7 @@ header{
     }
 
 /********************************************************************************************/
-/*                                      POPIN YOUTUBE                                       */
+/*                                      POPIN PLAYLIST                                       */
 /********************************************************************************************/
 
 .overlay-add-playlist{
@@ -458,14 +458,24 @@ header{
         float: none;
     }
     .overlay-add-playlist form{
-        margin-top:30px;
         display: none;
+        color:white;
+        width:50%;
+        padding:30px;
+        margin:30px auto 0;
+        background-color:rgba(0,0,0,0.8);
     }
         .overlay-add-playlist form.active{
             margin-top:30px;
             display: block;
         }
-
+        .overlay-add-playlist form .name-add-to .sentence-to-add{
+            margin-top:30px;
+        }
+        .overlay-add-playlist form .name-add-to{
+            font-size:25px;
+            margin:0px auto 15px;
+        }
 /****************************************************************************************************************/
 /*                                                FOOTER                                                        */
 /****************************************************************************************************************/
