@@ -1,15 +1,16 @@
-{% for song in songs %}
-    <div>
-        <div>
-            {{ song.title }}
+<div class="col-xs-10 offset-xs-1">
+    {% for song in songs %}
+        <div class="item {% if loop.index is odd %}odd{% endif %}">
+            <div class="song">
+                {{ song.title }}
+            </div>
+            <div class="artist">
+                {{ song.artist.name }}
+            </div>
         </div>
-
+    {% else %}
         <div>
-            {{ song.artist.name }}
+            Aucun son trouvé dans cette playlist
         </div>
-    </div>
-{% else %}
-    <div>
-        Aucun son trouvé dans cette playlist
-    </div>
-{% endfor %}
+    {% endfor %}
+</div>
