@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Class
@@ -160,9 +162,14 @@ class DeezerController extends Controller
     /**
      * @Route("deezer/getsongsplaylist", name="deezer_get_songs_playlist")
      */
-    public function getTracksFromPlaylistAction()
+    public function getTracksFromPlaylistAction(Request $request)
     {
-
+        if($request->isXmlHttpRequest()){
+            $playlistId = $request->query->get('playlistid');
+            if ($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+                $deezerItems = $this->get('deezer_functions')->getPlaylistById($this->getUser()->getCredentials()->getSpotifyToken(), $playlistId)->tracks->data;
+            }
+        }
     }
 
     /**

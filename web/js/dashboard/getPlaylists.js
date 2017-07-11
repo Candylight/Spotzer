@@ -5,7 +5,7 @@ $(document).ready(function(){
             type:'GET',
             url: urlSongsFromPlaylist,
             data: {
-                tracksid : playlist_id
+                playlistid : playlist_id
             },
             success: function(view) {
                 $('.tracks-from-playlist').html(view);
