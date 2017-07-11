@@ -14,6 +14,8 @@
                             {{ item.snippet.title[:18] }}
                         </div>
                         <button class="button video-link-popin" data-link="{{ item.id }}">Voir la vidéo</button>
+                        <br/>
+                        <button class="button playlist add-to-playlist" data-type="youtube" data-name="{{ item.snippet.title[:18] }}" data-id="{{ item.id }}">Ajouter à une playlist</button>
                     </div>
                 {% endfor %}
             {% endfor %}

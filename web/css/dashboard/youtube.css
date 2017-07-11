@@ -92,6 +92,11 @@
                     padding-bottom: 5px;
                     font-size:10px;
                 }
+                .container-dashboard-youtube .horizontal-part .container-videos .button.playlist{
+                    padding-top:2px;
+                    padding-bottom: 2px;
+                    font-size:10px;
+                }
         .container-dashboard-youtube .horizontal-part form{
             text-align: center;
         }

@@ -2,11 +2,21 @@
     <ul>
         {% if recommendations|length %}
             {% for track in recommendations.tracks %}
-                <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %} playTrack" data-song-id="{{ track.id }}" data-platform="spotify">
-                    <div class="col-xs-6 song">
+                <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %}">
+                    <div class="col-xs-1 actions">
+                        <span class="add-to-playlist" data-type="spotify" data-name="{{ track.name }}" data-id="{{ track.id }}">
+                            +
+                        </span>
+                    </div>
+                    <div class="col-xs-1 actions">
+                        <span class="playTrack" data-song-id="{{ track.id }}" data-platform="spotify">
+                            ►
+                        </span>
+                    </div>
+                    <div class="col-xs-5 song">
                         {{ track.name|truncate(15, false, '...') }}
                     </div>
-                    <div class="col-xs-6 artist">
+                    <div class="col-xs-5 artist">
                         {{ track.artists[0].name|truncate(15, false, '...') }}
                     </div>
                 </li>
