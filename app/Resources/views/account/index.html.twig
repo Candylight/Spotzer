@@ -13,6 +13,10 @@
                 </div>
                 {% if spotifyConnected == true %}
                     <a class="button disconnect" href="{{ path('spotify_logout') }}">{{ "account.platforms.disconnect"|trans }}</a>
+                    <br/>
+                    <a class="button" href="{{ path("dashboard_spotify") }}">
+                        Mon dashboard Spotify
+                    </a>
                 {% else %}
                     <a class="button" href="{{ path('spotify_login') }}">{{ "account.platforms.connect"|trans }}</a>
                 {% endif %}
@@ -24,6 +28,10 @@
                 </div>
                 {% if deezerConnected == true %}
                     <a class="button disconnect" href="{{ path('deezer_logout') }}">{{ "account.platforms.disconnect"|trans }}</a>
+                    <br/>
+                    <a class="button" href="{{ path("dashboard_deezer") }}">
+                        Mon dashboard Deezer
+                    </a>
                 {% else %}
                     <a class="button" href="{{ path('deezer_login') }}">{{ "account.platforms.connect"|trans }}</a>
                 {% endif %}
@@ -35,6 +43,10 @@
                 </div>
                 {% if youtubeConnected == true %}
                     <a class="button disconnect" href="{{ path('youtube_logout') }}">{{ "account.platforms.disconnect"|trans }}</a>
+                    <br/>
+                    <a class="button" href="{{ path("dashboard_youtube") }}">
+                        Mon dashboard Youtube
+                    </a>
                 {% else %}
                     <a class="button" href="{{ path('youtube_login') }}">{{ "account.platforms.connect"|trans }}</a>
                 {% endif %}
