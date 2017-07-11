@@ -14,6 +14,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Credentials;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -135,9 +136,14 @@ class SpotifyController extends Controller
     /**
      * @Route("spotify/getsongsplaylist", name="spotify_get_songs_playlist")
      */
-    public function getTracksFromPlaylistAction()
+    public function getTracksFromPlaylistAction(Request $request)
     {
-
+        if($request->isXmlHttpRequest()){
+            $playlistId = $request->query->get('playlistid');
+            if ($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+                $spotifyItems = $this->get('spotify_functions')->getPlaylistItem($this->getUser()->getCredentials()->getSpotifyToken(), $playlistId)->items;
+            }
+        }
     }
 
     /**
