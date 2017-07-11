@@ -1,14 +1,16 @@
 <div class="container-songs-list">
     <ul>
-        {% for topTrack in topTracks.items %}
-            <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %}">
-                <div class="col-xs-6 song">
-                    {{ topTrack.name }}
-                </div>
-                <div class="col-xs-6 artist">
-                    {{ topTrack.artists[0].name }}
-                </div>
-            </li>
-        {% endfor %}
+        {% if topTracks|length > 0 %}
+            {% for topTrack in topTracks.items %}
+                <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %}">
+                    <div class="col-xs-6 song">
+                        {{ topTrack.name }}
+                    </div>
+                    <div class="col-xs-6 artist">
+                        {{ topTrack.artists[0].name }}
+                    </div>
+                </li>
+            {% endfor %}
+        {% endif %}
     </ul>
 </div>

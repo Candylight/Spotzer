@@ -81,6 +81,7 @@ dashboard:
         channels:
             channelsList: 'Liste des canaux'
     spotify:
+        notConnected: 'Attention, votre session Spotify a expirée. Merci de vous reconnecter.'
         followers:
             titleRecommendations: 'Vous aimerez'
             titleFollow: 'Vous les suivez'

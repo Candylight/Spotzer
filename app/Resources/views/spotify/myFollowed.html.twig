@@ -1,14 +1,16 @@
-{% for follow in myFollowed.artists.items %}
-<li class="container">
-    <div class="col-xs-2 image">
-        <img src="{{ follow.images[0].url }}" alt="">
-    </div>
-    <div class="col-xs-6 name">
-        {{ follow.name }}
-    </div>
-    <div class="col-xs-3 link">
-        <a href="{{ follow.uri }}">Voir</a>
-    </div>
-</li>
-{% endfor %}
+{% if myFollowed|length > 0 %}
+    {% for follow in myFollowed.artists.items %}
+    <li class="container">
+        <div class="col-xs-2 image">
+            <img src="{{ follow.images[0].url }}" alt="">
+        </div>
+        <div class="col-xs-6 name">
+            {{ follow.name }}
+        </div>
+        <div class="col-xs-3 link">
+            <a href="{{ follow.uri }}">Voir</a>
+        </div>
+    </li>
+    {% endfor %}
+{% endif %}
 

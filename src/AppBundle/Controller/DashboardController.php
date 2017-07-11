@@ -38,7 +38,9 @@ class DashboardController extends Controller
      */
     public function spotifyAction(Request $request)
     {
-        return $this->render('dashboard/spotify.html.twig');
+        return $this->render('dashboard/spotify.html.twig',array(
+            "connected" => $this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())
+        ));
     }
 
     /**

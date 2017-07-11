@@ -1,17 +1,19 @@
 <div class="container-songs-images container">
-    {% for topArtist in topArtists.items %}
-        <div class="col-xs-3">
-            <div class="col-xs-12 image">
-                <img src="{{ topArtist.images[0].url }}" alt="">
+    {% if topArtists|length > 0 %}
+        {% for topArtist in topArtists.items %}
+            <div class="col-xs-3">
+                <div class="col-xs-12 image">
+                    <img src="{{ topArtist.images[0].url }}" alt="">
+                </div>
+                <div class="col-xs-12 name">
+                    {{ topArtist.name }}
+                </div>
+                <div class="col-xs-12 followers">
+                    {{ topArtist.followers.total }}
+                    <br/>
+                    Followers
+                </div>
             </div>
-            <div class="col-xs-12 name">
-                {{ topArtist.name }}
-            </div>
-            <div class="col-xs-12 followers">
-                {{ topArtist.followers.total }}
-                <br/>
-                Followers
-            </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    {% endif %}
 </div>
