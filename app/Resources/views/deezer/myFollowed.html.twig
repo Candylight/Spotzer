@@ -1,0 +1,16 @@
+{% if myFollowed|length > 0 %}
+    {% for follow in myFollowed %}
+    <li class="container">
+        <div class="col-xs-2 image">
+            <img src="{{ follow.picture_medium }}" alt="">
+        </div>
+        <div class="col-xs-6 name">
+            {{ follow.name }}
+        </div>
+        <div class="col-xs-3 link">
+            <a target="_blank" href="http://www.deezer.com/profile/{{ follow.id }}">Voir</a>
+        </div>
+    </li>
+    {% endfor %}
+{% endif %}
+

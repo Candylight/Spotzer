@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}Deezer{% endblock %}
 {% block body %}
-    <div id="main-container" class="container-dashboard-deezer container">
+    <div id="main-container" class="container-dashboard-spotify container">
         {% if app.user.credentials.deezerToken != null %}
             <div class="col-xs-2">
                 <div class="logo-sidebar">
@@ -9,165 +9,54 @@
                 </div>
                 <div class="container-followers container">
                     <div class="title">
-                        {{ "dashboard.deezer.followers.titleFollowers"|trans }}
-                    </div>
-                    <ul>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="container-followers container">
-                    <div class="title">
                         {{ "dashboard.deezer.followers.titleFollow"|trans }}
                     </div>
                     <ul>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
-                        <li class="container">
-                            <div class="col-xs-2 image">
-                                <img src="{{ asset('img/dashboard/profile-icon.png') }}" alt="">
-                            </div>
-                            <div class="col-xs-7 name">
-                                Follower name
-                            </div>
-                            <div class="col-xs-3 link">
-                                <a href="#">Voir</a>
-                            </div>
-                        </li>
+                        {{ render(controller('AppBundle:Deezer:getMyFollowed')) }}
                     </ul>
                 </div>
             </div>
             <div class="col-xs-8">
-                <div class="horizontal-part">
-                    <div class="title">
-                        {{ "dashboard.deezer.infos.title.lastSongs"|trans }}
+                <div class="col-xs-12">
+                    {% if connected == false %}
+                        <div>
+                            <p>
+                                {{ "dashboard.deezer.notConnected"|trans }}
+                            </p>
+                            <a class="button" href="{{ path('account') }}">{{ "account.platforms.connect"|trans }}</a>
+                        </div>
+                    {% endif %}
+                    <div class="horizontal-part col-xs-6">
+                        <div class="title">
+                            {{ "dashboard.deezer.infos.title.lastSongs"|trans }}
+                        </div>
+                        <div>
+                            {{ render(controller('AppBundle:Deezer:getMyFlow')) }}
+                        </div>
+                    </div>
+                    <div class="horizontal-part col-xs-6">
+                        <div class="title">
+                            {{ "dashboard.deezer.followers.titleRecommendations"|trans }}
+                        </div>
+                        <div>
+                            {{ render(controller('AppBundle:Deezer:getRecommendations')) }}
+                        </div>
                     </div>
                 </div>
-                <div class="horizontal-part">
+                <div class="col-xs-12 horizontal-part">
                     <div class="title">
                         {{ "dashboard.deezer.infos.title.artists"|trans }}
                     </div>
+                    <div>
+                        {{ render(controller('AppBundle:Deezer:getMyTopArtists')) }}
+                    </div>
                 </div>
-                <div class="horizontal-part">
+                <div class="col-xs-12 horizontal-part">
                     <div class="title">
                         {{ "dashboard.deezer.infos.title.albums"|trans }}
+                    </div>
+                    <div>
+                        {{ render(controller('AppBundle:Deezer:getMySavedAlbums')) }}
                     </div>
                 </div>
             </div>
@@ -177,12 +66,7 @@
                 </div>
                 <span class="custom-dropdown custom-dropdown--white">
                     <select class="type-list-start custom-dropdown__select custom-dropdown__select--white">
-                        <option>Playlist 1</option>
-                        <option>Playlist 2</option>
-                        <option>Playlist 3</option>
-                        <option>Playlist 4</option>
-                        <option>Playlist 5</option>
-                        <option>Playlist 6</option>
+                        {{ render(controller('AppBundle:Deezer:getPlaylists')) }}
                     </select>
                 </span>
                 <ul class="tracks">
@@ -207,9 +91,14 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/dashboard/deezer.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/dashboard/spotifya.css') }}" />
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+    <script type="text/javascript">
+        var urlGetSong = '{{ path('search_track') }}';
+    </script>
+    <script type="text/javascript" src="{{ asset('js/global/playTrack.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/global/container_tabs.js') }}"></script>
 {% endblock %}

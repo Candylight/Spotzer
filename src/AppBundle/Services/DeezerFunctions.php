@@ -159,4 +159,39 @@ class DeezerFunctions
 
     }
 
+    public function getArtists($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getUserArtist();
+    }
+
+    public function getFollowings($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getFollowings();
+    }
+
+    public function getMySavedAlbums($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getUserAlbums();
+    }
+
+    public function getTracksRecommendations($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getUserTrackRecommendations();
+    }
+
+    public function getMyFlow($accessToken)
+    {
+        $this->api->setAccessToken($accessToken);
+
+        return $this->api->getMyFlow();
+    }
+
 }

@@ -1,0 +1,14 @@
+<div class="container-songs-list">
+    <ul>
+        {% for song in flow %}
+            <li class="container {% if loop.index is odd %}odd{% endif %} playTrack" data-song-id="{{ song.id }}" data-platform="deezer">
+                <div class="col-xs-6 song">
+                    {{ song.title }}
+                </div>
+                <div class="col-xs-6 artist">
+                    {{ song.artist.name }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

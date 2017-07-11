@@ -85,6 +85,78 @@ class DeezerController extends Controller
         ]);
     }
 
+    public function getMySavedAlbumsAction()
+    {
+        $albums = array();
+        if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+        {
+            $acessToken = $this->getUser()->getCredentials()->getDeezerToken();
+            $albums = $this->get('deezer_functions')->getMySavedAlbums($acessToken)->data;
+        }
+        return $this->render('deezer/mySavedAlbums.html.twig', [
+            'albums' => $albums
+        ]);
+    }
+
+    public function getMyFlowAction()
+    {
+        $flow = array();
+        if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $acessToken = $this->getUser()->getCredentials()->getDeezerToken();
+            $flow = $this->get('deezer_functions')->getMyFlow($acessToken)->data;
+        }
+        return $this->render('deezer/flow.html.twig', [
+            'flow' => $flow
+        ]);
+    }
+
+    public function getMyTopArtistsAction()
+    {
+        $topArtist = array();
+        if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $acessToken = $this->getUser()->getCredentials()->getDeezerToken();
+            $topArtist = $this->get('deezer_functions')->getArtists($acessToken)->data;
+        }
+        return $this->render('deezer/myTopArtists.html.twig',[
+            'topArtists' => $topArtist
+        ]);
+    }
+
+    public function getMyFollowedAction()
+    {
+        $myFollowed = array();
+        if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $acessToken = $this->getUser()->getCredentials()->getDeezerToken();
+            $myFollowed = $this->get('deezer_functions')->getFollowings($acessToken)->data;
+        }
+        return $this->render('deezer/myFollowed.html.twig',[
+            'myFollowed' => $myFollowed
+        ]);
+    }
+
+    public function getRecommendationsAction()
+    {
+        $recommendations =  array();
+        if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $acessToken = $this->getUser()->getCredentials()->getDeezerToken();
+            $recommendations = $this->get('deezer_functions')->getTracksRecommendations($acessToken)->data;
+        }
+        return $this->render('deezer/recommendations.html.twig',[
+            'recommendations' => $recommendations
+        ]);
+    }
+
+    public function getPlaylistsAction()
+    {
+        $playlists = array();
+        if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
+            $playlists = $this->get('deezer_functions')->getPlaylist($this->getUser()->getCredentials()->getDeezerToken())->data;
+        }
+        return $this->render('transfer/ajax/playlist/deezerPlaylists.html.twig', [
+            'deezerPlaylists' => $playlists,
+        ]);
+    }
+
     /**
      * @Route("/deezer/logout", name="deezer_logout")
      * @return RedirectResponse

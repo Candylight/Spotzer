@@ -48,7 +48,9 @@ class DashboardController extends Controller
      */
     public function deezerAction(Request $request)
     {
-        return $this->render('dashboard/deezer.html.twig');
+        return $this->render('dashboard/deezer.html.twig', array(
+            "connected" => $this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())
+        ));
     }
 
     /**

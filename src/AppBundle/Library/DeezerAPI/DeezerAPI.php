@@ -232,4 +232,84 @@ class DeezerAPI
         $response = $this->request->api('GET', $url, [], [], false, true);
         return $response['body'];
     }
+
+    /**
+     * Get artists of current user
+     *
+     * @return array
+     */
+    public function getUserArtist()
+    {
+        $options = array(
+            'access_token' => $this->accessToken
+        );
+
+        $response = $this->request->api('GET', "/user/me/artists", $options, [], false);
+
+        return $response['body'];
+    }
+
+    /**
+     * Get user followings
+     *
+     * @return array
+     */
+    public function getFollowings()
+    {
+        $options = array(
+            'access_token' => $this->accessToken
+        );
+
+        $response = $this->request->api('GET', "/user/me/followings", $options, [], false);
+
+        return $response['body'];
+    }
+
+    /**
+     * Get user albums
+     *
+     * @return array
+     */
+    public function getUserAlbums()
+    {
+        $options = array(
+            'access_token' => $this->accessToken
+        );
+
+        $response = $this->request->api('GET', "/user/me/albums", $options, [], false);
+
+        return $response['body'];
+    }
+
+    /**
+     * Get user tracks recommendations
+     *
+     * @return array
+     */
+    public function getUserTrackRecommendations()
+    {
+        $options = array(
+            'access_token' => $this->accessToken
+        );
+
+        $response = $this->request->api('GET', "/user/me/recommendations/tracks", $options, [], false);
+
+        return $response['body'];
+    }
+
+    /**
+     * Get user Flow
+     *
+     * @return array
+     */
+    public function getMyFlow()
+    {
+        $options = array(
+            'access_token' => $this->accessToken
+        );
+
+        $response = $this->request->api('GET', "/user/me/flow", $options, [], false);
+
+        return $response['body'];
+    }
 }

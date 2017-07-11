@@ -93,16 +93,17 @@ dashboard:
                 artists: 'Vos artistes les plus écoutés'
                 albums: 'Vos albums sauvegardés'
     deezer:
+        notConnected: 'Attention, votre session Deezer a expirée. Merci de vous reconnecter.'
         followers:
-            titleFollowers: 'Ils vous suivent'
+            titleRecommendations: 'Vous aimerez'
             titleFollow: 'Vous les suivez'
         playlists:
             title: 'Vos playlists'
         infos:
             title:
-                lastSongs: 'Derniers sont joués'
-                artists: 'Vos artists'
-                albums: 'Vos albums'
+                lastSongs: 'Mon Flow'
+                artists: 'Vos artistes les plus écoutés'
+                albums: 'Vos albums sauvegardés'
 account:
     platforms:
         title: 'Connexion aux plateformes'
