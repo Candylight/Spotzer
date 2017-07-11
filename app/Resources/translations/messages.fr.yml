@@ -104,6 +104,9 @@ dashboard:
                 lastSongs: 'Mon Flow'
                 artists: 'Vos artistes les plus écoutés'
                 albums: 'Vos albums sauvegardés'
+        titleCreatePlaylist: 'Créer une playlist'
+        createPlaylist:
+            name: 'Nom'
 account:
     platforms:
         title: 'Connexion aux plateformes'
