@@ -153,6 +153,8 @@
             }
                 .container-dashboard-spotify .container-playlists .create .button{
                     font-size:10px;
+                    padding: 3px 10px;
+                    margin-bottom: 15px;
                 }
         .container-dashboard-spotify .container-playlists ul{
             list-style: none;
