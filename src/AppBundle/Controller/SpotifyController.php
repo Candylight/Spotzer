@@ -144,6 +144,13 @@ class SpotifyController extends Controller
             if ($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
                 $spotifyItems = $this->get('spotify_functions')->getPlaylistItem($this->getUser()->getCredentials()->getSpotifyToken(), $playlistId)->items;
             }
+            else{
+                $spotifyItems = "null";
+            }
+
+            return $this->render('dashboard/ajax/songsFromAlbumsSpotify.html.twig', [
+                'songs' => $spotifyItems
+            ]);
         }
     }
 

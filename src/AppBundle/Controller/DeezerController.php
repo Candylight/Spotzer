@@ -188,6 +188,13 @@ class DeezerController extends Controller
             if ($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials())) {
                 $deezerItems = $this->get('deezer_functions')->getPlaylistById($this->getUser()->getCredentials()->getSpotifyToken(), $playlistId)->tracks->data;
             }
+            else{
+                $deezerItems = "null";
+            }
+
+            return $this->render('dashboard/ajax/songsFromAlbumsDeezer.html.twig', [
+                'songs' => $deezerItems
+            ]);
         }
     }
 
