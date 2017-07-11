@@ -3,6 +3,20 @@
 </div>
 <ul class="col-xs-12">
     {% for song in songs %}
-        <li data-song-id="{{ song.id }}" data-platform="deezer" class="playTrack">{{ song.title }}</li>
+        <li>
+            <div class="col-xs-1">
+                <span class="button add-to-playlist" data-type="deezer" data-name="Musique n°1" data-id="123456">
+                    +
+                </span>
+            </div>
+            <div class="col-xs-1">
+                <span data-song-id="{{ song.id }}" data-platform="deezer" class="playTrack">
+                    ►
+                </span>
+            </div>
+            <div class="col-xs-10">
+                {{ song.title }}
+            </div>
+        </li>
     {% endfor %}
 </ul>

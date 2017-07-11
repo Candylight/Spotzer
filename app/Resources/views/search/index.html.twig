@@ -3,10 +3,6 @@
 {% block body %}
 <div id="container-search">
     {{ render(controller('AppBundle:LastFM:getLastFMInfos',{"keyword":keyword})) }}
-
-    <span class="add-to-playlist" data-type="spotify" data-name="Musique n°1" data-id="123456">
-        Ajouter à playlist
-    </span>
     <div class="container-music-youtube container">
         <div class="col-xs-6 part music">
             {% if app.user.credentials.spotifyToken != null and app.user.spotifyPrefered %}

@@ -6,11 +6,18 @@
     {% if musics != false %}
         {% for items in musics %}
             {% for key, item in items %}
-            <div class="{% if loop.index is even %}item {% else %} item odd {% endif %} playTrack" data-song-id="{{ item.id }}" data-platform="spotify">
-                <div class="play col-xs-3">
-                    <img src="{{ asset('img/search/play.png') }}" alt="">
+            <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
+                <div class="actions col-xs-1">
+                    <span class="add-to-playlist" data-type="spotify" data-name="Musique n°1" data-id="123456">
+                        +
+                    </span>
                 </div>
-                <div class="content col-xs-9">
+                <div class="actions col-xs-1">
+                    <span class="playTrack" data-song-id="{{ item.id }}" data-platform="spotify">
+                        ►
+                    </span>
+                </div>
+                <div class="content col-xs-10">
                     <div class="name">
                         <span class="song">{{ item.name|truncate(50, true, '...') }}</span>
                     </div>

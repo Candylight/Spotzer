@@ -95,11 +95,13 @@
                     }
 
                     /*              MUSIC                 */
-                    #container-search .container-music-youtube .part.music .list .play{
+                    #container-search .container-music-youtube .part.music .list .actions{
                         text-align: center;
+                        font-size:40px;
+                        color:white;
                     }
-                        #container-search .container-music-youtube .part.music .list .play img{
-                            max-height: 40px;
+                        #container-search .container-music-youtube .part.music .list .actions span{
+
                         }
                     #container-search .container-music-youtube .part.music .list .content{
                         color:white;

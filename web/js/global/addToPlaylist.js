@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    $(".add-to-playlist").click( function(){
+    $(document).on('click','.playTrack',function(){
 
         if( $(".overlay-add-playlist").hasClass("active")){
             $(".overlay-add-playlist").removeClass("active");
