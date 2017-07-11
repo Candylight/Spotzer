@@ -44,6 +44,12 @@
                     </div>
                 </div>
                 <div class="col-xs-12 horizontal-part">
+                    <div class="title col-xs-12">
+                        {{ "dashboard.spotify.titleCreatePlaylist"|trans }}
+                    </div>
+                    {{ render(controller('AppBundle:Spotify:createPlaylist')) }}
+                </div>
+                <div class="col-xs-12 horizontal-part">
                     <div class="title">
                         {{ "dashboard.spotify.infos.title.artists"|trans }}
                     </div>

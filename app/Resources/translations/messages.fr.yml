@@ -92,6 +92,7 @@ dashboard:
                 lastSongs: 'Vos musiques les plus écoutées'
                 artists: 'Vos artistes les plus écoutés'
                 albums: 'Vos albums sauvegardés'
+        titleCreatePlaylist: 'Créer une playlist'
     deezer:
         notConnected: 'Attention, votre session Deezer a expirée. Merci de vous reconnecter.'
         followers:

@@ -180,6 +180,7 @@ class DeezerController extends Controller
 
         return $this->render('deezer/createPlaylist.html.twig');
     }
+
     /**
      * @Route("deezer/getsongsplaylist", name="deezer_get_songs_playlist")
      */
