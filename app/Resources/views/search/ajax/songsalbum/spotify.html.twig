@@ -5,7 +5,7 @@
     {% for song in songs %}
         <li class="container">
             <div class="col-xs-1">
-                <span class="add-to-playlist" data-type="spotify" data-name="Musique n°1" data-id="123456">
+                <span class="add-to-playlist" data-type="spotify" data-name="{{ song.name }}" data-id="{{ song.id }}">
                     +
                 </span>
             </div>

@@ -1,11 +1,11 @@
-<div class="message">
+<div class="col-xs-10 offset-xs-1 message">
     Cliquer sur une musique pour la lancer
 </div>
 <ul class="col-xs-12">
     {% for song in songs %}
-        <li>
+        <li class="container">
             <div class="col-xs-1">
-                <span class="button add-to-playlist" data-type="deezer" data-name="Musique n°1" data-id="123456">
+                <span class="add-to-playlist" data-type="deezer" data-name="{{ song.title }}" data-id="{{ song.id }}">
                     +
                 </span>
             </div>

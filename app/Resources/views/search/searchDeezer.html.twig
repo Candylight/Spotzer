@@ -6,7 +6,7 @@
     {% for item in musics %}
         <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
             <div class="actions col-xs-1">
-                <span class="add-to-playlist" data-type="deezer" data-name="Musique n°1" data-id="123456">
+                <span class="add-to-playlist" data-type="deezer" data-name="{{ item.title }}" data-id="{{ item.id }}">
                     +
                 </span>
             </div>

@@ -8,7 +8,7 @@
             {% for key, item in items %}
             <div class="{% if loop.index is even %}item {% else %} item odd {% endif %}">
                 <div class="actions col-xs-1">
-                    <span class="add-to-playlist" data-type="spotify" data-name="Musique n°1" data-id="123456">
+                    <span class="add-to-playlist" data-type="spotify" data-name="{{ item.name }}" data-id="{{ item.id }}">
                         +
                     </span>
                 </div>

@@ -203,7 +203,18 @@ class DeezerController extends Controller
      */
     public function addSongToPlaylistAction(Request $request)
     {
+        $playlistId = $request->get('playlistId', null);
+        $trackId = $request->get('trackId', null);
 
+        if($playlistId != null && $trackId != null)
+        {
+            if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+            {
+                $this->get('deezer_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getDeezerToken(), $playlistId, $trackId);
+            }
+        }
+
+        return new Response();
     }
 
 

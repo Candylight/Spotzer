@@ -208,7 +208,18 @@ class SpotifyController extends Controller
      */
     public function addSongToPlaylistAction(Request $request)
     {
+        $playlistId = $request->get('playlistId', null);
+        $trackId = $request->get('trackId', null);
 
+        if($playlistId != null && $trackId != null)
+        {
+            if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+            {
+                $this->get('spotify_functions')->addItemToPlaylist($this->getUser()->getCredentials()->getSpotifyToken(), $playlistId, $trackId);
+            }
+        }
+
+        return new Response();
     }
 
     /**

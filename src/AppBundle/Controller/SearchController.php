@@ -96,4 +96,46 @@ class SearchController extends Controller
 
         return new Response($response);
     }
+
+    /**
+     * @Route("/search/getPlaylistForPlatform", name="get_playList_for_platform")
+     */
+    public function getPlaylistForPlatform(Request $request)
+    {
+        $platform = $request->get('platform');
+        $trackId = $request->get('trackId');
+        $name = $request->get('name');
+        $playlists = array();
+
+        switch ($platform)
+        {
+            case "youtube" :
+                if($this->get('youtube_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+                {
+                    $playlists = $this->get('youtube_functions')->getPlaylist($this->getUser()->getCredentials());
+                }
+            break;
+            case "deezer" :
+                if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+                {
+                    $playlists = $this->get('deezer_functions')->getPlaylist($this->getUser()->getCredentials()->getDeezerToken())->data;
+                }
+            break;
+            case "spotify" :
+                if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+                {
+                    $playlists = $this->get('spotify_functions')->getUserPlaylist($this->getUser()->getCredentials()->getSpotifyToken())->items;
+                }
+            break;
+        }
+
+        dump($playlists);
+
+        return new Response($this->renderView("search/popinAddToPlaylist.html.twig",array(
+            "playlists" => $playlists,
+            "platform" => $platform,
+            "idTrack" => $trackId,
+            "name" => $name
+        )));
+    }
 }

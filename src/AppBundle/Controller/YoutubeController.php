@@ -215,7 +215,18 @@ class YoutubeController extends Controller
      */
     public function addVideoToPlaylistAction(Request $request)
     {
+        $playlistId = $request->get('playlistId', null);
+        $trackId = $request->get('trackId', null);
 
+        if($playlistId != null && $trackId != null)
+        {
+            if($this->get('youtube_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+            {
+                $this->get('youtube_functions')->addItemToPlaylist($this->getUser()->getCredentials(), $playlistId, $trackId);
+            }
+        }
+
+        return new Response();
     }
 
 
