@@ -215,7 +215,9 @@ class SpotifyFunctions
         foreach ($artists->items as $artist) {
             $artistsIds[] = $artist->id;
         }
-
+        if (empty($artistsIds)){
+            return [];
+        }
         $options = [
             'seed_artists' => array_slice($artistsIds, 0, 5)
         ];
