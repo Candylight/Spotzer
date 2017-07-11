@@ -46,6 +46,32 @@
         <div class="video" id="overlay-video">
         </div>
     </div>
+    <div class="overlay-add-playlist">
+        <div class="close button video-link-popin">
+            Fermer
+        </div>
+        <form action="{{ path('youtube_add_track_to_playlist') }}" method="POST" class="active add-form youtube-add-form">
+            <select>
+                <option>a</option>
+            </select>
+            <br/>
+            <input type="submit" value="Ajouter à la playlist">
+        </form>
+        <form action="{{ path('deezer_add_track_to_playlist') }}" method="POST" class="add-form deezer-add-form">
+            <select>
+                <option>a</option>
+            </select>
+            <br/>
+            <input type="submit" value="Ajouter à la playlist">
+        </form>
+        <form action="{{ path('spotify_add_track_to_playlist') }}" method="POST" class="add-form spotify-add-form">
+            <select>
+                <option>a</option>
+            </select>
+            <br/>
+            <input type="submit" value="Ajouter à la playlist">
+        </form>
+    </div>
 </div>
 {% endblock %}
 
