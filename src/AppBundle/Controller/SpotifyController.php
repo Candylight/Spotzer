@@ -14,6 +14,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Credentials;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -169,6 +170,25 @@ class SpotifyController extends Controller
         return $this->render('search/searchSpotify.html.twig', [
             'musics' => $musics
         ]);
+    }
+
+    /**
+     * @Route("/spotify/playlist/create", name="spotify_create_playlist")
+     * @param Request $request
+     * @return RedirectResponse|Response
+     */
+    public function createPlaylistAction(Request $request)
+    {
+        if($request->isMethod('POST'))
+        {
+            if($this->get('spotify_functions')->checkTokenValidity($this->getUser()->getCredentials()))
+            {
+                $this->get('spotify_functions')->createPlaylist($this->getUser()->getCredentials()->getSpotifyToken(),$request->get('name'));
+            }
+            return $this->redirectToRoute('dashboard_spotify');
+        }
+
+        return $this->render('spotify/createPlaylist.html.twig');
     }
 
     /**
