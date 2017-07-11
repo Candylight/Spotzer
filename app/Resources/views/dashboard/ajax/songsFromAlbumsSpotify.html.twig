@@ -1,1 +1,11 @@
-test
+{% for song in songs %}
+    <div>
+        <div>
+            {{ song.track.name }}
+        </div>
+
+        <div>
+            {{ song.track.artists[0].name }}
+        </div>
+    </div>
+{% endfor %}
