@@ -4,12 +4,12 @@
 <ul class="col-xs-12">
     {% for song in songs %}
         <li class="container">
-            <div class="col-xs-1">
+            <div class="col-xs-1 actions">
                 <span title="Ajouter à une playlist" class="add-to-playlist" data-type="deezer" data-name="{{ song.title }}" data-id="{{ song.id }}">
                     +
                 </span>
             </div>
-            <div class="col-xs-1">
+            <div class="col-xs-1 actions">
                 <span title="Ecouter la musique" data-song-id="{{ song.id }}" data-platform="deezer" class="playTrack">
                     ►
                 </span>
