@@ -67,6 +67,41 @@
             color:#e39816;
             margin-bottom: 15px;
         }
+        .container-dashboard-spotify .horizontal-part .container-songs-images{
+            text-align: center;
+        }
+            .container-dashboard-spotify .horizontal-part .container-songs-images img{
+                width:80%;
+                border: 1px solid grey;
+            }
+            .container-dashboard-spotify .horizontal-part .container-songs-images .name{
+                color:#e39816;
+                font-size: 90%;
+            }
+            .container-dashboard-spotify .horizontal-part .container-songs-images .followers{
+                font-size:10px;
+            }
+            .container-dashboard-spotify .horizontal-part .container-songs-images .album-name{
+                width:80%;
+            }
+        .container-dashboard-spotify .horizontal-part .container-songs-list {
+            text-align: center;
+        }
+            .container-dashboard-spotify .horizontal-part .container-songs-list ul{
+                text-align: center;
+            }
+                .container-dashboard-spotify .horizontal-part .container-songs-list ul li{
+                    text-align: center;
+                }
+                    .container-dashboard-spotify .horizontal-part .container-songs-list ul li .song{
+                    }
+                    .container-dashboard-spotify .horizontal-part .container-songs-list ul li .artist{
+                    }
+
+
+
+
+
     .container-dashboard-spotify .container-playlists{
         text-align: center;
     }

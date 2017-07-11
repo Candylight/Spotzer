@@ -17,12 +17,22 @@
                 </div>
             </div>
             <div class="col-xs-8">
-                <div class="horizontal-part">
-                    <div class="title">
-                        {{ "dashboard.spotify.infos.title.lastSongs"|trans }}
+                <div class="col-xs-12">
+                    <div class="horizontal-part col-xs-6">
+                        <div class="title">
+                            {{ "dashboard.spotify.infos.title.lastSongs"|trans }}
+                        </div>
+                        <div>
+                            {{ render(controller('AppBundle:Spotify:getMyTopTracks')) }}
+                        </div>
                     </div>
-                    <div>
-                        {{ render(controller('AppBundle:Spotify:getMyTopTracks')) }}
+                    <div class="horizontal-part col-xs-6">
+                        <div class="title">
+                            {{ "dashboard.spotify.followers.titleRecommendations"|trans }}
+                        </div>
+                        <div>
+                            {{ render(controller('AppBundle:Spotify:getRecommendations')) }}
+                        </div>
                     </div>
                 </div>
                 <div class="horizontal-part">
@@ -35,14 +45,6 @@
                 </div>
                 <div class="horizontal-part">
                     <div class="title">
-                        {{ "dashboard.spotify.followers.titleRecommendations"|trans }}
-                    </div>
-                    <div>
-                        {{ render(controller('AppBundle:Spotify:getRecommendations')) }}
-                    </div>
-                </div>
-                <div class="horizontal-part">
-                    <div class="title">
                         {{ "dashboard.spotify.infos.title.albums"|trans }}
                     </div>
                     <div>
@@ -51,19 +53,19 @@
                 </div>
             </div>
             <div class="col-xs-2 container-playlists">
-            <div class="title">
-                {{ "dashboard.spotify.playlists.title"|trans }}
+                <div class="title">
+                    {{ "dashboard.spotify.playlists.title"|trans }}
+                </div>
+                 <span class="custom-dropdown custom-dropdown--white">
+                    <select class="type-list-start custom-dropdown__select custom-dropdown__select--white">
+                        {{ render(controller('AppBundle:Spotify:getPlaylists')) }}
+                    </select>
+                </span>
+                <ul class="tracks">
+                    <li>
+                    </li>
+                </ul>
             </div>
-             <span class="custom-dropdown custom-dropdown--white">
-                <select class="type-list-start custom-dropdown__select custom-dropdown__select--white">
-                    {{ render(controller('AppBundle:Spotify:getPlaylists')) }}
-                </select>
-            </span>
-            <ul class="tracks">
-                <li>
-                </li>
-            </ul>
-        </div>
         {% else %}
             <div class="no-connect-message">
                 Vous n'êtes pas connecté à Spotify
