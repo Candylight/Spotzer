@@ -208,6 +208,17 @@ class YoutubeController extends Controller
         ]);
     }
 
+
+
+    /**
+     * @Route("/youtube/addVideoToPlaylist", name="youtube_add_track_to_playlist")
+     */
+    public function addVideoToPlaylistAction(Request $request)
+    {
+
+    }
+
+
     /**
      * @return string token
      */

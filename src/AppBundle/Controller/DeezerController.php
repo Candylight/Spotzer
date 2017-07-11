@@ -197,6 +197,16 @@ class DeezerController extends Controller
         ]);
     }
 
+
+    /**
+     * @Route("/deezer/addSongToPlaylist", name="deezer_add_track_to_playlist")
+     */
+    public function addSongToPlaylistAction(Request $request)
+    {
+
+    }
+
+
     /**
      * @Route("/deezer/logout", name="deezer_logout")
      * @return RedirectResponse
