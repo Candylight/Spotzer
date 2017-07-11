@@ -144,6 +144,16 @@
             color:#e39816;
             margin-bottom: 15px;
         }
+        .container-dashboard-spotify .container-playlists .sub-title{
+            color:white;
+        }
+            .container-dashboard-spotify .container-playlists .create{
+                text-align: center;
+                font-size:10px;
+            }
+                .container-dashboard-spotify .container-playlists .create .button{
+                    font-size:10px;
+                }
         .container-dashboard-spotify .container-playlists ul{
             list-style: none;
             padding:0;

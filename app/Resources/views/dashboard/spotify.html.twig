@@ -36,12 +36,6 @@
                     </div>
                 </div>
                 <div class="col-xs-12 horizontal-part">
-                    <div class="title col-xs-12">
-                        {{ "dashboard.spotify.titleCreatePlaylist"|trans }}
-                    </div>
-                    {{ render(controller('AppBundle:Spotify:createPlaylist')) }}
-                </div>
-                <div class="col-xs-12 horizontal-part">
                     <div class="title">
                         {{ "dashboard.spotify.infos.title.artists"|trans }}
                     </div>
@@ -61,6 +55,12 @@
             <div class="col-xs-2 container-playlists">
                 <div class="title">
                     {{ "dashboard.spotify.playlists.title"|trans }}
+                </div>
+                <div class="sub-title">
+                    {{ "dashboard.spotify.titleCreatePlaylist"|trans }}
+                </div>
+                <div class="create">
+                    {{ render(controller('AppBundle:Spotify:createPlaylist')) }}
                 </div>
                  <span class="custom-dropdown custom-dropdown--white">
                     <select class="type-list-start custom-dropdown__select custom-dropdown__select--white list-playlist">
