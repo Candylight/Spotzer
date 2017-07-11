@@ -404,6 +404,7 @@ header{
 
 
 
+
 /********************************************************************************************/
 /*                                      POPIN YOUTUBE                                       */
 /********************************************************************************************/
@@ -432,6 +433,38 @@ header{
         margin-top:30px;
     }
 
+/********************************************************************************************/
+/*                                      POPIN YOUTUBE                                       */
+/********************************************************************************************/
+
+.overlay-add-playlist{
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    top:0px;
+    display: none;
+    z-index:2 ;
+}
+    .overlay-add-playlist.active{
+        display: block;
+    }
+    .overlay-add-playlist .close{
+        display: inline-block;
+        margin-top: 80px;
+        text-align: center;
+        opacity: 1;
+        float: none;
+    }
+    .overlay-add-playlist form{
+        margin-top:30px;
+        display: none;
+    }
+        .overlay-add-playlist form.active{
+            margin-top:30px;
+            display: block;
+        }
 
 /****************************************************************************************************************/
 /*                                                FOOTER                                                        */
