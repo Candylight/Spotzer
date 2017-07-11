@@ -2,7 +2,7 @@
     <ul>
         {% if topTracks|length > 0 %}
             {% for topTrack in topTracks.items %}
-                <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %}">
+                <li class="container {% if loop.index is divisibleby(2) %}odd{% endif %} playTrack" data-song-id="{{ topTrack.id }}" data-platform="spotify">
                     <div class="col-xs-6 song">
                         {{ topTrack.name }}
                     </div>
