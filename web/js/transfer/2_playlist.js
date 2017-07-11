@@ -1,6 +1,12 @@
 $(document).ready(function () {
     $("#playlist-choice").on('change', function(){
-        step_2_playlist = $(this).val();
-        $('.content-3').addClass("active");
+        var value = $(this).val();
+        if( value != "null" ){
+            step_2_playlist = value;
+            $('.content-3').addClass("active");
+        }
+        else{
+            alert("Veuillez selectionner une playlist pour continuer");
+        }
     })
 });
