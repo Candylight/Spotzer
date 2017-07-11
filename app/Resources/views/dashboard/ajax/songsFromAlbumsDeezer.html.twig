@@ -1,6 +1,6 @@
 <div class="col-xs-10 offset-xs-1">
     {% for song in songs %}
-        <div class="item {% if loop.index is odd %}odd{% endif %}">
+        <div class="item {% if loop.index is odd %}odd{% endif %} playTrack"  data-song-id="{{ song.id }}" data-platform="deezer">
             <div class="song">
                 {{ song.title }}
             </div>
