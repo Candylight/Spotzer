@@ -92,7 +92,7 @@
         .container-dashboard-spotify .horizontal-part .container-songs-list {
             text-align: center;
             height:250px;
-            overflow-x: scroll;
+            overflow-y: scroll;
         }
             .container-dashboard-spotify .horizontal-part .container-songs-list ul{
                 text-align: center;
