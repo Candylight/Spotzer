@@ -1,10 +1,16 @@
-{% for song in songs %}
-    <div class="item {% if loop.index is odd %}odd{% endif %}">
-        <div class="song">
-            {{ song.track.name }}
+<div class="col-xs-10 offset-xs-1">
+    {% for song in songs %}
+        <div class="item {% if loop.index is odd %}odd{% endif %} playTrack"  data-song-id="{{ song.track.id }}" data-platform="spotify">
+            <div class="song">
+                {{ song.track.name }}
+            </div>
+            <div class="artist">
+                {{ song.track.artists[0].name }}
+            </div>
         </div>
-        <div class="artist">
-            {{ song.track.artists[0].name }}
+    {% else %}
+        <div>
+            Aucun son trouvé dans cette playlist
         </div>
-    </div>
-{% endfor %}
+    {% endfor %}
+</div>
