@@ -30,10 +30,21 @@ $(document).ready(function () {
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
         var img = item.icon;
         if( img == ""){
-            img = "http://localhost/Spotzer/web/img/global/placeholder-search.png";
+            img = searchImg;
         }
         return $( "<li>" )
             .append( '<div class="search-result"><img src="'+img+'">' + item.label + '</div>' )
             .appendTo( ul );
     };
+
+    $("#lastFMSearch").on('keypress',function(e) {
+        if(e.keyCode == 13)
+        {
+            return false;
+        }
+    });
+
+    $('#searchSubmitButton').on('click', function (e) {
+        return false;
+    });
 });

@@ -1,8 +1,10 @@
 <header class="container">
-    <form action="{{ path('search') }}" method="post" class="col-md-3 recherche-container">
-        <input type="text" name="keyword" class="recherche" id="lastFMSearch">
-        <input type="submit" value="">
-    </form>
+    {% if app.user != null %}
+        <form action="{{ path('search') }}" method="post" class="col-md-3 recherche-container">
+            <input type="text" name="keyword" class="recherche" id="lastFMSearch">
+            <input type="submit" value="" id="searchSubmitButton">
+        </form>
+    {% endif %}
     <a class="col-md-6 title" href="{{ path('default') }}">
         Spötzer
     </a>
