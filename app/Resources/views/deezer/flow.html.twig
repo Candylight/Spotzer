@@ -3,10 +3,10 @@
         {% for song in flow %}
             <li class="container {% if loop.index is odd %}odd{% endif %} playTrack" data-song-id="{{ song.id }}" data-platform="deezer">
                 <div class="col-xs-6 song">
-                    {{ song.title|truncate(20, true, '...') }}
+                    {{ song.title|truncate(15, false, '...') }}
                 </div>
                 <div class="col-xs-6 artist">
-                    {{ song.artist.name|truncate(20, true, '...') }}
+                    {{ song.artist.name|truncate(15, false, '...') }}
                 </div>
             </li>
         {% endfor %}
