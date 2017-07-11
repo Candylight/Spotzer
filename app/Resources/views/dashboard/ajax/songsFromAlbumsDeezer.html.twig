@@ -1,1 +1,15 @@
-test
+{% for song in songs %}
+    <div>
+        <div>
+            {{ song.title }}
+        </div>
+
+        <div>
+            {{ song.artist.name }}
+        </div>
+    </div>
+{% else %}
+    <div>
+        Aucun son trouvé dans cette playlist
+    </div>
+{% endfor %}

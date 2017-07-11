@@ -1,3 +1,4 @@
+<option value="">Choisir une playlist Deezer...</option>
 {% for playlist in playlists %}
-    <option>{{ playlist.title }}</option>
+    <option value="{{ playlist.id }}">{{ playlist.title }}</option>
 {% endfor %}
