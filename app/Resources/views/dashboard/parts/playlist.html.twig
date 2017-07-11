@@ -1,7 +1,9 @@
 <div class="part-playlist col-xs-12">
-    Créez tout de suite votre playlist pour y ajouter
-    <br/>
-    toutes les découvertes que vous ferez aujourd'hui
+    <div class="title">
+        Créez tout de suite votre playlist pour y ajouter
+        <br/>
+        toutes les découvertes que vous ferez aujourd'hui
+    </div>
     <div class="form-create-playlist">
         {% if app.user.spotifyPrefered %}
             {{ render(controller('AppBundle:Spotify:createPlaylist')) }}
