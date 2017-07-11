@@ -1,0 +1,58 @@
+<div class="close button add-to-playlist">
+    Fermer
+</div>
+{% if platform == "youtube" %}
+    <form action="{{ path('youtube_add_track_to_playlist') }}" method="POST" class="active add-form youtube-add-form">
+        <div class="sentence-to-add">
+            Nom de la vidéo :
+        </div>
+        <div class="name name-add-to"></div>
+        <input type="hidden" name="id_track" class="id-track" value="{{ idTrack }}">
+        <br/>
+        <span class="custom-dropdown custom-dropdown--white">
+        <select name="id_playlist" class="type-list-start custom-dropdown__select custom-dropdown__select--white list-playlist">
+            {% for playlist in playlists %}
+                <option value="{{ playlist.id }}">{{ playlist.snippet.title }}</option>
+            {% endfor %}
+        </select>
+        </span>
+        <br/>
+        <input type="submit" value="Ajouter à la playlist">
+    </form>
+{% elseif platform == "deezer" %}
+    <form action="{{ path('deezer_add_track_to_playlist') }}" method="POST" class="add-form deezer-add-form">
+        <div class="sentence-to-add">
+            Nom de la musique :
+        </div>
+        <div class="name name-add-to"></div>
+        <input type="hidden" name="id_track" class="id-track" value="{{ idTrack }}">
+        <br/>
+        <span class="custom-dropdown custom-dropdown--white">
+            <select name="id_playlist" class="type-list-start custom-dropdown__select custom-dropdown__select--white list-playlist">
+                {% for playlist in playlists %}
+                    <option value="{{ playlist.id }}">{{ playlist.title }}</option>
+                {% endfor %}
+            </select>
+        </span>
+        <br/>
+        <input type="submit" value="Ajouter à la playlist">
+    </form>
+{% elseif platform == "spotify" %}
+    <form action="{{ path('spotify_add_track_to_playlist') }}" method="POST" class="add-form spotify-add-form">
+        <div class="sentence-to-add">
+            Nom de la musique :
+        </div>
+        <div class="name name-add-to"></div>
+        <input type="hidden" name="id_track" class="id-track" value="{{ idTrack }}">
+        <br/>
+        <span class="custom-dropdown custom-dropdown--white">
+            <select name="id_playlist" class="type-list-start custom-dropdown__select custom-dropdown__select--white list-playlist">
+                {% for playlist in playlists %}
+                    <option value="{{ playlist.id }}">{{ playlist.name }}</option>
+                {% endfor %}
+            </select>
+        </span>
+        <br/>
+        <input type="submit" value="Ajouter à la playlist">
+    </form>
+{% endif %}
