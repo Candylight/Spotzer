@@ -147,19 +147,16 @@ class DeezerController extends Controller
         ]);
     }
 
-    /**
-     * @Route("/deezer/playlist/create", name="deezer_create_playlist")
-     * @param Request $request
-     * @return RedirectResponse|Response
-     */
-    public function getPlaylistsAction(Request $request)
+    public function getPlaylistsAction()
     {
-        if($request->isMethod('POST'))
+        $playlists = array();
+        if($this->get('deezer_functions')->checkTokenValidity($this->getUser()->getCredentials()))
         {
-            return $this->redirectToRoute('dashboard_deezer');
+            $playlists = $this->get('deezer_functions')->getPlaylist($this->getUser()->getCredentials()->getDeezerToken())->data;
         }
-
-        return $this->render('deezer/createPlaylist.html.twig');
+        return $this->render('deezer/playlist.html.twig',array(
+            'playlists' => $playlists
+        ));
     }
 
     /**
